@@ -224,7 +224,7 @@ form h2{
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
-  transition: 0.5s;
+  transition: 0.3s;
   text-shadow: 1px 1px 1px black
 }
 
@@ -262,7 +262,7 @@ form h2{
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
-  transition: 0.5s;
+  transition: 0.3s;
   text-shadow: 1px 1px 1px black
 }
 
@@ -270,5 +270,19 @@ form h2{
   background: transparent;
   color: var(--gameOrange);
   border-color: var(--gameOrange);
+}
+
+#googleButton{
+  background-color: white;
+  border-color: white;
+  border-radius: 5px;
+  border-width: 2px;
+  transition: 0.3s!important;
+}
+
+#googleButton:hover{
+  border-color: rgb(66,133,244);
+  color: rgb(66,133,244);
+  background: transparent;
 
 }
