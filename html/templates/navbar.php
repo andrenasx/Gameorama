@@ -11,12 +11,12 @@ function draw_navbar() { ?>
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="col-lg-6">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <div class="col-lg-6 " id="navbar_search">
+          <form class="col-lg-6 w-75">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
           </form>
         </div>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav d-flex justify-content-around">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-bell" aria-hidden="true"></i>
@@ -26,7 +26,7 @@ function draw_navbar() { ?>
               <li><a class="dropdown-item" href="#">Meter Notfs aqui</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown me-5">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-user" aria-hidden="true"></i>
               WanWan

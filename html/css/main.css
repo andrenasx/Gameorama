@@ -35,8 +35,8 @@ body {
   height: auto;
 }
 .profile-widget .image-container .avatar {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   margin: 0 auto -60px;
   display: block;
@@ -47,7 +47,7 @@ body {
 }
 
 .panel-white {
-    background-color: white;
+  background-color: white;
 }
 
 
@@ -72,6 +72,20 @@ div .col-lg-6{
   justify-content: right;
 }
 
+
+#navbar_search {
+  margin-left: 19%;
+}
+
+#follow_button {
+  float: right;
+}
+
+
+.details p.bio{
+  margin-left: 10px;
+  text-align: left;
+}
 
 /*Login and Signup*/
 .login-page, .signup-page{
@@ -186,4 +200,5 @@ form h2{
   border-color: rgb(66,133,244);
   color: rgb(66,133,244);
   background: transparent;
+
 }
