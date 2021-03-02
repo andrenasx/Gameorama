@@ -14,6 +14,7 @@
 
     <!-- Icons CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- CSS -->
     <link href="./css/main.css" rel="stylesheet">

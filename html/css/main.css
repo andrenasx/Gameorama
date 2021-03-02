@@ -188,3 +188,35 @@ form h2{
   border-color: var(--gameOrange);
 
 }
+
+.profile_navigation li a{
+  color: darkgray;
+}
+
+#pills-tab  {
+  border: 1px solid darkgray;
+
+}
+
+#pills-tab li:nth-child(1) {
+  border-right: 1px solid darkgray;
+}
+
+.profile_navigation .nav-link.active{
+  background-color: transparent;
+  border-bottom: 3px solid var(--gameOrange);
+  color: black;
+  border-radius: 0%;
+
+}
+
+.btn-outline-primary {
+  color: var(--gameOrange);
+  border-color: darkgray;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--gameOrange);
+  border-color: var(--gameOrange);
+}
