@@ -50,8 +50,12 @@
             <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
             <label for="inputPassword">Password</label>
           </div>
-          <button class="w-50 btn btn-lg btn-primary" id="loginButton" type="submit">Login</button>
-          <p class="mt-5 mb-1 text-muted">&copy; LBAW 2021</p>
+          <button class="col-5 btn btn-lg btn-primary me-3" id="loginButton" type="submit">Login</button>
+          <a class="col-5 btn btn-outline-dark" href="/users/googleauth" id="googleButton" role="button" style="text-transform:none">
+            <img width="30px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+            Login with Google
+          </a>
+          <p class="mt-4 mb-1 text-muted">&copy; LBAW 2021</p>
         </form>
       </main>
     </div>
