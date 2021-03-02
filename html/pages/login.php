@@ -10,8 +10,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -43,11 +41,11 @@
           <h1 class="h2 mb-5 fw-normal">The Panorama of Gaming</h1>
           <h2 class="h3 mb-4 fw-bold">Login</h1>
           <div class="form-floating mb-5">
-            <input type="email" id="inputEmail" class="form-control mb-3" placeholder="name@example.com" required autofocus>
+            <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
             <label for="inputEmail">Email address</label>
           </div>
           <div class="form-floating mb-5">
-            <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+            <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required>
             <label for="inputPassword">Password</label>
           </div>
           <button class="col-5 btn btn-lg btn-primary me-3" id="loginButton" type="submit">Login</button>
