@@ -53,10 +53,6 @@ body {
 }
 
 
-div .col-lg-6{
-  margin: auto;
-}
-
 .form-control{
     width: 100%; 
 }
@@ -74,9 +70,97 @@ div .col-lg-6{
   justify-content: right;
 }
 
+#hamburguerIcon{
+  
+width: 155px;
 
-#navbar_search {
-  margin-left: 19%;
+
+}
+
+#navbar{
+border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+  
+img.img-logo{
+  width:auto;
+  height: 40px;
+}
+
+@media (min-width: 992px) {
+  div .col-lg-6{
+    margin: auto;
+  }
+  #hamburguerIcon{
+  
+    justify-content: flex-end  !important;
+    
+    
+  }
+
+  #colapsedHamburguer{
+    
+    display: none!important;
+  }
+}
+@media (max-width: 992px) {
+  #navbar_search {
+    margin-left: 0 !important;
+    margin-top:1.5%;
+    margin-bottom:1%;
+  }
+
+  #hamburguerIcon{
+  
+    justify-content: flex-start !important;
+    display: none!important;
+    
+  }
+  #colapsedHamburguer{
+    justify-content: flex-start !important;
+    display: flex;
+    padding: 0px 0px  !important;
+  }
+
+
+  #Logo{
+    /*margin:auto  !important;*/
+    margin-left: 42%;
+    
+  }
+
+}
+@media (max-width: 550px) {
+  #Logo{
+    /*margin:auto  !important;*/
+    margin-left: 36%;
+    
+  }
+
+}
+@media (max-width: 450px) {
+  #Logo{
+    /*margin:auto  !important;*/
+    margin-left: 30%;
+    
+  }
+
+}
+@media (max-width: 320px) {
+  #Logo{
+    /*margin:auto  !important;*/
+    margin-left: 20%;
+    
+  }
+
+}
+@media (max-width: 280px) {
+  #Logo{
+    /*margin:auto  !important;*/
+    margin:auto;
+    
+  }
+
 }
 
 #follow_button {
@@ -273,4 +357,36 @@ form h2{
 
 .post-user{
   color: var(--gameOrange);
+}
+
+.profile_navigation li a{
+  color: darkgray;
+}
+
+#pills-tab  {
+  border: 1px solid darkgray;
+
+}
+
+#pills-tab li:nth-child(1) {
+  border-right: 1px solid darkgray;
+}
+
+.profile_navigation .nav-link.active{
+  background-color: transparent;
+  border-bottom: 3px solid var(--gameOrange);
+  color: black;
+  border-radius: 0%;
+
+}
+
+.btn-outline-primary {
+  color: var(--gameOrange);
+  border-color: darkgray;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--gameOrange);
+  border-color: var(--gameOrange);
 }
