@@ -390,3 +390,20 @@ form h2{
   background-color: var(--gameOrange);
   border-color: var(--gameOrange);
 }
+
+#post-voting ul span#upvote,  #post-voting ul span#downvote{
+  font-size: 2em;
+  transition: 0.2s all ease-in;
+  color: darkgray;
+}
+
+
+#post-voting ul span#upvote:hover {
+  cursor: pointer;
+  color: var(--gameOrange)
+}
+
+#post-voting ul span#downvote:hover {
+  cursor: pointer;
+  color: #353cee
+}

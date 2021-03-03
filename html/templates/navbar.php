@@ -3,9 +3,8 @@
 function draw_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
-      <!--<a class="navbar-brand" href="#" id= "Logo">GAMEORAMA</a>-->
       <div class="col-1" id= "Logo">
-        <img src="../assets/Logo.png" class="img-logo" >
+        <img src="../assets/Logo.png" class="img-logo" alt = "">
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

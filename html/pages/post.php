@@ -8,9 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
-    <title>Carousel Template · Bootstrap v5.0</title>
+    <title>Gameorama</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
@@ -24,9 +22,14 @@
 
     <!-- Icons CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <script src="https://kit.fontawesome.com/e18e7c8a00.js" crossorigin="anonymous"></script>
+
 
     <!-- CSS -->
     <link href="../css/main.css" rel="stylesheet">
+
+    <script defer src = "../js/voting.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> 
 
@@ -40,10 +43,25 @@
 </header>
 <body>
     <main>
-    <div class="p-lg-4 mt-4 col-lg-8 container bg-white" id="post-container">
-        <h5 class="mt-2 post-topics">Topics: Gaming Gadgets; Razer</h5>    
-        <h7 class="post-user">Posted by kaka34</h7>
-        <h1 class="post-title">Razer apresenta webcam Kiyo Pro</h1>
+    <div class="pt-4 pb-4 px-0 mt-4 col-lg-8 container bg-white" id="post-container">
+
+        <div class = "row mt-2 ">
+            <div class = "col-1" id = "post-voting">
+                <ul>
+                    <span class="material-icons-round d-flex justify-content-center" id = "upvote">north</span>
+                    <span class = "d-flex justify-content-center" id = "score">243</span>
+                    <span class="material-icons-round d-flex justify-content-center" id = "downvote">south</span>
+                    
+                </ul>
+            </div>
+            <div class = "col mt-3 ">
+                <h5 class="post-topics">Topics: Gaming Gadgets; Razer</h5>    
+                <h7 class="post-user">Posted by kaka34</h7>
+                <h1 class="post-title">Razer apresenta webcam Kiyo Pro</h1>
+            </div>
+
+        </div>
+        
         <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -94,7 +112,7 @@
             <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <p>A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+        <p class = "mx-5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
     </div>
     </main>
 </body>
