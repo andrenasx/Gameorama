@@ -1,6 +1,4 @@
-<?php
-
-function draw_navbar() { ?>
+<?php function draw_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
       <div class="col-1" id= "Logo">
@@ -46,7 +44,4 @@ function draw_navbar() { ?>
       </div>
     </div>
   </nav>
-
-<?php
-}
-?>
+<?php } ?>
