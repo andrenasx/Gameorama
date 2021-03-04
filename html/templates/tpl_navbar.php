@@ -105,8 +105,8 @@
 <?php function draw_simple_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
-      <div class="" style="margin:auto !important;" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;" >
-        <img src="../assets/Logo.png" class="img-logo" alt = "">
+      <div class="" style="margin:auto !important;" onclick="window.location.href='mainpage.php#'"  >
+        <img src="../assets/Logo.png" class="img-logo" alt = "" style="cursor:pointer;">
       </div>
     </div>
   </nav>
