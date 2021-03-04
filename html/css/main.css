@@ -156,6 +156,23 @@ img.img-logo{
 
 }
 
+
+#create_post_btn{
+  background-color: rgba(164,255,250,0.3);
+  border-color: rgb(73,183,255);
+  width:100%;
+  color: grey;
+}
+
+#create_post_btn:hover{
+  background-color: rgb(73,183,255);
+  border-color: rgb(164,255,250);
+  color:white; 
+}
+
+
+
+
 #follow_button {
   float: right;
 }
@@ -404,6 +421,153 @@ form h2{
   color: #353cee
 }
 
+/*Account Settings*/
+
+
+hr {
+  border-top: 5px solid var(--gameOrange);
+  opacity: 1; 
+  background-color: white;
+}
+
+#accsettings-container{
+  height: 100%;
+}
+
+#field-container{
+  border: 2px solid lightgray;
+}
+
+#field-container h2{
+  color: grey;
+}
+
+#field-delete-container h2{
+  color: red;
+  opacity: 60%;
+}
+
+#accept_button {
+  float: right;
+  background-color: var(--gameOrange);
+  border-color: var(--gameOrange);
+  border-radius: 5px;
+  border-width: 2px;
+  transition: 0.3s;
+}
+
+#accept_button:hover{
+  background: transparent;
+  color: var(--gameOrange);
+  border-color: var(--gameOrange);
+}
+
+#field-delete-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  border-top: 2px solid lightgray;
+
+}
+
+#field-container h2, #field-delete-container h2{
+  font-size: 1.5vh;
+}
+
+#accept-button {
+  float: right;
+  background-color: var(--gameOrange);
+  border-color: var(--gameOrange);
+  border-radius: 5px;
+  border-width: 2px;
+  transition: 0.3s;
+}
+
+#accept-button:hover{
+  background: transparent;
+  color: var(--gameOrange);
+  border-color: var(--gameOrange);
+}
+
+#delete-button {
+  background-color: red;
+  border-color: red;
+  border-radius: 5px;
+  border-width: 2px;
+  transition: 0.3s;
+  color: white;
+}
+
+#delete-button:hover{
+  background-color: transparent;
+  color: red;
+  border-color: red;
+}
+
+#save-button{
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  border-radius: 5px;
+  border-width: 2px;
+  transition: 0.3s;
+  color: white
+}
+
+#save-button:hover{
+  background-color: transparent;
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+#close-button{
+  background-color: #6c757d;
+  border-color: #6c757d;
+  border-radius: 5px;
+  border-width: 2px;
+  transition: 0.3s;
+  color: white;
+}
+
+
+#close-button:hover{
+  background-color: transparent;
+  border-color: red;
+  color: red;
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+
+#close-window-button{
+  padding: 0;
+  border: none;
+  background: none;
+  transition: 0.3s;
+}
+
+#close-window-button:hover{
+  color:red;
+}
+
+#inputDeleteAccount:focus {
+  box-shadow: 0 0 0 0.15rem red;
+}
+
+#staticBackdropLabelDelete{
+  color: red;
+}
+
+
+.game-quote{
+  line-height: 10%;
+  font-size: 100%;
+}
+
+.game-quote-origin{
+  color: darkgray;
+  font-size: 80%;
+}
 
 #add-comment-button {
   float: right!important;
@@ -434,4 +598,5 @@ hr {
 
 .create_post_header {
   border-bottom: 3px solid var(--gameOrange);
+
 }
