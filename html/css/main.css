@@ -380,6 +380,8 @@ form h2{
 
 }
 
+/*  Post page   */
+
 .btn-outline-primary {
   color: var(--gameOrange);
   border-color: darkgray;
@@ -406,4 +408,23 @@ form h2{
 #post-voting ul span#downvote:hover {
   cursor: pointer;
   color: #353cee
+}
+
+#add-comment-button {
+  float: right!important;
+  background-color: #4dc3ff!important;
+  border: none;
+}
+
+.comment-icons span {
+  transition: 0.3s all ease-in;
+}
+
+.comment-icons span:hover{
+  cursor:pointer;
+  color: #4dc3ff;
+}
+
+span.report-button:hover {
+  color: var(--gameOrange)
 }
