@@ -54,17 +54,10 @@ body {
 
 
 .form-control{
+  width: 100%; 
     width: 100%; 
+  width: 100%; 
 }
-
-.form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-
 
 .fa fa-search {
   justify-content: right;
@@ -237,6 +230,7 @@ form h2{
 }
 
 .form-control:focus {
+  border: none;
   box-shadow: 0 0 0 0.15rem rgba(251,116,45,1);
 }
 
@@ -410,6 +404,7 @@ form h2{
   color: #353cee
 }
 
+
 #add-comment-button {
   float: right!important;
   background-color: #4dc3ff!important;
@@ -427,4 +422,11 @@ form h2{
 
 span.report-button:hover {
   color: var(--gameOrange)
+}
+
+hr {
+  border-top: 5px solid var(--gameOrange);
+  opacity: 1;
+  backgrogitund-color: white;
+
 }
