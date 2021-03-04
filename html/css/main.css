@@ -54,17 +54,10 @@ body {
 
 
 .form-control{
+  width: 100%; 
     width: 100%; 
+  width: 100%; 
 }
-
-.form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-
 
 .fa fa-search {
   justify-content: right;
@@ -254,6 +247,7 @@ form h2{
 }
 
 .form-control:focus {
+  border: none;
   box-shadow: 0 0 0 0.15rem rgba(251,116,45,1);
 }
 
@@ -397,6 +391,8 @@ form h2{
 
 }
 
+/*  Post page   */
+
 .btn-outline-primary {
   color: var(--gameOrange);
   border-color: darkgray;
@@ -423,4 +419,31 @@ form h2{
 #post-voting ul span#downvote:hover {
   cursor: pointer;
   color: #353cee
+}
+
+
+#add-comment-button {
+  float: right!important;
+  background-color: #4dc3ff!important;
+  border: none;
+}
+
+.comment-icons span {
+  transition: 0.3s all ease-in;
+}
+
+.comment-icons span:hover{
+  cursor:pointer;
+  color: #4dc3ff;
+}
+
+span.report-button:hover {
+  color: var(--gameOrange)
+}
+
+hr {
+  border-top: 5px solid var(--gameOrange);
+  opacity: 1;
+  backgrogitund-color: white;
+
 }
