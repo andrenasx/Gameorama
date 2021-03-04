@@ -163,6 +163,23 @@ img.img-logo{
 
 }
 
+
+#create_post_btn{
+  background-color: rgba(164,255,250,0.3);
+  border-color: rgb(73,183,255);
+  width:100%;
+  color: grey;
+}
+
+#create_post_btn:hover{
+  background-color: rgb(73,183,255);
+  border-color: rgb(164,255,250);
+  color:white; 
+}
+
+
+
+
 #follow_button {
   float: right;
 }

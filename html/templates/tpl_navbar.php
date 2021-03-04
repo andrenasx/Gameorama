@@ -14,6 +14,10 @@
           </form>
         </div>
         <ul class="navbar-nav d-flex justify-content-around" >
+          <button class="nav-item btn me-2" id="create_post_btn">
+            <i class="fa fa-plus" aria-hidden="true" ></i>
+            Create a News Post
+          </button>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-bell" aria-hidden="true"></i>
@@ -41,6 +45,16 @@
             <li><a class="dropdown-item" href="#"id= "colapsedHamburguer"><i class="fa fa-home" aria-hidden="true"></i>Log out</a></li>
           </li>
         </ul>
+      </div>
+    </div>
+  </nav>
+<?php } ?>
+
+<?php function draw_simple_navbar() { ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    <div class="container-fluid">
+      <div class="" style="margin:auto !important;">
+        <img src="../assets/Logo.png" class="img-logo" alt = "">
       </div>
     </div>
   </nav>
