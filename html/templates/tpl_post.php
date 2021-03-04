@@ -130,6 +130,29 @@
                     </div>
                 </div>
             </div>
+            <div class = "row-lg-8 mt-3 ">
+                <div class = "d-flex bg-white p-4 pb-4">
+                    <img src="../assets/avatar3.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
+                    <div class = "ms-2 col-lg-10">
+                        <div class = "d-flex justify-content-between">
+                            <h4>WanWan</h4>
+                            <small style = "color: darkgray;">2 days ago</small>
+                        </div>
+                        <p>Sim. Da pra tudo.</p>
+
+                        <div class = "col pt-4 d-flex justify-content-around comment-icons">
+                            <div class = "col-2 d-flex justify-content-around comment-icons">
+                                <span class="material-icons-round d-flex justify-content-center" >north</span>
+                                <label class = "d-flex justify-content-center">57</label>
+                                <span class="material-icons-round d-flex justify-content-center" >south</span>
+                            
+                            </div>
+                            <span class="material-icons-outlined">mode_comment</span> 
+                            <span class="material-icons-outlined report-button">outlined_flag</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
     </main>

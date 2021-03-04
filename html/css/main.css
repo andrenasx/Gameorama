@@ -427,6 +427,11 @@ span.report-button:hover {
 hr {
   border-top: 5px solid var(--gameOrange);
   opacity: 1;
-  backgrogitund-color: white;
+  background-color: white;
+}
 
+/*   Create a Post    */
+
+.create_post_header {
+  border-bottom: 3px solid var(--gameOrange);
 }
