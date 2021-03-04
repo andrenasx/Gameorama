@@ -505,7 +505,7 @@ hr {
   border-color: red;
 }
 
-#save-button{
+#save-button, #post_confirm_button{
   background-color: #0d6efd;
   border-color: #0d6efd;
   border-radius: 5px;
@@ -514,7 +514,7 @@ hr {
   color: white
 }
 
-#save-button:hover{
+#save-button:hover, #post_confirm_button:hover{
   background-color: transparent;
   color: #0d6efd;
   border-color: #0d6efd;
@@ -594,9 +594,22 @@ hr {
   background-color: white;
 }
 
-/*   Create a Post    */
+/*   Create a Post  */
 
 .create_post_header {
   border-bottom: 3px solid var(--gameOrange);
 
+}
+
+#post_cancel_button  {
+  border: none;
+}
+
+#post_cancel_button:hover {
+  background-color: red;
+}
+
+
+.create_post_buttons {
+  margin-top: 10%
 }
