@@ -1,5 +1,5 @@
 <?php
-include_once("/tpl_login_popup.php");
+include_once("../templates/tpl_login_popup.php");
 function draw_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">

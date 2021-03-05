@@ -432,6 +432,7 @@ form h2{
   color: darkgray;
 }
 
+/*
 #pills-tab  {
   border: 1px solid darkgray;
 
@@ -443,7 +444,7 @@ form h2{
 
 #pills-tab li:nth-child(2) {
   border-right: 1px solid darkgray;
-}
+}*/
 
 .profile_navigation .nav-link.active{
   background-color: transparent;

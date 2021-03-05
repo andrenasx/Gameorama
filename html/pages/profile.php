@@ -5,6 +5,6 @@
 
   draw_header();
   draw_navbar();
-  draw_profile();
+  draw_own_profile();
   draw_footer();
 ?>
