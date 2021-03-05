@@ -84,7 +84,7 @@
 
         <div class = "container mt-4 col-lg-8 px-0 ">
             <div class = "row-lg-8 ">
-                <div class = "d-flex bg-white p-2 p-4">
+                <div class = "d-flex bg-white p-2 p-4 rounded">
                     <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                     <div class = "ms-2 col-lg-10">
                         <div class = "d-flex justify-content-between">
@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class = "row-lg-8 mt-3 offset-1">
-                <div class = "d-flex bg-white p-4 pb-4">
+                <div class = "d-flex bg-white p-4 pb-4 rounded">
                     <img src="../assets/avatar2.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                     <div class = "ms-2 col-lg-10">
                         <div class = "d-flex justify-content-between">
@@ -131,7 +131,7 @@
                 </div>
             </div>
             <div class = "row-lg-8 mt-3 ">
-                <div class = "d-flex bg-white p-4 pb-4">
+                <div class = "d-flex bg-white p-4 pb-4 rounded">
                     <img src="../assets/avatar3.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                     <div class = "ms-2 col-lg-10">
                         <div class = "d-flex justify-content-between">
