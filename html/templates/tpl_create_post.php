@@ -82,7 +82,7 @@ function draw_create_post() {
 
                 <section class = "container create_post_buttons">
                     <div class = "row d-flex justify-content-center">
-                        <button type="button" class="col-2 btn btn-secondary" id = "post_cancel_button">Cancel</button>
+                        <button type="button" class="col-2 btn btn-secondary" id = "post_cancel_button"  onclick="window.location.href='mainpage.php#'" >Cancel</button>
                         <button type="button" class="col-2 ms-4 btn btn-primary" id = "post_confirm_button">Post</button>
                     </div>
 

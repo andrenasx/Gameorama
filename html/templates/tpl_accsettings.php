@@ -1,6 +1,5 @@
 <?php function draw_accsettings() { ?>
     <body>
-    <body>
         <div class="p-3 p-lg-5 mt-4 col-lg-8 container bg-white" id="accsettings-container">
             <h1 class="h2 fw-bold">Account Settings</h1>
             <hr class="rounded"></hr>

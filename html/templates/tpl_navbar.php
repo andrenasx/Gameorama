@@ -1,4 +1,6 @@
-<?php function draw_navbar() { ?>
+<?php
+include_once("/tpl_login_popup.php");
+function draw_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
       <div class="col-1" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
@@ -10,9 +12,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="col-lg-6" id="navbar_search">
           <form class="col-lg-6 w-75 d-flex ">
-          <span class="material-icons-round mt-1" style="font-weight: bold; font-size:200%; color:grey;">search</span>
-            <input class="form-control" type="search" placeholder="Search"aria-label="Search" ></input>
-
+            <div class="form-floating col-12" id="search_bar_form">
+              <input class="form-control" id="search_bar" type="search" placeholder=" " required autofocus>
+              <label for="search_bar" class="col-12 d-flex text-start" >Search <span class="material-icons-round col-11 d-flex justify-content-end" style="font-weight: bold; color:darkgrey;">search</span></label>
+            </div>
           </form>
         </div>
         <ul class="navbar-nav d-flex justify-content-end" >

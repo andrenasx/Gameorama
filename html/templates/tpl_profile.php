@@ -77,24 +77,6 @@
 <?php } ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php function draw_own_profile() { ?>
   <section class="container">
     <div class="row">

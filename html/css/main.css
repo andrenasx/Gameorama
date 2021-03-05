@@ -71,10 +71,22 @@ min-width: 160px;
 
 }
 
+
 #navbar{
 border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
+#search_bar_form.form-floating>.form-control:focus~label{
+  opacity:0  !important;
+
+}
+
+
+.pop-up-instructions{
+  font-size:larger;
+  color: #383838;
+  font-weight: 500;
+}
   
 img.img-logo{
   width:auto;
@@ -201,6 +213,18 @@ img.img-logo{
   margin-left: 5%;
   margin-top: 9%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -644,7 +668,9 @@ hr {
 }
 
 #post_cancel_button:hover {
-  background-color: red;
+  background-color: transparent;
+  border: 2px solid red;
+  color: red;
 }
 
 
