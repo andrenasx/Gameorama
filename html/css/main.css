@@ -455,18 +455,6 @@ form h2{
 }
 
 /*  Post page   */
-
-.btn-outline-primary {
-  color: var(--gameOrange);
-  border-color: darkgray;
-}
-
-.btn-outline-primary:hover {
-  color: #fff;
-  background-color: var(--gameOrange);
-  border-color: var(--gameOrange);
-}
-
 #post-voting ul span#upvote,  #post-voting ul span#downvote{
   font-size: 2em;
   transition: 0.2s all ease-in;
@@ -599,6 +587,13 @@ hr {
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
+  color: var(--gameOrange);
+}
+
+.following-button:hover{
+  background-color: var(--gameOrange);
+  color: white;
+  border-color: var(--gameOrange);
 }
 
 .following-button::after{
@@ -630,3 +625,15 @@ hr {
 .create_post_buttons {
   margin-top: 10%
 }
+
+.text-button-profile{
+  padding: 0;
+  border: none;
+  background: none;
+  transition: 0.3s;
+}
+
+.text-button-profile:hover{
+  color: var(--gameOrange);
+}
+

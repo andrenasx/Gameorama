@@ -26,95 +26,91 @@
             <div class="modal fade" id="staticBackdropEmail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Change Email Address</h5>
-                        <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id = "downvote">close</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-floating mb-5">
-                                <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputEmail">Old Email Address</label>
-                            </div>
-                            <div class="form-floating mb-5">
-                                <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputEmail">New Email Address</label>
-                            </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Change Email Address</h5>
+                            <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id = "downvote">close</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-floating mb-5">
+                                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputEmail">Old Email Address</label>
+                                </div>
+                                <div class="form-floating mb-5">
+                                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputEmail">New Email Address</label>
+                                </div>
 
-                            <div class="form-floating mb-5">
-                                <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputEmail">Confirm New Email Address</label>
-                            </div>
-                        <form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
-                    </div>
+                                <div class="form-floating mb-5">
+                                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputEmail">Confirm New Email Address</label>
+                                </div>
+                            <form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Save Changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="staticBackdropPassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdropPassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Change Password</h5>
-                        <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id = "downvote">close</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-floating mb-5">
-                                <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputPassword">Old Password</label>
-                            </div>
-                            <div class="form-floating mb-5">
-                                <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputPassword">New Password</label>
-                            </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Change Password</h5>
+                            <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id = "downvote">close</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-floating mb-5">
+                                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputPassword">Old Password</label>
+                                </div>
+                                <div class="form-floating mb-5">
+                                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputPassword">New Password</label>
+                                </div>
 
-                            <div class="form-floating mb-5">
-                                <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputPassword">Confirm New Password</label>
-                            </div>
-                        <form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
-                    </div>
+                                <div class="form-floating mb-5">
+                                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputPassword">Confirm New Password</label>
+                                </div>
+                            <form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Save Changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="staticBackdropDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdropDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabelDelete">Delete Account</h5>
-                        <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id = "downvote">close</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="game-quote mt-3">“You’ve met with a terrible fate, haven’t you?” </p>
-                        <p class="game-quote-origin">- The Legend of Zelda: Majora’s Mask </p> <!--Rotating Game Quotes-->
-                        <form>
-                            <div class="form-floating mb-5">
-                                <input type="password" id="inputDeleteAccount" class="form-control mb-3" placeholder=" " required autofocus>
-                                <label for="inputPassword">Enter Account Password</label>
-                            </div>
-                        <form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabelDelete">Delete Account</h5>
+                            <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id = "downvote">close</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="game-quote mt-3">“You’ve met with a terrible fate, haven’t you?” </p>
+                            <p class="game-quote-origin">- The Legend of Zelda: Majora’s Mask </p> <!--Rotating Game Quotes-->
+                            <form>
+                                <div class="form-floating mb-5">
+                                    <input type="password" id="inputDeleteAccount" class="form-control mb-3" placeholder=" " required autofocus>
+                                    <label for="inputPassword">Enter Account Password</label>
+                                </div>
+                            <form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        
     </body>
 <?php }?>
