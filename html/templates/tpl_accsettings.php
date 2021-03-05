@@ -1,17 +1,16 @@
 <?php function draw_accsettings() { ?>
     <body>
-    <body>
-        <div class="p-3 p-lg-5 mt-4 col-lg-8 container bg-white" id="accsettings-container">
+        <div class="p-3 p-lg-5 mt-sm-4 col-lg-7 container bg-white rounded">
             <h1 class="h2 fw-bold">Account Settings</h1>
             <hr class="rounded"></hr>
 
-            <div class="col-12 col-lg-10 mt-5 px-4 pt-5 pb-5 container" id="field-container">
+            <div class="col-12 col-lg-10 mt-5 px-4 pt-5 pb-5 container rounded" id="field-container">
                 <button type="button" class="btn btn-primary p-2 col-4" id="accept-button" data-bs-toggle="modal" data-bs-target="#staticBackdropEmail">Change</button>
                 <h1 class="h4 fw-bold">Email Address</h1>
                 <h2 class="h5 fw-lighter">nick.rogers@email.com</h2>
             </div>
 
-            <div class="col-12 col-lg-10 mt-5 px-4 pt-5 pb-5 container" id="field-container">
+            <div class="col-12 col-lg-10 mt-5 px-4 pt-5 pb-5 container rounded" id="field-container">
                 <button type="button" class="btn btn-primary p-2 col-4" id="accept-button" data-bs-toggle="modal" data-bs-target="#staticBackdropPassword">Change</button>
                 <h1 class="h4 fw-bold">Change Password</h1>
                 <h2 class="h5 fw-lighter">Password must be at least 6 characters long</h2>
@@ -20,7 +19,7 @@
             <div class="col-12 col-lg-8 pt-4 pb-4 container" id="field-delete-container">
                 <h1 class="h4 fw-bold">Danger Zone</h1>
                 <h2 class="h5 fw-bold">☢️ BEWARE THE NUCLEAR BUTTON ☢️</h1>
-                <button type="button" class="btn btn-primary mt-2 p-2 col-8 col-lg-4" id="delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdropDelete">Delete Account</button>
+                <button type="button" class="btn btn-danger mt-2 p-2 col-8 col-xxl-4" id="delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdropDelete">Delete Account</button>
             </div>
         
             <!-- Modal -->
@@ -49,8 +48,8 @@
                         <form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id= "close-button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" id= "save-button" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Save Changes</button>
                     </div>
                     </div>
                 </div>
@@ -82,8 +81,8 @@
                         <form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id= "close-button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" id= "save-button" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Save Changes</button>
                     </div>
                     </div>
                 </div>
@@ -108,8 +107,8 @@
                         <form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id= "save-button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" id= "delete-button" class="btn btn-primary">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
                     </div>
                     </div>
                 </div>

@@ -430,10 +430,6 @@ hr {
   background-color: white;
 }
 
-#accsettings-container{
-  height: 100%;
-}
-
 #field-container{
   border: 2px solid lightgray;
 }
@@ -477,67 +473,7 @@ hr {
 
 #accept-button {
   float: right;
-  background-color: var(--gameOrange);
-  border-color: var(--gameOrange);
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.3s;
-}
-
-#accept-button:hover{
-  background: transparent;
-  color: var(--gameOrange);
-  border-color: var(--gameOrange);
-}
-
-#delete-button {
-  background-color: red;
-  border-color: red;
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.3s;
-  color: white;
-}
-
-#delete-button:hover{
-  background-color: transparent;
-  color: red;
-  border-color: red;
-}
-
-#save-button{
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.3s;
-  color: white
-}
-
-#save-button:hover{
-  background-color: transparent;
-  color: #0d6efd;
-  border-color: #0d6efd;
-}
-
-#close-button{
-  background-color: #6c757d;
-  border-color: #6c757d;
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.3s;
-  color: white;
-}
-
-
-#close-button:hover{
-  background-color: transparent;
-  border-color: red;
-  color: red;
-  border-radius: 5px;
-  border-width: 2px;
-}
-
+} 
 
 #close-window-button{
   padding: 0;
@@ -592,4 +528,20 @@ hr {
   border-top: 5px solid var(--gameOrange);
   opacity: 1;
   background-color: white;
+} 
+
+
+/*Following/Follow Pages*/
+.following-button{
+  border-color: var(--gameOrange);
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+.following-button::after{
+  content: "Following";
+}
+
+.following-button:hover::after{
+  content: "Unfollow";
 }
