@@ -214,25 +214,6 @@ img.img-logo{
   margin-top: 9%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#follow_button {
-  float: right;
-}
-
-
 .details p.bio{
   margin-left: 10px;
   text-align: left;
@@ -582,7 +563,7 @@ hr {
 } 
 
 
-/*Following/Follow Pages*/
+/*Following/Follow Popups*/
 .following-button{
   border-color: var(--gameOrange);
   border-radius: 5px;
@@ -602,6 +583,24 @@ hr {
 
 .following-button:hover::after{
   content: "Unfollow";
+}
+
+.follow-button{
+  border-color: var(--gameOrange);
+  color: white;
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: var(--gameOrange);
+}
+
+.follow-button::after{
+  content: "Follow";
+}
+
+.follow-button:hover{
+  background-color: white;
+  color: var(--gameOrange);
+  border-color: var(--gameOrange);
 }
 
 /*   Create a Post  */
@@ -634,6 +633,77 @@ hr {
 }
 
 .text-button-profile:hover{
+  color: #0d6efd;
+}
+
+
+.aside-title {
   color: var(--gameOrange);
 }
 
+.small-grey-text {
+  font-size:0.85em;
+  color: grey;
+}
+
+.blue-hover:hover {
+  color: #0d6efd;
+  cursor: pointer;
+}
+
+.red-hover:hover {
+  color: red;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0d6efd;
+}
+
+/* styles for '...' */ 
+.truncate-multiple {
+  /* hide text if it more than N lines  */
+  overflow: hidden;
+  /* for set '...' in absolute position */
+  position: relative; 
+  /* use this value to count block height */
+  line-height: 1.5em;
+  /* max-height = line-height (1.2) * lines max number (3) */
+  max-height: 4.5em; 
+  /* fix problem when last visible word doesn't adjoin right side  */
+  text-align: justify;  
+  /* place for '...' */
+  margin-left: 0em;
+  margin-right: 0em;
+  padding-right: 1em;
+}
+/* create the ... */
+.truncate-multiple:before {
+  /* points in the end */
+  content: '...';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 0;
+}
+/* hide ... if we have text, which is less than or equal to max lines */
+.truncate-multiple:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
+}
