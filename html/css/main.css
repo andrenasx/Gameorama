@@ -678,3 +678,24 @@ hr {
 .create_post_buttons {
   margin-top: 10%
 }
+
+
+/*   Topic Page    */
+
+#topic_page > h3:first-child {
+  color: var(--gameOrange)
+}
+
+.following-button{
+  border-color: var(--gameOrange);
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+.following-button::after{
+  content: "Following";
+}
+
+.following-button:hover::after{
+  content: "Unfollow";
+}
