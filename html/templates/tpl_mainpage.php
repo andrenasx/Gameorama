@@ -61,7 +61,7 @@
               <span>1.</span>
             </div>
             <div class="col p-0">
-              <a href="#">Legalt_of_Rivia</a>
+              <a href="profile.php#">Legalt_of_Rivia</a>
               <p class="mb-1">5,758,783 Aura Score</p>
             </div>
           </div> <!-- ROW -->
@@ -70,7 +70,7 @@
               <span>2.</span>
             </div>
             <div class="col p-0">
-              <a href="#">GodGamerX</a>
+              <a href="profile.php#">GodGamerX</a>
               <p class="mb-1">3,214,158 Aura Score</p>
             </div>
           </div> <!-- ROW -->
@@ -79,7 +79,7 @@
               <span>3.</span>
             </div>
             <div class="col p-0">
-              <a href="#">GamingGolem</a>
+              <a href="profile.php#">GamingGolem</a>
               <p class="mb-1">3,143,985 Aura Score</p>
             </div>
           </div> <!-- ROW -->
@@ -88,7 +88,7 @@
               <span>4.</span>
             </div>
             <div class="col p-0">
-              <a href="#">EGirlKate</a>
+              <a href="profile.php#">EGirlKate</a>
               <p class="mb-1">2,221,354 Aura Score</p>
             </div>
           </div> <!-- ROW -->
@@ -97,7 +97,7 @@
               <span>5.</span>
             </div>
             <div class="col p-0">
-              <a href="#">TheGuru</a>
+              <a href="profile.php#">TheGuru</a>
               <p class="mb-1">1,852,189 Aura Score</p>
             </div>
           </div> <!-- ROW -->

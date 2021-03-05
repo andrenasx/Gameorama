@@ -65,15 +65,28 @@ body {
 
 #hamburguerIcon{
   
-width: 155px;
+min-width: 160px;
+
 
 
 }
+
 
 #navbar{
 border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
+#search_bar_form.form-floating>.form-control:focus~label{
+  opacity:0  !important;
+
+}
+
+
+.pop-up-instructions{
+  font-size:larger;
+  color: #383838;
+  font-weight: 500;
+}
   
 img.img-logo{
   width:auto;
@@ -155,6 +168,20 @@ img.img-logo{
   }
 
 }
+@media (min-width: 992px) {
+#create_post_btn{
+  max-width:230px !important;
+}
+}
+
+@media (max-width: 992px) {
+  #create_post_btn{
+    width:230px !important;
+    display: flex;
+    justify-content: left;
+  }
+
+}
 
 
 #create_post_btn{
@@ -172,6 +199,34 @@ img.img-logo{
 
 
 
+.btn-outline-report {
+  color: black;
+  border:none;
+}
+.btn-outline-report:hover {
+  color: red;
+  border:none;
+}
+
+.nav-link.dropdown-toggle.text-dark.d-flex.mt-1::after {
+  
+  margin-left: 5%;
+  margin-top: 9%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #follow_button {
   float: right;
@@ -181,6 +236,9 @@ img.img-logo{
 .details p.bio{
   margin-left: 10px;
   text-align: left;
+}
+div.details{
+  padding-top: 0 !important;
 }
 
 /*Login and Signup*/
@@ -374,6 +432,7 @@ form h2{
   color: darkgray;
 }
 
+/*
 #pills-tab  {
   border: 1px solid darkgray;
 
@@ -382,6 +441,10 @@ form h2{
 #pills-tab li:nth-child(1) {
   border-right: 1px solid darkgray;
 }
+
+#pills-tab li:nth-child(2) {
+  border-right: 1px solid darkgray;
+}*/
 
 .profile_navigation .nav-link.active{
   background-color: transparent;
@@ -544,4 +607,26 @@ hr {
 
 .following-button:hover::after{
   content: "Unfollow";
+}
+
+/*   Create a Post  */
+
+.create_post_header {
+  border-bottom: 3px solid var(--gameOrange);
+
+}
+
+#post_cancel_button  {
+  border: none;
+}
+
+#post_cancel_button:hover {
+  background-color: transparent;
+  border: 2px solid red;
+  color: red;
+}
+
+
+.create_post_buttons {
+  margin-top: 10%
 }
