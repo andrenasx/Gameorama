@@ -136,11 +136,25 @@ img.img-logo{
   }
 
 }
+
+@media (max-width: 700px) {
+
+  #navbar_search_icon{
+    width:90%
+  }
+
+}
+
+
+
 @media (max-width: 550px) {
   #Logo{
     /*margin:auto  !important;*/
     margin-left: 36%;
     
+  }
+  #navbar_search_icon{
+    width:87%
   }
 
 }
@@ -150,15 +164,30 @@ img.img-logo{
     margin-left: 30%;
     
   }
+  #navbar_search_icon{
+    width:85%
+  }
 
 }
+
+
+@media (max-width: 400px) {
+  
+  #navbar_search_icon{
+    width:80%
+  }
+}
+
+
 @media (max-width: 320px) {
   #Logo{
     /*margin:auto  !important;*/
     margin-left: 20%;
     
   }
-
+  #navbar_search_icon{
+    width:78%
+  }
 }
 @media (max-width: 280px) {
   #Logo{
@@ -200,13 +229,17 @@ img.img-logo{
 
 
 .btn-outline-report {
+  font-family: 'Material Icons Outlined';
   color: black;
   border:none;
 }
 .btn-outline-report:hover {
+  font-family: 'Material Icons Round'!important;
   color: red;
   border:none;
 }
+
+
 
 .nav-link.dropdown-toggle.text-dark.d-flex.mt-1::after {
   
