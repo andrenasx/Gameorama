@@ -1,23 +1,20 @@
 <?php function draw_post() { ?>
     <body>
         <main>
-        <div class="pt-4 pb-4 mt-4 col-lg-8 container bg-white" id="post-container">
-
+        <div class="pt-4 pb-4 mt-4 col-lg-8 container bg-white rounded">
             <div class = "row mt-2">
-                <div class = "col-1" id = "post-voting">
-                    <ul>
-                        <span class="material-icons-round d-flex justify-content-center" id = "upvote">north</span>
-                        <span class = "d-flex justify-content-center" id = "score">243</span>
-                        <span class="material-icons-round d-flex justify-content-center" id = "downvote">south</span>
-                        
+                <div class="post-voting col-1 d-flex justify-content-center">
+                    <ul class="list-unstyled mb-0">
+                      <li><span class="upvote material-icons-round d-flex justify-content-center">north</span></li>
+                      <li><span class="score d-flex justify-content-center">23.0k</span></li>
+                      <li><span class="downvote material-icons-round d-flex justify-content-center">south</span></li>
                     </ul>
-                </div>
-                <div class = "col mt-3">
-                    <h5 class="post-topics">Topics: Gaming Gadgets; Razer</h5>    
-                    <h7 class="post-user">Posted by kaka34</h7>
+                  </div>
+                  <div class="col">
+                    <h5 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h5>
+                    <h7 class="post-user mb-2">Posted by <a href="./profile.php">kaka34</a></h7>
                     <h1 class="post-title">Razer apresenta webcam Kiyo Pro</h1>
-                </div>
-
+                  </div>
             </div>
             
             <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
@@ -86,7 +83,7 @@
             <div class = "row-lg-8 ">
                 <div class = "d-flex bg-white p-2 p-4 rounded">
                     <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
-                    <div class = "ms-2 col-lg-10">
+                    <div class = "ms-2 col-lg-11">
                         <div class = "d-flex justify-content-between">
                             <h4>kaka34</h4>
                             <small style = "color: darkgray;">2 hours ago</small>
@@ -110,7 +107,7 @@
             <div class = "row-lg-8 mt-3 offset-1">
                 <div class = "d-flex bg-white p-4 pb-4 rounded">
                     <img src="../assets/avatar2.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
-                    <div class = "ms-2 col-lg-10">
+                    <div class = "ms-2 col-lg-11">
                         <div class = "d-flex justify-content-between">
                             <h4>WanWan</h4>
                             <small style = "color: darkgray;">35 minutes ago</small>

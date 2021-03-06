@@ -432,10 +432,18 @@ form h2{
 .post-title{
   font-weight: 600;
   font-size: 2rem;
+  margin-top: 10px;
+}
+
+.post-title-smaller{
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 .post-topics{
-  line-height: 20%;
+  margin-bottom: 0;
 }
 
 .post-user{
@@ -469,19 +477,18 @@ form h2{
 }
 
 /*  Post page   */
-#post-voting ul span#upvote,  #post-voting ul span#downvote{
-  font-size: 2em;
+.post-voting .upvote, .post-voting .downvote{
   transition: 0.2s all ease-in;
   color: darkgray;
 }
 
 
-#post-voting ul span#upvote:hover {
+.post-voting .upvote:hover {
   cursor: pointer;
   color: var(--gameOrange)
 }
 
-#post-voting ul span#downvote:hover {
+.post-voting .downvote:hover {
   cursor: pointer;
   color: #353cee
 }

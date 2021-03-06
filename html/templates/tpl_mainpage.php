@@ -19,17 +19,17 @@
             <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="pills-feed-tab">
               <div class="news-card mb-3 p-4 rounded bg-white">
                 <div class="row news-card-header">
-                  <div class="col-1 d-flex justify-content-center">
-                    <ul class="list-unstyled">
-                      <span class="material-icons-round d-flex justify-content-center" id = "upvote">north</span>
-                      <span class="d-flex justify-content-center" id = "score">23.0k</span>
-                      <span class="material-icons-round d-flex justify-content-center" id = "downvote">south</span>
+                  <div class="post-voting col-1 d-flex justify-content-center">
+                    <ul class="list-unstyled mb-0">
+                      <li><span class="upvote material-icons-round d-flex justify-content-center" id = "upvote">north</span></li>
+                      <li><span class="score d-flex justify-content-center" id = "score">23.0k</span></li>
+                      <li><span class="downvote material-icons-round d-flex justify-content-center" id = "downvote">south</span></li>
                     </ul>
                   </div>
                   <div class="col">
-                    <h7 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h7><br>
-                    <small class="post-user pt-0">Posted by <a href="./profile.php">kaka34</a></small>
-                    <h4 class="card-title">Razer apresenta webcam Kiyo Pro</h4>
+                    <h6 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h6>
+                    <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                    <h4 class="post-title-smaller">Razer apresenta webcam Kiyo Pro</h4>
                   </div>
                 </div>
                 <div class="news-card-body">
@@ -55,17 +55,17 @@
             <div class="tab-pane fade" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
               <div class="news-card mb-3 p-4 rounded bg-white">
                 <div class="row news-card-header">
-                  <div class="col-1 d-flex justify-content-center">
-                    <ul class="list-unstyled">
-                      <span class="material-icons-round d-flex justify-content-center" id = "upvote">north</span>
-                      <span class="d-flex justify-content-center" id = "score">23.0k</span>
-                      <span class="material-icons-round d-flex justify-content-center" id = "downvote">south</span>
+                  <div class="post-voting col-1 d-flex justify-content-center">
+                    <ul class="list-unstyled mb-0">
+                      <li><span class="upvote material-icons-round d-flex justify-content-center" id = "upvote">north</span></li>
+                      <li><span class="score d-flex justify-content-center" id = "score">23.0k</span></li>
+                      <li><span class="downvote material-icons-round d-flex justify-content-center" id = "downvote">south</span></li>
                     </ul>
                   </div>
                   <div class="col">
-                    <h7 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h7><br>
-                    <small class="post-user pt-0">Posted by <a href="./profile.php">kaka34</a></small>
-                    <h4 class="card-title">Razer apresenta webcam Kiyo Pro</h4>
+                    <h6 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h6>
+                    <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                    <h4 class="post-title-smaller">Razer apresenta webcam Kiyo Pro</h4>
                   </div>
                 </div>
                 <div class="news-card-body">
@@ -91,17 +91,17 @@
             <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
               <div class="news-card mb-3 p-4 rounded bg-white">
                 <div class="row news-card-header">
-                  <div class="col-1 d-flex justify-content-center">
-                    <ul class="list-unstyled">
-                      <span class="material-icons-round d-flex justify-content-center" id = "upvote">north</span>
-                      <span class="d-flex justify-content-center" id = "score">23.0k</span>
-                      <span class="material-icons-round d-flex justify-content-center" id = "downvote">south</span>
+                  <div class="post-voting col-1 d-flex justify-content-center">
+                    <ul class="list-unstyled mb-0">
+                      <li><span class="upvote material-icons-round d-flex justify-content-center" id = "upvote">north</span></li>
+                      <li><span class="score d-flex justify-content-center" id = "score">23.0k</span></li>
+                      <li><span class="downvote material-icons-round d-flex justify-content-center" id = "downvote">south</span></li>
                     </ul>
                   </div>
                   <div class="col">
-                    <h7 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h7><br>
-                    <small class="post-user pt-0">Posted by <a href="./profile.php">kaka34</a></small>
-                    <h4 class="card-title">Razer apresenta webcam Kiyo Pro</h4>
+                    <h6 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h6>
+                    <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                    <h4 class="post-title-smaller">Razer apresenta webcam Kiyo Pro</h4>
                   </div>
                 </div>
                 <div class="news-card-body">
@@ -183,4 +183,5 @@
       </div><!-- /.col-md-4 aka aside -->
     </div><!-- /.row -->
   </div><!-- /.container -->
+  <script src="../js/voting.js"></script>
 <?php } ?>
