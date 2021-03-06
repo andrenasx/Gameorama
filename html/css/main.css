@@ -451,7 +451,7 @@ form h2{
   border-right: 1px solid darkgray;
 }*/
 
-.profile_navigation .nav-link.active{
+.profile_navigation .nav-link.active, .topic_navigation .nav-link.active{
   background-color: transparent;
   border-bottom: 3px solid var(--gameOrange);
   color: black;
@@ -484,6 +484,11 @@ hr {
   border-top: 5px solid var(--gameOrange);
   opacity: 1; 
   background-color: white;
+}
+
+.admin_hr {
+  border-top: 1px solid darkgray;
+  opacity: 1; 
 }
 
 #field-container{
@@ -650,6 +655,28 @@ hr {
 
 .create_post_buttons {
   margin-top: 10%
+}
+
+
+
+/*   Topic Page    */
+
+#topic_page > h3:first-child {
+  color: var(--gameOrange)
+}
+
+.following-button{
+  border-color: var(--gameOrange);
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+.following-button::after{
+  content: "Following";
+}
+
+.following-button:hover::after{
+  content: "Unfollow";
 }
 
 .text-button-profile{

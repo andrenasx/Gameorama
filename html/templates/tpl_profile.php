@@ -883,7 +883,7 @@
                     <article>
                       <div class="d-flex justify-content-between">
                         <h5 class = "font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
-                        <small style = "color: darkgray;">35 minutes ago</small>
+                        <small class = "text-center" style = "color: darkgray;">35 minutes ago</small>
                       </div>
                       
                       <p>Parece um ótimo produto!</p>
@@ -903,7 +903,7 @@
                     <article>
                     <div class="d-flex justify-content-between">
                         <h5 class = "font-weight-bold">on "Gran Turismo 7 adiado para 2022" </h5>
-                        <small style = "color: darkgray;">2 hours ago</small>
+                        <small class = "text-center" style = "color: darkgray;">2 hours ago</small>
                       </div>
                       <p>Estou mesmo ansioso!</p>
 
