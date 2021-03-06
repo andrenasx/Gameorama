@@ -427,7 +427,7 @@ form h2{
   border-right: 1px solid darkgray;
 }*/
 
-.profile_navigation .nav-link.active{
+.profile_navigation .nav-link.active, .topic_navigation .nav-link.active{
   background-color: transparent;
   border-bottom: 3px solid var(--gameOrange);
   color: black;
@@ -460,6 +460,11 @@ hr {
   border-top: 5px solid var(--gameOrange);
   opacity: 1; 
   background-color: white;
+}
+
+.admin_hr {
+  border-top: 1px solid darkgray;
+  opacity: 1; 
 }
 
 #field-container{
@@ -729,4 +734,5 @@ a:hover {
   /* bg color = bg color under block */
   background: white;
 }
+
 

@@ -27,7 +27,7 @@
                     </ul>
                   </div>
                   <div class="col">
-                    <h7 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h7><br>
+                    <h7 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a href="../pages/topic.php">Razer</a></h7><br>
                     <small class="post-user pt-0">Posted by <a href="#">kaka34</a></small>
                     <h4 class="card-title">Razer apresenta webcam Kiyo Pro</h4>
                   </div>
