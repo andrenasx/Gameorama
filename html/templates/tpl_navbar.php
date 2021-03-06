@@ -1,4 +1,7 @@
-<?php function draw_navbar() { ?>
+<?php 
+
+include_once("tpl_login_popup.php");
+function draw_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
       <div class="col-1" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
@@ -9,15 +12,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="col-lg-6" id="navbar_search">
-          <form class="col-lg-6 d-flex " style="width:85%">
-            <div class="form-floating col-12" id="search_bar_form">
+          <form class="col-lg-6 d-flex " style="width:85%" >
+          <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
+            <input class="form-control" type="search" placeholder="Search"aria-label="Search" ></input>
+
+            <!--<div class="form-floating col-12" id="search_bar_form">
               <input class="form-control" id="search_bar" type="search" placeholder=" " required autofocus>
-              <label for="search_bar" class="col-12 d-flex text-start" >Search <span class="material-icons-round col-11 col-lg-10 col-xxl-11 d-flex justify-content-end" style=" color:darkgrey;" id="navbar_search_icon">search</span></label><!--font-weight: bold;-->
-            </div>
+              <label for="search_bar" class="col-12 d-flex text-start" >Search <span class="material-icons-round col-11 col-lg-10 col-xxl-11 d-flex justify-content-end" style=" color:darkgrey;" id="navbar_search_icon">search</span></label>
+            </div>-->
           </form>
         </div>
         <ul class="navbar-nav d-flex justify-content-end" >
-          <button class="nav-item btn mx-0 d-flex " id="create_post_btn" onclick="window.location.href='create_post.php#'">
+
+          <button class="nav-item btn mx-0 d-flex " id="create_post_btn" data-bs-toggle="modal" data-bs-target="#loginRequired">
             <row class="mt-1 d-flex">  
             <span class="material-icons-round me-1" style="font-weight: bold;">add</span>
               Create a News Post</row>

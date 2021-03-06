@@ -1,6 +1,6 @@
-<?php function draw_login_popup() { ?>
-  
-    <div class="modal fade" id="staticBackdropDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<?php 
+    echo
+    '<div class="modal fade" id="loginRequired" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>';
         
 
-<?php }?>
+?>

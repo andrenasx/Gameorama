@@ -8,8 +8,8 @@
                     
                   </div>
                   <row class="d-flex justify-content-end col-12"> 
-                    <button type="button" class="btn btn-outline-report d-flex align-content-center mt-1 me-1">
-                      <span class="material-icons-round" style="font-size: 200%;">flag</span>
+                    <button type="button" class="btn d-flex align-content-center mt-1 me-1">
+                      <span class="btn-outline-report" style="font-size: 200%;">flag</span>
                     </button>
                     </row>
                 </div>

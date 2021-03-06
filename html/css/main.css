@@ -229,13 +229,17 @@ img.img-logo{
 
 
 .btn-outline-report {
+  font-family: 'Material Icons Outlined';
   color: black;
   border:none;
 }
 .btn-outline-report:hover {
+  font-family: 'Material Icons Round'!important;
   color: red;
   border:none;
 }
+
+
 
 .nav-link.dropdown-toggle.text-dark.d-flex.mt-1::after {
   
