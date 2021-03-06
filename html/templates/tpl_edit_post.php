@@ -7,31 +7,21 @@ function draw_edit_post() {
 
         <section class = "container w-100 mt-5 form-group">
             <form action="">
-                <div class="form-floating">
-                    <input type="text" class = "form-control" placeholder="Title" value = "Razer apresenta webcam Kiyo Pro" required autofocus>
-                    <label for="inputEmail">Title</label>
+                <div class="mb-4">
+                    <label for="new-post-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="new-post-title" value = "Razer apresenta webcam Kiyo Pro">
                 </div>
-                
-                <div class="form-floating mt-5">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px" >A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho.
-                    </textarea>
-                    <label for="inputEmail">Text (optional)</label>
+                <div class="mb-4">
+                    <label for="exampleFormControlTextarea1" class="form-label">Text (optional)</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho.</textarea>
                 </div>
-                <h6 class = "mt-5">Topics</h6>
+                <h6>Topics</h6>
                 <div class = "container bg-white border">
-                    
-                    <div class = "d-flex justify-content-start me-0 p-2">
-                        <div class="container">
-                            <div class="col-2 text-center bg-secondary text-white p-2 me-0">
-                                <small >League of Legends</small>
-                            </div>
-                         </div>  
-
-                        <div>
-                            <button type="button" class="border d-flex align-items-center mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <span class="material-icons-round">add</span>
-                            </button>
-                        </div>
+                    <div class = "d-flex justify-content-start me-0 py-2">
+                        <button type="button" class="btn btn-light me-2">League of Legends</button>
+                        <button type="button" class="border d-flex align-items-center rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <span class="material-icons-round">add</span>
+                        </button>
                     </div>  
                 </div>
 
@@ -59,20 +49,18 @@ function draw_edit_post() {
                 </div>
                 </div>
 
-                <section class = "container mt-5">
+                <div class="mt-4">
                     <label for="formFileMultiple" class="form-label" >Upload media</label>
                     <input class="form-control form-control-sm p-4" id="formFileMultiple" type="file" multiple>
-                </section>
-
-                <section class = "container create_post_buttons">
-                    <div class = "row d-flex justify-content-center">
-                        <button type="button" class="col-2 btn btn-secondary" id = "post_cancel_button">Cancel</button>
-                        <button type="button" class="col-2 ms-4 btn btn-primary" id = "post_confirm_button">Post</button>
-                    </div>
-
-                </section>
-
+                </div>
                 
+
+                <section class = "container create_post_buttons mb-2 mb-lg-0">
+                    <div class = "row d-flex justify-content-around">
+                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-secondary" onclick= >Cancel</button>
+                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-primary">Save</button>
+                    </div>
+                </section> 
             </form>
         </section>
     </section>
