@@ -1,9 +1,9 @@
 <?php function draw_mainpage() { ?>
-  <div class="container">
+  <div class="container px-0">
     <div class="row justify-content-evenly mt-3">
       <div class="col-md-8">
         <section class = "profile_navigation">
-          <ul class="nav nav-pills mb-1 justify-content-space-between bg-white rounded" id="pills-tab" role="tablist">
+          <ul class="nav nav-pills mb-3 justify-content-space-between bg-white rounded" id="pills-tab" role="tablist">
             <li class="nav-item col-4" role="presentation">
               <button class="nav-link active w-100" id="pills-feed-tab" data-bs-toggle="pill" data-bs-target="#pills-feed" type="button" role="tab" aria-controls="pills-feed" aria-selected="true">Feed</button>
             </li>
@@ -130,7 +130,7 @@
 
       <div class="col-md-3 d-none d-md-block">
         <div class="row mb-3 p-3 bg-white rounded">
-          <h4 class="fst-italic aside-title">Wall of Fame</h4>
+          <h4 class="aside-title fw-bold px-1">Wall of Fame</h4>
           <ol class="ms-2 mb-0">
             <li class="mb-2">
               <p class="mb-0 blue-hover text-truncate">Legalt_of_Rivia</p>
@@ -156,7 +156,7 @@
         </div> <!-- Wall of Fame -->
 
         <div class="row mb-3 p-3 bg-white rounded">
-          <h4 class="fst-italic aside-title">Most Popular Topics</h4>
+          <h4 class="aside-title fw-bold px-1">Most Popular Topics</h3>
           <ol class="ms-2 mb-0">
             <li class="mb-2">
               <p class="mb-0 blue-hover text-truncate">League of Legends</p>
