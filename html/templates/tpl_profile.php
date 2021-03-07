@@ -221,6 +221,11 @@
                     style="background:url(http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg)">
                     <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="avatar" alt="avatar">
                 </div>
+                <row class="d-flex justify-content-end col-12">
+                    <button type="button" class="btn d-flex align-content-center mt-1 me-1" onclick = "location.href = '../pages/edit_profile.php'">
+                        <span class="btn-outline-report" style="font-size: 200%;">create</span>
+                    </button>
+                </row>
             </div>
         </div>
 
