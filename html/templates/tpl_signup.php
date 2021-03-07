@@ -29,12 +29,16 @@
                         <input type="password" id="inputConfirmPassword" class="form-control mb-3" placeholder=" " required>
                         <label for="inputConfirmPassword">Confirm Password</label>
                     </div>
-                    <button class="col-5 btn btn-lg btn-primary me-3" id="signUpButton" type="submit" onclick="window.location.href='mainpage.php#'">Sign Up</button>
-                    <a class="col-5 btn btn-outline-dark" href="/users/googleauth" id="googleButton" role="button" style="text-transform:none">
-                        <img width="30px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-                        Sign Up with Google
-                    </a>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="col-5 btn btn-lg btn-primary me-3" id="signUpButton" type="submit" onclick="window.location.href='mainpage.php#'">Sign Up</button>
+                        <a class="col-5 btn btn-outline-dark" href="/users/googleauth" id="googleButton" role="button" style="text-transform:none">
+                            <img width="30px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                            Sign Up with Google
+                        </a>
+                    </div>
+                    <p></p>
+                    <a class="mt-3 blue-hover" id="signUpLogin" href="login.php">Already have an account? Login</a>
                     <p class="mt-4 mb-1 text-muted">&copy; LBAW 2021</p>
             </form>
         </main>

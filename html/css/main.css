@@ -87,7 +87,7 @@ border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
 .navbar-icon{
-  transition: color .15s ease-in-out, .15s ease-in-out, .15s ease-in-out;
+  transition: 0.15s all ease-in;
 }
 
 .pop-up-instructions{
@@ -226,6 +226,7 @@ img.img-logo{
   font-family: 'Material Icons Outlined';
   color: black;
   border:none;
+  transition: 0.15s all ease-in;
 }
 .btn-outline-report:hover {
   font-family: 'Material Icons Round'!important;
@@ -265,11 +266,26 @@ form h1{
 }
 
 form h2{
-  color: white;
-  text-shadow: 2px 2px black;
   text-align: left;
 }
 
+form h2{
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+#signUpLogin, #forgotPassword{
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+#signUpLogin:hover, #forgotPassword:hover{
+  color: #0d6efd;
+}
+
+#forgotPassword {
+  float: right;
+}
 
 .form-signup {
   width: 100%;
@@ -304,8 +320,10 @@ form h2{
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
-  transition: 0.3s;
-  text-shadow: 1px 1px 1px black
+  transition: 0.15s all ease-in;
+  text-shadow: 1px 1px 1px black;
+  transition: 0.15s all ease-in;
+  
 }
 
 #signUpButton:hover{
@@ -343,8 +361,9 @@ form h2{
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
-  transition: 0.3s;
-  text-shadow: 1px 1px 1px black
+  transition: 0.15s all ease-in;
+  text-shadow: 1px 1px 1px black;
+  transition: 0.15s all ease-in;
 }
 
 #loginButton:hover{
@@ -358,7 +377,7 @@ form h2{
   border-color: white;
   border-radius: 5px;
   border-width: 2px;
-  transition: 0.3s!important;
+  transition: 0.15s all ease-in!important;
 }
 
 #googleButton:hover{
@@ -459,7 +478,7 @@ form h2{
 
 /*  Post page   */
 .post-voting .upvote, .post-voting .downvote{
-  transition: 0.2s all ease-in;
+  transition: 0.15s all ease-in;
   color: darkgray;
 }
 
@@ -507,7 +526,7 @@ hr {
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
-  transition: 0.3s;
+  transition: 0.15s all ease-in;
 }
 
 #accept_button:hover{
@@ -537,7 +556,7 @@ hr {
   padding: 0;
   border: none;
   background: none;
-  transition: 0.3s;
+  transition: 0.15s all ease-in;
 }
 
 #close-window-button:hover{
@@ -581,7 +600,7 @@ hr {
 }
 
 .comment-icons span {
-  transition: 0.3s all ease-in;
+  transition: 0.15s all ease-in;
 }
 
 .comment-icons span:hover{
@@ -606,6 +625,7 @@ hr {
   border-radius: 5px;
   border-width: 2px;
   color: var(--gameOrange);
+  transition: 0.15s all ease-in;
 }
 
 .following-button:hover{
@@ -628,6 +648,7 @@ hr {
   border-radius: 5px;
   border-width: 2px;
   background-color: var(--gameOrange);
+  transition: 0.15s all ease-in;
 }
 
 .follow-button::after{
@@ -649,6 +670,7 @@ hr {
 
 #post_cancel_button  {
   border: none;
+  transition: 0.15s all ease-in;
 }
 
 #post_cancel_button:hover {
@@ -674,6 +696,7 @@ hr {
   border-color: var(--gameOrange);
   border-radius: 5px;
   border-width: 2px;
+  transition: 0.15s all ease-in;
 }
 
 .following-button::after{
@@ -688,6 +711,7 @@ hr {
   padding: 0;
   border: none;
   background: none;
+  transition: 0.15s all ease-in;
 }
 
 .text-button-profile:hover{
@@ -704,6 +728,10 @@ hr {
   color: grey;
 }
 
+.blue-hover, .red-hover{
+  transition: 0.15s all ease-in;
+}
+
 .blue-hover:hover {
   color: #0d6efd;
   cursor: pointer;
@@ -717,6 +745,7 @@ hr {
 a {
   color: inherit;
   text-decoration: none;
+  transition: 0.15s all ease-in;
 }
 
 a:hover {
@@ -771,4 +800,45 @@ a:hover {
   padding: 0;
   border: none;
   background: none;
+}
+
+
+.error-title{
+  font-size: 16vh;
+  color: var(--gameOrange);
+ 
+}
+
+.game-quote-error{
+  font-size: 3vh;
+  line-height: 20%;
+}
+
+.game-quote-origin-error{
+  color: darkgray;
+  font-size: 2vh;
+}
+
+.game-quote-description{
+  font-size: 2vh;
+  line-height: 30%;
+}
+
+.error-picture{
+  height: 30vh;
+}
+
+.notifications-card{
+  background-color: rgb(251,116,45, 0.9)
+}
+
+#close-notification-button{
+  padding: 0;
+  border: none;
+  background: none;
+  transition: 0.15s all ease-in;
+}
+
+#close-notification-button:hover{
+  color:white;
 }

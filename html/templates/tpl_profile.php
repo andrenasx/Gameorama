@@ -227,7 +227,7 @@
         <div class="col-sm-12">
             <div class="details mt-5">
                 <h3>Nick Rogers</h3>
-                <h4>WanWan</h4>
+                <h4 class="color-orange fst-italic">WanWan</h4>
                 <p>103,261 Aura Score</p>
                 <p class="bio">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                     has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -241,7 +241,7 @@
 
         <section class="follow_stats mt-2 mb-2">
             <div class="row d-flex justify-content-around">
-                <div class="col text-center">
+                <div class="col text-center mb-2">
                     <button type="button" class="text-button-profile" data-bs-toggle="modal"
                         data-bs-target="#modalFollowing">1021 Following</button>
                 </div>
