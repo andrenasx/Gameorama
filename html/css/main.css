@@ -212,6 +212,7 @@ img.img-logo{
     width:230px !important;
     display: flex;
     justify-content: left;
+    margin-left: 5px;
   }
 
 }

@@ -3,9 +3,9 @@
 include_once("tpl_login_popup.php");
 include_once("tpl_report_post.php");
 function draw_navbar() { ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-0 gx-0" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light gx-0" id="navbar">
     <div class="container-fluid">
-      <div class="col-1" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
+      <div class="col-1 ps-1" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
         <img src="../assets/Logo.png" class="img-logo" alt = "" >
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,12 +29,12 @@ function draw_navbar() { ?>
           </button>
           
 
-          <li class="nav-item dropdown d-flex " id="hamburguerIcon">
+          <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
               <a class="nav-link gx-0 mx-0 px-0" href="#" id="navbarDropdown" role="button" aria-expanded="false"  >
               <button type="button" class="navbar-icon" data-bs-toggle="modal" data-bs-target="#modalNotifications" style="margin-top:2px" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'"><span class="material-icons-round">notifications</span></button>
                 <span class="badge rounded-pill badge-notification bg-danger">1</span>
               </a>
-              <a class="nav-link dropdown-toggle d-flex mt-1" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'">
+              <a class="nav-link dropdown-toggle d-flex mt-1 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'">
               <span class="material-icons-round me-1">account_circle</span>
                 WanWan
               </a>
