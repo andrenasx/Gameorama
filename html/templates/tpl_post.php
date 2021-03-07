@@ -102,7 +102,7 @@
                         <small style = "color: darkgray;">2 hours ago</small>
                     </div>
                     
-                    <p>Gostei muito desta camara. É uma excelente opção para quem usa o Zoom para trabalhar</p>
+                    <p>Gostei muito desta câmara. É uma excelente opção para quem usa o Zoom para trabalhar.</p>
                     
                     <div class = "col pt-4 d-flex justify-content-around comment-icons">
                         <div class = "col-2 d-flex justify-content-around">
