@@ -63,25 +63,20 @@
                         <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                     </div>
                     <div class="row mt-4 news-card-options">
-                        <div class="col d-flex justify-content-center blue-hover">
-                            <span class="material-icons-outlined align-middle">mode_comment</span>
-                            <span class="d-none d-md-block"> 321</span>
-                        </div>
-                        <div class="col d-flex justify-content-center blue-hover">
-                            <span class="material-icons-outlined align-middle">bookmark_add</span>
-                            <span class="d-none d-md-block"> Bookmark</span>
-                        </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle">outlined_flag</span>
-                            <span class="d-none d-md-block"> Report<span>
-                        </div>
+                        <hr class="admin_hr">
+
+                    <div class="d-flex justify-content-between">
+                        <h4 class = "text-danger">10 Reports</h4>
+                        <span class="material-icons-round">more_horiz</span>
+                    </div>
+
                     </div>
                 </div> <!-- /.news-card -->
             </div>
 
 
             <div class="tab-pane fade show" id="pills-reported-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded pt-2">
+                <section class="bg-white rounded py-2">
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="d-flex justify-content-between">
                             <h5 class = "font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
@@ -89,7 +84,7 @@
                         </div>
 
                         <p>Parece um ótimo produto!</p>
-                        <hr class="admin_hr mt-5">
+                        <hr class="admin_hr mt-2">
                         <div class="d-flex justify-content-between">
                             <h4 class = "text-danger">10 Reports</h4>
                             <span class="material-icons-round">more_horiz</span>
@@ -103,7 +98,7 @@
                         </div>
 
                         <p>Estou mesmo ansioso!</p>
-                        <hr class="admin_hr mt-5">
+                        <hr class="admin_hr mt-2">
                         <div class="d-flex justify-content-between">
                             <h4 class = "text-danger">5 Reports</h4>
                             <span class="material-icons-round">more_horiz</span>
@@ -114,14 +109,14 @@
 
 
             <div class="tab-pane fade show" id="pills-reported-topics" role="tabpanel" aria-labelledby="pills-topics-tab">
-                <section class="bg-white rounded pt-2">
+                <section class="bg-white rounded py-2">
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="row align-items-center">
                             <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col-md-10 col-8 d-flex">
                                 <div>
                                     <h4>League of Legends</h4>
-                                    <p class="h6 fw-normal">1,536,945 followers</p>
+                                    <p class="h6 fw-normal">1,5M Followers</p>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +134,7 @@
                             <div class="col-md-10 col-8 d-flex">
                                 <div>
                                     <h4>Lego Starwars</h4>
-                                    <p class="h6 fw-normal">3521 followers</p>
+                                    <p class="h6 fw-normal">135k Followers</p>
                                 </div>
                             </div>
                         </div>
@@ -155,16 +150,18 @@
 
 
             <div class="tab-pane fade show" id="pills-reported-users" role="tabpanel" aria-labelledby="pills-users-tab">
-                <section class="bg-white rounded pt-2">
+                <section class="bg-white rounded py-2">
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="row align-items-center">
                             <img src="../assets/avatar4.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
-                            <div class="col-md-10 col-8 d-flex justify-content-between">
+                            <div class="col justify-content-between">
                                 <div>
-                                    <h4>Legalt of Rivia</h4>
-                                    <p class="h6 fw-normal">5,758,783 Aura Score</p>
+                                    <h4>Legalt_of_Rivia</h4>
+                                    <div class="row">
+                                        <h6 class="col-12 col-sm-6">135k Followers</h6>
+                                        <h6 class="col-12 col-sm-6">5,758,783 Aura Score</h6>
+                                    </div>
                                 </div>
-                                <small class = "text-center h6 fw-normal d-none d-md-block" >4861 followers</small>
                             </div>
                         </div>
                         <hr class="admin_hr mt-3">
@@ -178,14 +175,15 @@
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="row align-items-center">
                             <img src="../assets/avatar1.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
-                            <div class="col-md-10 col-8 d-flex justify-content-between">
+                            <div class="col justify-content-between">
                                 <div>
                                     <h4>kaka34</h4>
-                                    <p class="h6 fw-normal">10,535 Aura Score</p>
+                                    <div class="row">
+                                        <h6 class="col-12 col-sm-6">8,5k Followers</h6>
+                                        <h6 class="col-12 col-sm-6">10,535 Aura Score</h6>
+                                    </div>
                                 </div>
-                                <small class = "text-center h6 fw-normal d-none d-md-block" >8500 followers</small>
                             </div>
-                            
                         </div>
                         <hr class="admin_hr mt-3">
 
