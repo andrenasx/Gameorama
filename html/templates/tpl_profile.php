@@ -148,7 +148,7 @@
                 </div> <!-- /.news-card -->
             </div> <!-- .pills-posts -->
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded pt-2">
+                <section class="bg-white rounded py-2">
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="d-flex justify-content-between">
                             <h5 class="font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
@@ -924,7 +924,7 @@
         </div>
     </div>
 
-    <section class="pill-navigation mt-2">
+    <section class="pill-navigation">
         <ul class="nav nav-pills mb-1 justify-content-space-between bg-white rounded" id="pills-tab" role="tablist">
             <li class="nav-item col" role="presentation">
                 <button class="nav-link active w-100" id="pills-posts-tab" data-bs-toggle="pill"
@@ -1029,7 +1029,7 @@
                 </div> <!-- /.news-card -->
             </div> <!-- .pills-posts -->
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded pt-2">
+                <section class="bg-white rounded py-2">
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="d-flex justify-content-between">
                             <h5 class="font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
