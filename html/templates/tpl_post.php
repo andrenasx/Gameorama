@@ -8,7 +8,7 @@
                         <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                     </li>
                     <li>
-                        <span class="score d-flex justify-content-center" id="score">23.0k</span>
+                        <span class="score d-flex justify-content-center" id="score">23</span>
                     </li>
                     <li>
                         <span class="downvote material-icons-round d-flex justify-content-center">south</span>
@@ -17,7 +17,10 @@
             </div>
             <div class="col">
                 <h5 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h5>
-                <h7 class="post-user mb-2">Posted by <a href="./profile.php">kaka34</a></h7>
+                <div class="d-inline">
+                    <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                    <small>45 minutes ago</small>
+                </div>
                 <h1 class="post-title">Razer apresenta webcam Kiyo Pro</h1>
             </div>
         </header>
@@ -30,35 +33,27 @@
                 </div>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                    <img src="https://cdn.mos.cms.futurecdn.net/K6Ccm5f2sgpfZaRcQZwAAC-970-80.jpg.webp" alt="">
 
                     <div class="container">
                     <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p>Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
                     </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/fb10f4852b6142d195b24f0299f0e65d/768x460-kiyopro-hero-mobile.jpg" alt="">
 
                     <div class="container">
                     <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+
                     </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg" alt="">
 
                     <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                    <div class="carousel-caption text-end">  
                     </div>
                     </div>
                 </div>
@@ -77,7 +72,7 @@
         <div class="row mt-4 news-card-options">
             <div class="col d-flex justify-content-center blue-hover">
                 <span class="material-icons-outlined align-middle">mode_comment</span>
-                <span class="d-none d-md-block"> 321</span>
+                <span class="d-none d-md-block ms-2"> 321</span>
             </div>
             <div class="col d-flex justify-content-center blue-hover">
                 <span class="material-icons-outlined align-middle">bookmark_add</span>
@@ -90,17 +85,15 @@
         </div>
     </div> <!-- /.news-card -->
 
-    <div class="container">
-        <div class="row">
-            <div class="md-form amber-textarea active-amber-textarea px-0 ">
-                <textarea class="form-control" name="comment" rows="3" placeholder="Leave a comment"></textarea>
-                <button type="button" class="btn btn-primary mt-2 me-3" id = "add-comment-button">Add Comment</button>
-            </div>
+    <section class="row g-0">
+        <div class="md-form amber-textarea active-amber-textarea px-0 ">
+            <textarea class="form-control" name="comment" rows="3" placeholder="Leave a comment"></textarea>
+            <button type="button" class="btn btn-primary mt-2" id = "add-comment-button">Add Comment</button>
         </div>
-    </div>
+    </section>
 
-    <div class = "container mt-4 px-0">
-        <div class = "row-lg-8 ">
+    <section class="comments">
+        <div class = "row-lg-8 mt-4 g-0">
             <div class = "d-flex bg-white p-2 p-4 rounded">
                 <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
@@ -109,7 +102,7 @@
                         <small style = "color: darkgray;">2 hours ago</small>
                     </div>
                     
-                    <p>Fita cola preta das camaras</p>
+                    <p>Gostei muito desta câmara. É uma excelente opção para quem usa o Zoom para trabalhar.</p>
                     
                     <div class = "col pt-4 d-flex justify-content-around comment-icons">
                         <div class = "col-2 d-flex justify-content-around">
@@ -132,7 +125,7 @@
                         <h4>WanWan</h4>
                         <small style = "color: darkgray;">35 minutes ago</small>
                     </div>
-                    <p>Sim. Da pra tudo.</p>
+                    <p>Tenho o modelo anterior e gostaria de saber se vale a pena o upgrade.</p>
 
                     <div class = "col pt-4 d-flex justify-content-around comment-icons">
                         <div class = "col-2 d-flex justify-content-around comment-icons">
@@ -152,10 +145,10 @@
                 <img src="../assets/avatar3.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-10">
                     <div class = "d-flex justify-content-between">
-                        <h4>WanWan</h4>
+                        <h4>El_biden</h4>
                         <small style = "color: darkgray;">2 days ago</small>
                     </div>
-                    <p>Sim. Da pra tudo.</p>
+                    <p>Essa webcam permite 1080p 60fps?</p>
 
                     <div class = "col pt-4 d-flex justify-content-around comment-icons">
                         <div class = "col-2 d-flex justify-content-around comment-icons">
@@ -170,7 +163,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </section>
     <script src="../js/voting.js"></script>
 <?php } ?>
