@@ -90,17 +90,15 @@
         </div>
     </div> <!-- /.news-card -->
 
-    <div class="container">
-        <div class="row">
-            <div class="md-form amber-textarea active-amber-textarea px-0 ">
-                <textarea class="form-control" name="comment" rows="3" placeholder="Leave a comment"></textarea>
-                <button type="button" class="btn btn-primary mt-2 me-3" id = "add-comment-button">Add Comment</button>
-            </div>
+    <section class="row g-0">
+        <div class="md-form amber-textarea active-amber-textarea px-0 ">
+            <textarea class="form-control" name="comment" rows="3" placeholder="Leave a comment"></textarea>
+            <button type="button" class="btn btn-primary mt-2" id = "add-comment-button">Add Comment</button>
         </div>
-    </div>
+    </section>
 
-    <div class = "container mt-4 px-0">
-        <div class = "row-lg-8 ">
+    <section class="comments">
+        <div class = "row-lg-8 mt-4 g-0">
             <div class = "d-flex bg-white p-2 p-4 rounded">
                 <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
@@ -170,7 +168,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </section>
     <script src="../js/voting.js"></script>
 <?php } ?>
