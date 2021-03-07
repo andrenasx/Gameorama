@@ -44,15 +44,15 @@ function draw_navbar() { ?>
               <li><a class="dropdown-item" href="logout_mainpage.php#">Log out</a></li>
             </ul>
         </li>
-          <li class="nav-item d-flex align-items-start" id="colapsedHamburguer">
-            <li class="nav-link grey-hover-notification d-flex align-items-start" data-bs-toggle="modal" data-bs-target="#modalNotifications" role="button" >
+          <li class="nav-item d-flex align-items-start mt-2" id="colapsedHamburguer">
+            <li class="nav-link grey-hover-notification d-flex align-items-start" data-bs-toggle="modal"  id="colapsedHamburguer" data-bs-target="#modalNotifications" role="button" >
                 <button type="button" class="navbar-icon " >
                   <span class="material-icons-round">notifications</span>
                 </button>
                 <span class="badge rounded-pill badge-notification bg-danger mt-2">1</span>
                 <span class="">Notifications</span>
             </li>
-            <li><a class=" grey-hover" href="my_profile.php#" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a></li>
+            <li><a class=" mt-2 grey-hover" href="my_profile.php#" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a></li>
             <li><a class=" mt-2 grey-hover" href="accsettings.php#" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">settings</span> Account Settings</a></li>
             <li><a class=" mt-2 grey-hover" href="logout_mainpage.php#"id= "colapsedHamburguer"><span class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span> Log out</a></li>
           </li>
