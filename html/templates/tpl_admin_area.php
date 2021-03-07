@@ -24,7 +24,7 @@
                 <button class="nav-link active w-100 text-center" id="pills-posts-tab" data-bs-toggle="pill" data-bs-target="#pills-reported-posts" type="button" role="tab" aria-controls="pills-reported_posts" aria-selected="true">Posts</button>
             </li>
             <li class="nav-item col-3" role="presentation">
-                <button class="nav-link w-100 text-center" id="pills-comments-tab" data-bs-toggle="pill" data-bs-target="#pills-reported-comments" type="button" role="tab" aria-controls="pills-comments" aria-selected="false">Comments</button>
+                <button class="nav-link w-100 text-center overflow-hidden" id="pills-comments-tab" data-bs-toggle="pill" data-bs-target="#pills-reported-comments" type="button" role="tab" aria-controls="pills-comments" aria-selected="false">Comments</button>
             </li>
             <li class="nav-item col-3" role="presentation">
                 <button class="nav-link w-100 text-center" id="pills-topics-tab" data-bs-toggle="pill" data-bs-target="#pills-reported-topics" type="button" role="tab" aria-controls="pills-topics" aria-selected="true">Topics</button>
