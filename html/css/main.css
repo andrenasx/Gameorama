@@ -754,6 +754,14 @@ a:hover {
   color: #0d6efd;
 }
 
+a.black-a{
+  color: black;
+}
+
+a.black-a:hover {
+  color: black;
+}
+
 /* styles for '...' */ 
 .truncate-multiple {
   /* hide text if it more than N lines  */
