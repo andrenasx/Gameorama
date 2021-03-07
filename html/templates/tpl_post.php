@@ -145,7 +145,7 @@
                 <img src="../assets/avatar3.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-10">
                     <div class = "d-flex justify-content-between">
-                        <h4>WanWan</h4>
+                        <h4>El_biden</h4>
                         <small style = "color: darkgray;">2 days ago</small>
                     </div>
                     <p>Essa webcam permite 1080p 60fps?</p>
