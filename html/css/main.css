@@ -1,5 +1,3 @@
-
-
 *{
   font-family: 'Poppins', sans-serif;
   --gameOrange: rgb(251,116,45);
@@ -72,7 +70,7 @@ body {
 
 #hamburguerIcon{
   
-min-width: 160px;
+min-width: 170px;
 
 
 
@@ -218,6 +216,7 @@ img.img-logo{
     width:230px !important;
     display: flex;
     justify-content: left;
+    margin-left: 5px;
   }
 
 }
@@ -553,9 +552,17 @@ hr {
   color: red;
 }
 
+
+#staticBackdropLabelReport{
+  color: red;
+}
+
+
 #staticBackdropLabelLogin{
   color: #0d6efd;
 }
+
+
 
 .game-quote{
   line-height: 10%;

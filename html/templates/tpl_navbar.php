@@ -1,29 +1,25 @@
-<?php 
-    function draw_navbar() { 
-    include_once("tpl_login_popup.php");
-?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+<?php
+include_once("tpl_login_popup.php");
+include_once("tpl_report_post.php");
+function draw_navbar() { ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light gx-0" id="navbar">
     <div class="container-fluid">
-        <div class="col-1" id="Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
-            <img src="../assets/Logo.png" class="img-logo" alt="">
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="col-lg-6" id="navbar_search">
-                <form class="col-lg-6 d-flex " style="width:85%">
-                    <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"></input>
+      <div class="col-1 ps-1" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
+        <img src="../assets/Logo.png" class="img-logo" alt = "" >
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="col-lg-6" id="navbar_search">
+          <form class="col-lg-6 d-flex " style="width:85%" >
+          <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
+            <input class="form-control" type="search" placeholder="Search"aria-label="Search" ></input>
 
-                    <!--<div class="form-floating col-12" id="search_bar_form">
-            <input class="form-control" id="search_bar" type="search" placeholder=" " required autofocus>
-            <label for="search_bar" class="col-12 d-flex text-start" >Search <span class="material-icons-round col-11 col-lg-10 col-xxl-11 d-flex justify-content-end" style=" color:darkgrey;" id="navbar_search_icon">search</span></label>
-            </div>-->
-                </form>
-            </div>
-            <ul class="navbar-nav d-flex justify-content-end">
+           
+          </form>
+        </div>
+        <ul class="navbar-nav d-flex justify-content-end" >
 
                 <button class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn"
                     data-bs-toggle="modal" data-bs-target="#loginRequired">
@@ -32,48 +28,20 @@
                     </row>
                 </button>
 
-
-                <li class="nav-item dropdown d-flex " id="hamburguerIcon">
-                    <a class="nav-link gx-0 mx-0 px-0" href="#" id="navbarDropdown" role="button" aria-expanded="false">
-                        <button type="button" class="navbar-icon" data-bs-toggle="modal" data-bs-target="#modalNotifications" style="margin-top:2px" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'">
-                            <span class="material-icons-round">notifications</span>
-                        </button>
-                        <span class="badge rounded-pill badge-notification bg-danger">2</span>
-                    </a>
-                    <a class="nav-link dropdown-toggle d-flex mt-1" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'">
-                        <span class="material-icons-round me-1">account_circle</span> WanWan
-                    </a>
-                    <ul class="dropdown-menu" id="hamburguerMenu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="my_profile.php#">My Profile</a></li>
-                        <li><a class="dropdown-item" href="accsettings.php#">Account Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="logout_mainpage.php#">Log out</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item d-flex" id="colapsedHamburguer">
-                    <a class="nav-link text-dark gx-0 mx-0 px-0" href="#" id="navbarDropdown" role="button" aria-expanded="false">
-                        <button type="button" class="navbar-icon" data-bs-toggle="modal" data-bs-target="#modalNotifications">
-                            <span class="material-icons-round">notifications</span>
-                        </button>
-                        <span class="badge rounded-pill badge-notification bg-danger">2</span> Notifications
-                    </a>
-                <li>
-                    <a class="dropdown-item" href="my_profile.php#" id="colapsedHamburguer">
-                        <span class="material-icons-round" style="margin-right:20px">account_circle</span> My Profile
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item mt-2" href="accsettings.php#" id="colapsedHamburguer">
-                        <span class="material-icons-round" style="margin-right:20px">settings</span> Account Settings
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item mt-2" href="logout_mainpage.php#" id="colapsedHamburguer">
-                        <span class="material-icons-round" style="font-weight: bold;margin-right:20px">logout</span> Log out
-                    </a>
-                </li>
+          <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
+              <a class="nav-link gx-0 mx-0 px-0" href="#" id="navbarDropdown" role="button" aria-expanded="false"  >
+              <button type="button" class="navbar-icon" data-bs-toggle="modal" data-bs-target="#modalNotifications" style="margin-top:2px" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'"><span class="material-icons-round">notifications</span></button>
+                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              </a>
+              <a class="nav-link dropdown-toggle d-flex mt-1 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="this.style.color='var(--bsBlue)'" onmouseout="this.style.color='black'">
+              <span class="material-icons-round me-1">account_circle</span>
+                WanWan
+              </a>
+            <ul class="dropdown-menu" id="hamburguerMenu"aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="my_profile.php#">My Profile</a></li>
+              <li><a class="dropdown-item" href="accsettings.php#">Account Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="logout_mainpage.php#">Log out</a></li>
             </ul>
         </div>
     </div>
@@ -124,7 +92,7 @@
 
 
 <?php function draw_logout_navbar() { ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-0 gx-0" id="navbar">
     <div class="container-fluid">
         <div class="col-1" id="Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
             <img src="../assets/Logo.png" class="img-logo" alt="">
@@ -137,11 +105,6 @@
                 <form class="col-lg-6 d-flex " style="width:85%">
                     <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search"></input>
-
-                    <!--<div class="form-floating col-12" id="search_bar_form">
-              <input class="form-control" id="search_bar" type="search" placeholder=" " required autofocus>
-              <label for="search_bar" class="col-12 d-flex text-start" >Search <span class="material-icons-round col-11 col-lg-10 col-xxl-11 d-flex justify-content-end" style=" color:darkgrey;" id="navbar_search_icon">search</span></label>
-            </div>-->
                 </form>
             </div>
             <ul class="navbar-nav d-flex justify-content-end">
