@@ -17,6 +17,12 @@ body {
 
 }
 
+@media (min-width: 768px){
+  .container{
+    max-width: 90%;
+  }
+}
+
 .badge-notification{
     background:red;
     position:relative;
@@ -441,30 +447,15 @@ form h2{
   color: var(--gameOrange);
 }
 
-.profile_navigation li a{
+.pill-navigation li a{
   color: darkgray;
 }
 
-/*
-#pills-tab  {
-  border: 1px solid darkgray;
-
-}
-
-#pills-tab li:nth-child(1) {
-  border-right: 1px solid darkgray;
-}
-
-#pills-tab li:nth-child(2) {
-  border-right: 1px solid darkgray;
-}*/
-
-.profile_navigation .nav-link.active, .topic_navigation .nav-link.active{
+.pill-navigation .nav-link.active{
   background-color: transparent;
   border-bottom: 3px solid var(--gameOrange);
   color: black;
   border-radius: 0%;
-
 }
 
 /*  Post page   */
@@ -668,7 +659,7 @@ hr {
 
 /*   Topic Page    */
 
-#topic_page > h3:first-child {
+.color-orange {
   color: var(--gameOrange)
 }
 

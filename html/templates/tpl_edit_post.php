@@ -1,9 +1,7 @@
-<?php 
-function draw_edit_post() {
-?>
-    <section class = "p-3 p-lg-5 mt-4 col-lg-8 pb-1 container bg-white" style = "height:fit-content">
-            <h1 class="h2 fw-bold">Edit a Post</h1>
-            <hr class="rounded"></hr>
+<?php function draw_edit_post() { ?>
+    <section class="p-3 p-lg-5 mt-sm-4 col-lg-7 container bg-white rounded">
+        <h2 class="h2 fw-bold">Edit a Post</h2>
+        <hr class="rounded"></hr>
 
         <section class = "container w-100 mt-5 form-group">
             <form action="">
@@ -16,8 +14,8 @@ function draw_edit_post() {
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho.</textarea>
                 </div>
                 <h6>Topics</h6>
-                <div class = "container bg-white border">
-                    <div class = "d-flex justify-content-start me-0 py-2">
+                <div class="bg-white rounded border p-2">
+                    <div class = "d-flex justify-content-start me-0">
                         <button type="button" class="btn btn-light me-2">League of Legends</button>
                         <button type="button" class="border d-flex align-items-center rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <span class="material-icons-round">add</span>

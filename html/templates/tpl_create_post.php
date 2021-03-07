@@ -1,8 +1,6 @@
-<?php 
-function draw_create_post() {
-?>
-    <section class = "p-3 p-lg-5 mt-4 col-lg-8 pb-1 container bg-white" style = "height:fit-content">
-        <h1 class="h2 fw-bold">Create a Post</h1>
+<?php function draw_create_post() { ?>
+    <section class="p-3 p-lg-5 mt-sm-4 col-lg-7 container bg-white rounded">
+        <h2 class="h2 fw-bold">Create a Post</h2>
         <hr class="rounded"></hr>
 
         <section class = "container w-100 mt-5 form-group">
@@ -16,7 +14,7 @@ function draw_create_post() {
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                 </div>
                 <h6>Topics</h6>
-                <div class = "container bg-white border">
+                <div class = "bg-white rounded border p-2">
                     <div class = "d-flex justify-content-start me-0 p-2">
                         <div class = "bg-secondary ">
                         <button type="button" class="border d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
