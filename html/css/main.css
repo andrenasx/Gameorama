@@ -772,3 +772,29 @@ a:hover {
   border: none;
   background: none;
 }
+
+/*  Edit profile   */
+
+.edit_profile_username h2{
+  color: var(--gameOrange);
+}
+
+.edit_banner_photo {
+  position: absolute;
+  top: 0;
+  right:0%;
+}
+
+.camera_icon span{
+  color: grey
+}
+
+.edit_profile_photo {
+  margin-left: 54%
+}
+
+@media (max-width: 768px){
+  .edit_profile_photo {
+    margin-left: 58%
+  }
+}
