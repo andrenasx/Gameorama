@@ -44,7 +44,7 @@
                                     <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                                 </li>
                                 <li>
-                                    <span class="score d-flex justify-content-center" id="score">23.0k</span>
+                                    <span class="score d-flex justify-content-center" id="score">23</span>
                                 </li>
                                 <li>
                                     <span class="downvote material-icons-round d-flex justify-content-center">south</span>
@@ -52,24 +52,30 @@
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h6>
-                            <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
-                            <h4 class="post-title-smaller">Razer apresenta webcam Kiyo Pro</h4>
+                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a href="../pages/topic.php">Razer</a></h6>
+                            <div class="d-inline">
+                                <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                                <small>45 minutes ago</small>
+                            </div>
+                            <h4 class="post-title-smaller">
+                                <a href="../pages/post.php" class="black-a">Razer apresenta webcam Kiyo Pro</a>
+                            </h4>
                         </div>
                     </header>
                     <div class="news-card-body">
-                        <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
-                            style="max-height: 650px" src="https://via.placeholder.com/3840x2160">
-                        <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+                        <a href="../pages/post.php" class="black-a">
+                            <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
+                                style="max-height: 650px" src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg">
+                            <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+                        </a>
                     </div>
-                    <div class="row mt-4 news-card-options">
+                    <div class="row mt-4">
                         <hr class="admin_hr">
 
-                    <div class="d-flex justify-content-between">
-                        <h4 class = "text-danger">10 Reports</h4>
-                        <span class="material-icons-round">more_horiz</span>
-                    </div>
-
+                        <div class="d-flex justify-content-between">
+                            <h4 class = "text-danger">10 Reports</h4>
+                            <span class="material-icons-round">more_horiz</span>
+                        </div>
                     </div>
                 </div> <!-- /.news-card -->
             </div>
@@ -79,7 +85,7 @@
                 <section class="bg-white rounded py-2">
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="d-flex justify-content-between">
-                            <h5 class = "font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
+                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Razer apresenta webcam Kiyo Pro</a>"</h5>
                             <small style = "color: darkgray;">35 minutes ago</small>
                         </div>
 
@@ -93,7 +99,7 @@
 
                     <div class="row m-3 p-2 rounded bg-white border">
                         <div class="d-flex justify-content-between">
-                            <h5 class = "font-weight-bold">on "Gran Turismo 7 adiado para 2022" </h5>
+                            <h5 class = "font-weight-bold">on "<a href="../pages/post.php">Gran Turismo 7 adiado para 2022</a>"</h5>
                             <small style = "color: darkgray;">2 hours ago</small>
                         </div>
 
@@ -115,7 +121,7 @@
                             <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col-md-10 col-8 d-flex">
                                 <div>
-                                    <h4>League of Legends</h4>
+                                    <h4><a href="../pages/topic.php">League of Legends</a></h4>
                                     <p class="h6 fw-normal">1,5M Followers</p>
                                 </div>
                             </div>
@@ -133,7 +139,7 @@
                             <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col-md-10 col-8 d-flex">
                                 <div>
-                                    <h4>Lego Starwars</h4>
+                                    <h4><a href="../pages/topic.php">Lego Starwars</a></h4>
                                     <p class="h6 fw-normal">135k Followers</p>
                                 </div>
                             </div>
@@ -156,7 +162,7 @@
                             <img src="../assets/avatar4.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col justify-content-between">
                                 <div>
-                                    <h4>Legalt_of_Rivia</h4>
+                                    <h4><a href="../pages/profile.php">Legalt_of_Rivia</a></h4>
                                     <div class="row">
                                         <h6 class="col-12 col-sm-6">135k Followers</h6>
                                         <h6 class="col-12 col-sm-6">5,758,783 Aura Score</h6>
@@ -177,7 +183,7 @@
                             <img src="../assets/avatar1.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col justify-content-between">
                                 <div>
-                                    <h4>kaka34</h4>
+                                    <h4><a href="../pages/profile.php">kaka34</a></h4>
                                     <div class="row">
                                         <h6 class="col-12 col-sm-6">8,5k Followers</h6>
                                         <h6 class="col-12 col-sm-6">10,535 Aura Score</h6>
