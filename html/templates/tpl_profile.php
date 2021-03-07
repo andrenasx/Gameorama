@@ -9,7 +9,7 @@
                 </div>
                 <row class="d-flex justify-content-end col-12">
                     <button type="button" class="btn d-flex align-content-center mt-1 me-1">
-                        <span class="btn-outline-report" style="font-size: 200%;">flag</span>
+                        <span class="btn-outline-red" style="font-size: 200%;">flag</span>
                     </button>
                 </row>
             </div>
@@ -91,16 +91,16 @@
                         <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                     </div>
                     <div class="row mt-4 news-card-options">
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">mode_comment</span>
                             <span class="d-none d-md-block"> 321</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red">
+                            <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -132,16 +132,16 @@
                         <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                     </div>
                     <div class="row mt-4 news-card-options">
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">mode_comment</span>
                             <span class="d-none d-md-block"> 321</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red">
+                            <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -196,22 +196,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php function draw_own_profile() { ?>
 <section class="container g-0 mx-auto mt-sm-4 col-lg-7">
     <section class="profile-widget bg-white rounded mb-3">
@@ -223,14 +207,14 @@
                 </div>
                 <row class="d-flex justify-content-end col-12">
                     <button type="button" class="btn d-flex align-content-center mt-1 me-1" onclick = "location.href = '../pages/edit_profile.php'">
-                        <span class="btn-outline-report" style="font-size: 200%;">create</span>
+                        <span class="btn-outline-blue" style="font-size: 200%;">create</span>
                     </button>
                 </row>
             </div>
         </div>
 
         <div class="col-sm-12">
-            <div class="details mt-5">
+            <div class="details">
                 <h3>Nick Rogers</h3>
                 <h4 class="color-orange fst-italic">WanWan</h4>
                 <p>103,261 Aura Score</p>
@@ -977,16 +961,16 @@
                         <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                     </div>
                     <div class="row mt-4 news-card-options">
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">mode_comment</span>
                             <span class="d-none d-md-block"> 321</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red">
+                            <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -1018,16 +1002,16 @@
                         <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                     </div>
                     <div class="row mt-4 news-card-options">
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">mode_comment</span>
                             <span class="d-none d-md-block"> 321</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red">
+                            <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -1102,16 +1086,16 @@
                         <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                     </div>
                     <div class="row mt-4 news-card-options">
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">mode_comment</span>
                             <span class="d-none d-md-block"> 321</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red">
+                            <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>

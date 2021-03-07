@@ -54,16 +54,16 @@
                                 <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -101,16 +101,16 @@ Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerf
 Como não poderia deixar de ser, Viego contará com uma skin própria intitulada Lunar Beast Viego, e irá conceder a sua própria linha de skins, "Ruined", a começar por Shyvana, Draven e Karma.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
-                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1 ">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
-                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1 ">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -147,16 +147,16 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
 A informação é avançada pelo site da Entertainment Software Rating Board (ESRB), onde podemos encontrar uma página dedicada a esta versão do jogo de 2013, classificando a versão da Switch para "Everyone."</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -193,16 +193,16 @@ A informação é avançada pelo site da Entertainment Software Rating Board (ES
 O mais recente título da Naughty Dog, The Last of Us - Part II, alcançou o título de jogo mais galardoado de sempre, sucedendo assim a The Witcher 3: Wild Hunt.
 Esta informação é avançada pelo site Game Awards, que assinala que The Last of Us 2, o vencedor da categoria de Jogo do Ano do The Game Awards, alcançou um total de 261 prémios (até agora), ultrapassando assim os 260 alcançados pelo título de 2015 da CD Projekt Red.                            </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -241,16 +241,16 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
 O mais recente título da Naughty Dog, The Last of Us - Part II, alcançou o título de jogo mais galardoado de sempre, sucedendo assim a The Witcher 3: Wild Hunt.
 Esta informação é avançada pelo site Game Awards, que assinala que The Last of Us 2, o vencedor da categoria de Jogo do Ano do The Game Awards, alcançou um total de 261 prémios (até agora), ultrapassando assim os 260 alcançados pelo título de 2015 da CD Projekt Red.                            </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -286,16 +286,16 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 <p class="card-text truncate-multiple">A franquia estrela da Rockstar, Grand Theft Auto, é das mais acarinhadas e desejadas pelo público. Prova disso é ainda hoje podermos contar com novidades por parte da Take-Two que, querendo corresponder às expectativas dos fãs, aborda temas como a possível produção de um GTA 6 ou remasterização de anteriores jogos de sucesso.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -332,16 +332,16 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
 A atualização foi anunciada através do Twitter e já está disponível para PC, corrigindo dois elementos que podiam ser potencialmente utilizados para ativar ficheiros prejudiciais escondidos dentro de mods.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -377,16 +377,16 @@ A atualização foi anunciada através do Twitter e já está disponível para P
                                 <p class="card-text truncate-multiple">A PlayStation 5 estará disponível em Portugal a partir do dia 19 de novembro em duas versões, uma normal (€499) e outra sem o leitor de Blu-ray (€399). Não existem diferenças de especificações entre elas, uma é dedicada àqueles que abraçaram em definitivo o mundo digital, enquanto outra serve os que não abdicam do formato físico para adornar as prateleira com os seus jogos favoritos, graças à drive ótica preparada para os Ultra HD Blu-ray de até 100GB.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -423,16 +423,16 @@ A atualização foi anunciada através do Twitter e já está disponível para P
                                 <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -470,16 +470,16 @@ Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerf
 Como não poderia deixar de ser, Viego contará com uma skin própria intitulada Lunar Beast Viego, e irá conceder a sua própria linha de skins, "Ruined", a começar por Shyvana, Draven e Karma.</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>
@@ -516,16 +516,16 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
 A informação é avançada pelo site da Entertainment Software Rating Board (ESRB), onde podemos encontrar uma página dedicada a esta versão do jogo de 2013, classificando a versão da Switch para "Everyone."</p>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-block"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center blue-hover">
+                                <div class="col d-flex justify-content-center btn-outline-blue">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center red-hover">
-                                    <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                                <div class="col d-flex justify-content-center btn-outline-red">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
                             </div>

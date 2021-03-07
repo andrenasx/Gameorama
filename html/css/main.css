@@ -224,21 +224,84 @@ img.img-logo{
 }
 
 
-.btn-outline-report {
+.btn-outline-red {
   font-family: 'Material Icons Outlined';
   color: black;
   border:none;
   transition: 0.15s all ease-in;
 }
-.btn-outline-report:hover {
+.btn-outline-red:hover{
   font-family: 'Material Icons Round'!important;
   color: red;
   border:none;
+  cursor: pointer;
 }
 
-.nav-link.dropdown-toggle.d-flex.mt-1{
+.btn-outline-red:hover :first-child {
+  font-family: 'Material Icons Round'!important;
+  color: red;
+  border:none;
+  cursor: pointer;
+}
+
+.btn-outline-blue {
+  font-family: 'Material Icons Outlined';
+  color: black;
+  border:none;
+  transition: 0.15s all ease-in;
+  
+}
+
+.btn-outline-blue:hover :first-child {
+  font-family: 'Material Icons Round'!important;
+  color: var(--bsBlue);
+  border:none;
+  cursor: pointer;
+
+}
+.btn-outline-blue:hover {
+  font-family: 'Material Icons Round'!important;
+  color: var(--bsBlue);
+  border:none;
+  cursor: pointer;
+}
+
+
+
+
+
+.grey-hover{
+  transition: 0.15s all ease-in;
+  color:black;
+  
+}
+
+.grey-hover-notification :last-child {
+  transition: 0.15s all ease-in;
   color:black;
 }
+
+
+.grey-hover:hover  {
+  color:grey;
+}
+.grey-hover:hover > *  {
+  color:grey;
+}
+
+.grey-hover-notification{
+  transition: 0.15s all ease-in;
+  color:black;
+  
+}
+.grey-hover-notification:hover :first-child {
+  color:grey;
+}
+.grey-hover-notification:hover :last-child {
+  color:grey;
+}
+
+
 
 .nav-link.dropdown-toggle.d-flex.mt-1::after {
   
@@ -743,6 +806,13 @@ hr {
   color: red;
   cursor: pointer;
 }
+
+
+
+
+
+
+
 
 a {
   color: inherit;
