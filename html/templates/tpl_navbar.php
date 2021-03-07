@@ -4,7 +4,7 @@ include_once("tpl_report_post.php");
 function draw_navbar() { ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light gx-0" id="navbar">
     <div class="container-fluid">
-      <div class="col-1 ps-1" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
+      <div class="col-1 ps-lg-2" id= "Logo" onclick="window.location.href='mainpage.php#'" style="cursor:pointer;">
         <img src="../assets/Logo.png" class="img-logo" alt = "" >
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +43,18 @@ function draw_navbar() { ?>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="logout_mainpage.php#">Log out</a></li>
             </ul>
+        </li>
+          <li class="nav-item d-flex" id="colapsedHamburguer">
+            <a class="nav-link text-dark gx-0 mx-0 px-0" href="#" id="navbarDropdown" role="button" aria-expanded="false" >
+              <button type="button" class="navbar-icon" data-bs-toggle="modal" data-bs-target="#modalNotifications"><span class="material-icons-round">notifications</span></button>
+                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                Notifications
+              </a>
+            <li><a class="dropdown-item" href="my_profile.php#" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:20px">account_circle</span> My Profile</a></li>
+            <li><a class="dropdown-item mt-2" href="accsettings.php#" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:20px">settings</span> Account Settings</a></li>
+            <li><a class="dropdown-item mt-2" href="logout_mainpage.php#"id= "colapsedHamburguer"><span class="material-icons-round" style="font-weight: bold;margin-right:20px">logout</span> Log out</a></li>
+          </li>
+        </ul>
         </div>
     </div>
     <div class="modal fade" id="modalNotifications" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
