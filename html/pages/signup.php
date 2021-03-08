@@ -4,5 +4,4 @@
 
   draw_header();
   draw_signup();
-  draw_footer();
 ?>

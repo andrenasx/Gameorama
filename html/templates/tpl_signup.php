@@ -39,7 +39,7 @@
                     </div>
                     <p></p>
                     <a class="mt-3 blue-hover" id="signUpLogin" href="login.php">Already have an account? Login</a>
-                    <p class="mt-4 mb-1 text-muted">&copy; LBAW 2021</p>
+                    <p class="mt-4 mb-1 text-muted">&copy; Copyright 2021 Gameorama. All rights reserved.</p>
             </form>
         </main>
     </section>

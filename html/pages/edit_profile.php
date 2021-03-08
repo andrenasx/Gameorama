@@ -6,4 +6,5 @@
   draw_header();
   draw_navbar();
   draw_edit_profile();
+  draw_footer();
 ?>

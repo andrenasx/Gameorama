@@ -1,7 +1,7 @@
 <?php
 function draw_edit_profile() {
 ?>
-    <section class="container g-0 mx-auto mt-sm-4 col-lg-7">
+    <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
             <row class="mb-3">
                 <div class="col-12 justify-content-center">
@@ -28,7 +28,6 @@ function draw_edit_profile() {
             <div class="mt-2 edit_profile_username">
                 <h2 class="h2 fw-bold text-center">WanWan</h2>
             </div>
-
             
             <section class = "container w-100 mt-2 form-group p-2">
                 <form action="">

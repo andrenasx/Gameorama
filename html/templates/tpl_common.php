@@ -33,8 +33,7 @@
                 <a class="ms-2" href="../pages/mainpage.php">About Us</a>
             </div>
             
-            
-            <span class="color-orange col-12 col-md-8 text-md-end">© Copyright 2021 Gameorama. All rights reserved.</span>
+            <span class="color-orange col-12 col-md-8 text-md-end">&copy; Copyright 2021 Gameorama. All rights reserved.</span>
         </div>
     </footer>
 </html>

@@ -1,5 +1,5 @@
 <?php function draw_create_post() { ?>
-    <section class="p-3 p-lg-5 mt-sm-4 col-lg-7 container bg-white rounded">
+    <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
         <h2 class="h2 fw-bold">Create a Post</h2>
         <hr class="rounded"></hr>
 

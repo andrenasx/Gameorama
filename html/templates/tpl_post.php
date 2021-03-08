@@ -1,5 +1,5 @@
 <?php function draw_post() { ?>
-<section class="container bg-white g-0 mx-auto mt-sm-4 col-lg-7">
+<section class="container bg-white g-0 mx-auto my-4 col-lg-7">
     <section class="news-card mb-3 p-4 rounded bg-white">
         <header class="row news-card-header">
             <div class="post-voting col-1 d-flex justify-content-center">
