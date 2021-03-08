@@ -7,7 +7,7 @@
         <div class="row align-items-center mt-5">
             <img src="../assets/avatar5.png" class="rounded-circle col-2 px-0" alt="" style="max-width: 100px">
             <div class="col-10 mt-3">
-                <h3 class="h2 fw-bold">Admin9218</h3>
+                <h3 class="h3 fw-bold">Admin9218</h3>
                 <p>In this area you can delete content that is misleading and abusive.</p>
         
             </div>
@@ -82,14 +82,15 @@
 
 
             <div class="tab-pane fade show" id="pills-reported-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded py-2">
-                    <div class="row m-3 p-2 rounded bg-white border">
-                        <div class="d-flex justify-content-between">
+                <section class="bg-white rounded p-4">
+                    <div class="row p-3 g-0 mb-3 rounded border">
+                        <header class="d-flex justify-content-between">
                             <h5 class="font-weight-bold">on "<a href="../pages/post.php">Razer apresenta webcam Kiyo Pro</a>"</h5>
                             <small style = "color: darkgray;">35 minutes ago</small>
-                        </div>
+                        </header>
 
                         <p>Parece um ótimo produto!</p>
+                        
                         <hr class="admin_hr mt-2">
                         <div class="d-flex justify-content-between">
                             <h4 class = "text-danger">10 Reports</h4>
@@ -97,26 +98,27 @@
                         </div>
                     </div>
 
-                    <div class="row m-3 p-2 rounded bg-white border">
-                        <div class="d-flex justify-content-between">
-                            <h5 class = "font-weight-bold">on "<a href="../pages/post.php">Gran Turismo 7 adiado para 2022</a>"</h5>
+                    <div class="row p-3 g-0 rounded border">
+                        <header class="d-flex justify-content-between">
+                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Gran Turismo 7 adiado para 2022</a>"</h5>
                             <small style = "color: darkgray;">2 hours ago</small>
-                        </div>
+                        </header>
 
                         <p>Estou mesmo ansioso!</p>
+                        
                         <hr class="admin_hr mt-2">
                         <div class="d-flex justify-content-between">
                             <h4 class = "text-danger">5 Reports</h4>
                             <span class="material-icons-round">more_horiz</span>
                         </div>
-                    </div> 
+                    </div>
                 </section>
             </div>
 
 
             <div class="tab-pane fade show" id="pills-reported-topics" role="tabpanel" aria-labelledby="pills-topics-tab">
-                <section class="bg-white rounded py-2">
-                    <div class="row m-3 p-2 rounded bg-white border">
+                <section class="bg-white rounded p-4">
+                    <div class="row p-3 g-0 mb-3 rounded border">
                         <div class="row align-items-center">
                             <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col-md-10 col-8 d-flex">
@@ -134,7 +136,7 @@
                         </div>
                     </div>
 
-                    <div class="row m-3 p-2 rounded bg-white border">
+                    <div class="row p-3 g-0 rounded border">
                         <div class="row align-items-center">
                             <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col-md-10 col-8 d-flex">
@@ -156,8 +158,8 @@
 
 
             <div class="tab-pane fade show" id="pills-reported-users" role="tabpanel" aria-labelledby="pills-users-tab">
-                <section class="bg-white rounded py-2">
-                    <div class="row m-3 p-2 rounded bg-white border">
+                <section class="bg-white rounded p-4">
+                    <div class="row p-3 g-0 mb-3 rounded border">
                         <div class="row align-items-center">
                             <img src="../assets/avatar4.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col justify-content-between">
@@ -178,7 +180,7 @@
                         </div>
                     </div>
 
-                    <div class="row m-3 p-2 rounded bg-white border">
+                    <div class="row p-3 g-0 rounded border">
                         <div class="row align-items-center">
                             <img src="../assets/avatar1.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                             <div class="col justify-content-between">
