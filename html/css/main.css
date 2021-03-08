@@ -80,7 +80,7 @@ min-width: 170px;
 
 
 #navbar{
-border-bottom: 2px solid rgba(0,0,0,0.2);
+border-bottom: 2px solid rgba(0,0,0,0.1);
 }
 
 #search_bar_form.form-floating>.form-control:focus~label{
@@ -969,4 +969,8 @@ a.black-a:hover {
   .edit_profile_photo {
     margin-left: 58%
   }
+}
+
+.footer{
+  border-top: 2px solid rgba(0,0,0,0.1);
 }
