@@ -23,10 +23,10 @@ function draw_profile() { ?>
                     <h4 class="color-orange fst-italic">kaka34</h4>
                     <p>214,385 Aura Score</p>
                     <p class="bio mb-4 px-3">What's up! I'm kaka34 and I love sports games, especially FIFA! Every other game is bad (this is my opinion and therefore the truth).</p>
-                    <button type="button" class="follow-button btn btn-outline-primary col-4 mb-1"></button>
+                    <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3"></button>
                 </div>
             </div>
-            <section class="follow_stats mt-2 mb-3">
+            <section class="follow_stats pb-3">
                 <div class="row d-flex justify-content-around">
                     <div class="col text-center">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
@@ -61,92 +61,90 @@ function draw_profile() { ?>
 
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
-            <div class="news-card mb-3 p-4 rounded bg-white">
-            <header class="row news-card-header">
-                <div class="post-voting col-1 d-flex justify-content-center">
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                        </li>
-                        <li>
-                            <span class="score d-flex justify-content-center" id="score">23</span>
-                        </li>
-                        <li>
-                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h6 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a href="../pages/topic.php">Razer</a></h6>
-                    <div class="d-inline">
-                        <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
-                        <small>45 minutes ago</small>
+                <div class="news-card mb-3 p-4 rounded bg-white">
+                    <header class="row news-card-header">
+                        <div class="post-voting col-1 d-flex justify-content-center">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                </li>
+                                <li>
+                                    <span class="score d-flex justify-content-center" id="score">23</span>
+                                </li>
+                                <li>
+                                    <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a href="../pages/topic.php">Razer</a></h6>
+                            <div class="d-inline">
+                                <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                                <small>45 minutes ago</small>
+                            </div>
+                            <h4 class="post-title-smaller">
+                                <a href="../pages/post.php" class="black-a">Razer apresenta webcam Kiyo Pro</a>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="news-card-body">
+                        <a href="../pages/post.php" class="black-a">
+                            <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
+                                style="max-height: 650px" src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg">
+                            <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+                        </a>
                     </div>
-                    <h4 class="post-title-smaller">
-                        <a href="../pages/post.php" class="black-a">Razer apresenta webcam Kiyo Pro</a>
-                    </h4>
-                </div>
-            </header>
-            <div class="news-card-body">
-                <a href="../pages/post.php" class="black-a">
-                    <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
-                        style="max-height: 650px" src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg">
-                    <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
-                </a>
-            </div>
-            <div class="row mt-4 news-card-options">
-                <div class="col d-flex justify-content-center btn-outline-blue">
-                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                    <span class="d-none d-md-block"> 321</span>
-                </div>
-                <div class="col d-flex justify-content-center btn-outline-blue">
-                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                    <span class="d-none d-md-block"> Bookmark</span>
-                </div>
-                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
-                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                    <span class="d-none d-md-block"> Report<span>
-                </div>
-            </div>
-        </div> <!-- /.news-card -->
+                    <div class="row mt-4 news-card-options">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                            <span class="d-none d-md-block"> 321</span>
+                        </div>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                            <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                            <span class="d-none d-md-block"> Bookmark</span>
+                        </div>
+                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <span class="material-icons-outlined align-middle me-1">flag</span>
+                            <span class="d-none d-md-block"> Report<span>
+                        </div>
+                    </div>
+                </div> <!-- /.news-card -->
             </div> <!-- .pills-posts -->
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded py-2">
-                    <div class="row m-3 p-2 py-3 rounded bg-white border">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
-                            <small style="color: darkgray;">35 minutes ago</small>
-                        </div>
+                <section class="bg-white rounded p-4">
+                    <div class="row p-3 g-0 mb-3 rounded border">
+                        <header class="d-flex justify-content-between">
+                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Razer apresenta webcam Kiyo Pro</a>"</h5>
+                            <small style = "color: darkgray;">35 minutes ago</small>
+                        </header>
 
                         <p>Parece um ótimo produto!</p>
+                        
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-2 d-flex justify-content-evenly vote">
-                                <span class="material-icons-round d-flex justify-content-center">north</span>
-                                <label class="d-flex justify-content-center">1</label>
-                                <span class="material-icons-round d-flex justify-content-center">south</span>
+                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                <label class = "score d-flex justify-content-center">1</label>
+                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
-
                             <span class="material-icons-round">more_horiz</span>
-
                         </div>
                     </div>
 
-                    <div class="row m-3 p-2 py-3 rounded bg-white border">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="font-weight-bold">on "Gran Turismo 7 adiado para 2022" </h5>
-                            <small style="color: darkgray;">2 hours ago</small>
-                        </div>
+                    <div class="row p-3 g-0 rounded border">
+                        <header class="d-flex justify-content-between">
+                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Gran Turismo 7 adiado para 2022</a>"</h5>
+                            <small style = "color: darkgray;">2 hours ago</small>
+                        </header>
+
                         <p>Estou mesmo ansioso!</p>
-
+                        
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-2 d-flex justify-content-evenly vote">
-                                <span class="material-icons-round d-flex justify-content-center">north</span>
-                                <label class="d-flex justify-content-center">3</label>
-                                <span class="material-icons-round d-flex justify-content-center">south</span>
+                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                <label class = "score d-flex justify-content-center">3</label>
+                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
-
                             <span class="material-icons-round">more_horiz</span>
-
                         </div>
                     </div>
                 </section>
@@ -154,6 +152,7 @@ function draw_profile() { ?>
         </div> <!-- .tab-content -->
     </section>
 </section>
+<script src="../js/voting.js"></script>
 <?php } ?>
 
 
@@ -182,13 +181,12 @@ function draw_profile() { ?>
                 <h4 class="color-orange fst-italic">WanWan</h4>
                 <p>103,261 Aura Score</p>
                 <p class="bio mb-4 px-3">Hello There! I'm WanWan and I'm a portuguese gamer that loves playing all kinds of games. In my profile you'll find the very best source of gaming news, have fun!</p>
-                <button type="button" class="follow-button btn btn-outline-primary col-4 mb-1"></button>
             </div>
         </div>
 
-        <section class="follow_stats mt-2 mb-3">
+        <section class="follow_stats pb-3">
             <div class="row d-flex justify-content-around">
-                <div class="col text-center mb-2">
+                <div class="col text-center">
                     <button type="button" class="text-button-profile" data-bs-toggle="modal"
                         data-bs-target="#modalFollowing">854 Following</button>
                 </div>
@@ -211,7 +209,7 @@ function draw_profile() { ?>
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Following</h5>
                     <button type="button" data-bs-dismiss="modal" id="close-window-button" aria-label="Close"><span
-                            class="material-icons-round" id="downvote">close</span></button>
+                            class="material-icons-round">close</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="profiles-container">
@@ -892,163 +890,154 @@ function draw_profile() { ?>
 
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
-            <div class="news-card mb-3 p-4 rounded bg-white">
-                <div class="row news-card-header">
-                    <div class="post-voting col-1 d-flex justify-content-center">
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            </li>
-                            <li>
-                                <span class="score d-flex justify-content-center" id="score">18</span>
-                            </li>
-                            <li>
-                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
-                        <div class="d-inline">
-                            <small class="post-user">Posted by <a href="./profile.php">WanWan</a></small>
-                            <small>2 hours ago</small>
+                <div class="news-card mb-3 p-4 rounded bg-white">
+                    <div class="row news-card-header">
+                        <div class="post-voting col-1 d-flex justify-content-center">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                </li>
+                                <li>
+                                    <span class="score d-flex justify-content-center" id="score">18</span>
+                                </li>
+                                <li>
+                                    <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                </li>
+                            </ul>
                         </div>
-                        <h4 class="post-title-smaller">
-                            <a href="../pages/post.php" class="black-a">Champion Spotlight de Viego, The Ruined King</a>
-                        </h4>
+                        <div class="col">
+                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
+                            <div class="d-inline">
+                                <small class="post-user">Posted by <a href="./profile.php">WanWan</a></small>
+                                <small>2 hours ago</small>
+                            </div>
+                            <h4 class="post-title-smaller">
+                                <a href="../pages/post.php" class="black-a">Champion Spotlight de Viego, The Ruined King</a>
+                            </h4>
+                        </div>
                     </div>
-                </div>
-                <div class="news-card-body">
-                    <a href="../pages/post.php" class="black-a">
-                        <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
-                            style="max-height: 650px" src="https://s2.glbimg.com/zavTeT4iIiVKpefK-TWGsg0Tas0=/0x0:3840x2160/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/U/5/cfZdJHSCiXpc23vCzYGg/58332729.jpg">
-                        <p class="card-text truncate-multiple">
+                    <div class="news-card-body">
+                        <a href="../pages/post.php" class="black-a">
+                            <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
+                                style="max-height: 650px" src="https://s2.glbimg.com/zavTeT4iIiVKpefK-TWGsg0Tas0=/0x0:3840x2160/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/U/5/cfZdJHSCiXpc23vCzYGg/58332729.jpg">
+                            <p class="card-text truncate-multiple">
 Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerfs a personagens conhecidas como Akali e Maokai, e buffs a campeões como Shako e Varus. 
 Como não poderia deixar de ser, Viego contará com uma skin própria intitulada Lunar Beast Viego, e irá conceder a sua própria linha de skins, "Ruined", a começar por Shyvana, Draven e Karma.</p>
-                    </a>
-                </div>
-                <div class="row mt-4 news-card-options">
-                    <div class="col d-flex justify-content-center btn-outline-blue">
-                        <span class="material-icons-outlined align-middle me-1 ">mode_comment</span>
-                        <span class="d-none d-md-block"> 321</span>
+                        </a>
                     </div>
-                    <div class="col d-flex justify-content-center btn-outline-blue">
-                        <span class="material-icons-outlined align-middle me-1 ">bookmark_add</span>
-                        <span class="d-none d-md-block"> Bookmark</span>
+                    <div class="row mt-4 news-card-options">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                            <span class="material-icons-outlined align-middle me-1 ">mode_comment</span>
+                            <span class="d-none d-md-block"> 321</span>
+                        </div>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                            <span class="material-icons-outlined align-middle me-1 ">bookmark_add</span>
+                            <span class="d-none d-md-block"> Bookmark</span>
+                        </div>
+                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <span class="material-icons-outlined align-middle me-1">flag</span>
+                            <span class="d-none d-md-block"> Report<span>
+                        </div>
                     </div>
-                    <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
-                        <span class="material-icons-outlined align-middle me-1">flag</span>
-                        <span class="d-none d-md-block"> Report<span>
-                    </div>
-                </div>
-            </div> <!-- /.news-card -->
+                </div> <!-- /.news-card -->
             </div> <!-- .pills-posts -->
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded py-2">
-                    <div class="row m-3 p-2 py-3 rounded bg-white border">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="font-weight-bold">on "Razer apresenta webcam Kiyo Pro" </h5>
-                            <small style="color: darkgray;">35 minutes ago</small>
-                        </div>
+                <section class="bg-white rounded p-4">
+                    <div class="row p-3 mb-3 g-0 rounded border">
+                        <header class="d-flex justify-content-between">
+                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Razer apresenta webcam Kiyo Pro</a>"</h5>
+                            <small style = "color: darkgray;">35 minutes ago</small>
+                        </header>
 
                         <p>Parece um ótimo produto!</p>
+                        
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-2 d-flex justify-content-evenly vote">
-                                <span class="material-icons-round d-flex justify-content-center">north</span>
-                                <label class="d-flex justify-content-center">1</label>
-                                <span class="material-icons-round d-flex justify-content-center">south</span>
+                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                <label class = "score d-flex justify-content-center">1</label>
+                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
-
                             <span class="material-icons-round">more_horiz</span>
-
                         </div>
                     </div>
 
-                    <div class="row m-3 p-2 py-3 rounded bg-white border">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="font-weight-bold">on "Gran Turismo 7 adiado para 2022" </h5>
-                            <small style="color: darkgray;">2 hours ago</small>
-                        </div>
+                    <div class="row p-3 g-0 rounded border">
+                        <header class="d-flex justify-content-between">
+                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Gran Turismo 7 adiado para 2022</a>"</h5>
+                            <small style = "color: darkgray;">2 hours ago</small>
+                        </header>
+
                         <p>Estou mesmo ansioso!</p>
-
+                        
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-2 d-flex justify-content-evenly vote">
-                                <span class="material-icons-round d-flex justify-content-center">north</span>
-                                <label class="d-flex justify-content-center">3</label>
-                                <span class="material-icons-round d-flex justify-content-center">south</span>
+                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                <label class = "score d-flex justify-content-center">3</label>
+                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
-
                             <span class="material-icons-round">more_horiz</span>
-
                         </div>
                     </div>
                 </section>
             </div> <!-- .pills-comments -->
             <div class="tab-pane fade" id="pills-bookmarked" role="tabpanel" aria-labelledby="pills-bookmarked-tab">
-            <div class="news-card mb-3 p-4 rounded bg-white">
-                            <header class="row news-card-header">
-                                <div class="post-voting col-1 d-flex justify-content-center">
-                                    <ul class="list-unstyled mb-0">
-                                        <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                                        </li>
-                                        <li>
-                                            <span class="score d-flex justify-content-center" id="score">23</span>
-                                        </li>
-                                        <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col">
-                                    <h6 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a href="../pages/topic.php">Razer</a></h6>
-                                    <div class="d-inline">
-                                      <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
-                                      <small>45 minutes ago</small>
-                                    </div>
-                                    <h4 class="post-title-smaller">
-                                        <a href="../pages/post.php" class="black-a">Razer apresenta webcam Kiyo Pro</a>
-                                    </h4>
-                                </div>
-                            </header>
-                            <div class="news-card-body">
-                                <a href="../pages/post.php" class="black-a">
-                                    <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
-                                        style="max-height: 650px" src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg">
-                                    <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
-                                </a>
+                <div class="news-card mb-3 p-4 rounded bg-white">
+                    <header class="row news-card-header">
+                        <div class="post-voting col-1 d-flex justify-content-center">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                </li>
+                                <li>
+                                    <span class="score d-flex justify-content-center" id="score">23</span>
+                                </li>
+                                <li>
+                                    <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a href="../pages/topic.php">Razer</a></h6>
+                            <div class="d-inline">
+                                <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                                <small>45 minutes ago</small>
                             </div>
-                            <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
-                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                                    <span class="d-none d-md-block"> 321</span>
-                                </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
-                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                                    <span class="d-none d-md-block"> Bookmark</span>
-                                </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
-                                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                                    <span class="d-none d-md-block"> Report<span>
-                                </div>
-                            </div>
-                        </div> <!-- /.news-card -->
+                            <h4 class="post-title-smaller">
+                                <a href="../pages/post.php" class="black-a">Razer apresenta webcam Kiyo Pro</a>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="news-card-body">
+                        <a href="../pages/post.php" class="black-a">
+                            <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
+                                style="max-height: 650px" src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg">
+                            <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+                        </a>
+                    </div>
+                    <div class="row mt-4 news-card-options">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                            <span class="d-none d-md-block"> 321</span>
+                        </div>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                            <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                            <span class="d-none d-md-block"> Bookmark</span>
+                        </div>
+                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <span class="material-icons-outlined align-middle me-1">flag</span>
+                            <span class="d-none d-md-block"> Report<span>
+                        </div>
+                    </div>
+                </div> <!-- /.news-card -->
             </div> <!-- .pills-bookmarked -->
         </div> <!-- .tab-content -->
-    </section>
-    </div>
-    </div>
-    <?php } ?>
+</section>
+<script src="../js/voting.js"></script>
+<?php } ?>
+
+
+<?php draw_report_profile() ?>
 
 
 
-
-
-    <?php draw_report_profile() ?>
-
-
-
-    <?php draw_report_post() ?>
-
-
-
+<?php draw_report_post() ?>

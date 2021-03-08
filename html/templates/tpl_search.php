@@ -35,7 +35,7 @@
                                         <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                                     </li>
                                     <li>
-                                        <span class="score d-flex justify-content-center" id="score">23.0k</span>
+                                        <span class="score d-flex justify-content-center" id="score">5</span>
                                     </li>
                                     <li>
                                         <span class="downvote material-icons-round d-flex justify-content-center">south</span>
@@ -43,27 +43,34 @@
                                 </ul>
                             </div>
                             <div class="col">
-                                <h6 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h6>
-                                <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
-                                <h4 class="post-title-smaller">Razer apresenta webcam Kiyo Pro</h4>
+                                <h6 class="post-topics">Topics: <a href="../pages/topic.php">Lego Marvel Super Heroes</a></h6>
+                                <div class="d-inline">
+                                    <small class="post-user">Posted by <a href="./profile.php">Legalt_of_Rivia</a></small>
+                                    <small>6 hours ago</small>
+                                </div>
+                                <h4 class="post-title-smaller">
+                                    <a href="../pages/post.php" class="black-a">Rumor: LEGO Marvel Super Heroes a caminho da Switch</a>
+                                </h4>
                             </div>
                         </div>
                         <div class="news-card-body">
-                            <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
-                                style="max-height: 650px" src="https://via.placeholder.com/3840x2160">
-                            <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+                            <a href="../pages/post.php" class="black-a">
+                                <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
+                                    style="max-height: 650px" src="https://sm.ign.com/ign_pt/gallery/l/lego-aveng/lego-avengers-infinity-war-sets_49ef.jpg">
+                                <p class="card-text truncate-multiple">A informação é avançada pelo site da Entertainment Software Rating Board (ESRB), onde podemos encontrar uma página dedicada a esta versão do jogo de 2013, classificando a versão da Switch para "Everyone."</p>
+                            </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">mode_comment</span>
+                            <div class="col d-flex justify-content-center btn-outline-blue">
+                                <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                 <span class="d-none d-md-block"> 321</span>
                             </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">bookmark_add</span>
+                            <div class="col d-flex justify-content-center btn-outline-blue">
+                                <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                 <span class="d-none d-md-block"> Bookmark</span>
                             </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle">outlined_flag</span>
+                            <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <span class="material-icons-outlined align-middle me-1">flag</span>
                                 <span class="d-none d-md-block"> Report<span>
                             </div>
                         </div>
@@ -76,7 +83,7 @@
                                 <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                                 <div class="col-md-10 col-8 d-flex">
                                     <div>
-                                        <h4>League of Legends</h4>
+                                        <h4><a href="../pages/topic.php">League of Legends</a></h4>
                                         <p class="h6 fw-normal">1,5M Followers</p>
                                     </div>
                                 </div>
@@ -88,7 +95,7 @@
                                 <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                                 <div class="col-md-10 col-8 d-flex">
                                     <div>
-                                        <h4>Legends of Runeterra</h4>
+                                        <h4><a href="../pages/topic.php">Legends of Runeterra</a></h4>
                                         <p class="h6 fw-normal">300k Followers</p>
                                     </div>
                                 </div>
@@ -100,7 +107,7 @@
                                 <img src="../assets/L_icon.svg" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                                 <div class="col-md-10 col-8 d-flex">
                                     <div>
-                                        <h4>Lego Starwars</h4>
+                                        <h4><a href="../pages/topic.php">Lego Starwars</a></h4>
                                         <p class="h6 fw-normal">135k Followers</p>
                                     </div>
                                 </div>
@@ -115,7 +122,7 @@
                                 <img src="../assets/avatar4.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                                 <div class="col justify-content-between">
                                     <div>
-                                        <h4>Legalt_of_Rivia</h4>
+                                        <h4><a href="../pages/profile.php">Legalt_of_Rivia</a></h4>
                                         <div class="row">
                                             <h6 class="col-12 col-sm-6">135k Followers</h6>
                                             <h6 class="col-12 col-sm-6">5,758,783 Aura Score</h6>
@@ -130,7 +137,7 @@
                                 <img src="../assets/avatar1.png" alt="" class = "col-2 flex-shrink-0 rounded-circle" style="width:90px;height:auto;">
                                 <div class="col justify-content-between">
                                     <div>
-                                        <h4>LegendBoy7454</h4>
+                                        <h4><a href="../pages/profile.php">LegendBoy7454</a></h4>
                                         <div class="row">
                                             <h6 class="col-12 col-sm-6">15,8k Followers</h6>
                                             <h6 class="col-12 col-sm-6">1,151,320 Aura Score</h6>
