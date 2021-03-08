@@ -1048,8 +1048,7 @@ function draw_profile() { ?>
                             <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal"
-                            data-bs-target="#reportPost">
+                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
