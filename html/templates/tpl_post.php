@@ -1,6 +1,6 @@
 <?php function draw_post() { ?>
-<section class="container g-0 mx-auto mt-sm-4 col-lg-7">
-    <div class="news-card mb-3 p-4 rounded bg-white">
+<section class="container bg-white g-0 mx-auto mt-sm-4 col-lg-7">
+    <section class="news-card mb-3 p-4 rounded bg-white">
         <header class="row news-card-header">
             <div class="post-voting col-1 d-flex justify-content-center">
                 <ul class="list-unstyled mb-0">
@@ -33,29 +33,13 @@
                 </div>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://cdn.mos.cms.futurecdn.net/K6Ccm5f2sgpfZaRcQZwAAC-970-80.jpg.webp" alt="">
-
-                    <div class="container">
-                    <div class="carousel-caption text-start">
-                    </div>
-                    </div>
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg" alt="">
                 </div>
                 <div class="carousel-item">
                     <img src="https://assets2.razerzone.com/images/pnx.assets/fb10f4852b6142d195b24f0299f0e65d/768x460-kiyopro-hero-mobile.jpg" alt="">
-
-                    <div class="container">
-                    <div class="carousel-caption">
-
-                    </div>
-                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg" alt="">
-
-                    <div class="container">
-                    <div class="carousel-caption text-end">  
-                    </div>
-                    </div>
+                    <img src="https://cdn.mos.cms.futurecdn.net/K6Ccm5f2sgpfZaRcQZwAAC-970-80.jpg.webp" alt="">
                 </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -71,94 +55,118 @@
         </div>
         <div class="row mt-4 news-card-options">
             <div class="col d-flex justify-content-center blue-hover">
-                <span class="material-icons-outlined align-middle">mode_comment</span>
-                <span class="d-none d-md-block ms-2"> 321</span>
+                <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                <span class="d-none d-md-block"> 321</span>
             </div>
             <div class="col d-flex justify-content-center blue-hover">
-                <span class="material-icons-outlined align-middle">bookmark_add</span>
+                <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                 <span class="d-none d-md-block"> Bookmark</span>
             </div>
             <div class="col d-flex justify-content-center red-hover">
-                <span class="material-icons-outlined align-middle">outlined_flag</span>
+                <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
                 <span class="d-none d-md-block"> Report<span>
             </div>
         </div>
-    </div> <!-- /.news-card -->
+    </section> <!-- /.news-card -->
 
-    <section class="row g-0">
-        <div class="md-form amber-textarea active-amber-textarea px-0 ">
-            <textarea class="form-control" name="comment" rows="3" placeholder="Leave a comment"></textarea>
-            <button type="button" class="btn btn-primary mt-2" id = "add-comment-button">Add Comment</button>
-        </div>
-    </section>
+    
 
-    <section class="comments">
-        <div class = "row-lg-8 mt-4 g-0">
-            <div class = "d-flex bg-white p-2 p-4 rounded">
+    <section class="comments p-2 px-sm-4 mt-5 bg-white">
+        <section class="row g-0 mb-4">
+            <div class="md-form amber-textarea active-amber-textarea px-0 ">
+                <textarea class="form-control" name="comment" rows="4" placeholder="Leave a comment"></textarea>
+                <button type="button" class="btn btn-primary mt-2 float-end">Add Comment</button>
+            </div>
+        </section>
+
+        <!-- comment -->
+        <div class = "row g-0 border rounded">
+            <div class = "d-flex p-4">
                 <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
-                    <div class = "d-flex justify-content-between">
-                        <h4>kaka34</h4>
-                        <small style = "color: darkgray;">2 hours ago</small>
+                    <div class = "row justify-content-between g-0">
+                        <h4 class="col">kaka34</h4>
+                        <small class="col text-end" style = "color: darkgray;">2 hours ago</small>
                     </div>
                     
                     <p>Gostei muito desta câmara. É uma excelente opção para quem usa o Zoom para trabalhar.</p>
-                    
-                    <div class = "col pt-4 d-flex justify-content-around comment-icons">
-                        <div class = "col-2 d-flex justify-content-around">
-                            <span class="material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "d-flex justify-content-center">1178</label>
-                            <span class="material-icons-round d-flex justify-content-center">south</span>
-                        
+
+                    <div class="row mt-4">
+                        <div class = "col d-flex justify-content-center post-voting">
+                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                            <label class = "score d-flex justify-content-center">1178</label>
+                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
-                        <span class="material-icons-outlined">mode_comment</span> 
-                        <span class="material-icons-outlined report-button">outlined_flag</span>
+                        <div class="col d-flex justify-content-center blue-hover">
+                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                            <span class="d-none d-md-block"> Reply</span>
+                        </div>
+                        <div class="col d-flex justify-content-center red-hover">
+                            <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                            <span class="d-none d-md-block"> Report<span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class = "row-lg-8 mt-3 offset-1">
-            <div class = "d-flex bg-white p-4 pb-4 rounded">
+
+        <!-- reply -->
+        <div class = "row g-0 offset-1 border rounded">
+            <div class = "d-flex p-4">
                 <img src="../assets/avatar2.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
-                    <div class = "d-flex justify-content-between">
-                        <h4>WanWan</h4>
-                        <small style = "color: darkgray;">35 minutes ago</small>
+                    <div class = "row justify-content-between g-0">
+                        <h4 class="col">WanWan</h4>
+                        <small class="col text-end" style = "color: darkgray;">35 minutes ago</small>
                     </div>
+                    
                     <p>Tenho o modelo anterior e gostaria de saber se vale a pena o upgrade.</p>
 
-                    <div class = "col pt-4 d-flex justify-content-around comment-icons">
-                        <div class = "col-2 d-flex justify-content-around comment-icons">
-                            <span class="material-icons-round d-flex justify-content-center" >north</span>
-                            <label class = "d-flex justify-content-center">101</label>
-                            <span class="material-icons-round d-flex justify-content-center" >south</span>
-                        
+                    <div class="row mt-4">
+                        <div class = "col d-flex justify-content-center post-voting">
+                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                            <label class = "score d-flex justify-content-center">101</label>
+                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
-                        <span class="material-icons-outlined">mode_comment</span> 
-                        <span class="material-icons-outlined report-button">outlined_flag</span>
+                        <div class="col d-flex justify-content-center blue-hover">
+                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                            <span class="d-none d-md-block"> Reply</span>
+                        </div>
+                        <div class="col d-flex justify-content-center red-hover">
+                            <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                            <span class="d-none d-md-block"> Report<span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class = "row-lg-8 mt-3 ">
-            <div class = "d-flex bg-white p-4 pb-4 rounded">
+
+        <!-- comment -->
+        <div class = "row g-0 mt-3 border rounded">
+            <div class = "d-flex p-4">
                 <img src="../assets/avatar3.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
-                <div class = "ms-2 col-lg-10">
-                    <div class = "d-flex justify-content-between">
-                        <h4>El_biden</h4>
-                        <small style = "color: darkgray;">2 days ago</small>
+                <div class = "ms-2 col-lg-11">
+                    <div class = "row justify-content-between g-0">
+                        <h4 class="col">El_biden</h4>
+                        <small class="col text-end" style = "color: darkgray;">1 day ago</small>
                     </div>
+                    
                     <p>Essa webcam permite 1080p 60fps?</p>
 
-                    <div class = "col pt-4 d-flex justify-content-around comment-icons">
-                        <div class = "col-2 d-flex justify-content-around comment-icons">
-                            <span class="material-icons-round d-flex justify-content-center" >north</span>
-                            <label class = "d-flex justify-content-center">57</label>
-                            <span class="material-icons-round d-flex justify-content-center" >south</span>
-                        
+                    <div class="row mt-4">
+                        <div class = "col d-flex justify-content-center post-voting">
+                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                            <label class = "score d-flex justify-content-center">57</label>
+                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
-                        <span class="material-icons-outlined">mode_comment</span> 
-                        <span class="material-icons-outlined report-button">outlined_flag</span>
+                        <div class="col d-flex justify-content-center blue-hover">
+                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                            <span class="d-none d-md-block"> Reply</span>
+                        </div>
+                        <div class="col d-flex justify-content-center red-hover">
+                            <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                            <span class="d-none d-md-block"> Report<span>
+                        </div>
                     </div>
                 </div>
             </div>
