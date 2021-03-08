@@ -1,3 +1,4 @@
+<?php function draw_report_post() { ?>
 <div class="modal fade" id="reportPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -36,9 +37,10 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="save-button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" id="delete-button" class="btn btn-primary">Report</button>
+                <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary delete-button">Report</button>
             </div>
         </div>
     </div>
 </div>
+<?php } ?>
