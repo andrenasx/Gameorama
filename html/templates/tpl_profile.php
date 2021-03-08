@@ -1,4 +1,7 @@
-<?php function draw_profile() { ?>
+<?php 
+include_once("tpl_report_profile.php");
+include_once("tpl_report_post.php");
+function draw_profile() { ?>
 <section class="container g-0 mx-auto mt-sm-4 col-lg-7">
     <section class="profile-widget bg-white rounded mb-3">
         <div class="row">
@@ -8,7 +11,7 @@
                     <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="avatar" alt="avatar">
                 </div>
                 <row class="d-flex justify-content-end col-12">
-                    <button type="button" class="btn d-flex align-content-center mt-1 me-1">
+                    <button type="button" class="btn d-flex align-content-center mt-1 me-1" data-bs-toggle="modal" data-bs-target="#reportProfile">
                         <span class="btn-outline-red" style="font-size: 200%;">flag</span>
                     </button>
                 </row>
@@ -99,7 +102,7 @@
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red">
+                        <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
@@ -140,7 +143,7 @@
                             <span class="material-icons-outlined align-middle">bookmark_add</span>
                             <span class="d-none d-md-block"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red">
+                        <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
@@ -1106,3 +1109,16 @@
     </div>
     </div>
     <?php } ?>
+
+
+
+
+
+    <?php draw_report_profile() ?>
+
+
+
+    <?php draw_report_post() ?>
+
+
+

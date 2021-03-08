@@ -1,4 +1,7 @@
-<?php function draw_mainpage() { ?>
+<?php
+
+include_once("tpl_report_post.php");
+function draw_mainpage() { ?>
 <section class="mainpage-container container mt-sm-4 col-lg-8 px-0 mt-md-4">
     <div class="row justify-content-evenly g-0">
         <section class="all-news-cards col-md-8">
@@ -66,7 +69,7 @@
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -117,7 +120,7 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                     <span class="material-icons-outlined align-middle me-1 ">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -166,7 +169,7 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -217,7 +220,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -269,7 +272,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -318,7 +321,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -367,7 +370,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -416,7 +419,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -466,7 +469,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -517,7 +520,7 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -566,7 +569,7 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-block"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red">
+                                <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-block"> Report<span>
                                 </div>
@@ -634,3 +637,7 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
 </section><!-- /.container -->
 <script src="../js/voting.js"></script>
 <?php } ?>
+
+
+
+<?php draw_report_post()?>
