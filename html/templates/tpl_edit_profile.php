@@ -6,9 +6,9 @@ function draw_edit_profile() {
             <row class="mb-3">
                 <div class="col-12 justify-content-center">
                     <div class="image-container bg2"
-                        style="background:url(http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg)">
+                        style="background:url(../assets/banner.jpg); background-size: cover">
                         <div class = "col-12">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="avatar" alt="avatar">
+                            <img src="../assets/avatar.jpg" class="avatar" alt="avatar">
                             
                         </div>
                         
