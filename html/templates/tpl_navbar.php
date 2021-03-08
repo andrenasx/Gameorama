@@ -26,7 +26,7 @@ function draw_navbar() { ?>
                 </button>
 
           <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
-              <a class="nav-link gx-0 mx-0 px-0" href="#" id="navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#modalNotifications" >
+              <a class="nav-link gx-0 mx-0 px-0" id="navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#modalNotifications" >
               <button type="button" class="navbar-icon grey-hover"  style="margin-top:2px"  ><span class="material-icons-round">notifications</span></button>
                 <span class="badge rounded-pill badge-notification bg-danger">1</span>
               </a>
