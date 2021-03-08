@@ -1,4 +1,6 @@
-<?php function draw_post() { ?>
+<?php 
+include_once("tpl_report_post.php");
+function draw_post() { ?>
 <section class="container bg-white g-0 mx-auto my-4 col-lg-7">
     <section class="news-card mb-3 p-4 rounded bg-white">
         <header class="row news-card-header">
@@ -54,16 +56,16 @@
             <p class="card-text mx-5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
         </div>
         <div class="row mt-4 news-card-options">
-            <div class="col d-flex justify-content-center blue-hover">
+            <div class="col d-flex justify-content-center btn-outline-blue">
                 <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                 <span class="d-none d-md-block"> 321</span>
             </div>
-            <div class="col d-flex justify-content-center blue-hover">
+            <div class="col d-flex justify-content-center btn-outline-blue">
                 <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                 <span class="d-none d-md-block"> Bookmark</span>
             </div>
-            <div class="col d-flex justify-content-center red-hover">
-                <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+            <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
+                <span class="material-icons-outlined align-middle me-1">flag</span>
                 <span class="d-none d-md-block"> Report<span>
             </div>
         </div>
@@ -85,7 +87,7 @@
                 <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
                     <div class = "row justify-content-between g-0">
-                        <h4 class="col">kaka34</h4>
+                        <h4 class="col color-orange">kaka34</h4>
                         <small class="col text-end" style = "color: darkgray;">2 hours ago</small>
                     </div>
                     
@@ -97,12 +99,12 @@
                             <label class = "score d-flex justify-content-center">1178</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-block"> Reply</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -128,12 +130,12 @@
                             <label class = "score d-flex justify-content-center">101</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-block"> Reply</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -159,12 +161,12 @@
                             <label class = "score d-flex justify-content-center">57</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
-                        <div class="col d-flex justify-content-center blue-hover">
+                        <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-block"> Reply</span>
                         </div>
-                        <div class="col d-flex justify-content-center red-hover">
-                            <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
+                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">>
+                            <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-block"> Report<span>
                         </div>
                     </div>
@@ -175,3 +177,8 @@
 </section>
     <script src="../js/voting.js"></script>
 <?php } ?>
+
+
+
+
+<?php draw_report_post()?>
