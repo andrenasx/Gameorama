@@ -1,8 +1,8 @@
 <?php 
 include_once("tpl_report_post.php");
 function draw_post() { ?>
-<section class="container bg-white g-0 mx-auto my-4 col-lg-7">
-    <section class="news-card mb-3 p-4 rounded bg-white">
+<section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7">
+    <section class="news-card mb-3 p-4">
         <header class="row news-card-header">
             <div class="post-voting col-1 d-flex justify-content-center">
                 <ul class="list-unstyled mb-0">
@@ -58,22 +58,22 @@ function draw_post() { ?>
         <div class="row mt-4 news-card-options">
             <div class="col d-flex justify-content-center btn-outline-blue">
                 <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                <span class="d-none d-md-block"> 321</span>
+                <span class="d-none d-md-flex"> 321</span>
             </div>
             <div class="col d-flex justify-content-center btn-outline-blue">
                 <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                <span class="d-none d-md-block"> Bookmark</span>
+                <span class="d-none d-md-flex"> Bookmark</span>
             </div>
-            <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
+            <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                <span class="d-none d-md-block"> Report<span>
+                <span class="d-none d-md-flex"> Report<span>
             </div>
         </div>
     </section> <!-- /.news-card -->
 
     
 
-    <section class="comments p-2 px-sm-4 mt-5 bg-white">
+    <section class="comments p-2 px-sm-4 mt-5">
         <section class="row g-0 mb-4">
             <div class="md-form amber-textarea active-amber-textarea px-0 ">
                 <textarea class="form-control" name="comment" rows="4" placeholder="Leave a comment"></textarea>
@@ -96,16 +96,16 @@ function draw_post() { ?>
                     <div class="row mt-4">
                         <div class = "col d-flex justify-content-center post-voting">
                             <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "score d-flex justify-content-center">1178</label>
+                            <label class = "score d-flex justify-content-center mx-2">1178</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-block"> Reply</span>
+                            <span class="d-none d-md-flex"> Reply</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-block"> Report<span>
+                            <span class="d-none d-md-flex"> Report<span>
                         </div>
                     </div>
                 </div>
@@ -127,16 +127,16 @@ function draw_post() { ?>
                     <div class="row mt-4">
                         <div class = "col d-flex justify-content-center post-voting">
                             <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "score d-flex justify-content-center">101</label>
+                            <label class = "score d-flex justify-content-center mx-2">101</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-block"> Reply</span>
+                            <span class="d-none d-md-flex"> Reply</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-block"> Report<span>
+                            <span class="d-none d-md-flex"> Report<span>
                         </div>
                     </div>
                 </div>
@@ -158,16 +158,16 @@ function draw_post() { ?>
                     <div class="row mt-4">
                         <div class = "col d-flex justify-content-center post-voting">
                             <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "score d-flex justify-content-center">57</label>
+                            <label class = "score d-flex justify-content-center mx-2">57</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-block"> Reply</span>
+                            <span class="d-none d-md-flex"> Reply</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">>
+                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-block"> Report<span>
+                            <span class="d-none d-md-flex"> Report<span>
                         </div>
                     </div>
                 </div>

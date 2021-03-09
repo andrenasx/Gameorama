@@ -63,15 +63,15 @@
                         <div class="row mt-4 news-card-options">
                             <div class="col d-flex justify-content-center btn-outline-blue">
                                 <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
+                                <span class="d-none d-md-flex"> 321</span>
                             </div>
                             <div class="col d-flex justify-content-center btn-outline-blue">
                                 <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
+                                <span class="d-none d-md-flex"> Bookmark</span>
                             </div>
-                            <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                                <span class="d-none d-md-block"> Report<span>
+                                <span class="d-none d-md-flex"> Report<span>
                             </div>
                         </div>
                     </div> <!-- /.news-card -->

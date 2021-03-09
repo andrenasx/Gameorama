@@ -104,16 +104,15 @@ function draw_profile() { ?>
                     <div class="row mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-block"> 321</span>
+                            <span class="d-none d-md-flex"> 321</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                            <span class="d-none d-md-block"> Bookmark</span>
+                            <span class="d-none d-md-flex"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal"
-                            data-bs-target="#reportPost">
+                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-block"> Report<span>
+                            <span class="d-none d-md-flex"> Report<span>
                         </div>
                     </div>
                 </div> <!-- /.news-card -->
@@ -130,9 +129,9 @@ function draw_profile() { ?>
                         <p>Parece um ótimo produto!</p>
 
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                            <div class="col-4 col-sm-2 d-flex justify-content-center post-voting">
                                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                                <label class="score d-flex justify-content-center">1</label>
+                                <label class="score d-flex justify-content-center mx-2">1</label>
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
                             <span class="material-icons-round">more_horiz</span>
@@ -149,9 +148,9 @@ function draw_profile() { ?>
                         <p>Estou mesmo ansioso!</p>
 
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                            <div class="col-4 col-sm-2 d-flex justify-content-center post-voting">
                                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                                <label class="score d-flex justify-content-center">3</label>
+                                <label class="score d-flex justify-content-center mx-2">3</label>
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
                             <span class="material-icons-round">more_horiz</span>
@@ -943,17 +942,16 @@ function draw_profile() { ?>
                     </div>
                     <div class="row mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue">
-                            <span class="material-icons-outlined align-middle me-1 ">mode_comment</span>
-                            <span class="d-none d-md-block"> 321</span>
+                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                            <span class="d-none d-md-flex"> 321</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
-                            <span class="material-icons-outlined align-middle me-1 ">bookmark_add</span>
-                            <span class="d-none d-md-block"> Bookmark</span>
+                            <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                            <span class="d-none d-md-flex"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal"
-                            data-bs-target="#reportPost">
+                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-block"> Report<span>
+                            <span class="d-none d-md-flex"> Report<span>
                         </div>
                     </div>
                 </div> <!-- /.news-card -->
@@ -970,9 +968,9 @@ function draw_profile() { ?>
                         <p>Parece um ótimo produto!</p>
 
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                            <div class="col-4 col-sm-2 d-flex justify-content-center post-voting">
                                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                                <label class="score d-flex justify-content-center">1</label>
+                                <label class="score d-flex justify-content-center mx-2">1</label>
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
                             <span class="material-icons-round">more_horiz</span>
@@ -989,9 +987,9 @@ function draw_profile() { ?>
                         <p>Estou mesmo ansioso!</p>
 
                         <div class="d-flex justify-content-between mt-2">
-                            <div class="col-4 col-sm-2 d-flex justify-content-evenly post-voting">
+                            <div class="col-4 col-sm-2 d-flex justify-content-center post-voting">
                                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                                <label class="score d-flex justify-content-center">3</label>
+                                <label class="score d-flex justify-content-center mx-2">3</label>
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
                             <span class="material-icons-round">more_horiz</span>
@@ -1042,15 +1040,15 @@ function draw_profile() { ?>
                     <div class="row mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-block"> 321</span>
+                            <span class="d-none d-md-flex"> 321</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                            <span class="d-none d-md-block"> Bookmark</span>
+                            <span class="d-none d-md-flex"> Bookmark</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-block"> Report<span>
+                            <span class="d-none d-md-flex"> Report<span>
                         </div>
                     </div>
                 </div> <!-- /.news-card -->
