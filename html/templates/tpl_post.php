@@ -134,10 +134,13 @@ function draw_post() { ?>
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> Reply</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
-                            <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-flex"> Report<span>
+                        <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                            <span class="material-icons-round">more_horiz</span>
                         </div>
+                        <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                            <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                            <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
