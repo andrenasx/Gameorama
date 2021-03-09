@@ -59,35 +59,38 @@ function draw_navbar() { ?>
     <div class="modal fade" id="modalNotifications" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
-                    <button type="button" data-bs-dismiss="modal" id="close-window-button" aria-label="Close">
+                <div class="modal-header" style="background-color: rgb(251,116,45);">
+                    <h5 class="modal-title" style="color: white;" id="exampleModalLabel">Notifications</h5>
+                    <button class="close-notification-button" type="button" data-bs-dismiss="modal" aria-label="Close">
                         <span class="material-icons-round">close</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="profiles-container">
+                    <div class="">
                         <!--Follow-->
                         <div class="card mb-3">
-                            <div class="notifications-card card-header d-flex justify-content-end">
-                                <button type="button" data-bs-dismiss="modal" id="close-notification-button" aria-label="Close">
+                            <div class="card-header d-flex justify-content-end">
+                                <button  type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
                                     <span class="material-icons-round">close</span></button>
                             </div>
                             <div class="card-body d-flex justify-content-between pb-0">
                                 <p class="card-text d-flex align-items-center">
-                                    <span class="material-icons-round me-2">person</span> kaka34 followed you!</p>
+                                    <span class="material-icons-round me-2">person</span><span><a href="../pages/profile.php">kaka34</a> followed you!</span>
+                                </p>
                                 <small>1m ago</small>
                             </div>
                         </div>
 
                         <!--Comment-->
                         <div class="card mb-3">
-                            <div class="notifications-card card-header d-flex justify-content-end">
-                                <button type="button" data-bs-dismiss="modal" id="close-notification-button" aria-label="Close"><span class="material-icons-round">close</span></button>
+                            <div class="card-header d-flex justify-content-end">
+                                <button type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
+                                    <span class="material-icons-round">close</span>
+                                </button>
                             </div>
                             <div class="card-body d-flex justify-content-between pb-0">
                                 <p class="card-text d-flex align-items-center">
-                                    <span class="material-icons-round me-2">comment</span> BrotherSena commented on your post
+                                    <span class="material-icons-round me-2">comment</span><span><a href="../pages/profile.php">BrotherSena</a> commented on your post</span>
                                 </p>
                                 <small>4h ago</small>
                             </div>

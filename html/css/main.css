@@ -923,18 +923,15 @@ a.black-a:hover {
   height: 30vh;
 }
 
-.notifications-card{
-  background-color: rgb(251,116,45, 0.9)
-}
 
-#close-notification-button{
+.close-notification-button{
   padding: 0;
   border: none;
   background: none;
   transition: 0.15s all ease-in;
 }
 
-#close-notification-button:hover{
+.close-notification-button:hover{
   color:white;
 }
 /*  Edit profile   */
