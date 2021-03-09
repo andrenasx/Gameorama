@@ -662,17 +662,6 @@ hr {
 }
 
 
-
-.game-quote{
-  line-height: 10%;
-  font-size: 100%;
-}
-
-.game-quote-origin{
-  color: darkgray;
-  font-size: 80%;
-}
-
 #add-comment-button {
   float: right!important;
   background-color: #4dc3ff!important;
@@ -902,21 +891,6 @@ a.black-a:hover {
   font-size: 16vh;
   color: var(--gameOrange);
  
-}
-
-.game-quote-error{
-  font-size: 3vh;
-  line-height: 20%;
-}
-
-.game-quote-origin-error{
-  color: darkgray;
-  font-size: 2vh;
-}
-
-.game-quote-description{
-  font-size: 2vh;
-  line-height: 30%;
 }
 
 .error-picture{
