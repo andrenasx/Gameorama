@@ -664,7 +664,7 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
 
 
 <?php
-include_once("tpl_report_post.php");
+include_once("tpl_login_popup.php");
 function draw_logout_mainpage() { ?>
 <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
     <div class="row justify-content-evenly g-0">
@@ -691,13 +691,13 @@ function draw_logout_mainpage() { ?>
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">78</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -722,15 +722,15 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -742,13 +742,13 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">143</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -771,15 +771,15 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -791,13 +791,13 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">115</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -820,15 +820,15 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red "data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -840,13 +840,13 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">232</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -869,15 +869,15 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -890,13 +890,13 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">23</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -919,15 +919,15 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -939,13 +939,13 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">18</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -970,15 +970,15 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -990,13 +990,13 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">5</span>
                                         </li>
                                         <li>
-                                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                                            <span class="downvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">south</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -1019,15 +1019,15 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                 </a>
                             </div>
                             <div class="row mt-4 news-card-options">
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                <div class="col d-flex justify-content-center btn-outline-blue" data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#loginRequired">
                                     <span class="material-icons-outlined align-middle me-1">flag</span>
                                     <span class="d-none d-md-flex"> Report<span>
                                 </div>
@@ -1093,5 +1093,4 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
         </aside><!-- /.col-md-4 aka aside -->
     </div><!-- /.row -->
 </section><!-- /.container -->
-<script src="../js/voting.js"></script>
-<?php draw_report_post(); } ?>
+<?php draw_login_required(); } ?>
