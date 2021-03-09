@@ -976,13 +976,15 @@ function draw_profile() { ?>
                                 <label class="score d-flex justify-content-center mx-2">1</label>
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
-                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
-                                <span class="material-icons-round">more_horiz</span>
+                            <div class="col-2 ">
+                                <div class="col d-flex justify-content-end btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                    <span class="material-icons-round">more_horiz</span>
+                                </div>
+                                <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">done</span> <span> Dismiss</span></a></li>
+                                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                                </ul>
                             </div>
-                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
-                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
-                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
-                            </ul>
                         </div>
                     </div>
 
@@ -1001,13 +1003,15 @@ function draw_profile() { ?>
                                 <label class="score d-flex justify-content-center mx-2">3</label>
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             </div>
-                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
-                                <span class="material-icons-round">more_horiz</span>
+                            <div class="col-2 ">
+                                <div class="col d-flex justify-content-end btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                    <span class="material-icons-round">more_horiz</span>
+                                </div>
+                                <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">done</span> <span> Dismiss</span></a></li>
+                                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                                </ul>
                             </div>
-                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
-                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
-                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
-                            </ul>
                         </div>
                     </div>
                 </section>
@@ -1058,7 +1062,7 @@ function draw_profile() { ?>
                             <span class="d-none d-md-flex"> 321</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
-                            <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                            <span class="material-icons-outlined align-middle me-1">bookmark_remove</span>
                             <span class="d-none d-md-flex"> Bookmark</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">

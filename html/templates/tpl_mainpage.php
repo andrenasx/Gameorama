@@ -65,7 +65,7 @@ function draw_mainpage() { ?>
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
                                 <div class="col d-flex justify-content-center btn-outline-blue">
-                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_remove</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
                                 <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
@@ -119,10 +119,13 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
-                                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                                    <span class="d-none d-md-flex"> Report<span>
+                                <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                            <span class="material-icons-round">more_horiz</span>
                                 </div>
+                                <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                                </ul>
                             </div>
                         </div> <!-- /.news-card -->
 
@@ -320,10 +323,13 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
-                                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                                    <span class="d-none d-md-flex"> Report<span>
+                                <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                            <span class="material-icons-round">more_horiz</span>
                                 </div>
+                                <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                                </ul>
                             </div>
                         </div> <!-- /news-card-->
 
@@ -465,7 +471,7 @@ Esta informação é avançada pelo site Game Awards, que assinala que The Last 
                                     <span class="d-none d-md-flex"> 321</span>
                                 </div>
                                 <div class="col d-flex justify-content-center btn-outline-blue">
-                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_remove</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
                                 <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
@@ -519,10 +525,13 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                                     <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                                     <span class="d-none d-md-flex"> Bookmark</span>
                                 </div>
-                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
-                                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                                    <span class="d-none d-md-flex"> Report<span>
+                                <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                            <span class="material-icons-round">more_horiz</span>
                                 </div>
+                                <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                                </ul>
                             </div>
                         </div> <!-- /.news-card -->
 
@@ -691,7 +700,7 @@ function draw_logout_mainpage() { ?>
                                 <div class="post-voting col-1 d-flex justify-content-center">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <span class="upvote material-icons-round d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#loginRequired">north</span>
+                                            <span class="upvote material-icons-round d-flex justify-content-center" >north</span>
                                         </li>
                                         <li>
                                             <span class="score d-flex justify-content-center" id="score">78</span>
