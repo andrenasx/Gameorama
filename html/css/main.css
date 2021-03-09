@@ -81,6 +81,7 @@ min-width: 170px;
 
 #navbar{
 border-bottom: 2px solid rgba(0,0,0,0.1);
+
 }
 
 #search_bar_form.form-floating>.form-control:focus~label{
@@ -132,7 +133,7 @@ img.img-logo{
     display: none!important;
     
   }
-  #colapsedHamburguer{
+  #colapsedHamburguer{  
     justify-content: flex-start !important;
     display: flex;
     padding: 0px 0px  !important;
