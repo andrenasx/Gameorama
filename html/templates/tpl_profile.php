@@ -4,7 +4,7 @@ include_once("tpl_report_post.php");
 function draw_profile() { ?>
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <section class="profile-widget bg-white rounded mb-3">
-        <div class="row">
+        <div class="row g-0">
             <div class="col-sm-12">
                 <div class="image-container bg2" style="background:url(../assets/banner2.jpg); background-size: cover">
                     <img src="../assets/avatar21.png" class="avatar" alt="avatar">
@@ -28,16 +28,16 @@ function draw_profile() { ?>
                 </div>
             </div>
             <section class="follow_stats pb-3">
-                <div class="row d-flex justify-content-around">
-                    <div class="col text-center">
+                <div class="row g-0 d-flex justify-content-around">
+                    <div class="col text-center px-2">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
                             data-bs-target="#modalFollowing">1021 Following</button>
                     </div>
-                    <div class="col text-center">
+                    <div class="col text-center px-2">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
                             data-bs-target="#modalFollower">1542 Followers</button>
                     </div>
-                    <div class="col text-center">
+                    <div class="col text-center px-2">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
                             data-bs-target="#modalFollowedTopics">162 Followed Topics</button>
                     </div>
@@ -63,7 +63,7 @@ function draw_profile() { ?>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
                 <div class="news-card mb-3 p-4 rounded bg-white">
-                    <header class="row news-card-header">
+                    <header class="row g-0 news-card-header">
                         <div class="post-voting col-1 d-flex justify-content-center">
                             <ul class="list-unstyled mb-0">
                                 <li>
@@ -101,7 +101,7 @@ function draw_profile() { ?>
                                 portáteis.</p>
                         </a>
                     </div>
-                    <div class="row mt-4 news-card-options">
+                    <div class="row g-0 mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> 321</span>
@@ -170,7 +170,7 @@ function draw_profile() { ?>
 <?php function draw_own_profile() { ?>
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <section class="profile-widget bg-white rounded mb-3">
-        <div class="row">
+        <div class="row g-0">
             <div class="col-sm-12">
                 <div class="image-container bg2" style="background:url(../assets/banner.jpg); background-size: cover">
                     <img src="../assets/avatar.jpg" class="avatar" alt="avatar">
@@ -195,16 +195,16 @@ function draw_profile() { ?>
         </div>
 
         <section class="follow_stats pb-3">
-            <div class="row d-flex justify-content-around">
-                <div class="col text-center">
+            <div class="row g-0 d-flex justify-content-around">
+                <div class="col text-center px-2">
                     <button type="button" class="text-button-profile" data-bs-toggle="modal"
                         data-bs-target="#modalFollowing">854 Following</button>
                 </div>
-                <div class="col text-center">
+                <div class="col text-center px-2">
                     <button type="button" class="text-button-profile" data-bs-toggle="modal"
                         data-bs-target="#modalFollowers">1024 Followers</button>
                 </div>
-                <div class="col text-center">
+                <div class="col text-center px-2">
                     <button type="button" class="text-button-profile" data-bs-toggle="modal"
                         data-bs-target="#modalFollowedTopics">84 Followed Topics</button>
                 </div>
@@ -901,7 +901,7 @@ function draw_profile() { ?>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
                 <div class="news-card mb-3 p-4 rounded bg-white">
-                    <div class="row news-card-header">
+                    <div class="row g-0 news-card-header">
                         <div class="post-voting col-1 d-flex justify-content-center">
                             <ul class="list-unstyled mb-0">
                                 <li>
@@ -940,7 +940,7 @@ function draw_profile() { ?>
                                 Shyvana, Draven e Karma.</p>
                         </a>
                     </div>
-                    <div class="row mt-4 news-card-options">
+                    <div class="row g-0 mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> 321</span>
@@ -1002,7 +1002,7 @@ function draw_profile() { ?>
             </div> <!-- .pills-comments -->
             <div class="tab-pane fade" id="pills-bookmarked" role="tabpanel" aria-labelledby="pills-bookmarked-tab">
                 <div class="news-card mb-3 p-4 rounded bg-white">
-                    <header class="row news-card-header">
+                    <header class="row g-0 news-card-header">
                         <div class="post-voting col-1 d-flex justify-content-center">
                             <ul class="list-unstyled mb-0">
                                 <li>
@@ -1040,7 +1040,7 @@ function draw_profile() { ?>
                                 portáteis.</p>
                         </a>
                     </div>
-                    <div class="row mt-4 news-card-options">
+                    <div class="row g-0 mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> 321</span>
