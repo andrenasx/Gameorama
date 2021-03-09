@@ -5,5 +5,6 @@
 
   draw_header();
   draw_navbar();
-  draw_create_post()
+  draw_create_post();
+  draw_footer();
 ?>

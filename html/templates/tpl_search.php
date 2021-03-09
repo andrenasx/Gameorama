@@ -1,5 +1,5 @@
 <?php function draw_search_results() { ?>
-    <section class="container g-0 mx-auto mt-sm-4 col-lg-7">
+    <section class="container g-0 mx-auto my-4 col-lg-7">
         <header class="p-4 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
             <h3 class="mb-3 color-orange">Results for</h3>
             <h2 class="fw-bold">"Leg"</h2>
@@ -63,15 +63,15 @@
                         <div class="row mt-4 news-card-options">
                             <div class="col d-flex justify-content-center btn-outline-blue">
                                 <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
+                                <span class="d-none d-md-flex"> 321</span>
                             </div>
                             <div class="col d-flex justify-content-center btn-outline-blue">
                                 <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
+                                <span class="d-none d-md-flex"> Bookmark</span>
                             </div>
-                            <div class="col d-flex justify-content-center btn-outline-red"  data-bs-toggle="modal" data-bs-target="#reportPost">
+                            <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                                <span class="d-none d-md-block"> Report<span>
+                                <span class="d-none d-md-flex"> Report<span>
                             </div>
                         </div>
                     </div> <!-- /.news-card -->

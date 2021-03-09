@@ -1,5 +1,5 @@
 <?php function draw_signup() { ?>
-<body class="text-center">
+<body class="d-flex justify-content-center">
     <section class="signup-page d-flex justify-content-center">
         <div class="background-color"></div>
         <div class="background-image"></div>
@@ -29,7 +29,7 @@
                         <input type="password" id="inputConfirmPassword" class="form-control mb-3" placeholder=" " required>
                         <label for="inputConfirmPassword">Confirm Password</label>
                     </div>
-                    <div class="col-12 d-flex justify-content-center">
+                    <div class="col-12 mb-3 d-flex justify-content-center">
                         <button class="col-5 btn btn-lg btn-primary me-3" id="signUpButton" type="submit" onclick="window.location.href='mainpage.php#'">Sign Up</button>
                         <a class="col-5 btn btn-outline-dark" href="/users/googleauth" id="googleButton" role="button" style="text-transform:none">
                             <img width="30px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
@@ -37,9 +37,10 @@
                             Sign Up with Google
                         </a>
                     </div>
-                    <p></p>
-                    <a class="mt-3 blue-hover" id="signUpLogin" href="login.php">Already have an account? Login</a>
-                    <p class="mt-4 mb-1 text-muted">&copy; LBAW 2021</p>
+                    <div class="row g-0 text-center">
+                        <a class="blue-hover" id="signUpLogin" href="login.php">Already have an account? Login</a>
+                    </div>
+                    <p class="mt-4 mb-1 text-center text-muted">&copy; Copyright 2021 Gameorama. All rights reserved.</p>
             </form>
         </main>
     </section>
