@@ -176,9 +176,4 @@ function draw_post() { ?>
     </section>
 </section>
     <script src="../js/voting.js"></script>
-<?php } ?>
-
-
-
-
-<?php draw_report_post()?>
+<?php draw_report_post(); } ?>

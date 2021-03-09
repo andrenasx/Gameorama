@@ -1,5 +1,5 @@
 <?php function draw_topic_page() { ?>
-    <section class="container g-0 mx-auto mt-sm-4 col-lg-7">
+    <section class="container g-0 mx-auto my-4 col-lg-7">
         <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
             <h3 class="mb-3 color-orange">Topic Page</h3>
             <section class="row g-0 align-items-center">

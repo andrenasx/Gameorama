@@ -163,7 +163,7 @@ function draw_profile() { ?>
     </section>
 </section>
 <script src="../js/voting.js"></script>
-<?php } ?>
+<?php draw_report_profile(); draw_report_post(); } ?>
 
 
 
@@ -1059,11 +1059,4 @@ function draw_profile() { ?>
     </section>
 </section>
 <script src="../js/voting.js"></script>
-<?php } ?>
-
-
-<?php draw_report_profile() ?>
-
-
-
-<?php draw_report_post() ?>
+<?php draw_report_profile(); draw_report_post(); } ?>

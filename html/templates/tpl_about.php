@@ -1,5 +1,5 @@
 <?php function draw_about_us(){ ?>
-    <section class="p-3 p-lg-5 mt-sm-4 col-lg-7 bg-white container rounded">
+    <section class="p-3 p-lg-5 my-4 col-lg-7 bg-white container rounded">
         <h2 class="h2 fw-bold ">About Page</h2>
         <hr class="rounded"></hr>
 
@@ -16,7 +16,7 @@
                 <img src="../assets/andre.jpg" class="card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">André Nascimento</h4>
-                    <p class="card-text">Student at MIEIC. Also corgi lover.</p>
+                    <p class="card-text">Student at MIEIC. Proud Corgi lover.</p>
                 </div>
             </div>
 
