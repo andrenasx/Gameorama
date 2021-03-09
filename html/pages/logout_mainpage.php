@@ -5,6 +5,6 @@
 
   draw_header();
   draw_logout_navbar();
-  draw_mainpage();
+  draw_logout_mainpage();
   draw_footer();
 ?>
