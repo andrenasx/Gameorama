@@ -4,7 +4,7 @@
   include_once("../templates/tpl_mainpage.php");
 
   draw_header();
-  draw_logout_navbar();
-  draw_logout_mainpage();
+  draw_admin_navbar();
+  draw_mainpage();
   draw_footer();
 ?>

@@ -55,8 +55,8 @@
 
                 <section class = "container create_post_buttons mb-2 mb-lg-0">
                     <div class = "row d-flex justify-content-around">
-                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-secondary" onclick= >Cancel</button>
-                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-primary">Post</button>
+                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-secondary" onclick="window.location.href='mainpage.php'" >Cancel</button>
+                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-primary" onclick="window.location.href='mainpage.php'">Post</button>
                     </div>
                 </section>  
             </form>

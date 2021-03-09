@@ -53,7 +53,7 @@ function draw_post() { ?>
                 <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <p class="card-text mx-5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+            <p class="card-text px-lg-5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
         </div>
         <div class="row mt-4 news-card-options">
             <div class="col d-flex justify-content-center btn-outline-blue">
@@ -134,10 +134,13 @@ function draw_post() { ?>
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> Reply</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
-                            <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-flex"> Report<span>
+                        <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                            <span class="material-icons-round">more_horiz</span>
                         </div>
+                        <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                            <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                            <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

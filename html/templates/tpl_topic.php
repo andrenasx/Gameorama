@@ -1,4 +1,6 @@
-<?php function draw_topic_page() { ?>
+<?php 
+include_once("tpl_report_post.php");
+function draw_topic_page() { ?>
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
             <h3 class="mb-3 color-orange">Topic Page</h3>
@@ -72,18 +74,23 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                    <span class="d-none d-md-flex"> 321</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="d-none d-md-flex"> Bookmark</span>
+                                </div>
+                                <div class="col-4 ">
+                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                <span class="material-icons-round">more_horiz</span>
                             </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
-                            </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
-                                <span class="d-none d-md-block"> Report<span>
-                            </div>
+                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                            </ul>
+                        </div>
                         </div>
                     </div> <!-- /.news-card -->
 
@@ -123,18 +130,23 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                    <span class="d-none d-md-flex"> 321</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="d-none d-md-flex"> Bookmark</span>
+                                </div>
+                                <div class="col-4 ">
+                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                <span class="material-icons-round">more_horiz</span>
                             </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
-                            </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle">outlined_flag</span>
-                                <span class="d-none d-md-block"> Report<span>
-                            </div>
+                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                            </ul>
+                        </div>
                         </div>
                     </div> <!-- /.news-card -->
 
@@ -174,18 +186,18 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
-                            </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
-                            </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle">outlined_flag</span>
-                                <span class="d-none d-md-block"> Report<span>
-                            </div>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                    <span class="d-none d-md-flex"> 321</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="d-none d-md-flex"> Bookmark</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
+                                    <span class="d-none d-md-flex"> Report<span>
+                                </div>
                         </div>
                     </div> <!-- /.news-card -->
 
@@ -227,18 +239,18 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
-                            </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
-                            </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle">outlined_flag</span>
-                                <span class="d-none d-md-block"> Report<span>
-                            </div>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                    <span class="d-none d-md-flex"> 321</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="d-none d-md-flex"> Bookmark</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                                    <span class="material-icons-outlined align-middle me-1">flag</span>
+                                    <span class="d-none d-md-flex"> Report<span>
+                                </div>
                         </div>
                     </div> <!-- /.news-card -->
 
@@ -278,18 +290,23 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                    <span class="d-none d-md-flex"> 321</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="d-none d-md-flex"> Bookmark</span>
+                                </div>
+                                <div class="col-4 ">
+                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                <span class="material-icons-round">more_horiz</span>
                             </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
-                            </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle me-1">outlined_flag</span>
-                                <span class="d-none d-md-block"> Report<span>
-                            </div>
+                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                            </ul>
+                        </div>
                         </div>
                     </div> <!-- /.news-card -->
 
@@ -329,18 +346,23 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </a>
                         </div>
                         <div class="row mt-4 news-card-options">
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">mode_comment</span>
-                                <span class="d-none d-md-block"> 321</span>
+                        <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                    <span class="d-none d-md-flex"> 321</span>
+                                </div>
+                                <div class="col d-flex justify-content-center btn-outline-blue">
+                                    <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
+                                    <span class="d-none d-md-flex"> Bookmark</span>
+                                </div>
+                                <div class="col-4 ">
+                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                <span class="material-icons-round">more_horiz</span>
                             </div>
-                            <div class="col d-flex justify-content-center blue-hover">
-                                <span class="material-icons-outlined align-middle">bookmark_add</span>
-                                <span class="d-none d-md-block"> Bookmark</span>
-                            </div>
-                            <div class="col d-flex justify-content-center red-hover">
-                                <span class="material-icons-outlined align-middle">outlined_flag</span>
-                                <span class="d-none d-md-block"> Report<span>
-                            </div>
+                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                            </ul>
+                        </div>
                         </div>
                     </div> <!-- /.news-card -->
 
@@ -348,4 +370,4 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
             </div>
         </section>
     </section>
-<?php } ?>
+<?php draw_report_post();} ?>
