@@ -12,7 +12,7 @@ The website's main page has the ability to sort posts by popularity and by the l
 
 The application will feature a rating system for news and comments, granting authenticated users the ability to upvote or downvote them based on their reliability and usefulness. A news post/comment gets more visibility based on the value of upvotes-downvotes it gets. These ratings also directly influence the reputation score of the owner of the post/comment, so other users can know if their posted information is legitimate and reliable. Moreover, it is also possible for authenticated users to report abusive, inappropriate, or fake news/comments, so the moderator can analyze these situations and correctly deal with them.
 
-Users will be distributed in three distinct groups: Visitors, Members, and Administrators. Upon entering the website, all users are presented with the latest news on the most popular topics and can search for news, topics, and users. Visitors (unauthenticated users) are able to register and/or login to create a new account. Members (authenticated users) can post and rate news and comments, while also being able to follow topics and other users, this makes it so the news that appears on their feed can be customized to their preferences. Finally, administrators can delete posted news and comments of any user on the website, furthermore, if necessary, they can delete abusive accounts. 
+Users will be distributed in three distinct groups: Visitors, Members, and Administrators. Upon entering the website, all users are presented with the latest news on the most popular topics and can search for news, topics, and users. Visitors (unauthenticated users) are able to register and/or login to create a new account. Members (authenticated users) can post and rate news and comments, while also being able to follow topics and other users, this makes it so the news that appears on their feed can be customized to their preferences. Finally, administrators can delete topics and posted news/comments of any user on the website, furthermore, if necessary, they can delete abusive accounts.
 
 
 ---
@@ -29,15 +29,15 @@ The following sections provide several details about the project, its actors and
 
 
 
-|   Identifier   | Description                                                  | Examples |
-| :------------: | ------------------------------------------------------------ | -------- |
-|      User      | Generic user with access to public information, such as topics, news and comments. | n/a      |
-|    Visitor     | Unauthenticated user that can register itself (sign-up) or sign-in in the system. | n/a      |
-|     Member     | Authenticated user that can post news, comments and edit all of its posts and comments. Can also upvote or downvote other user's posts and comments. Has the ability to follow users and topics to have a customized news feed. | jlopes   |
-|  News Poster   | Authenticated user that belongs to the same location as the creator of a news item and can change/delete its existing information. | jlopes   |
-| Comment Poster | Authenticated user that belongs to the same location as the creator of a comment and can change/delete its existing information. | jlopes   |
-| Administrator  | Authenticated user that is responsible for the management of users, news and comments. | admin    |
-|      API       | External APIs that can be used to register and/or authenticate into the system. | Google   |
+| Identifier     | Description                                                  | Examples  |
+| :------------- | :----------------------------------------------------------- | :-------- |
+| User           | Generic user with access to public information, such as topics, news and comments. | n/a       |
+| Visitor        | Unauthenticated user that can register itself (sign-up) or sign-in in the system. | n/a       |
+| Member         | Authenticated user that can post news, comments and edit all of its posts and comments. Can also upvote or downvote other user's posts and comments. Has the ability to follow users and topics to have a customized news feed. | WanWan    |
+| News Poster    | Authenticated user that belongs to the same location as the creator of a news item and can change/delete its existing information. | WanWan    |
+| Comment Poster | Authenticated user that belongs to the same location as the creator of a comment and can change/delete its existing information. | kaka34    |
+| Administrator  | Authenticated user that is responsible for the management of users, news and comments. | Admin9218 |
+| API            | External APIs that can be used to register and/or authenticate into the system. | Google    |
 
 Table 1: Actor's description.
 
@@ -72,29 +72,29 @@ Table 3: Visitor's user stories.
 
 #### 2.3. Member
 
-| Identifier |             Name              | Priority |                         Description                          |
-| :--------: | :---------------------------: | :------: | :----------------------------------------------------------: |
-|   US311    |            Logout             |   High   | As a Member, I want to logout from the system, so that other users are able to login in the same computer. |
-|   US321    |      Create a News Post       |   High   | As a Member, I want to create a news post for the community to read and comment, so that I can share the latest information on gaming. |
-|   US322    |        Select a Topic         |   High   | As a Member, when creating a news post, I want to able to select existing gaming topics related to that post, so that I can associate the news information with the respective subject/theme. |
-|   US323    |        Create a Topic         |   High   | As a Member, when creating a news post, I want to able to create a new gaming topic related to that post, so that I can associate the news information with the respective subject/theme. |
-|   US324    |      Comment a News Post      |   High   | As a Member, I want to comment on a news post, so that I can discuss and share my opinion with the community. |
-|   US331    |        Follow a Topic         |   High   | As a Member, I want to follow a topic, so that I can see posts related to that topic in my customized news feed. |
-|   US332    |       Unfollow a Topic        |   High   | As a Member, I want to unfollow a topic, so that I remove posts related to that topic from my customized news feed. |
-|   US333    |        Follow a Member        |   High   | As a Member, I want to follow a member, so that I can see posts created by that member in my customized news feed. |
-|   US334    |       Unfollow a Member       |   High   | As a Member, I want to unfollow a followed member, so that I remove posts created by that member from my customized news feed. |
-|   US341    |       Rate a News Post        |   High   | As a Member, I want to upvote or downvote a news post based on my thoughts, so that I can affect the post's visibility. |
-|   US342    |        Rate a Comment         |   High   | As a Member, I want to upvote or downvote a comment based on my thoughts, so that I can affect the comment's visibility. |
-|   US343    |      Report a News Post       |   High   | As a Member, I want to be able to report an offensive/misleading news post, so that I can contribute in keeping Gameorama safe and reliable for me and other users. |
-|   US344    |       Report a Comment        |   High   | As a Member, I want to be able to report an offensive/misleading comment, so that I can contribute in keeping Gameorama safe and reliable for me and other users. |
-|   US345    |     Bookmark a News Post      |   High   | As a Member, I want to bookmark interesting news posts so that I can review them later. |
-|   US346    | Remove Bookmarked a News Post |   High   | As a Member, I want to remove a Bookmarked news post so that I can delete them from my profile page. |
-|   US351    |   View my Posted News Posts   |   High   | As a Member, I want to be able so see in my profile page the news posts I've created so that I can easily access them. |
-|   US352    |       View my Comments        |   High   | As a Member, I want to be able so see in my profile page the comments I've posted so that I can easily access them. |
-|   US353    |  View Bookmarked News Posts   |   High   | As a Member, I want to be able so see in my profile page the news posts I've bookmarked so that I can easily access them. |
-|   US354    |   Edit Profile Information    |   High   | As a Member, I want to edit my own profile information (e.g. name, profile picture, biography), so that it can be up to date. |
-|   US355    |    Edit Account  Settings     |   High   | As a Member, I want to edit my account settings (e.g. email, password), so that I can keep my account safe. |
-|   US361    |         Notifications         |  Medium  | As a Member, I want to get notified when another Member follows me or comments on my post so that I can know when and who followed me/commented on my post faster. |
+| Identifier | Name                          | Priority | Description                                                  |
+| :--------- | :---------------------------- | :------- | :----------------------------------------------------------- |
+| US311      | Logout                        | High     | As a Member, I want to logout from the system, so that other users are able to login in the same computer. |
+| US321      | Create a News Post            | High     | As a Member, I want to create a news post for the community to read and comment, so that I can share the latest information on gaming. |
+| US322      | Select/Add a Topic            | High     | As a Member, when creating a news post, I want to able to select gaming topics related to that post, so that I can associate the news information with the respective subject/theme. |
+| US323      | Create a Topic                | High     | As a Member, when creating a news post, I want to able to create a new gaming topic related to that post, so that I can associate the news information with the respective subject/theme. |
+| US324      | Comment a News Post           | High     | As a Member, I want to comment on a news post, so that I can discuss and share my opinion with the community. |
+| US331      | Follow a Topic                | High     | As a Member, I want to follow a topic, so that I can see posts related to that topic in my customized news feed. |
+| US332      | Unfollow a Topic              | High     | As a Member, I want to unfollow a topic, so that I remove posts related to that topic from my customized news feed. |
+| US333      | Follow a Member               | High     | As a Member, I want to follow a member, so that I can see posts created by that member in my customized news feed. |
+| US334      | Unfollow a Member             | High     | As a Member, I want to unfollow a followed member, so that I remove posts created by that member from my customized news feed. |
+| US341      | Rate a News Post              | High     | As a Member, I want to upvote or downvote a news post based on my thoughts, so that I can affect the post's visibility. |
+| US342      | Rate a Comment                | High     | As a Member, I want to upvote or downvote a comment based on my thoughts, so that I can affect the comment's visibility. |
+| US343      | Report a News Post            | High     | As a Member, I want to be able to report an offensive/misleading news post, so that I can contribute in keeping Gameorama safe and reliable for me and other users. |
+| US344      | Report a Comment              | High     | As a Member, I want to be able to report an offensive/misleading comment, so that I can contribute in keeping Gameorama safe and reliable for me and other users. |
+| US345      | Bookmark a News Post          | High     | As a Member, I want to bookmark interesting news posts so that I can review them later. |
+| US346      | Remove Bookmarked a News Post | High     | As a Member, I want to remove a Bookmarked news post so that I can delete them from my profile page. |
+| US351      | View my Posted News Posts     | High     | As a Member, I want to be able so see in my profile page the news posts I've created so that I can easily access them. |
+| US352      | View my Comments              | High     | As a Member, I want to be able so see in my profile page the comments I've posted so that I can easily access them. |
+| US353      | View Bookmarked News Posts    | High     | As a Member, I want to be able so see in my profile page the news posts I've bookmarked so that I can easily access them. |
+| US354      | Edit Profile Information      | High     | As a Member, I want to edit my own profile information (e.g. name, profile picture, biography), so that it can be up to date. |
+| US355      | Edit Account  Settings        | High     | As a Member, I want to edit my account settings (e.g. email, password), so that I can keep my account safe. |
+| US361      | Notifications                 | Medium   | As a Member, I want to get notified when another Member follows me or comments on my post so that I can know when and who followed me/commented on my post faster. |
 
 Table 4: Member's user stories.
 
@@ -133,21 +133,22 @@ Table 7: Administrator's user stories.
 
 #### 3.1. Business rules
 
-| Identifier |        Name         |                         Description                          |
-| :--------: | :-----------------: | :----------------------------------------------------------: |
-|    BR01    |    Rating System    | A member can only upvote OR downvote a news post/comment, not both at the same time. |
-|    BR02    |   News Aura Score   | A News Aura Score is calculated by the following formula: News Post's Number of Upvotes - News Post's Number of Downvotes. |
-|    BR03    | Comment Aura Score  | A Comment Aura Score is calculated by the following formula: Comment's Number of Upvotes - Comment's Number of Downvotes. |
-|    BR04    | Member's Aura score | A Member's Aura score is calculated according to the formula: All Member's News Aura + All Member's Comment Aura. |
-|    BR05    |     Auto Upvote     | A newly created post always has its creator's own upvote automatically (although it can be removed later). |
-|    BR06    |     Edited Post     |  An edited post is adequately marked with an asterisk (*).   |
-|    BR07    |   Edited Comment    | An edited comment is adequately marked with an asterisk (*). |
-|    BR08    |     News Poster     | A News Poster is identified with a special icon (A microphone) when they comment on their own post. |
-|    BR09    |    Administrator    | An Administrator is identified with a special icon (A shield) when they post or comment in the website. |
-|    BR10    |   New News Posts    | A News Post must always have at least 1 topic assigned to it. |
-|    BR11    |   Deleted Member    | A deleted Member has all their content on the website deleted (profile, news posts and comments). |
-|    BR12    |    Deleted Topic    | A deleted Topic has all its content deleted (news posts and comments). |
-|    BR13    |    Comment Date     |        A Comment's date must be after its Post's date        |
+| Identifier | Name                | Description                                                  |
+| :--------- | :------------------ | :----------------------------------------------------------- |
+| BR01       | Rating System       | A member can only upvote OR downvote a news post/comment, not both at the same time. |
+| BR02       | News Aura Score     | A News Aura Score is calculated by the following formula: News Post's Number of Upvotes - News Post's Number of Downvotes. |
+| BR03       | Comment Aura Score  | A Comment Aura Score is calculated by the following formula: Comment's Number of Upvotes - Comment's Number of Downvotes. |
+| BR04       | Member's Aura score | A Member's Aura score is calculated according to the formula: All Member's News Aura + All Member's Comment Aura. |
+| BR05       | Auto Upvote         | A newly created post always has its creator's own upvote automatically (although it can be removed later). |
+| BR06       | Edited Post         | An edited post is adequately marked with an indicator (edited). |
+| BR07       | Edited Comment      | An edited comment is adequately marked with an indicator (edited). |
+| BR08       | News Poster         | A News Poster is identified with a special icon (A microphone) when they comment on their own post. |
+| BR09       | Administrator       | An Administrator is identified with a special icon (A shield) when they post or comment in the website. |
+| BR10       | New News Posts      | A News Post must always have at least 1 topic assigned to it. |
+| BR11       | New Topics          | If, when creating a news post, a Member selects a topic that doesn't exist yet, a new page for that topic is created. |
+| BR12       | Deleted Member      | A deleted Member has all their content on the website deleted (profile, news posts and comments). |
+| BR13       | Deleted Topic       | A deleted Topic has all its content deleted (news posts and comments). |
+| BR14       | Comment Date        | A Comment's date must be after its Post's date               |
 
 #### 3.2. Technical requirements
 
