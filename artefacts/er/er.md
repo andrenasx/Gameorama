@@ -268,7 +268,7 @@ Wireflows are presented to represent some of the main interactions with the syst
 
 
 
-![full_wireflow](https://user-images.githubusercontent.com/43822403/110525573-a43d3f00-810c-11eb-8f01-3400f562bd8d.png)
+![full_wireflow](https://i.imgur.com/0l24dcM.jpg)
 
 **Figure 8:** Complete website Wireflow.
 
