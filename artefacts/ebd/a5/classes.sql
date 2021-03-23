@@ -1,61 +1,62 @@
 DROP TABLE IF EXISTS member CASCADE;
-DROP TABLE IF EXISTS memberFollow CASCADE;
+DROP TABLE IF EXISTS member_follow CASCADE;
 DROP TABLE IF EXISTS administrator CASCADE;
-DROP TABLE IF EXISTS newsPost CASCADE;
+DROP TABLE IF EXISTS news_post CASCADE;
 DROP TABLE IF EXISTS topic CASCADE;
-DROP TABLE IF EXISTS topicFollow CASCADE;
+DROP TABLE IF EXISTS topic_follow CASCADE;
 DROP TABLE IF EXISTS comment CASCADE;
 DROP TABLE IF EXISTS reply CASCADE;
-DROP TABLE IF EXISTS postImages CASCADE;
-DROP TABLE IF EXISTS postAura CASCADE;
-DROP TABLE IF EXISTS commentAura CASCADE;
-DROP TABLE IF EXISTS followNotification CASCADE;
-DROP TABLE IF EXISTS commentNotification CASCADE;
-DROP TABLE IF EXISTS postReport CASCADE;
-DROP TABLE IF EXISTS topicReport CASCADE;
-DROP TABLE IF EXISTS memberReport CASCADE;
+DROP TABLE IF EXISTS post_images CASCADE;
+DROP TABLE IF EXISTS post_aura CASCADE;
+DROP TABLE IF EXISTS comment_aura CASCADE;
+DROP TABLE IF EXISTS follow_notification CASCADE;
+DROP TABLE IF EXISTS comment_notification CASCADE;
+DROP TABLE IF EXISTS reply_notification CASCADE;
+DROP TABLE IF EXISTS post_report CASCADE;
+DROP TABLE IF EXISTS topic_report CASCADE;
+DROP TABLE IF EXISTS member_report CASCADE;
 
 
 CREATE TABLE member (
     id integer PRIMARY KEY,
     username text NOT NULL UNIQUE,
-    fullName text NOT NULL,
+    full_name text NOT NULL,
     email text NOT NULL UNIQUE,
     password text NOT NULL,
     bio text,
-    profileImage blob,
-    bannerImage blob,
+    profile_img bytea,
+    banner_img bytea,
     aura integer DEFAULT 0 NOT NULL
 );
 
-CREATE TABLE memberFollow (
-    idMemberFollower integer REFERENCES member(id) ON DELETE CASCADE,
-    idMemberFollows integer REFERENCES member(id) ON DELETE CASCADE,
-    PRIMARY KEY(idMemberFollower, idMemberFollows)
+CREATE TABLE member_follow (
+    id_follower integer REFERENCES member(id) ON DELETE CASCADE,
+    id_followed integer REFERENCES member(id) ON DELETE CASCADE,
+    PRIMARY KEY(id_follower, id_followed)
 );
 
 CREATE TABLE administrator (
     id integer PRIMARY KEY REFERENCES member(id)
 );
 
-CREATE TABLE newsPost (
+CREATE TABLE news_post (
     id integer PRIMARY KEY,
     title text NOT NULL,
     body text,
-    postDate timestamp NOT NULL,
+    post_date timestamp NOT NULL,
     aura integer DEFAULT 0 NOT NULL,
-    owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE,
+    owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE topic (
     id integer PRIMARY KEY,
-    name text NOT NULL UNQUE
+    name text NOT NULL UNIQUE
 );
 
-CREATE TABLE topicFollow (
-    idTopic integer REFERENCES topic(id) ON DELETE CASCADE,
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
-    PRIMARY KEY(idTopic, idMember)
+CREATE TABLE topic_follow (
+    id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
+    id_member integer REFERENCES member(id) ON DELETE CASCADE,
+    PRIMARY KEY(id_topic, id_member)
 );
 
 CREATE TABLE comment (
@@ -63,73 +64,79 @@ CREATE TABLE comment (
     body text NOT NULL,
     commentDate timestamp NOT NULL,
     aura integer DEFAULT 0 NOT NULL,
-    idPost integer NOT NULL REFERENCES newsPost(id) ON DELETE CASCADE
+    id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE
 );
 
 CREATE TABLE reply (
-    idComment integer REFERENCES comment(id) ON DELETE CASCADE,
-    idParent integer REFERENCES comment(id) ON DELETE CASCADE,
-    PRIMARY KEY(idComment, idParent)
+    id_comment integer PRIMARY KEY REFERENCES comment(id) ON DELETE CASCADE,
+    id_parent integer REFERENCES comment(id) ON DELETE CASCADE
 );
 
-CREATE TABLE postImages (
-    idPost integer REFERENCES newsPost(id) ON DELETE CASCADE,
-    file blob,
-    PRIMARY KEY(idPost, file)
+CREATE TABLE post_images (
+    id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
+    file bytea,
+    PRIMARY KEY(id_post, file)
 );
 
-CREATE TABLE postAura (
-    idPost integer REFERENCES newsPost(id) ON DELETE CASCADE,
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
+CREATE TABLE post_aura (
+    id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
+    id_voter integer REFERENCES member(id) ON DELETE CASCADE,
     upvote boolean NOT NULL,
-    PRIMARY KEY(idPost, idMember)
+    PRIMARY KEY(id_post, id_voter)
 );
 
-CREATE TABLE commentAura (
-    idComment integer REFERENCES comment(id) ON DELETE CASCADE,
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
+CREATE TABLE comment_aura (
+    id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
+    id_voter integer REFERENCES member(id) ON DELETE CASCADE,
     upvote boolean NOT NULL,
-    PRIMARY KEY(idComment, idMember)
+    PRIMARY KEY(id_comment, id_voter)
 );
 
-CREATE TABLE followNotification (
-    idFollower integer REFERENCES member(id) ON DELETE CASCADE,
-    idFollowed integer REFERENCES member(id) ON DELETE CASCADE,
+CREATE TABLE follow_notification (
+    id_follower integer REFERENCES member(id) ON DELETE CASCADE,
+    id_followed integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(idFollower, idFollowed)
+    PRIMARY KEY(id_follower, id_followed)
 );
 
-CREATE TABLE commentNotification (
-    idComment integer REFERENCES comment(id) ON DELETE CASCADE,
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
+CREATE TABLE comment_notification (
+    id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
+    id_commenter integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(idComment, idMember)
+    PRIMARY KEY(id_comment, id_commenter)
 );
 
-CREATE TABLE postReport (
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
-    idPost integer REFERENCES newsPost(id) ON DELETE CASCADE,
+CREATE TABLE reply_notification (
+    id_reply integer REFERENCES reply(id_comment) ON DELETE CASCADE,
+    id_commenter integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(idMember, idPost)
+    PRIMARY KEY(id_reply, id_commenter)
 );
 
-CREATE TABLE commentReport (
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
-    idComment integer REFERENCES comment(id) ON DELETE CASCADE,
+CREATE TABLE post_report (
+    id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
+    id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(idMember, idComment)
+    PRIMARY KEY(id_reporter, id_post)
 );
 
-CREATE TABLE topicReport (
-    idMember integer REFERENCES member(id) ON DELETE CASCADE,
-    idTopic integer REFERENCES topic(id) ON DELETE CASCADE,
+CREATE TABLE comment_report (
+    id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
+    id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(idMember, idTopic)
+    PRIMARY KEY(id_reporter, id_comment)
 );
 
-CREATE TABLE memberReport (
-    idReporter integer REFERENCES member(id) ON DELETE CASCADE,
-    idReported integer REFERENCES member(id) ON DELETE CASCADE,
+CREATE TABLE topic_report (
+    id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
+    id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(idReporter, idReported)
+    PRIMARY KEY(id_reporter, id_topic)
+);
+
+CREATE TABLE member_report (
+    id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
+    id_reported integer REFERENCES member(id) ON DELETE CASCADE,
+    body text NOT NULL,
+    PRIMARY KEY(id_reporter, id_reported)
 );
