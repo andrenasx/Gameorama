@@ -4,10 +4,10 @@ DROP TABLE IF EXISTS administrator CASCADE;
 DROP TABLE IF EXISTS news_post CASCADE;
 DROP TABLE IF EXISTS topic CASCADE;
 DROP TABLE IF EXISTS topic_follow CASCADE;
-DROP TABLE IF EXISTS post_topics CASCADE;
+DROP TABLE IF EXISTS post_topic CASCADE;
 DROP TABLE IF EXISTS comment CASCADE;
 DROP TABLE IF EXISTS reply CASCADE;
-DROP TABLE IF EXISTS post_images CASCADE;
+DROP TABLE IF EXISTS post_image CASCADE;
 DROP TABLE IF EXISTS post_aura CASCADE;
 DROP TABLE IF EXISTS comment_aura CASCADE;
 DROP TABLE IF EXISTS follow_notification CASCADE;
@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS member_report CASCADE;
 
 
 CREATE TABLE member (
-    id integer PRIMARY KEY,
+    id serial PRIMARY KEY,
     username text NOT NULL UNIQUE,
     full_name text NOT NULL,
     email text NOT NULL UNIQUE,
@@ -42,7 +42,7 @@ CREATE TABLE administrator (
 );
 
 CREATE TABLE news_post (
-    id integer PRIMARY KEY,
+    id serial PRIMARY KEY,
     title text NOT NULL,
     body text,
     post_date timestamp NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE news_post (
 );
 
 CREATE TABLE topic (
-    id integer PRIMARY KEY,
+    id serial PRIMARY KEY,
     name text NOT NULL UNIQUE
 );
 
@@ -61,16 +61,16 @@ CREATE TABLE topic_follow (
     PRIMARY KEY(id_topic, id_member)
 );
 
-CREATE TABLE post_topics (
+CREATE TABLE post_topic (
     id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
     id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
     PRIMARY KEY(id_post, id_topic)
 );
 
 CREATE TABLE comment (
-    id integer PRIMARY KEY,
+    id serial PRIMARY KEY,
     body text NOT NULL,
-    commentDate timestamp NOT NULL,
+    comment_date timestamp NOT NULL,
     aura integer DEFAULT 0 NOT NULL,
     id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE
 );
@@ -80,9 +80,9 @@ CREATE TABLE reply (
     id_parent integer REFERENCES comment(id) ON DELETE CASCADE
 );
 
-CREATE TABLE post_images (
+CREATE TABLE post_image (
     id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
-    file bytea,
+    file bytea NOT NULL,
     PRIMARY KEY(id_post, file)
 );
 
