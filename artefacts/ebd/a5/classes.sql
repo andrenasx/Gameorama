@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS administrator CASCADE;
 DROP TABLE IF EXISTS news_post CASCADE;
 DROP TABLE IF EXISTS topic CASCADE;
 DROP TABLE IF EXISTS topic_follow CASCADE;
+DROP TABLE IF EXISTS post_topics CASCADE;
 DROP TABLE IF EXISTS comment CASCADE;
 DROP TABLE IF EXISTS reply CASCADE;
 DROP TABLE IF EXISTS post_images CASCADE;
@@ -13,6 +14,7 @@ DROP TABLE IF EXISTS follow_notification CASCADE;
 DROP TABLE IF EXISTS comment_notification CASCADE;
 DROP TABLE IF EXISTS reply_notification CASCADE;
 DROP TABLE IF EXISTS post_report CASCADE;
+DROP TABLE IF EXISTS comment_report CASCADE;
 DROP TABLE IF EXISTS topic_report CASCADE;
 DROP TABLE IF EXISTS member_report CASCADE;
 
@@ -57,6 +59,12 @@ CREATE TABLE topic_follow (
     id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
     id_member integer REFERENCES member(id) ON DELETE CASCADE,
     PRIMARY KEY(id_topic, id_member)
+);
+
+CREATE TABLE post_topics (
+    id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
+    id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
+    PRIMARY KEY(id_post, id_topic)
 );
 
 CREATE TABLE comment (
