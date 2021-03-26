@@ -107,25 +107,25 @@ CREATE TABLE comment_aura (
 );
 
 CREATE TABLE follow_notification (
+    id_notified integer REFERENCES member(id) ON DELETE CASCADE,
     id_follower integer REFERENCES member(id) ON DELETE CASCADE,
-    id_followed integer REFERENCES member(id) ON DELETE CASCADE,
     date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_follower, id_followed),
-    CONSTRAINT follow_notification_ids CHECK (id_follower <> id_followed)
+    PRIMARY KEY(id_notified, id_follower),
+    CONSTRAINT follow_notification_ids CHECK (id_follower <> id_notified)
 );
 
 CREATE TABLE comment_notification (
+    id_notified integer REFERENCES member(id) ON DELETE CASCADE,
     id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
-    id_commenter integer REFERENCES member(id) ON DELETE CASCADE,
     date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_comment, id_commenter)
+    PRIMARY KEY(id_notified, id_comment)
 );
 
 CREATE TABLE reply_notification (
+    id_notified integer REFERENCES member(id) ON DELETE CASCADE,
     id_reply integer REFERENCES reply(id_comment) ON DELETE CASCADE,
-    id_commenter integer REFERENCES member(id) ON DELETE CASCADE,
     date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_reply, id_commenter)
+    PRIMARY KEY(id_notified, id_reply)
 );
 
 CREATE TABLE post_report (
