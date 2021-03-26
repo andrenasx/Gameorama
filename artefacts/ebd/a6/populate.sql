@@ -5,6 +5,7 @@
 insert into member_image (file) values (bytea('profile_image'));
 insert into member_image (file) values (bytea('banner_image'));
 
+
 insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('BrotherSena', 'Gustavo Sena', 'up201806078@fe.up.pt', 'EF92B778BAFE771E89245B89ECBC08A44A4E166C06659911881F383D4473E94F', 'Virei Monge!', 1, 2);
 insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('El_biden', 'Andre Nascimento', 'up201806461@fe.up.pt', 'EF92B778BAFE771E89245B89ECBC08A44A4E166C06659911881F383D4473E94F', 'Da-me tu sardita :P', 1, 2);
 insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('kaka34', 'Caio Nogueira', 'up201806218@fe.up.pt', 'EF92B778BAFE771E89245B89ECBC08A44A4E166C06659911881F383D4473E94F', 'Nao mandas em mim nao es minha mae', 1, 2);
@@ -59,6 +60,27 @@ insert into member (username, full_name, email, password, bio, profile_image, ba
 insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('aantliff1b', 'Ari Antliff', 'aantliff1b@diigo.com', '9983a8dd9eca19cf19e22a3049895a6b2da4de54916922200bece884e49e2dc2', 'Visionary demand-driven workforce', 1, 2);
 insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('nwoodlands1c', 'Noell Woodlands', 'nwoodlands1c@rambler.ru', 'f167be579158bc2e90a686e566478be30bec3d811cae7455bbf44c1ba6b76e72', 'Implemented next generation model', 1, 2);
 insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('efollan1d', 'Elvin Follan', 'efollan1d@archive.org', '1e65dc6cc684728c7aae3c31f4aadbed748bda5376cff4f5fb14f1e8ff63c112', 'Face to face zero tolerance installation', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('rdennerly0', 'Renault Dennerly', 'rdennerly0@virginia.edu', 'Wb6KxJrtKX', 'Devolved discrete function', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('acradock1', 'Agna Cradock', 'acradock1@businessweek.com', 'dxCzwAY', 'Upgradable grid-enabled data-warehouse', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('avarley2', 'Alis Varley', 'avarley2@artisteer.com', 'SOBfO1iK1', 'User-friendly homogeneous secured line', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('lwimes3', 'Lenore Wimes', 'lwimes3@chicagotribune.com', '3HzKKI6', 'Digitized exuding budgetary management', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('ffurman4', 'Fleurette Furman', 'ffurman4@wordpress.com', 'byNHxHpdID', 'Cross-platform mobile policy', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('tdohmer5', 'Tammy Dohmer', 'tdohmer5@vimeo.com', 'Wgq6Z7KJLerf', 'Profound foreground complexity', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('emcgaraghan6', 'Emelita McGaraghan', 'emcgaraghan6@ameblo.jp', 'FQG8E2z3Sjm', 'Right-sized asymmetric algorithm', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('sbeecham7', 'Sharline Beecham', 'sbeecham7@vkontakte.ru', '5gVD86rq', 'Profit-focused static emulation', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('cattwell8', 'Corette Attwell', 'cattwell8@cbsnews.com', 'K4k4zBFE9o9', 'Sharable eco-centric utilisation', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('jgaze9', 'Jilleen Gaze', 'jgaze9@archive.org', 'ZKtNU5', 'Switchable mobile strategy', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('wheinisha', 'Wilmar Heinish', 'wheinisha@purevolume.com', 'J17UFF6mXzqY', 'Reverse-engineered background application', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('dfattorib', 'Dexter Fattori', 'dfattorib@yolasite.com', 'zUS6QX06M', 'Optimized clear-thinking methodology', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('ztimlinc', 'Zia Timlin', 'ztimlinc@bing.com', 'ZkOCHDW45trY', 'De-engineered maximized emulation', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('mmeddingsd', 'Maris Meddings', 'mmeddingsd@barnesandnoble.com', 'BYLsas', 'Polarised human-resource conglomeration', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('emordye', 'Estel Mordy', 'emordye@elpais.com', 'LqtyWOmIpqD', 'Function-based user-facing adapter', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('gpollandf', 'Gonzales Polland', 'gpollandf@tuttocitta.it', '6l5zqk', 'Fundamental systemic hub', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('bsettleg', 'Barbi Settle', 'bsettleg@utexas.edu', 'Kym428Tf', 'Sharable web-enabled capacity', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('woraeh', 'Witty Orae', 'woraeh@fotki.com', 'Oe3TGJS', 'Persevering executive synergy', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('gfarakeri', 'Genevieve Faraker', 'gfarakeri@usa.gov', '1Kw0CXa', 'Proactive 3rd generation hub', 1, 2);
+insert into member (username, full_name, email, password, bio, profile_image, banner_image) values ('aduxbarryj', 'Alain Duxbarry', 'aduxbarryj@time.com', 'rgNPi19K', 'Exclusive systemic analyzer', 1, 2);
+
 
 insert into administrator (id) values (1);
 insert into administrator (id) values (2);
@@ -66,84 +88,1108 @@ insert into administrator (id) values (3);
 insert into administrator (id) values (4);
 
 
-insert into news_post(title, body, post_date, owner) values ('Razer presents webcam Kiyo Pro', 'Razer unveiled the Kiyo Pro webcam. With a scope that goes beyond the gaming world, it has the Adaptive Light Sensor as its main novelty. We live in an age marked by telecommuting. And this has awakened a long dormant problem: the poor quality of the cameras in our portable computers.', TIMESTAMP '2004-10-19 10:23:54', 1);
-insert into news_post(title, body, post_date, owner) values ( 'Viego champion Spotlight, The Ruined King', 'Viego will debut on the release of patch 11.2, which will feature several Nerfs to well-known characters like Akali and Maokai, and buffs to champions like Shako and Varus.
-As it could not be otherwise, Viego will have its own skin called Lunar Beast Viego, and will grant its own line of skins, "Ruined", starting with Shyvana, Draven and Karma.', TIMESTAMP '2004-10-19 10:23:54', 2);
-insert into news_post(title, body, post_date, owner) values ('Lego Marvel Super Heroes', 'Rumor: LEGO Marvel Super Heroes on its way to Switch', TIMESTAMP '2004-10-19 10:23:54', 3);
-insert into news_post(title, body, post_date, owner) values ('The Last of Us 2 surpasses The Witcher 3 and is the most awarded game ever', 'Naughty Dog latest title, The Last of Us - Part II, reached the most awarded game title ever, thus succeeding The Witcher 3: Wild Hunt.
-This information is advanced by the Game Awards website, which points out that The Last of Us 2, the winner of the Game of the Year category at The Game Awards, reached a total of 261 prizes (so far), thus surpassing the 260 achieved by the title of 2015 from CD Projekt Red.', TIMESTAMP '2004-10-19 10:23:54', 4);
+--https://pt.ign.com/tech/95983/news/razer-revela-a-webcam-kiyo-pro
+--Gadgets; Razer ; Razer Kiyo Pro
+insert into news_post (id, title, body, date_time, owner) values (1, 'Razer presents webcam Kiyo Pro', 'Razer unveiled the Kiyo Pro webcam. With a scope that goes beyond the gaming world, it has the Adaptive Light Sensor as its main novelty.\nWe live in an age marked by telecommuting. And this has awakened a long dormant problem: \nthe poor quality of the cameras in our portable computers.', TIMESTAMP '2020-08-28 17:05:49', 42);
 
-insert into news_post(title, body, post_date, owner) values ('GTA 5 biggest secret was discovered', 'Rockstar star franchise, Grand Theft Auto, is one of the most cherished and desired by the public. Proof of this is even today that we can count on news on the part of Take-Two that, wanting to meet the expectations of fans, addresses topics such as the possible production of a GTA 6 or remastering of previous successful games.', TIMESTAMP '2004-10-19 10:23:54', 3);
+--https://pt.ign.com/league-of-legends/94864/news/champion-spotlight-de-viego-the-ruined-king
+--League Of Legends ; Viego ; The Ruined King ; Lol Patches ; MOBA
+insert into news_post (id, title, body, date_time, owner) values (2, 'Viego champion Spotlight, The Ruined King', 'Viego will debut on the release of patch 11.2, which will feature several Nerfs to well-known characters like Akali and Maokai, and buffs to champions like Shako and Varus. As it could not be otherwise, Viego will have its own skin called Lunar Beast Viego, and will grant its own line of skins, "Ruined", starting with Shyvana, Draven and Karma.', TIMESTAMP '2018-04-15 16:53:56', 45);
 
-insert into news_post(title, body, post_date, owner) values ('Cyberpunk 2077 fixes security vulnerability', 'CD Projekt Red has released an update that addresses the vulnerability flaw that jeopardized the safety of players using mods in the game. The update was announced via Twitter and is now available for PC, correcting two elements that could potentially be used to activate harmful files hidden within mods.', TIMESTAMP '2004-10-19 10:23:54', 1);
-insert into news_post(title, body, post_date, owner) values ('PlayStation 5 arrives in Portugal', 'PlayStation 5 will be available in Portugal from November 19 in two versions, one normal (€ 499) and one without the Blu-ray player (€ 399). There are no differences in specifications between them, one is dedicated to those who definitely embraced the digital world, while another serves those who do not give up the physical format to adorn the shelves with their favorite games, thanks to the optical drive prepared for the Ultra HD Blu -ray up to 100GB.', TIMESTAMP '2004-10-19 10:23:54', 2);
+--https://pt.ign.com/the-last-of-us-part-ii/95008/news/the-last-of-us-2-ultrapassa-the-witcher-3-e-e-o-jogo-mais-galardoado-de-sempre
+--Last of Us ; The Witcher 3 ; Third Person ; Open World ; RPG
+insert into news_post (id, title, body, date_time, owner) values (3, 'The Last of Us 2 surpasses The Witcher 3 and is the most awarded game ever', 'Naughty Dog latest id, title, The Last of Us - Part II, reached the most awarded game id, title ever, thus succeeding\n The Witcher 3: Wild Hunt. This information is advanced by the Game Awards website, which points out that The Last of Us 2, the winner\n of the Game of the Year category at The Game Awards, reached a total of 261 prizes (so far), thus surpassing the 260 achieved by the id, title of 2015 from CD Projekt Red.', TIMESTAMP '2020-11-03 17:09:08', 34);
+
+--https://pt.ign.com/cyberpunk-2077/95347/news/cyberpunk-2077-corrige-vulnerabilidade-de-seguranca
+--Cyberpunk 2077 ; Fps ; Open World
+insert into news_post (id, title, body, date_time, owner) values (4, 'Cyberpunk 2077 fixes security vulnerability', null, TIMESTAMP '2021-01-28 10:21:25', 41);
+
+--https://pt.ign.com/lego-marvel-super-heroes/94255/news/rumor-lego-marvel-super-heroes-a-caminho-da-switch
+--Lego Super Heroes ; Lego ; Open World
+insert into news_post (id, title, body, date_time, owner) values (5, 'Lego Marvel Super Heroes', 'Rumor: LEGO Marvel Super Heroes on its way to Switch', TIMESTAMP '2021-02-20 10:09:40', 35);
+
+--https://www.ign.com/articles/total-war-rome-remastered-announced
+--War games ; Total War: Rome Remastered ; Total War
+insert into news_post (id, title, body, date_time, owner) values (6, 'Total War: Rome Remastered Announced', 'Sega has announced Total War: Rome Remastered, an updated version of the Creative Assembly-developed strategy classic from 2004. It will release on April 29.\nThe remaster has been developed in collaboration with Feral Interactive, and is described as a "comprehensive remaster" that adds a suite of visual and gameplay improvements.', TIMESTAMP '2018-09-14 04:31:48', 49);
+
+--https://www.ign.com/articles/outriders-will-permanently-brand-cheaters-games
+--Outriders ; AntiCheat ; Console gaming ; Xbox gaming ; PlayStation gaming ; PC gaming
+insert into news_post (id, title, body, date_time, owner) values (7, 'Outriders Will Permanently Brand Cheaters'' Games', 'People Can Fly has announced that it will brand cheaters in Outriders by adding a permanent watermark to their HUD, among other punishments.\nIn a post on the Outriders Steam blog, the developer outlined its cheating and hacking policy, and the repercussions players will suffer if they engage in foul play.\n\nPeople Can Fly identified around 200 cheaters during the game''s demo period, including one who "gave themself 600 Legendary Weapons." Cheaters made up just 0.01% of the player base, and People Can Fly are hoping that the number won''t grow in the launch period for the full game.\nTo prevent this from happening, People Can Fly has implemented a number of repercussions for cheaters, which will be account-wide.\nYou will not be able to matchmake with legit players\nMatchmaking will likely take significantly longer\nYou will still be able to play solo\nIn future, your HUD will have a discreet but visible watermark placed on it so that gameplay footage created on this account can be readily identified as coming from a flagged account.\nAll accounts will be checked for historic cheating on April 1st, launch day, and then at "regular intervals" following that date. If you did cheat during the demo but you still want to start the game without the mark of the false shepherd, then you need to "delete all characters and items on your entire account" to start fresh. Naturally, if you cheated in the demo, don''t attempt to carry that progress over to the main game, or you will be branded.\n\nIf you''re wondering what People Can Fly considers cheating (at which point, perhaps you''ve already lost your way) here are a few habits to stay away from:\nIntentionally running the game on PC without Easy Anti Cheat (EAC)\nModifying game files to enhance a character: levels, skills, inventory, etc.\nExternally modifying game time to reduce time dependent features such as vendors and challenges\nUsing a trainer program or similar to gain advantages within the game\nUsing gameplay altering programs such as aimbots or wallhacks\nDon''t worry if you did use the above-board farming routes to pick up extra loot during the demo. People Can Fly has said that "farming is not considered cheating," but did lament the unethical "battering" that the loot-stuffed Captain miniboss suffered during the demo phase.\n\nOutriders is launching on April 1 worldwide for PC, PlayStation 4, PlayStation 4, Xbox One, Xbox Series X and S and Google Stadia. The game will be available to Xbox Game Pass subscribers on Day 1.', TIMESTAMP '2019-11-04 12:02:30', 16);
+
+--https://www.ign.com/wikis/monster-hunter-rise/Beginner%27s_Guide_to_Monster_Hunter_Rise
+--Monster Hunter Guides;  Monster Hunter ; Beginner Guides ; RPG
+insert into news_post (id, title, body, date_time, owner) values (8, 'Beginner''s Guide to Monster Hunter Rise', 'Monster Hunter Rise is more than just an action game - there are a ton of RPG elements you need to learn and master before you can truly call yourself a Monster Hunter. This guide covers everything you need to know so you can get started with a wealth of information already in your metaphorical inventory.\nBeginner''s Guide to Monster Hunter Rise\nMonster Hunter Rise''s gameplay loop is the main objective - it looks pretty simple, but is incredibly deep and satisfying if you invest time to master your weapon and forge unique armor sets. Prepare, Hunter a Monster, Make Better Stuff, and repeat!\n\nHere are the steps, with everything you need to know about each of them. Click to jump to that part of this page.\n\n1. Prepare\n\nFirst, prepare for a quest! Check the Village and Multiplayer Hub Key Quests - Walkthrough for details on how to choose a quest and progress the story.\n\nChoose a Weapon\nManage Your Inventory\nEquip the Right Gear\nEat a Meal\n\n2. Hunt a Monster\nPick Up Endemic Life (And Items)\nTake Advantage of the Wirebug and Wyvern Riding\nHow to Tell a Monster''s Status\nKill or Capture?\n\n3. Make Better Equipment (and more!)\nCheck the map by holding minus and talk to everyone with a chat bubble to get new optional quests, free items, and more.\n\nBuddies: Palico and Palamutes\nThe Argosy and Meowcenaries - Free Item Farming!\n4. Repeat!\nThat''s it! Continue prepping your equipment for the best advantage against the monster you''re up against next.\n\nPrepare for a Hunt\nEverything you should do when preparing for a hunt, especially your first one. Heads up, there are also tutorials you can accept from the village hub.\n\nChoose a Weapon\nYou start Monster Hunter Rise with basic models of all 14 types of weapons - you can see this equipment, and change it out, by selecting any Item Box within the village. Each weapon is wildly different! See the Weapons page for details about each of them, controls and tutorials for each, and advice on which weapons are best for beginners.\n\nTry them out in the Training Area - you will be able to fast travel within Kamura Village by bringing up your map by holding the minus button and choosing it. However, you''ll need to head to the Training Area physically by taking the dinghy from the Buddy Plaza before you can fast travel.\n\nManage Your Inventory\nIn between hunts, you''ll need to manage your item pouch. Luckily, this is made incredibly simple by registering an item loadout at the Item Box. Then, emptying and restocking your pouch is as easy as choosing a Loadout at the item box.\n\nSee Recommended Item Loadouts for ideas on what to bring with you on hunts, from instant heal Max Potions to attack-boosting Demondrugs.\nEquip the Right Gear\nYou''ll unlock more weapons and armor to craft as you slay new monsters and acquire more items! Check back in between quests to see what''s new.\n\nAt first, you won''t have many options, but look at the monster you''re about to face and the equipment you have on. Probably don''t want to face a fire-breathing Rathalos with negative fire resistant, or use a water element weapon on a bubbly Mizutsune. And, don''t forget about your Palicoe''s and Palamute''s gear!\n\nYou’ll get armor spheres that simply upgrade Armor’s defense, but don’t bother on the basic Kamura garb. Hold onto them until you craft a piece of armor you know you''ll want to keep. P.S. Armor Skills will become more important later, but for now just make sure to choose armor pieces that aren’t completely irrelevant to you. Like, if you don’t use Hunting Horn, don’t pick a chest piece with Horn Maestro that only affects Hunting Horns.\n\nEat a Meal\nLastly, always eat before a quest! Dango always increases your max health and stamina, and grant individual skills - like elemental resistances. If you forget, you can eat (and change equipment and items) inside the tent on a quest.\n\nHunting a Monster\nEverything you need to know about actually hunting down a monster on a quest.\n\nPick Up Endemic Life (And Items)\n\nAlways go to the blue supply box! The items included will give you a hint of what to use to heal from a monster’s status inflictions, or what to use to exploit them - like Screamer Pods against Lagombi’s Sensitive ears - at least in Low Rank and Village Quests.\n\nYou can’t keep most supply box items given to you by the guild, so use them before your own.\n\nPick up *everything* as you travel around - mining points, plants, mushrooms, insects, etc. Trust me, you’ll probably need that stuff eventually.\n\nEndemic Life is super useful! If you’re having trouble, make a concerted effort to collect buffs before engaging with a monster. Some of them can be used as items, too!\n\nAt the end of a quest, don’t sell any reward items, just take them all. You can always sell excess stuff later for a quick buck.\n\nTake Advantage of the Wirebug and Wyvern Riding\n\nThe Wirebug and Wyvern Riding are new to everyone, and are fantastic tools to take down monsters even faster and more fluidly. See Wyvern Riding Guide - How to Mount and Tips and Wirebug Guide, Tips, Controls for exactly how to utilize these cool game mechanics.\n\nHow to Tell a Monster''s Health and Status\nMonsters don''t have health bars in Monster Hunter Rise - instead, you can tell how it''s feeling by its actions and behavior. If it''s drooling, it''s exhausted; if it limping, it''s close to defeat (and capturable - also indicated by the blue icon); if acting erratically, or otherwise has a change in appearance, it''s usually enraged and will be more difficult to fight, and will break out of traps faster.\n\nKill or Capture?\n\nCatching a monster always shaves off a few minutes of a hunt vs. slaying it, but some materials are easier to get one way or the other. Check the Monster page in this wiki for that info if you haven''t unlocked that information in your own Hunter''s Notes yet, and How to Capture Monsters to learn how.\n\nMake Better Equipment (and more!)\nAfter hunting a monster, check the Smithy for new equipment to make! Check the map by holding minus and talk to everyone with a chat bubble to get new optional quests, free items, and more - and occasionally do the following!\n\n\nAfter your first Village Hub Urgent Quest, The Argosy will arrive in the Buddy Plaza. Send your buddies out to collect the items you need or are running low on - like Honey (for Mega Potions!) so you don’t run out. It beats having to go out and gather them yourself, like I had to do back in my day…\n\nSend Buddies out with the Meowcenaries to gather field items and monster materials.\n\nCheck the Cohoot nest in this tree in the Buddy Plaza for free stuff, like Steel Eggs, which you can sell!\nYou don’t have to check on the Argosy and Meowcenaries after every quest, but look occasionally and switch out when needed (which you can do from your housekeep). Trading with the Argosy and Meowcenaries is also how you get unique materials to unlock some cool new equipment!\n\nMake sure to always train buddies you don’t take with you at the Buddy Dojo - and recruit new ones if needed from Imori. Palicoes have different types and different attacks, so try out a variety. Plus, the higher level your buddies, the more they can do when trading with The Argosy, or when sent on missions with the Meowcenaries.', TIMESTAMP '2020-01-01 15:07:12', 26);
+
+--https://www.gamespot.com/articles/9-free-ps4-and-psvr-games-up-for-grabs-now-including-abzu-and-enter-the-gungeon/1100-6488948/
+--PS4 ; PlayStation ; PSVR ; Enter The Gungeon ; Abzu, Console gaming
+insert into news_post (id, title, body, date_time, owner) values (9, '9 Free PS4 And PSVR Games Up For Grabs Now, Including Abzu And Enter The Gungeon', 'If you''re looking for something new to play on PS4 or PS5 this weekend, you''re in luck, as Sony''s Play at Home 2021 has made nine PS4 and PSVR games free to claim for a limited time. Available now until April 22 at 8 PM PT / 11 PM ET, the list includes an assortment of id, titles from indies like Abzu and Enter the Gungeon to VR experiences like Moss and Thumper. Other games on the list include Rez Infinite, Subnautica, The Witness, Astro Bot Rescue Mission, and Paper Beast. The most enticing game in Sony''s Play at Home giveaway, however, is still yet to come. Guerrilla Games'' Horizon Zero Dawn: Complete Edition will be available for all PS4 players to download starting April 19 at 8 PM PT / 11 PM ET. You''ll have until May 14 to claim Zero Dawn on PS4 or PS5.', TIMESTAMP '2020-03-26 23:47:42', 4);
+
+--https://www.ign.com/articles/the-lord-of-the-rings-gollum-plays-to-the-tricksy-characters-strengths
+--The Lord of the Rings: Gollum; Lord Of the Rigs ; Gollum ; RPG ; My Precious
+insert into news_post (id, title, body, date_time, owner) values (10, 'The Lord of the Rings: Gollum Puts the Spotlight on an Unlikely Hero', 'Gollum is one of the most memorable characters in The Hobbit and The Lord of the Rings, no question. We all watched those movies. We mimicked his voice: "Sneaky little hobbitses" and "My preciousss" -- that''s good stuff. But he''s not exactly a typical video game hero. I mean, this is Gollum we''re talking about. He''s scrawny and unwashed! He wears a loincloth! He kills his friend and bites off Frodo''s finger!\nBut Daedalic Entertainment isn''t letting little things like that stop them from making a game about him anyway. It''s called The Lord of the Rings: Gollum, and it''s coming to all the major gaming platforms in 2022. And after sitting in on a 20-minute hands-off demo of an early level, I have to say, I may be coming around on Gollum as a star. That''s because, despite how slimy and tragic he is as a character, his limitations could lead to an enjoyable game.', TIMESTAMP '2020-11-24 15:34:52', 8);
+
+--https://www.ign.com/articles/two-new-xbox-series-xs-controller-colours-revealed
+--XBOX, Xbox gaming; Console gaming
+insert into news_post (id, title, body, date_time, owner) values (11, 'Two New Xbox Series X/S Controller Colours Revealed', 'nspired by "the energy and vibrance often found in athletic apparel and sneaker design," the Electric Volt controller pairs a neon yellow front plate with a white back and black D-Pad detailing. The DayStrike Camo Special Edition controller pairs red with grey and black and features a special textured grip on its bumpers.\n\nThe Electric Camo controller will launch on April 27 and retail at $64.99 and the Daystrike Camo controller will launch on May 4 and retail at $69.99. In some markets, they will also arrive alongside a 14-day trial of Xbox Game Pass Ultimate. Microsoft is also launching a merch range inspired by these two controllers and will be using "post-consumer recycled resins" in an effort to make production more sustainable.\nIn other Xbox news, Microsoft Is cutting the Xbox Live Gold requirement for party chat and free-to-play multiplayer.', TIMESTAMP '2018-06-01 03:44:25', 42);
+
+--https://www.ign.com/articles/rocket-league-sideswipe-is-a-new-mobile-game-from-psyonix
+--Rocket League ; Mobile Gaming
+insert into news_post (id, title, body, date_time, owner) values (12, 'Rocket League Sideswipe Is a New Mobile Game From Psyonix', 'Psyonix has announced a new standalone Rocket League game for mobile called Rocket League Sideswipe.\nRocket League Sideswipe takes the competitive car soccer gameplay of the PC and console version of Rocket League and changes up the perspective while keeping the PvP aspect intact. Players can compete in 2 minutes 1v1 or 2v2 matches using touchscreen controls that will be familiar to veteran players; while being intuitive for newcomers.', TIMESTAMP '2018-10-03 16:05:12', 38);
+
+--https://www.ign.com/articles/steam-next-fest-coming-in-june-will-feature-hundreds-of-game-demos
+--Steam; PC Masterrace
+insert into news_post (id, title, body, date_time, owner) values (13, 'Steam Next Fest Coming In June, Will Feature Hundreds Of Game Demos', 'Valve has revealed Steam Next Fest, a celebration of upcoming games coming in June which will feature "hundreds of game demos" and "oodles of livestreams."\nSteam Next Fest will kick off on June 16 and run through to June 22. This is Valve''s new name for the Steam Game Festival, which previously allowed users to check out demos of upcoming games, speak to their creators and get an insight into their development.\nValve wrote: “We’ve renamed the Steam Game Festival to more directly communicate its focus: Announcing Steam Next Fest, a multi-day celebration of upcoming games. Explore and play hundreds of game demos, watch developer livestreams, and chat with the teams about their games in progress, coming soon to Steam.”', TIMESTAMP '2020-05-16 12:21:39', 31);
+
+--https://www.ign.com/articles/hitman-3-seven-deadly-sins-expansion-announced
+--Hitman
+insert into news_post (id, title, body, date_time, owner) values (14, 'Hitman 3: Seven Deadly Sins Expansion Announced', 'IO Interactive has announced Seven Deadly Sins, a multi-part paid-for expansion for Hitman 3.\nAs the id, title implies, Seven Deadly Sins will be made up of seven new content packs that are themed around the capital vices of greed, lust, gluttony, sloth, wrath, envy, and pride. Each one will include a "visually distinct" contract, sin-themed unlockable suit, and at least one sin-themed object that can be used both in the new contract and across all missions in the Hitman trilogy.\nDelivered episodically, Seven Deadly Sins will start with Act 1: Greed, which launches on March 30. This pack features a new Escalation called The Greed Enumeration. Set in Dubai, it''s new notable feature is that it will allow players to carry certain special items over from stage to stage of the Escalation. Additionally, players will be able to unlock the golden Rapacious Suit, and make use of the Greedy Little Coin and Devil''s Cane items.\nPricing has not been announced, but when Seven Deadly Sins launches, players will have two options: to buy each new Season of Sin as it arrives, or buy all seven as part of a season pass for a discounted price.\nHave you played Hitman III?', TIMESTAMP '2020-04-08 06:27:38', 18);
+
+--https://www.ign.com/articles/mortal-kombat-movie-r-rating-pushed-to-limit-without-becoming-unreleasable
+--Game cinema ; Mortal Kombat ; R-Rated
+insert into news_post (id, title, body, date_time, owner) values (15, 'Mortal Kombat Movie Aims to Push R-Rating to the Limit, Without Becoming Unreleasable', 'Mortal Kombat director Simon McQuoid has detailed the extent of the brutality in the R-rated reboot of the film series, which is set to debut in theaters and on HBO Max in April.\nSpeaking to SFX Magazine via GamesRadar, McQuoid discussed how his upcoming Mortal Kombat movie lives up to its ultraviolent roots in order to deliver a faithful adaptation that brings the blood and gore strongly associated with the series to the big screen in a way that pushes the limits of the MPAA''s R rating without completely overstepping the boundaries.\n"We wanted to push the [blood, gore, and fatalities] right to the limit," McQuoid explained, speaking about the fatality-filled flick. "Obviously, there''s a point where the film becomes unreleasable if you push it too far, and that would be a very unwise return on investment for the studio but from day one it''s been, ''Okay, we''re doing this and we''re going to do it properly."', TIMESTAMP '2021-01-11 22:02:12', 29);
+
+--https://www.ign.com/articles/final-fantasy-11-mobile-reboot-cancelled-6-years-after-announcement
+--Final fantasy; Final fantasy 11; Mobile Gaming
+insert into news_post (id, title, body, date_time, owner) values (16, 'Final Fantasy 11 Mobile Reboot Cancelled 6 Years After Announcement', 'Six years after it was announced, Final Fantasy XI Reboot, a mobile version of Square''s early 2000s MMORPG, has officially been cancelled.\nThe cancellation came as co-developers Square Enix and Nexon decided the mobile version didn''t meet the creative standards Final Fantasy fans have come to expect from the series, according to Gamebiz.jp (via Gematsu). The development team has reportedly been moved to other projects.', TIMESTAMP '2020-02-23 12:27:05', 3);
+
+--https://www.ign.com/articles/the-best-xbox-series-x-and-series-s-deals-in-the-uk
+--xbox, Xbox gaming; Console gaming
+insert into news_post (id, title, body, date_time, owner) values (17, 'Where to Buy an Xbox Series X|S in the UK', null, TIMESTAMP '2020-08-07 16:00:15', 13);
+
+--https://www.ign.com/articles/dragon-age-4-executive-producer-reveals-more-character-concept-art
+--Dragon Age; Dragon age 4; Fan-art
+insert into news_post (id, title, body, date_time, owner) values (18, 'Dragon Age 4 Executive Producer Reveals More Character Concept Art', '\nBioware Austin Executive Producer Christian Dailey has revealed a new piece of Dragon Age 4 character concept art, showing off a mage, as well as a previously-revealed magic archer.\nDailey posted the concept to Twitter over the weekend, which features a character standing in a rain-drenched alley in Minrathous, wearing a boxy cape and wielding a staff with a snake at its helm. Dailey was prompted to post it by Dragon Age Creative Director Matthew Goldman, who tagged Daily previously, noting that fans "could use a little pick me up."', TIMESTAMP '2020-11-01 00:03:02', 6);
+
+--https://www.ign.com/articles/steam-refuses-to-sell-pick-up-artist-game-super-seducer-3
+--Super seducer 3; Steam
+insert into news_post (id, title, body, date_time, owner) values (19, 'Steam Refuses to Sell Pick-Up Artist Game Super Seducer 3', '\nSuper Seducer 3: The Final Seduction, a game where you are said to "learn powerful skills for attracting beautiful women," has been banned from Steam as the platform "does not ship sexually explicit images of real people."\nDeveloper Richard La Ruina took to Twitter to share the news, saying Valve will not allow it to be released in any form. Furthermore, the Steam page is gone alongside the "61,700 wish lists."', TIMESTAMP '2019-11-04 05:53:53', 50);
+
+--https://www.ign.com/articles/valheim-teases-its-hearth-and-home-update-as-it-crosses-6-million-units-sold
+--Valheim; Open world; Survival
+insert into news_post (id, title, body, date_time, owner) values (20, 'Valheim Teases Its Hearth and Home Update As It Crosses 6 Million Units Sold', 'Iron Gate has teased Valheim''s Hearth and Home update with a new image alongside announcing that its Norse survival game has officially passed six million units sold.\nNow that things are "calming down since launch," Iron Gate is able to spend more time focusing on Hearth and Home.', TIMESTAMP '2019-01-01 22:05:31', 50);
+
+--https://www.ign.com/articles/assassins-creed-valhalla-wrath-of-the-druids-expansion-release-date-announced
+--Assassin's Creed Valhalla; Assassin's Creed Saga; Open world; Adventure games
+insert into news_post (id, title, body, date_time, owner) values (21, 'Assassin''s Creed Valhalla: Wrath of the Druids Expansion Release Date Announced', 'Assassin''s Creed Valhalla''s first expansion - Wrath of the Druids - will be released on April 29, 2021 and will send Eivor "through the haunted beauty of Ireland as you gain the favor of Gaelic kings and confront the druidic cult, the Children of Danu."\nThis expansion is part of Valhalla''s post-launch support, which was revealed prior to the game''s launch in 2020. Following Wrath of the Druids in Summer 2021, the Siege of Paris will let players relive the "most ambitious battle in Viking history" as they infiltrate the fortified city of Paris.', TIMESTAMP '2018-06-01 00:36:42', 40);
+
+--https://www.ign.com/articles/control-developer-says-sony-was-a-bit-more-ready-for-next-gen-than-microsoft
+--Control, Single-Player ; Third person shooter
+insert into news_post (id, title, body, date_time, owner) values (22, 'Control Developer Says Sony Was ''a Bit More Ready'' for Next-Gen Than Microsoft', 'Developing games for next-gen consoles is challenging, especially if you''re simultaneously developing them for current-gen, as Control developer Remedy was. But the PS5 and the Xbox Series consoles were not equally challenging to develop for, according to Remedy''s Thomas Puha.\nOn Next-Gen Console Watch, Puha said that Sony was "a bit more ready" with its PS5 early tools for developers, and said that it was easier initially to get games like Control working on the PS5 than it was for the Xbox Series X and S.', TIMESTAMP '2020-08-24 23:21:32', 31);
+
+--https://www.ign.com/articles/cyberpunk-2077-patch-12-set-to-fix-police-response-times-and-driving-issues
+--Cyberpunk; fps; Single-player
+insert into news_post (id, title, body, date_time, owner) values (23, 'Cyberpunk 2077: Patch 1.2 Set To Fix Police Response Times and Driving Issues', '\nCD Projekt Red has revealed a handful of changes that it will implement as part of the currently undated patch 1.2 for Cyberpunk 2077. Its most notable feature is a change to how police respond to crimes, but there are also adjustments to driving and movement controls promised.', TIMESTAMP '2018-08-31 18:34:43', 37);
+
+--https://www.ign.com/articles/star-wars-jedi-fallen-order-rated-for-next-gen-consoles
+--Star wars; Single-player; Console gaming
+insert into news_post (id, title, body, date_time, owner) values (24, 'Star Wars Jedi: Fallen Order Rated For Next-Gen Consoles', 'Star Wars Jedi: Fallen Order could be getting a native next-gen console release, after the German ratings board listed new PS5 and Xbox versions.\nAs reported by Gematsu, USK, the German video game classification system, has rated Fallen Order on PlayStation 5 and Microsoft Xbox. These are new listings alongside the existing last-gen ratings, and suggest that a full, native next-gen upgrade of the game could be on the way. As you''d expect, those age ratings haven''t changed.', TIMESTAMP '2019-04-01 00:42:50', 48);
+
+--https://www.ign.com/videos/final-fantasy-7-remake-intergrade-director-has-no-dlc-planned
+--Final Fantasy 7; Final Fantasy Remake; Final Fantasy saga; Single-player
+insert into news_post (id, title, body, date_time, owner) values (25, 'Final Fantasy 7 Remake Intergrade Director Has No DLC Planned', null, TIMESTAMP '2018-03-25 09:05:04', 7);
+
+--https://www.ign.com/articles/among-us-the-airship-map-release-date-announced
+--Among us; Multiplayer
+insert into news_post (id, title, body, date_time, owner) values (26, 'Among Us: The Airship Map Release Date Announced', 'The Airship, Among Us'' new map, will be released on March 31, 2021 alongside a new update that adds the ability to pick which room you start in, ladders, a basic account system for moderation, and more.\nAnnounced by Innersloth, this new map, which was revealed at The Game Awards 2020, is based on the Toppat Clan Airship from the developer''s Henry Stickmin series.', TIMESTAMP '2019-04-05 14:11:06', 45);
+
+--https://www.ign.com/articles/life-is-strange-remastered-collection-release-date-fall-2021
+--Life is strange; Story games; xbox ,ps4, xbox gaming, PlayStation, Console gaming
+insert into news_post (id, title, body, date_time, owner) values (27, 'Life Is Strange: Remastered Collection Announced', 'Life Is Strange: Remastered Collection is a bundle of Life Is Strange 1 and Life Is Strange: Before the Storm, with enhanced visuals and animations, and it''s arriving in Fall 2021.\nAnnounced in the Spring 2021 Square Enix Presents broadcast for PC, Stadia, Xbox One, and PS4, the collection will be available as a standalone package, but will also be a part of the Ultimate Edition of the newly-announced Life Is Strange: True Colors.', TIMESTAMP '2018-11-27 09:45:24', 25);
+
+--https://www.ign.com/videos/tomb-raider-reboot-trilogy-bundle-seemingly-released-early
+--Tomb Raider; Adventure games
+insert into news_post (id, title, body, date_time, owner) values (28, 'Tomb Raider Reboot Trilogy Bundle Seemingly Released Early', null, TIMESTAMP '2019-04-27 01:47:04', 22);
+
+--https://www.ign.com/articles/scarlet-nexus-gets-june-release-date-and-a-tie-in-anime-series
+--Scarlet Nexus ; Anime, ps4, ps5, PlayStation, Console gaming
+insert into news_post (id, title, body, date_time, owner) values (29, 'Scarlet Nexus Gets June Release Date, and a Tie-In Anime Series', 'Alongside revealing that Scarlet Nexus will be released on PS5, PS4, Xbox Series X/S, Xbox One, and PC on June 25, 2021, Bandai Namco has announced that there is currently a Scarlet Nexus anime in development as well.\nBandai Namco shared a trailer focused on Kasane Randall with this news, which gives another glimpse at one of the two playable characters in Scarlet Nexus. As previously revealed, Kasane and the other protagonist, Yuito Sumeragi, will each have their own campaign that will let players experience the story from two different points of view.', TIMESTAMP '2019-12-23 15:35:49', 39);
+
+--https://www.ign.com/articles/gamescom-will-be-a-hybrid-digital-and-physical-event-in-2021
+--Gamescom; Gaming conferences
+insert into news_post (id, title, body, date_time, owner) values (30, 'Gamescom Will Be A Hybrid Digital And Physical Event In 2021', 'Koelnmesse has announced that Gamescom 2021 will be a hybrid event, with in-person and digital sections.\nThe team behind the huge European gaming show asked the community what they wanted from this year''s event, using feedback to inform how the Cologne convention would take shape in 2021. "In addition to the digital aspects, the possibility of trying out the latest games on-site and diving into the gaming world form an integral part of Gamescom," the release reads. "This is why Gamescom 2021 is going to be staged as a hybrid event and thus unite the best of both worlds, physical and digital."', TIMESTAMP '2021-02-15 05:52:03', 12);
+
+--https://www.ign.com/articles/marvels-avengers-free-to-play
+--Marvel Avengers; Multiplayer; RPG; Marvel
+insert into news_post (id, title, body, date_time, owner) values (31, 'Marvel''s Avengers Isn''t Going Free-to-Play Anytime Soon', 'After a rocky launch that''s caused fan upset and commercial issues, many have wondered whether Marvel''s Avengers would pivot to a free-to-play model, in order to bring new players in – but developer Crystal Dynamics has rejected the idea.\nIn an interview about the game''s 2021 roadmap, we asked Crystal Dynamics head of studio Scot Amos whether he had considered a free-to-play model – his answer was clear: "For us, the model we have is the model we stick with."', TIMESTAMP '2020-02-01 18:00:36', 8);
+
+--https://www.ign.com/articles/activision-blizzard-has-reportedly-laid-off-nearly-190-employees
+--Activision; Blizzard
+insert into news_post (id, title, body, date_time, owner) values (32, 'Activision-Blizzard Reports New Layoffs, CEO Reportedly Set to Pocket Enormous Bonus Payout', 'As laid out in Kotick''s 2016 contract, the potentially massive bonus he''s set to receive is technically unrelated to the current layoffs, and is instead was laid out five years ago as an additional incentive to "create shareholder value," with Kotick potentially receiving the highest possible amount if Activision-Blizzard''s stock price remains above a certain threshold for 90 consecutive days. CtW notes this clause was triggered on March 1, and per Kotick''s 2016 contract, a committee will need to review the compensation to determine whether or not he gets the full amount. However much Kotick is awarded, he will not receive it until June 29, 2021.', TIMESTAMP '2020-05-13 19:26:21', 40);
+
+--https://www.ign.com/articles/dying-light-2-update-aiming-for-2021-launch-devs-promise-more-updates-soon
+--Dying Light 2; Dying Light saga; Single-player; Open-world; RPG, PC gaming
+insert into news_post (id, title, body, date_time, owner) values (33, 'Dying Light 2 Update: Aiming for 2021 Launch, Devs Promise More Updates Soon', 'Techland has released a new video with updates about Dying Light 2''s development, and it includes a new snippet of gameplay and the reveal that the studio is aiming to release the game this year.\nWord on Dying Light 2''s release has been quiet since the game was indefinitely delayed back in 2020, but the video published today by Techland ends with a 2021 splash card. As for when the game might release this year, there''s no other, specific info at this time.', TIMESTAMP '2019-12-03 00:47:51', 16);
+
+--https://www.ign.com/articles/play-at-home-playstation-offering-10-more-games-including-horizon-zero-dawn-for-free
+--Playstation; Console gaming; Play at Home
+insert into news_post (id, title, body, date_time, owner) values (34, 'Play at Home: PlayStation Offering 10 More Games, Including Horizon Zero Dawn, for Free', 'Sony will add 10 additional games to its Play at Home program, including Horizon: Zero Dawn, in the coming weeks.\nThe first nine games will be available for free to own and download starting next week on March 25. Those games are: Abzu, The Witness, Enter the Gungeon, Subnautica, Rez Infinite, Moss, Astro Bot: Rescue Mission, Paper Beast, and Thumper. Then, starting April 19, Horizon: Zero Dawn Complete Edition will be available to download for free. The first nine games will be available for free to download until April 22 and Horizon: Zero Dawn will be available until May 14.', TIMESTAMP '2019-03-14 09:50:35', 10);
+
+--https://www.ign.com/articles/age-of-empires-4-reveals-coming-next-month
+--Age of Empires; Age of Empires 4; Microsoft
+insert into news_post (id, title, body, date_time, owner) values (35, 'Age of Empires 4 Reveals Coming Next Month', 'Microsoft has announced an Age of Empires Fan Preview event for April 10, and promises ''surprising reveals'' for Age of Empires 4.\nThe event will be broadcast on April 10 at 9am Pacific / 12pm Eastern / 5pm UK (that''s 2am on March 11, Sydney time), and will include news on Age of Empires 4, as well as Age of Empires 2: Definitive Edition and Age of Empires 3: Definitive Edition.', TIMESTAMP '2019-05-09 16:20:08', 44);
+
+--https://www.ign.com/articles/xbox-series-x-vr-localization-error-microsoft
+--Xbox,Xbox gaming; Console gaming; Xbox One Series X
+insert into news_post (id, title, body, date_time, owner) values (36, 'Xbox Series X VR Not in the Works ''At This Time,''According to Microsoft', 'A Microsoft spokesperson has told IGN that VR is not coming to the Xbox Series X|S at this time after it was reported the Xbox console referred to a VR peripheral.\nIGN Italy reported that while testing the new Xbox Wireless Headset a prompt appeared on their Xbox Series X system saying their "VR Headset" needs an update. This suggests the Xbox Series X supports VR peripherals in some capacity.\nHowever, a Microsoft Spokesperson says this is not the case. In a statement to IGN, the company says, "The copy in this error message is inaccurate due to a localization bug. VR for console is not a focus for us at this time."', TIMESTAMP '2019-07-25 06:41:58', 20);
+
+--https://www.ign.com/articles/zack-snyders-justice-league-seemingly-uses-halo-emblem-for-deathstrokes-sword
+--Zack Snyder; DC; Justice League; Halo; Microsoft
+insert into news_post (id, title, body, date_time, owner) values (37, 'Zack Snyder''s Justice League Seemingly Uses Halo Emblem for Deathstroke''s Sword', 'Zack Snyder''s Justice League seemingly used an emblem created for the Halo video games on Deathstroke''s sword.\nAs reported by PCGamesN, Twitter user Geoff Reeves posted a close-up look at Deathstroke''s suit, which is seemingly on display in Dallas, Texas. The Twitter user noted an emblem on the back of Deathstroke''s sword and was taken as a reference to Ra''s al Ghul and his League of Assassins (or League of Shadows). The apparent tie-in was even retweeted by Deathstroke actor Joe Manganiello.\nBut not only does the symbol have nothing to do with Ra''s al Ghul or the League of Assassins, it''s just a modified version of an emblem from Halo.', TIMESTAMP '2020-08-28 11:20:44', 14);
+
+--https://www.ign.com/articles/watch-dogs-legion-to-get-crossplay-and-cross-generation-play
+--Watch Dogs Legion; Single-player; Ubisoft
+insert into news_post (id, title, body, date_time, owner) values (38, 'Watch Dogs: Legion to Get Crossplay and Cross-Generation-Play', 'Ubisoft has confirmed that Watch Dogs: Legion''s online modes will add crossplay and cross-generation-play in a future update.\nWatch Dogs: Legion''s Twitter account responded to a user asking for the game to add cross-gen play by saying, "while crossplay and cross-generation-play is currently not available for the Watch Dogs: Legion Online Mode, the development team is working on adding this feature to the game with a later update."', TIMESTAMP '2020-12-09 22:17:56', 15);
+
+--https://www.ign.com/articles/ps5-is-the-fastest-selling-console-in-us-history-for-dollar-sales
+--PlayStation; PS5; Console gaming
+insert into news_post (id, title, body, date_time, owner) values (39, 'PS5 Is the Fastest-Selling Console in U.S. History for Dollar Sales', 'The PlayStation 5 is the fastest-selling console in U.S. history by dollar sales, but the second best-selling hardware platform in February 2021, with Nintendo Switch continuing to lead the market.\nThe NPD Group released its monthly report covering best-selling consoles, video games, and more for February 2021 in the U.S. and the Nintendo Switch leads the charge as the best-selling console for the month, with the PS5 behind it in second. However, the PS5 did overtake a record previously held by the Switch when it became the fastest-selling console in U.S. history after the NPD Group tracked "total dollar sales after four months in market."', TIMESTAMP '2020-03-28 00:29:33', 45);
+
+--https://www.ign.com/articles/call-of-duty-warzone-zombies-are-moving-across-the-map
+--Battle Royale; Call of Duty; Call of Duty Warzone
+insert into news_post (id, title, body, date_time, owner) values (40, 'Call of Duty: Warzone Zombies Are Moving Across the Map', 'Zombies arrived in Call of Duty: Warzone just last month, and they''ve now begun migrating across the battle royale''s map, and taken up residence in Verdansk''s Prison.\nAs teased in an ''in-universe'' blog post, the zombies that washed ashore with the addition of a ghost ship to Verdansk''s northern shore have now been found in the Prison Complex area nearby.\nSimilarly to the ship, a terminal has been added to the Prison, which allows players to kick off a zombie-killing event, offering extra loot when 40 undead shamblers are dispatched.', TIMESTAMP '2020-06-13 16:28:38', 17);
+
+--https://www.ign.com/articles/the-outer-worlds-murder-mystery-dlc-coming-next-week
+--The Outer Worlds; RPG; Open-world, PC gaming
+insert into news_post (id, title, body, date_time, owner) values (41, 'The Outer Worlds: Murder-Mystery DLC Coming Next Week', 'Obsidian Entertainment has announced that The Outer Worlds'' second and final expansion - Murder on Eridanos - will be released on March 17, 2021.\nAlongside the announcement, Obsidian gave a fans a look at the official opening cinematic for Murder on Eridanos, which will arrive on PC, PlayStation 5 (via backward compatibility), Xbox Series X/S (via backward compatibility), PlayStation 4, and Xbox One next week. The new expansion will arrive on Switch later in 2021.', TIMESTAMP '2018-12-17 21:05:01', 48);
+
+--https://www.ign.com/articles/ea-sports-college-football-game-seemingly-wont-launch-until-july-2023
+--EA Sports; Madden; 
+insert into news_post (id, title, body, date_time, owner) values (42, 'EA Sports College Football Game Seemingly Won''t Launch Until July 2023', 'While EA revealed the exciting news that EA Sports College Football would be returning for the first time since 2013, newly discovered documents reveal the first game in the revived franchise may not arrive until July 2023.\nAs reported by GameSpot, Extra Points'' Matt Brown obtained records from the Collegiate Licensing Company (CLC), the company EA has partnered with on this College Football game relaunch, that state the game won''t be out for a while.', TIMESTAMP '2020-12-26 17:58:47', 9);
+
+--https://www.ign.com/articles/everywhere-fan-theories-about-gta-masterminds-new-game-are-not-far-off-says-developer
+--GTA; Game Theories
+insert into news_post (id, title, body, date_time, owner) values (43, 'Everywhere: Fan Theories About GTA Mastermind''s New Game are ''Not Far Off'', Says Developer', 'We recently reported on fan discoveries about Everywhere, the upcoming game from ex-Rockstar president Leslie Benzies and his new studio Build a Rocket Boy. The studio has now told IGN that some of the theories fans have been putting together are "not far off" what Build a Rocket Boy is envisioning for the final project – but may not represent the scale of the game it''s aiming for.\nIn a statement to IGN, a Build a Rocket Boy spokesperson said that the company keeps a close eye on its communities, and has been impressed by what fans have pieced together using the slim number of clues available:\n"We love how the community is piecing together all the information they can find to build an idea of what Everywhere might be about. Believe me when I say, we’re a regular reader of the Subreddits! Some of the things they found out, and you touched on in your article, are actually not far off from what we envision, but there’s a lot of context and scale missing that will be really exciting for players to dive into and experience once we release.\n"We don’t like thinking in terms of open-world, or closed-world, but rather how we can build new worlds, and exciting, new ways of playing games."', TIMESTAMP '2018-12-03 05:02:29', 28);
+
+--https://www.ign.com/articles/rust-developer-expecting-large-amount-of-data-loss-following-server-fire
+--Rust; Multiplayer; Open-world; RPG, PC gaming
+insert into news_post (id, title, body, date_time, owner) values (44, 'Rust Developer Expecting ''Large Amount Of Data Loss'' Following Server Fire', 'Rust developer Facepunch Studios has said that it is expecting a "large amount of data loss" after a fire burst out at a datacenter that held many of the game''s EU servers.\nThe news came in a tweet from the official Rust account earlier today, as the studio learned that a blaze had broken out at the OVHCloud Datacenter in Strasbourg, France. "25 of our EU servers remain offline due to a fire at OVH Datacenter in the early hours of this morning," the statement reads. "Unfortunately, the fire destroyed SBG-2 building. We''re expecting a large amount of data loss across the affected servers."', TIMESTAMP '2020-04-23 17:10:46', 18);
+
+--https://www.ign.com/articles/fortnite-is-getting-its-first-single-player-story-event
+--Fortnite; Battle Royale; Single-Player, PC gaming
+insert into news_post (id, title, body, date_time, owner) values (45, 'Fortnite Is Getting Its First Single-Player Story Event', 'Fortnite will soon provide players with a new single-player story event that acts as a conclusion to the current season of the battle royale.\nWhen Fortnite Chapter 2 Season 6 launches on March 16, the first thing players will be met with is the Zero Crisis Finale. Described as a “solo experience” by developer Epic, it is the conclusion of Agent Jones’ mission that formed the basis of the Season 5 story. Epic promises that the aftermath of this single-player event will “shape Reality as we know it”, suggesting that the event will push forward and make changes to Fortnite’s storyline.', TIMESTAMP '2019-08-20 11:17:18', 5);
+
+--https://www.ign.com/articles/rust-finally-gets-its-console-launch-this-spring
+--Console gaming; Xbox gaming; PlayStation Gaming; Rust; Multiplayer; Open-world; RPG
+insert into news_post (id, title, body, date_time, owner) values (46, 'Rust Finally Gets its Console Launch This Spring', 'Several years after it was initially announced to be coming to consoles, competitive survival title Rust at last has a clear release window on PlayStation 4 and Xbox One -- it''s coming this spring.\nThough no specific date has been given, Double Eleven announced today that Rust''s console debut would take place this spring following an ongoing closed beta. It also showed off a new trailer illustrating the experience on console.', TIMESTAMP '2019-10-19 09:29:49', 28);
+
+--https://www.ign.com/articles/razer-reveals-200-smart-glasses-with-wireless-audio
+--Razer; Gadgets
+insert into news_post (id, title, body, date_time, owner) values (47, 'Razer Reveals $200 Smart Glasses With Wireless Audio', 'Fresh off of announcing a face mask with RGB lights, gaming peripheral maker Razer has announced its first pair of smart glasses with wireless audio, the Razer Anzu, priced at $200. Check out the gallery below for a first look.', TIMESTAMP '2020-10-17 20:58:40', 15);
+
+--https://www.ign.com/articles/playstation-plus-is-on-a-hot-streak-beyond-episode-690
+--PlayStation Plus; PlayStation Gaming, PlayStation
+insert into news_post (id, title, body, date_time, owner) values (48, 'PlayStation Plus Is on a Hot Streak - Beyond Episode 690', 'On this week''s episode of IGN''s PlayStation show, Podcast Beyond!, host Jonathon Dornbush is joined by Brian Altano and Tom Marks to dive into the new PlayStation Plus lineup, including brand-new puzzle game Maquette, Final Fantasy 7 Remake, Remnant: From the Ashes, and Farpoint. The cast discusses PS Plus'' latest hot streak, and how PlayStation Plus'' games lineups have been faring overall in recent months since the PS5 launched.', TIMESTAMP '2018-12-07 18:15:08', 36);
+
+--https://www.ign.com/articles/diablo-2-resurrected-will-have-two-alphas-one-single-player-one-multiplayer
+--Diablo; Diablo 2; Multiplayer; Blizzard, PC gaming
+insert into news_post (id, title, body, date_time, owner) values (49, 'Diablo 2: Resurrected Will Have Two Alphas - One Single Player, One Multiplayer', 'Diablo 2: Resurrected is set to be released later in 2021, but players who can''t wait to jump back in to the remake of the classic Blizzard title will get a chance to participate in both a single-player alpha and a multiplayer stress test before then.\nSpeaking to PCGamesN, Diablo 2: Resurrected lead producer Chris Lena explained how the rollouts of these alphas will all lead up to the game''s release.\n"We’re going to start with a single-player technical alpha, and then we’ll have a second technical alpha after that, which is kind of multiplayer and stress testing,” Lena said while also confirming that they will obviously arrive before launch.\nSign-ups for Diablo 2: Resurrected''s alpha tests are happening now and its free to enter. Testers will be chosen randomly, and its important to note that pre-purchasing the game does not gain you access to the alpha.\nDiablo 2: Resurrected was announced at BlizzCon 2021 and will be released in 2021 on PC, PS5, PS4, Xbox Series X, Xbox One, and Nintendo Switch. It will not be a remake, but a remaster, as the team wanted to ensure players will be getting "the game" they remember from the year 2000.\nHowever, It will have a modern 3D layer on top of everything with particle-based rendering, dynamic lighting, and, where appropriate, upgraded visuals and sound. It will also run at 4K 60fps on PC, PS5, and Xbox Series X. There will also be cross-progression on any platforms that choose to enable it.', TIMESTAMP '2018-05-18 11:49:36', 38);
+
+--https://www.gamespot.com/articles/gamestop-share-price-rockets-past-300-on-transformation-news-with-chewys-ryan-cohen/1100-6488533/
+----GameStop, Gaming Retailers, PC Gaming, Console Gaming
+insert into news_post (id, title, body, date_time, owner) values (50, 'GameStop Share Price Rockets Past $300 On Transformation News With Chewy''s Ryan Cohen', 'Here we go. Again.\nGameStop''s share price is surging again following news that the video game retailer has created a new committee on its board of directors aimed at transforming the company. The stock price is rising higher and faster than it has in a while, zooming past $300 on Wednesday.\nGameStop''s stock price shot up above $200 on Monday after GameStop announced the formation of a Strategic Planning and Capital Allocation Committee, and now it''s gone even higher. This group will "identify initiatives that can further accelerate the company''s transformation." GameStop''s latest surge isn''t isolated, either, as another popular stock, AMC, is seeing substantial gains on Wednesday as well.', TIMESTAMP '2019-12-10 03:08:45', 48);
+
+--https://www.gamespot.com/articles/behold-the-guinness-world-records-smallest-nintendo-64-console/1100-6488653/
+--Nintendo, Console Gaming, Arcade Games
+insert into news_post (id, title, body, date_time, owner) values (51, 'Behold, The Guinness World Records'' Smallest Nintendo 64 Console', 'The Guinness World Records has certified Gunnar Turnquist''s project as the world''s smallest Nintendo 64 console.\nAfter uploading a video of his creation in December 2020, YouTuber and modder Gunnar Turnquist''s tiny Nintendo 64 has been designated "the world''s smallest modified Nintendo 64 console" by the Guinness World Records.\nThe iconic Nintendo 64 is known for two things: its slimmer profile on an entertainment system (when compared to other consoles) and that awkward controller with its protruding third leg. It wasn''t as heavy or as massive as other systems in the ''90s, but the Nintendo 64 is still a pretty big console in its own right. Its dimensions stand at 2.87 in tall, 10.23 in wide, and 7.48 in deep.\nFor Gunnar''s part, converting that mass proved difficult. But Gunnar "unlocked the secrets of the motherboard," as he put it on his YouTube video explaining how he constructed the tiny Nintendo 64, and shrunk the system to a smaller chassis. His finished product, a NeoGeo Pocket-looking N64, stands at 3.3 in tall, 4.64 in wide, and 1.77 in deep. These measurements are record-breaking; Gunnar said it''s a 23% reduction in total volume from the 2015 record.', TIMESTAMP '2018-08-03 20:39:02', 50);
+
+--https://www.ign.com/articles/razers-wild-face-mask-concept-is-becoming-a-real-product
+--Razer ; Gadgets
+insert into news_post (id, title, body, date_time, owner) values (52, 'Razer''s Wild Face Mask Concept Is Becoming a Real Product', 'Razer has revealed that it will turn its reusable, and wild-looking, RGB face mask concept into a real product.\nProject Hazel was revealed by Razer during CES 2021 this year. It''s a "smart" face mask with a see-through panel and a built-in voice amplifier. It''s N95 grade, so it will filter 95% of airborne particles and it also features a rechargeable ventilation system. A ring around the microphone features Razor''s CHROMA RGB lighting tech, so you can look like a cyberpunk while staying safe. \nRazer CEO Min-Liang Tan told Yahoo Finance that "Project Hazel is going to be a reality." "We were thinking, this is a concept project and is this going to be relevant when vaccinations and everything has been rolled out," Tan said. "I think moving forward we decided — and I can tell you now — we are going to proceed in making it a reality and ship the smart mask."', TIMESTAMP '2018-10-27 10:43:29', 6);
+
+--https://www.ign.com/articles/nintendo-confirms-download-codes-for-super-mario-3d-all-stars-will-work-after-march-31
+--Nintendo ; Super Mario ; Super Mario 3D All-Stars
+insert into news_post (id, title, body, date_time, owner) values (53, 'Nintendo Confirms Download Codes for Super Mario 3D All-Stars Will Work After March 31', 'Despite Nintendo''s plan to remove Super Mario 3D All-Stars from Nintendo Switch''s eShop and to cease production of physical copies on March 31, the company has confirmed that retail download codes will still be valid past that date.\nAs reported by VGC, Nintendo''s Japan HQ confirmed that these codes will be redeemable "after April," and it would be safe to assume this would be the same for Western markets as well.', TIMESTAMP '2018-01-28 21:27:48', 37);
+
+--https://www.ign.com/videos/endangered-halo-bird-is-now-something-you-can-actually-eat-ign-daily-fix-
+--Halo ; Halo Bird ; Microsoft ; Pringles
+insert into news_post (id, title, body, date_time, owner) values (54, 'Endangered Halo Bird Is Now Something You Can Actually Eat', 'Pringles has teamed up with Microsoft to bring you Moa flavored wavy chips. These flightless birds are indigenous to the planet of Reach, and are the chief ingredient in Moa burgers, according to Halo: Reach lore. Diablo 2 isn’t the only thing being resurrected, as your 20-year-old saves will reportedly be compatible with the newly remastered edition of the game', TIMESTAMP '2018-07-19 21:15:30', 39);
+
+--https://www.gamespot.com/articles/the-falcon-and-the-winter-soldier-episode-1-release-date-plot-details-how-to-watch-and-more/1100-6488483/
+--Marvel, MCU, FATWS, Game Cinema
+insert into news_post (id, title, body, date_time, owner) values (55, 'The Falcon And The Winter Soldier: Episode 1 Release Date, Plot Details, How To Watch, And More', 'Learn more about the upcoming MCU show on Disney+.\nDisney+ is about to launch yet another MCU original series. The Falcon and The Winter Soldier arrives to the streaming service on March 19, and this series partners Captain America''s too closest friends--two superheroes who don''t always see eye-to-eye.\nThe Falcon and the Winter Soldier stars Anthony Mackie as Sam Wilson and Sebastian Stan is Bucky Barnes, reprising their roles from previous Marvel movies. Additionally, they''ll be joined by Daniel Brühl as the villainous Helmut Zemo, Emily VanCamp as SHIELD agent Sharon Carter, and Wyatt Russell as John Walker--an infamous character from the comic books.', TIMESTAMP '2019-11-11 06:39:52', 25);
+
+--https://www.gamespot.com/articles/nbas-meyers-leonard-suspended-after-using-antisemitic-slur-on-warzone-twitch-stream/1100-6488611/
+--Call of Duty, Battle Royale, Open World, Online Gaming, FPS, NBA
+insert into news_post (id, title, body, date_time, owner) values (56, 'NBA''s Meyers Leonard Suspended After Using Antisemitic Slur On Warzone Twitch Stream', 'Leonard has been fined $50,000 and will be suspended for one week.\nMiami Heat center Meyers Leonard has been suspended and fined following his use of an antisemitic slur during a Call of Duty: Warzone stream on his Twitch channel earlier this week. He''s also now been suspended from Twitch. This comes after he was already forced to take an indefinite leave of absence from the Heat and was cut from the esports organization FaZe Clan.\nAccording to NBA reporter Shams Charania, Leonard will be fined $50,000 (from a salary of over $9 million this season) and suspended from "all Heat facilities and team activities" for one week. Additionally, he''ll have to take part in a cultural diversity program. However, according to ESPN, he won''t forfeit any pay for the games he misses due to the suspension because he is currently injured, having been ruled out for the season with a shoulder issue earlier this year. Were that not the case, Leonard could have lost out on an additional $324,000.', TIMESTAMP '2019-12-31 09:17:49', 8);
+
+--https://www.gamespot.com/articles/new-smash-bros-ultimate-freebie-available-for-switch-online-members/1100-6488408/
+--Nintendo, Console Gaming, Super Mario, Arcade Games
+insert into news_post (id, title, body, date_time, owner) values (57, 'New Smash Bros. Ultimate Freebie Available For Switch Online Members', 'NSO subscribers can grab a free Spirits Set, which contains a random Legend-class and Ace-class Spirit.\nNintendo Switch Online subscribers can claim another Super Smash Bros. Ultimate freebie for a limited time. The latest exclusive offer for NSO members is the Spirits Set 1. This free pack unlocks two random Spirits in your game: one Ace-class Primary Spirit, and one Legend-class Support Spirit.\nTo grab the Spirits Set, select the Nintendo Switch Online icon from your system''s home screen and open the Special Offers tab. The Spirits Set will be listed among the other free offers. Alternately, you can grab the freebie directly from the Nintendo eShop by selecting Nintendo Switch Online from the left sidebar.', TIMESTAMP '2018-03-03 17:28:34', 3);
+
+--https://www.gamespot.com/articles/destiny-2-forsaken-content-will-be-vaulted-eventually/1100-6488730/
+--Destiny, RPG, FPS, Open World, Online Gaming, PC Gaming
+insert into news_post (id, title, body, date_time, owner) values (58, 'Destiny 2: Forsaken Content Will Be Vaulted Eventually', 'More Destiny 2 content is going into the Vault, although we don''t know for sure when it''ll happen.\nMore portions of Destiny 2 will be removed from the game, left unplayable to everyone and placed in the "Destiny Content Vault." Bungie says the Forsaken expansion is next on the block to get pulled from the game in the developer''s ongoing attempt to balance Destiny 2''s install size with seasonal content drops and yearly expansion releases. It follows earlier content, including the original launch campaign, which is no longer accessible.\n"Forsaken content will be vaulted at some point," Bungie general manager Justin Truman said in an interview with Eurogamer. That means at least some portions of the game that were added with the 2018''s Forsaken expansion--including the Tangled Shore and Dreaming City locations, the Last Wish raid and Shattered Throne dungeon, and their related activities and story content--could be removed from the game. When the Beyond Light expansion was released in 2020, Bungie removed vanilla Destiny 2 content and content from its first two expansions, Curse of Osiris and Warmind, to make space. In all, four planetary locations and three raids went into the Vault, along with all their story and activities.', TIMESTAMP '2020-01-19 12:26:48', 32);
+
+--https://www.gamespot.com/articles/halo-infinite-wont-have-dual-wielding-or-playable-elites-dev-reveals-in-44-minute-deep-dive/1100-6488732/
+--Halo, Xbox, xbox gaming
+insert into news_post (id, title, body, date_time, owner) values (59, 'Halo Infinite Won''t Have Dual-Wielding Or Playable Elites, Dev Reveals In 44-Minute Deep Dive', 'Microsoft answered lots of fan questions in a deep dive video with the developers.\nMicrosoft has released another deep-dive video on Halo Infinite in which several developers from the team spend 44 minutes answering questions about the game, which was originally supposed to launch with the Xbox Series X|S. One feature that won''t be in the game, at least initially, is dual-wielding weapons. Introduced in Halo 2, the feature has been critical to many players'' loadouts since then.\nThe whole video is treat, with sandbox designer Quinn DelHoyo, lead world designer John Mulkey, campaign art lead Justin Dinges, and gameplay director Troy Mashburn answering numerous questions that fans submitted on Twitter.', TIMESTAMP '2020-01-30 17:12:38', 5);
+
+--https://www.gamespot.com/articles/elon-musk-says-cyberpunk-2077-should-have-self-driving-cars/1100-6488677/
+--Cyberpunk 2077, Open World, PC Gaming
+insert into news_post (id, title, body, date_time, owner) values (60, 'Elon Musk Says Cyberpunk 2077 Should Have Self-Driving Cars', 'Turns out Elon Musk isn''t a fan of Cyberpunk''s vehicle AI either.\nElon Musk tweeted criticism of Cyberpunk 2077''s vehicles in response to an old tweet about the delayed patch 1.2, and also mentioned that they the futuristic setting should feature electric cars as well. Though self-driving cars exist within the lore of CD Projekt Red''s Cyberpunk 2077, they''re functionally absent from the player''s experience.\nWhile the game''s Delamain AI cabs are supposed to be self-driving, catching a ride in the game results in V having to take the wheel as soon as they get inside. Considering how many issues the game''s vehicle and traffic systems have, with bad parking jobs causing endless traffic jams and vehicles spinning off down the road at the lightest touch, it''s probably for the best that the AI can''t control a vehicle while V is inside.', TIMESTAMP '2018-04-18 21:10:11', 49);
+
+--https://www.gamespot.com/articles/more-pokemon-sword-and-shield-freebies-available-last-chance/1100-6488284/
+--Pokemon, Nintendo, Console Gaming, Anime
+insert into news_post (id, title, body, date_time, owner) values (61, 'More Pokemon Sword And Shield Freebies Available [Last Chance]', 'The Pokemon Company is giving out a bundle of free Armorite and Dynite Ore until March 14.\nThe Pokemon Company is giving away another batch of free items for Pokemon Sword and Shield. As a reward for defeating a ton of Gigantamax Pikachu during the recent Max Raid event, players can claim a bundle of free Armorite and Dynite Ore until today, March 14. These items are normally hard to get in the games, so you''ll want to grab the free bundle while it''s still available.\nThe overarching goal of the event was to defeat 1 million Pikachu. If players could collectively hit that total, The Pokemon Company promised to give away 100 Armorite Ore and 100 Dynite Ore. Unfortunately, players fell a little short; only 874,808 Pikachu were ultimately defeated during the event. Although the goal wasn''t met, The Pokemon Company is still distributing 87 of each ore to all players as a reward.', TIMESTAMP '2020-12-17 18:03:18', 49);
+
+--https://www.gamespot.com/articles/genshin-impact-kfc-real-life-crossover-event-canceled-due-to-covid-concerns/1100-6488787/
+--Genshin Impact, Mobile Gaming, RPG, Anime
+insert into news_post (id, title, body, date_time, owner) values (62, 'Genshin Impact KFC Real-Life Crossover Event Canceled Due To COVID Concerns', 'Fans were told to yell at KFC employees after receiving their food to receive a special pin.\nKFC and Genshin Impact joined forces for a crossover event to reward hungry fans with exclusive rewards. Unfortunately, the finger-lickin'' good promotion in China attracted so many excited fans that it was forced to shut down over COVID-19 protocol violations.\nAs reported by Kotaku, Kentucky Fried Chicken in China was holding a special promotion with Genshin Impact to award special pins to customers who yelled out to employees when purchasing food.', TIMESTAMP '2018-08-18 19:17:01', 29);
+
+--https://www.gamespot.com/articles/bethesda-boss-gives-update-on-starfield-in-microsoft-bethesda-briefing/1100-6488716/
+--Open World, Online Gaming, PC Gaming
+insert into news_post (id, title, body, date_time, owner) values (63, 'Bethesda Boss Gives Update On Starfield In Microsoft-Bethesda Briefing', 'Ashley Cheng of Bethesda Game Studios says the team working on Starfield is uniquely positioned to succeed.\nBethesda Game Studios managing director Ashley Cheng has shared a little bit of information on the development practices behind Starfield and The Elder Scrolls VI. We still don''t know much about the games, but we do know they''ll both fall under the broad "open-world RPG" umbrella Bethesda is known for.\nDuring the Bethesda-Microsoft briefing, Cheng said the team working on Starfield is uniquely positioned to succeed because the developers themselves have worked together for years on other open-world RPGs in the Elder Scrolls and Fallout franchises.', TIMESTAMP '2018-04-23 20:33:19', 14);
+
+--https://www.gamespot.com/articles/new-nintendo-switch-model-with-oled-screen-coming-this-year-report-says/1100-6488804/
+--Nintendo, Nintendo Switch
+insert into news_post (id, title, body, date_time, owner) values (64, 'New Nintendo Switch Model With OLED Screen Coming This Year, Report Says', 'A report also says Nintendo will sell a record number of games in fiscal 2022 thanks to "marquee game releases."\nA new report continues to lend credence to the ongoing rumors of a beefed-up Nintendo Switch model, as Bloomberg says Switch sales may benefit for the fiscal year ending March 2022 thanks to the launch of a new version of the Switch with an OLED screen. The site reported this information based on what it''s heard from executives at component suppliers, game publishers, and retailers.\nOverall, Switch console sales should be "flat or slightly higher" for the upcoming fiscal year, the report said.\nGame sales, however, should surge in the coming year. The report said Nintendo may be able to sell 250 million games in the upcoming fiscal year, up sharply from the 205 million that are forecast for the current fiscal year that is scheduled to end later this month. The report said "a series of marquee game releases" will help improve game sales, though none were named outright.', TIMESTAMP '2018-01-13 22:55:48', 48);
+
+--https://www.gamespot.com/articles/rtx-3060-mining-restrictions-circumvented-by-nvidias-own-drivers/1100-6488819/
+--Nvidia
+insert into news_post (id, title, body, date_time, owner) values (65, 'RTX 3060 Mining Restrictions Circumvented By Nvidia''s Own Drivers', 'A new beta driver for the recently released GPU has accidentally undone all the work Nvidia put into making it a poor card for Ethereum mining.\nJust a few weeks after its launch, Nvidia''s RTX 3060 has had its Ethereum blocking measures circumvented by a beta driver the company issued itself to users.\nThe latest 470.05 driver for Nvidia GPUs has lifted the restriction on Ethereum mining on the company''s latest card, which was marketed as the first in the RTX line to feature silicon-level restrictions for mining. Various outlets have now confirmed that the driver overcomes this without any additional tweaks, with ComputerBase, HardwareLuxx, and PC Watch all confirming hash rates well over double previous rates before the driver update.', TIMESTAMP '2020-05-16 05:46:48', 11);
+
+--https://www.gamespot.com/articles/steve-rogers-will-meet-the-first-gay-captain-america-on-his-upcoming-road-trip/1100-6488839/
+--Marvel, Captain America
+insert into news_post (id, title, body, date_time, owner) values (66, 'Steve Rogers Will Meet The First Gay Captain America On His Upcoming Road Trip', 'Captain America is a symbol of inspiration, and many in the Marvel Universe have taken up the shield both officially and in their own communities.\nSteve Rogers'' legendary shield has been stolen, and the original Cap is teaming up with the other Captains to get it back. Along the way, Steve will meet other people using the Captain America moniker, inspired by Steve to take up their own shields and defend their communities. The first new Captain Steve will meet is Aaron Fischer, the first gay Captain America.\nMarvel announced last week an upcoming limited comic series set to launch this June called The United States of Captain America. The story is written by Christopher Cantwell with art by Dale Eaglesham, and will have Steve roadtripping across the United States with the other canonical Captains--Bucky Barnes, Sam Wilson, and John Walker.', TIMESTAMP '2018-03-18 05:07:48', 6);
+
+--https://www.gamespot.com/articles/sonic-2-the-movie-starts-production-lights-camera-hedgehog/1100-6488846/
+--Game Cinema, Sonic, SEGA, Nintendo
+insert into news_post (id, title, body, date_time, owner) values (67, 'Sonic 2 The Movie Starts Production -- "Lights, Camera, Hedgehog"', 'Director Jeff Fowler announces that production has begun on the sequel.\nProduction has officially begun on Sonic the Hedgehog 2 the movie, director Jeff Fowler has announced. He confirmed the news on Twitter where he wrote, "lights, camera, hedgehog."\nThat a sequel to Sonic is in the works is no surprise, as the first Sonic the Hedgehog became the highest-grossing video game movie of all time in the United States. Detective Pikachu, Warcraft, Rampage, and Prince of Persia: Sands of Time did better globally, but Sonic is No. 1 in the US.Sonic 2 is scheduled to release in theaters in April 2022. It''s expected to bring back Ben Schwartz as the voice of Sonic, while other cast members like Tika Sumpter may also return. We don''t know if Jim Carrey will be back as Dr. Robotnik or if the rumors of Tails appearing in the sequel are true.', TIMESTAMP '2020-02-16 19:31:25', 2);
+
+--https://www.gamespot.com/articles/star-citizen-hits-350-million-after-a-record-breaking-2020/1100-6488850/
+--Online Gaming, RPG, Open World, PC Gaming
+insert into news_post (id, title, body, date_time, owner) values (68, 'Star Citizen Hits $350 Million After A Record-Breaking 2020', 'The ambitious PC space sim had a record year in 2020.\nStar Citizen had its biggest year ever in 2020, helping propel the ambitious PC space sim to a new crowdfunding high of more than $350 million. The game''s public funding page shows that the new game from Wing Commander''s Chris Roberts has now brought in more than $351 million.\nPolygon estimates that Star Citizen added about $77 million in new crowdfunding revenue in 2020, making it the game''s biggest year on record.\nStar Citizen makes money from selling numerous different "pledge packs" that include things like ships, other in-game items, and insurance. In addition to funds that come from these efforts, developer Cloud Imperium takes investments from outside parties who want a piece of the action. In 2020, Cloud Imperium raised $17.25 million from a group of investors. Before that, billionaire Clive Calder and his son Keith invested $46 million into Star Citizen.', TIMESTAMP '2020-05-23 21:21:34', 50);
+
+--https://www.gamespot.com/articles/jade-raymonds-new-studio-haven-announced-working-on-original-ip-for-playstation/1100-6488871/
+--Playstation, Sony, PS5, PS4
+insert into news_post (id, title, body, date_time, owner) values (69, 'Jade Raymond''s New Studio Haven Announced, Working On Original IP For PlayStation', 'The new studio reflects that games should serve as a haven for gamers--and it''s working on a game with the backing of Sony Interactive Entertainment.\nJade Raymond has announced the formation of an independent studio called Haven, and it already has its first project booked: a new, original IP for PlayStation platforms. The new studio is based in Montreal, and its project is backed by Sony Interactive Entertainment.\nRaymond published the announcement on the PlayStation Blog. While it''s mostly devoted to her new studio''s outlook and philosophy, she does mention that Sony''s "commitment to excellence is unmatched" and that the game has "their backing and support." The blog was also addressed specifically at the PlayStation community, suggesting the new IP will be some form of exclusive.\n"We want to create worlds where players can escape, have fun, express themselves, and find community," Raymond said. "We want to pour our passion into a project. We want to make something wondrous for people to experience. Because we believe in the power of games to bring joy to people''s lives." She also said the studio is named after her outlook that games are a haven for players.', TIMESTAMP '2019-11-01 02:37:15', 18);
+
+--https://www.gamespot.com/articles/zack-snyders-justice-league-the-joker-doesnt-say-we-live-in-a-society/1100-6488878/
+--Game Cinema, DC, Justice League
+insert into news_post (id, title, body, date_time, owner) values (70, 'Zack Snyder''s Justice League: The Joker Doesn''t Say "We Live In A Society"', 'The internet exploded when the Joker said the memetic words in a trailer, but he doesn''t actually say "we live in a society" in the Snyder Cut.\nThe Joker does not actually say the words "we live in a society" in Zack Snyder''s cut of Justice League. The internet exploded in excitement when Jared Leto''s Joker uttered the line in a trailer for the Snyder Cut, but unfortunately for all of us, he doesn''t actually say it in the final movie.\nIf you aren''t familiar, "we live in a society" is a catchphrase that became associated with the Joker due to an influx of memes starting around 2016. The line was first popularized by the "Gamers Rise Up" style of meme, which originally satirized internet edgelords, but it''s now crossed over. It''s usually employed these days to poke fun at comic book nerds who say they identify with the Joker.', TIMESTAMP '2018-01-08 07:29:04', 33);
+
+--https://www.gamespot.com/articles/gta-online-update-coming-to-fix-load-times-modder-collects-10000-bounty/1100-6488833/
+--GTA, Online Gaming, Rockstar
+insert into news_post (id, title, body, date_time, owner) values (71, 'GTA Online Update Coming To Fix Load Times, Modder Collects $10,000 Bounty', 'Rockstar is thanking a modder for pointing out an optimization fix that can reduce GTA Online load times.\nRockstar will be implementing a fix to GTA Online''s notoriously long load times, thanks to a modder who found the problem and made their own DIY fix. Though Rockstar isn''t committing to the 70% reduction that modder tostercx found in tests, the studio did acknowledge that they had correctly identified poor optimization that can be fixed.\n"After a thorough investigation, we can confirm that player t0st did, in fact, reveal an aspect of the game code related to load times for the PC version of GTA Online that could be improved," the company said in a statement to PC Gamer. "As a result of these investigations, we have made some changes that will be implemented in a forthcoming title update."', TIMESTAMP '2019-02-06 00:24:45', 40);
+
+--https://www.gamespot.com/articles/investigation-finds-no-evidence-of-wrongdoing-by-riot-games-ceo/1100-6488937/
+--League of Legends, Riot Games, MOBA, Online Gaming
+insert into news_post (id, title, body, date_time, owner) values (72, 'Investigation Finds No Evidence of Wrongdoing By Riot Games CEO', 'An investigation commissioned by Riot Games to look into accusations against its CEO has ended with no evidence of wrongdoing and no sanctions.\nAn investigation commissioned by League of Legends and Valorant publisher Riot Games amid accusations of misconduct by CEO Nicolas Laurent has concluded, finding no evidence of wrongdoing and recommending no sanctions.\nWashington Post reports that the news was shared internally to Riot employees along with a statement from Laurent, stating unequivocally that the accusations are not true. "Nothing of that nature, or even remotely close to it, ever happened."\nThe findings were announced the same day that Riot Games filed a request to speed up court proceedings in the pending suit filed by a former executive assistant, Sharon O''Donnell. Riot has filed an application to the Los Angeles County Superior Court to set a status conference to discuss how the case should proceed.', TIMESTAMP '2018-01-04 19:07:16', 50);
+
+--https://www.gamespot.com/articles/guide-mass-effect-legendary-edition-preorder-bonuses-editions-and-more/1100-6486346/
+--Mass Effect, Story Games, Single Player Game,ps4 
+insert into news_post (id, title, body, date_time, owner) values (73, 'Guide: Mass Effect Legendary Edition Preorder Bonuses, Editions, And More', 'Mass Effect: Legendary Edition is up for preorder with some sweet retailer-exclusive bonuses.\nAfter years of rumors and fans clamoring for it, BioWare announced a remastered edition of the Mass Effect Trilogy during last year''s N7 Day celebration, and its release date is fast approaching. Mass Effect: Legendary Edition will release May 14 on PS4, Xbox One, and PC and will be playable on PS5 and Xbox Series X due to backwards compatibility.\nMass Effect: Legendary Edition includes all three games in the core series as well as over 40 pieces of DLC, including special weapons and armor packs, campaign expansions, and more. The games will be playable in 4K with HDR and feature improved character models, high-resolution textures, and other visual enhancements. See our breakdown of the ways Mass Effect: Legendary Edition changes the original trilogy for more details on what to expect.', TIMESTAMP '2020-01-09 13:19:32', 26);
+
+--https://www.gamespot.com/articles/among-us-the-airship-map-is-out-march-31/1100-6486937/
+--Among Us, Family Games, Online Gaming, PC Gaming, Mobile Gaming
+insert into news_post (id, title, body, date_time, owner) values (74, 'Among Us: The Airship Map Is Out March 31', 'The new Among Us map will be here before you know it.\nA brand-new Among Us map, the Airship, is in the works, and we finally know when we''ll be able to play it. While developer Innersloth scrapped plans for a sequel, some of that planned new content--including the Airship--will make its way into the base game. But just when will the new Among Us Airship map release?\nAmong Us has two paid maps, but its free map, a spaceship called The Skeld, is what most players have experienced. The Airship will also be a free map and include more than a dozen rooms, new tasks, ladders, and the chance to choose the room you start in.', TIMESTAMP '2020-02-09 17:12:00', 12);
+
+--https://www.gamespot.com/articles/square-enix-presents-forspoken-new-life-is-strange-and-everything-announced/1100-6488947/
+--Square Enix, Life is Strange, Console Gaming, PC Gaming
+insert into news_post (id, title, body, date_time, owner) values (75, 'Square Enix Presents: Forspoken, New Life Is Strange, And Everything Announced', 'News from Square Enix Presents included a new Life is Strange game and more on Forspoken, formerly Project Athia.\nSquare Enix Presents took place on March 18, and we learned about completely new games as well as news on previously announced games. Whether you game on a console, PC, or your phone, there was something for you during the show. The best news? We''ll be getting another Square Enix Presents event this summer.\nOutside of the games themselves, we also learned about continued multimedia projects for franchises like Tomb Raider, as well as mobile spin-offs for both Just Cause and Hitman. Here are the biggest games and announcements we saw during the show.', TIMESTAMP '2018-03-07 10:56:23', 4);
+
+--https://www.gamespot.com/articles/geforce-now-price-is-doubling-nvidia-announces/1100-6488990/
+--Nvidia, Console Gaming
+insert into news_post (id, title, body, date_time, owner) values (76, 'GeForce Now Price Is Doubling, Nvidia Announces', 'Nvidia is doubling the price for its paid GeForce Now tier, though there is a workaround for this higher fee if you are an existing subscriber.\nGeForce Now will retain its two-tier program, with the free tier still giving you access to streaming games that you own but with limitations on how long you can play and no queue priority. That was reserved for the $5 per month Founders Tier, which is being transformed into a new $10 per month Priority Tier.', TIMESTAMP '2019-05-05 02:03:23', 7);
+
+--https://www.gamespot.com/articles/halo-mccs-new-in-game-store-doesnt-have-any-microtransactions/1100-6489123/
+--Halo, Xbox, Xbox gaming 
+insert into news_post (id, title, body, date_time, owner) values (77, 'Halo: MCC''s New In-Game Store Doesn''t Have Any Microtransactions', '343 Industries has shed some new light on one of the features coming to Halo: The Master Chief Collection in a future update. The "Exchange," as it''s called, is an in-game store of sorts where players can spend their season points--but not real money--to acquire certain items.\nTechnical designer Dana Jerpbak said in a blog post the Exchange was designed with two primary goals, the first of which was to create a system where players could have more freedom and choice for content to unlock. The second was to create a place where players could spend season points to pick up items from a previous season that had ended already.', TIMESTAMP '2019-06-22 10:46:36', 41);
+
+--https://www.gamespot.com/articles/control-dev-on-the-challenges-of-cross-gen-development/1100-6489127/
+--Control, PS5, Xbox Series X,  xbox , xbox gaming
+insert into news_post (id, title, body, date_time, owner) values (78, 'Control Dev On The Challenges Of Cross-Gen Development', 'Control developer Remedy Entertainment says that studios are still scratching the surface of what the PS5 and Xbox Series X are capable of.\nAccording to Control developer Remedy Entertainment''s communications director Thomas Puha, making a cross-generational video game is a tricky challenge, especially when developers have fewer resources to work with on older hardware.\n"Whenever you''re in this cross-generational point, to be blunt, it sucks," Puha said on IGN''s Next-Gen Console Watch. "You have to support the previous gen, make sure that sings, and then whatever you bring to next-gen is still limited by the choices you made years ago for the previous generation. It''s not a very realistic thing, that this old game, we''re just going to remake everything and then bring it to next-gen. It''s just not like that. It''s not a reality for us, because you''re literally taking away resources that are building the future games and improving the engine for the future."', TIMESTAMP '2018-10-19 11:55:31', 17);
+
+--https://www.gamespot.com/articles/marvels-avengers-update-1-5-0-notes-heres-all-the-next-gen-upgrades/1100-6488978/
+--Marvel, Marvel's Avengers, Online Gaming, RPG
+insert into news_post (id, title, body, date_time, owner) values (79, 'Marvel''s Avengers Update 1.5.0 Notes -- Here''s All The Next-Gen Upgrades', 'Marvel''s Avengers adds next-gen features, a new campaign, and a follically-challenged Hulk in its new patch.\nSeveral months after it originally launched, Marvel''s Avengers is preparing to go next-gen in its latest update. Patch 1.5.0 brings with it more than just a number of fixes and improvements, but also the addition of original Hawkeye Clint Barton as a playable character, the long-awaited campaign replay feature, and customizable HARM rooms.\nThere''ll also be a brand new set of missions to play in the form of Operation Future Imperfect, which picks up directly after last year''s Taking AIM add-on that introduced Kate Bishop to the Avengers roster.', TIMESTAMP '2018-06-17 14:48:07', 42);
+
+--https://www.gamespot.com/articles/new-nintendo-switch-pro-might-feature-nvidias-dlss-support-report/1100-6489171/
+--Nintendo, Nintendo Switch, Console Gaming, Nvidia
+insert into news_post (id, title, body, date_time, owner) values (80, 'New Nintendo Switch Pro Might Feature Nvidia''s DLSS Support - Report', 'The rumored Switch iteration might feature a new chip that sports better CPU performance, more memory, and DLSS support.\nRumors surrounding a potential Nintendo Switch revision continue to pile up, this time with indications that the new console might feature hardware with Nvidia''s Deep Learning Super Sampling (DLSS) support.\nA report from Bloomberg cites sources close to the project that confirm the new Switch revision will feature a new SoC (system on chip) from Nvidia. The new chip will feature better CPU performance and additional memory, which could help the Switch reach the proposed 4K output that previous reports have implied it will feature.\nPerhaps the biggest addition is DLSS, which is reportedly supported by this new SoC. DLSS has been exclusive to PC, with Nvidia using the upscaling technology to drastically increase performance at higher resolutions with little to no impact on visual quality. DLSS would certainly make a mobile device like the Nintendo Switch more capable of reaching resolutions higher than its native 720p display, and inch closer to 4K when docked.', TIMESTAMP '2018-12-22 04:48:46', 24);
+
+--https://www.gamespot.com/articles/red-dead-online-update-hands-out-double-rewards-for-horse-racing/1100-6489196/
+--Red Dead Redemption, Open World, Online Gaming, Rockstar
+insert into news_post (id, title, body, date_time, owner) values (81, 'Red Dead Online Update Hands Out Double Rewards For Horse Racing', 'The latest update for Red Dead Online has arrived, and if you''re looking to earn extra rewards while being the fastest horseman in the west then now''s the time to saddle up. Bonuses for joining a posse, time-limited clothing, and plenty of discounts to help you start a stable full of thoroughbred stallions are also being offered this week.', TIMESTAMP '2018-10-25 23:27:22', 41);
+
+--https://www.gamespot.com/articles/destiny-2-tweaking-stasis-abilities-adding-grandmaster-nightfalls-with-next-update/1100-6488727/
+--Destiny, RPG, FPS, Open World, Online Gaming
+insert into news_post (id, title, body, date_time, owner) values (82, 'Destiny 2 Tweaking Stasis Abilities, Adding Grandmaster Nightfalls With Next Update', 'Bungie is making a number of adjustments to Stasis abilities in Destiny 2 with its March 16 update to the game, which should make players in the PvP-focused Crucible very happy (or very angry). A number of Stasis powers are getting nerfed, including the ubiquitous Shatterdive ability and the strength of the Duskfield grenade.\nA preview of the changes are outlined in Destiny 2''s This Week at Bungie blog post, which outlines how Bungie is adjusting each of the three Stasis subclasses. The Hunter Shatterdive ability is losing its damage resistance, which should help players combat the extremely lethal move. The Warlock Stasis Super''s projectiles will now have better tracking, but the explosive power used to shatter Stasis crystals won''t deal as much damage. And Titans will no longer freeze nearby PvP opponents when they activate their Super abilities. There are a number of other changes in the blog post--they''re all listed below--but they''re generally only taking effect in PvP play; Stasis abilities are remaining mostly the same in PvE activities.\nStasis abilities have been dominant in the Crucible since the release of the Beyond Light expansion, much to the chagrin of many Destiny 2 players. There have been a lot of complaints about the new abilities, particularly Shatterdive, which allows Hunters to leap into the air and slam down, shattering nearby Stasis crystals. Those crystals are extremely deadly when they explode, and Shatterdive provided Hunters with a bunch of damage resistance when executing the move, making them nearly unkillable--and pushing players to center all their play around the ability.', TIMESTAMP '2020-08-27 20:15:47', 40);
+
+--https://www.gamespot.com/articles/gamestop-stock-is-still-high-but-seemingly-not-because-of-the-companys-performance/1100-6489229/
+--GameStop, Gaming Retailers, PC Gaming, Console Gaming
+insert into news_post (id, title, body, date_time, owner) values (83, 'GameStop Stock Is Still High, But Seemingly Not Because Of The Company''s Performance', 'Following the Reddit-influenced Wall Street battle over GameStop''s share value earlier this year, GameStop stock currently stands nearly 10 times higher than where it started in 2021. That may seem like an indication that the company is in a good place after a rough 2020, but, it remains clear the stock price is not directly driven by the company''s current performance, as evidenced by GameStop''s fourth quarter and fiscal 2020 results.\nNet sales during the fourth quarter were $2.122 billion. That''s a slight decline from the same period during the prior year, when net sales were $2.194 billion, and a miss compared to analyst expectations. For the full year, net sales were $5.090 billion, compared with $6.466 billion the year prior. Comparable store sales dropped 9.5% for the full year (e-commerce sales, as you might expect, were up significantly, increasing by 191%).', TIMESTAMP '2019-10-27 04:42:25', 26);
+
+--https://www.gamespot.com/articles/genshin-impact-is-the-quickest-mobile-game-to-make-1-billion/1100-6489256/
+--Genshin Impact, Mobile Gaming, RPG, Anime ,ps4
+insert into news_post (id, title, body, date_time, owner) values (84, 'Genshin Impact Is The Quickest Mobile Game To Make $1 Billion', 'Studio miHoYo''s popular and free RPG Genshin Impact has been a massive success since it launched last year, and despite also being on PS4 and PC, it has become the fastest mobile game to reach $1 billion in player revenue from the App Store and Google Play.\nTaking less than six months to do so, Genshin Impact has outpaced other hit id, titles such as Pokemon Go, Lineage M, and Clash Royale according to analyst Sensor Tower''s data. In comparison, it took PUBG Mobile just over 16 months to hit its $1 billion in player spending after it began monetizing, while Honor of Kings required approximately 18 months just on iOS.', TIMESTAMP '2019-08-16 00:58:33', 6);
+
+--https://www.gamespot.com/articles/last-of-us-part-2-easter-egg-spotted-in-uncharted-4/1100-6489298/
+--Last of Us, Uncharted, Playstation, Story Games, Sony
+insert into news_post (id, title, body, date_time, owner) values (85, 'Last Of Us Part 2 Easter Egg Spotted In Uncharted 4', 'The Uncharted and Last of Us games take place in two different universes, meaning they don''t share a continuity, but it appears a small Easter egg has been found connecting two of Naughty Dog''s most recent games: The Last of Us Part II and Uncharted 4: A Thief''s End. \nReddit user kheinrichs547 shared an Uncharted 4 screenshot of a hand holding a pill bottle from Weston''s Pharmacy, the same in The Last of Us Part II.\nIn the post''s comments, users point out that Weston''s Pharmacy was also referenced in the original The Last of Us and its Left Behind DLC. Players can visit the pharmacy toward the end of The Last of Us Part II''s Seraphites chapter. It also appears in Left Behind inside the Colorado Mountain Plaza Ellie and Riley explore.\nThis is the latest Easter egg spotted in the 2016 id, title. One of the more prominent Easter eggs was of Nathan Drake playing an emulated version of Crash Bandicoot. You can also find copies of an Uncharted board game sitting on store shelves in the first The Last of Us game.', TIMESTAMP '2019-05-29 16:33:21', 18);
+
+--https://www.gamespot.com/articles/watch-dogs-legion-free-to-play-weekend-now-available/1100-6489262/
+--Watch Dogs, Open World 
+insert into news_post (id, title, body, date_time, owner) values (86, 'Watch Dogs: Legion Free-To-Play Weekend Now Available', 'Ubisoft recently launched Watch Dogs: Legion''s ambitious online mode, and this weekend you can try it along with the single-player campaign for free. The action game is be free to play from now through March 28. If you decide to buy, it''s also discounted to just $20 across multiple platforms. The sale price is already available, so you can grab it now if you''re sure you want to jump in. Watch Dogs: Legion is available on PC via Ubisoft and Epic stores, Stadia, Xbox, and PlayStation. On both consoles you can upgrade to the new generation for free, so the price is the same across both versions.', TIMESTAMP '2020-02-04 20:04:24', 25);
+
+--https://www.gamespot.com/articles/gamestop-had-25-million-in-covid-19-expenses-last-year-and-it-expects-more-to-come/1100-6489349/
+--GameStop, Gaming Retailers, PC Gaming, Console Gaming
+insert into news_post (id, title, body, date_time, owner) values (87, 'GameStop Had $25 Million In COVID-19 Expenses Last Year, And It Expects More To Come', 'The COVID-19 pandemic has impacted many companies, and now video game retailer GameStop has revealed exactly how much money it has spent to address the pandemic. In its latest earnings report, GameStop revealed that it incurred about $25 million in costs to mitigate the impact of the pandemic. These costs includes incremental wage payments to hourly associates who could not go to work due to store closures, while GameStop also spent money on "enhanced cleaning measures," along with the expanded use of personal protective equipment at its stores, service centers, and distribution sites around the world.', TIMESTAMP '2021-02-10 17:00:38', 47);
+
+--https://www.gamespot.com/articles/call-of-duty-warzone-activision-just-banned-13000-accounts-in-latest-crackdown/1100-6489251/
+--Call of Duty, Esports, Battle Royale, FPS
+insert into news_post (id, title, body, date_time, owner) values (88, 'Call Of Duty: Warzone -- Activision Just Banned 13,000 Accounts In Latest Crackdown', 'Call of Duty: Warzone cheaters have no place in the battle royale game, so Activision is banning yet another group of them--and the latest ban-wave is pretty enormous. Developer Raven Software has now banned an additional 13,000 accounts from the popular battle royale game.\nThe studio did not elaborate on the specific nature of the offenses, but we can assume it''s due to cheating or another form of bad behavior that Raven wanted to eliminate. This is the second ban wave in the past week, so Raven has delivered on its promise to continue to weed out cheaters and other jerks in the online shooter. Aim-bot software and other cheating tools can quickly ruin the experience.', TIMESTAMP '2021-01-31 21:41:41', 16);
+
+--https://www.gamespot.com/articles/bloodborne-running-on-ps5-at-60fps-is-a-glimpse-into-an-unattainable-patch/1100-6489352/
+--Bloodborne, PS5, Console Gaming, Playstation, ps4,
+insert into news_post (id, title, body, date_time, owner) values (89, 'Bloodborne Running On PS5 At 60fps Is A Glimpse Into An Unattainable Patch', 'Of all the games that could benefit from a next-generation patch, From Software''s Bloodborne might be one of the most frequently requested. The 2015 PS4 exclusive might not be getting that from its developers, but it seems someone has managed to get it working on a PS5 with improved performance.\n According to Digital Foundry, an undisclosed party has managed to take existing work done to Bloodborne on PS4 and managed to get the game running at an (almost) flawless 60fps on PS5 at 1080p. The version was verified by Digital Foundry and is presumably running off a development kit for the console, although the publication was unable to play the build personally.', TIMESTAMP '2018-09-18 17:34:53', 23);
+
+--https://www.gamespot.com/articles/disney-plus-prices-going-up-tomorrow/1100-6489261/
+-- Disney, Disney Plus, Game Cinema
+insert into news_post (id, title, body, date_time, owner) values (90, 'Disney Plus Prices Going Up Tomorrow', 'After almost two years, Disney+ is raising its monthly subscription costs. The price changes will go into effect starting March 26, 2021. According to Disney, those with basic month-to-month starts at $7 will now go up a dollar at $8.\n Yearly subscriptions that were $70, will go up to $80, an increase of $10. The Disney Bundle that comes with Disney+, ESPN+, and ad-supported Hulu will become $14 per month--again just raised $1 since they''re currently at $13. While the three-in-one plan with ad-free Hulu jumps to $20 from $19 per month.', TIMESTAMP '2019-02-12 00:53:09', 45);
+
+--https://www.gamespot.com/articles/the-falcon-and-the-winter-soldier-easter-eggs/1100-6489051/
+--Marvel, MCU, FATWS, Game Cinema
+insert into news_post (id, title, body, date_time, owner) values (91, 'Falcon And The Winter Soldier: Episode Two Easter Eggs, References, And Things You Missed', 'This week, The Falcon and The Winter Soldier gave us an extensive look at the new Captain America, a man named John Walker who was hand picked to take up the mantle after Sam donated the shield to the Smithsonian.\n It turns out John isn''t a super soldier--though he does have a pretty impressive resume as a soldier.\nHe''s even got his own right-hand man, Lemar Hoskins AKA Battlestar, to back him up, though neither Sam nor Bucky is impressed. To make matters even worse, Sam is still hot on the trail of the Flag-Smashers and hunting them down is forcing him to team up with both Bucky and the new Cap, which is going about as well as anyone might expect. Also, the Flag-Smashers have apparently been juicing themselves with a version of the super soldier serum with an unknown origin that has led Bucky to dust off some shocking secrets from the 1950s.', TIMESTAMP '2018-07-04 15:06:20', 50);
+
+--https://www.gamespot.com/articles/assassins-creed-valhalla-update-coming-today-to-fix-crashes/1100-6489365/
+--Assasin's Creed, Single Player Game, Open World
+insert into news_post (id, title, body, date_time, owner) values (92, 'Assassin''s Creed Valhalla Update Coming Today To Fix Crashes', 'A new update is coming to Assassin''s Creed Valhalla today, March 26, to address crash scenarios related to the recent addition of the Ostara Festival. Ubisoft said on Twitter that this update should arrive at 5 AM PT / 8 AM ET. In addition to the crash fixes, it will reactive settlement decorations and decoration quests. This will be id, title update 1.2.0.1, in case you''re counting.\nThe update isn''t coming out of the blue, either, as Ubisoft told fans to expect a fix for these issues last week.', TIMESTAMP '2019-05-01 16:33:27', 25);
+
+--https://www.gamespot.com/articles/pubg-mobile-is-making-over-7-million-per-day-report-says/1100-6489374/
+--PUBG, Mobile Gaming
+insert into news_post (id, title, body, date_time, owner) values (93, 'PUBG Mobile Is Making Over $7 Million Per Day, Report Says', 'PUBG Mobile has been ridiculously successful, arguably eclipsing its big sibling more recently. It''s so popular, in fact, that the game made more than $7 million per day throughout 2020, according to a new report, and shows little sign of slowing down.According to Sensor Tower, PUBG Mobile spending was, on average, at $7.4 million per day throughout 2020. There were some peaks and valleys during that time, with the game making approximately $721 million from player-spending in the first three months but dropping to $554 million in the fourth quarter.\nHowever, it has already shown significant growth again this year.', TIMESTAMP '2018-10-06 08:54:05', 8);
+
+--https://www.gamespot.com/articles/this-nba-2k21-lego-build-uses-42000-pieces-to-create-zion-williamson/1100-6489370/
+--NBA, Sport Games
+insert into news_post (id, title, body, date_time, owner) values (94, 'This NBA 2K21 Lego Build Uses 42,000 Pieces To Create Zion Williamson', 'The famous Lego brick-builder Ryan McNaught AKA The Brickman has turned his attention to the NBA 2K series for his latest creation--and it''s darn impressive.\nMcNaught and his team used around 42,000 Lego bricks to build a "true-to-size" recreation of NBA superstar Zion Williamson, who is the cover star of NBA 2K21''s next-gen edition. In real life, Williams is 6'' 7", so he is a very, very large man.', TIMESTAMP '2020-04-22 07:45:55', 28);
+
+--https://www.gamespot.com/articles/this-900-resident-evil-statue-is-seriously-gross/1100-6489379/
+--Resident Evil, Collectibles
+insert into news_post (id, title, body, date_time, owner) values (95, 'This $900 Resident Evil Statue Is Seriously Gross', 'PureArts has announced a new Resident Evil 2 statue that is impressive in how gross it is. The 1:1 scale "Licker" bust has been announced as part of the Resident Evil 25th anniversary festivities.\nLimited to 100 units, the statue sells for $900, and it''s very horrifying to look at. Created with what looks like a very fine attention to detail, the Licker statue is modeled after the creature from Resident Evil 2. "Razor-sharp tongue, vicious claws, and never-ending hunger for flesh... Lickers are one of the most disturbing creatures you can ever imagine encountering," reads a line from its description.', TIMESTAMP '2018-03-09 15:08:05', 42);
+
+--https://www.gamespot.com/articles/witcher-prequel-show-blood-origin-casts-game-of-thrones-vikings-actor/1100-6489376/
+--The Witcher, Game Cinema, 
+insert into news_post (id, title, body, date_time, owner) values (96, 'Witcher Prequel Show Blood Origin Casts Game Of Thrones, Vikings Actor', 'Netflix''s The Witcher: Blood Origin has added another lead actor. Laurence O''Fuarain, who appeared on Game of Thrones and Vikings, will play the central character Fjall. He is a troubled man who is seeking redemption. His official character description says: "Born into a clan of warriors sworn to protect a King, Fjall carries a deep scar within, the death of a loved one who fell in battle trying to save him. A scar that won''t let him settle, or make peace with himself or the world around him. In his quest for redemption, Fjall will find himself fighting beside the most unlikely of allies as he carves a path of vengeance across a continent in turmoil."', TIMESTAMP '2018-05-12 18:37:07', 46);
+
+--https://www.gamespot.com/articles/new-pokemon-snap-sticks-close-to-the-originals-formula-and-thats-a-good-thing/1100-6489242/
+--Pokemon, Nintendo, Console Gaming, Anime
+insert into news_post (id, title, body, date_time, owner) values (97, 'New Pokemon Snap Sticks Close To The Original''s Formula, And That''s A Good Thing', 'For Pokemon fans of a certain age, Nintendo 64''s Pokemon Snap remains one of the most beloved spin-offs the series has ever produced, but it''s taken Nintendo more than 20 years to release any sort of follow-up.\nThat two-decade wait will finally come to an end next month when New Pokemon Snap arrives on the Switch, and as we saw during a recent preview demonstration, the game, wisely, doesn''t stray very far from the original''s formula.', TIMESTAMP '2018-07-04 01:50:44', 41);
+
+--https://www.gamespot.com/articles/dota-2-update-adds-improved-onboarding-tools-for-newcomers/1100-6489322/
+--Dota2, MOBA
+insert into news_post (id, title, body, date_time, owner) values (98, 'Dota 2 Update Adds Improved Onboarding Tools For Newcomers', 'Valve is aiming to make Dota 2 more inviting for new players, right alongside the launch of the new Netflix anime adaptation, Dragon''s Blood. The plans include a smaller pool of heroes for beginners and a dedicated character aimed to nudge you in the right direction.\nIn a lengthy blog post detailing the changes, Valve says that linear tutorials aren''t effective at learning the game, which can be "overwhelming" for new players. The new tools will provide a "gradual learning opportunities rather than relying on a single dump of complex information."', TIMESTAMP '2019-06-08 22:49:47', 14);
+
+--https://www.gamespot.com/articles/ghost-of-tsushima-movie-from-john-wicks-chad-stahelski-is-in-the-works/1100-6489332/
+--Game Cinema, Ghost of Tsushima
+insert into news_post (id, title, body, date_time, owner) values (99, 'Ghost Of Tsushima Movie From John Wick''s Chad Stahelski Is In The Works', 'A movie based on Ghost of Tsushima is in the works, with John Wick''s Chad Stahelski attached to direct it, according to a report from Deadline. Sony has since officially announced the movie in a blog post. The movie is coming from Sony Pictures and PlayStation Productions, the internal company that is charged with adapting Sony''s video game franchises for TV and film.\nPlayStation Productions is also behind the Uncharted movie with Tom Holland and the Last of Us TV show with HBO. Sucker Punch, the developer of Ghost of Tsushima, is an executive producer on the movie. "We''re excited to be partnering with Chad and 87Eleven Entertainment, to bring their vision of Jin''s story to the big screen," PlayStation Productions boss Asad Qizilbash said. "We love working with creative partners like Chad, who have a passion for our games, ensuring we can create rich adaptations that will excite our fans and new audiences."', TIMESTAMP '2019-05-02 05:31:06', 2);
+
+--https://www.gamespot.com/articles/sealed-super-mario-bros-copy-could-set-record-for-most-expensive-video-game/1100-6489335/
+--Super Mario, Arcade Games, Console Gaming, Nintendo
+insert into news_post (id, title, body, date_time, owner) values (100, 'Sealed Super Mario Bros. Copy Could Set Record For Most Expensive Video Game', 'Mario loves collecting coins, but we seriously doubt he can afford the sealed copy of Super Mario Bros. currently available for purchase.The NES hit, still in pristine condition, is being sold online for over $300,000. Should the price go much higher, it will break the record for the most expensive video game item ever sold. You can view the game for yourself on the Heritage Auctions website.\nRated at a 9.6/10 in terms of its quality, the sealed copy is from mid-production for the game, between 1986 and 1987, and even has a perforated cardboard hangtab still attached. Less than a year ago, a separate copy of the game sold for only about one-third what this game is going for.', TIMESTAMP '2020-05-02 00:57:46', 33);
 
 
+insert into comment (id, body, date_time, id_member, id_post) values (1, 'Hmmm... not the news I was hoping for. Because I can just play Rome 2 to get my ancient rome fix... How about they do a remake of Medieval or Empire (especially the latter).', TIMESTAMP '2018-09-14 04:35:00', 54, 6);
+insert into comment (id, body, date_time, id_member, id_post) values (2, 'Would love to play as Egypt, Persia, Norway, America, Italian States, Pirates, or Mughal in Empire.', TIMESTAMP '2018-09-14 04:40:48', 56, 6);
+insert into reply (id_comment, id_parent) values (2, 1);
+insert into comment (id, body, date_time, id_member, id_post) values (3, 'I found Rome 2 to be rather clunky compared to the first. I would happily take a TW Medieval 1 and 2 remaster though!', TIMESTAMP '2018-09-14 05:30:00', 67, 6);
+insert into reply (id_comment, id_parent) values (3, 1);
+insert into comment (id, body, date_time, id_member, id_post) values (4, 'Dammit, I’ve been clean from Warhammer 2 for months. I''m not ready to relapse again....', TIMESTAMP '2018-09-14 06:29:00', 27, 6);
+insert into comment (id, body, date_time, id_member, id_post) values (5, 'This is the game that was so good it was used in a History Channel documentary', TIMESTAMP '2018-09-14 8:30:00', 35, 6);
 
-insert into topic(name) values ('League of Legends');
-insert into topic(name) values ('Lego Marvel Super Heroes');
-insert into topic(name) values ('The Witcher 3');
-insert into topic(name) values ('Gaming Gadgets');
-insert into topic(name) values ('Razer');
-insert into topic(name) values ('Esports');
+insert into comment (id, body, date_time, id_member, id_post) values (6, 'Cool finally a developer that doesn''t allow streamers cheating to make videos.', TIMESTAMP '2019-11-04 13:02:30', 1, 7);
+insert into comment (id, body, date_time, id_member, id_post) values (7, 'You can make videos you just have to deal with the shame of being branded a cheater. Makes it even better', TIMESTAMP '2019-11-04 12:42:30', 30, 7);
+insert into comment (id, body, date_time, id_member, id_post) values (8, 'I''d bet if there wasn''t streamers and tubers, 60-80% of all cheaters would dissapear from games', TIMESTAMP '2019-11-04 22:02:40', 66, 7);
+insert into comment (id, body, date_time, id_member, id_post) values (9, 'Yeah I think I like that better than banning', TIMESTAMP '2019-11-04 12:52:50', 12, 7);
+insert into comment (id, body, date_time, id_member, id_post) values (10, 'Ya, but see the difference is what Outriders is doing is awesome, what you said is stupid and cringepilled.', TIMESTAMP '2019-11-04 15:11:31', 52, 7);
+insert into reply (id_comment, id_parent) values (7, 6);
+insert into reply (id_comment, id_parent) values (8, 7);
+insert into reply (id_comment, id_parent) values (10, 6);
+
+insert into comment (id, body, date_time, id_member, id_post) values (11, 'Digging the game so far - it''s running great on the Switch and looks better than I expected. Obviously not as good as MHWorld on a PC - but still pretty damn good for a switch game', TIMESTAMP '2020-03-26 23:50:22', 3, 8);
+insert into comment (id, body, date_time, id_member, id_post) values (12, 'Nice', TIMESTAMP '2020-03-26 23:52:12', 10, 9);
+insert into comment (id, body, date_time, id_member, id_post) values (13, 'Horizon being a free game does nothing for me. Awesome game but most people should have played it already. Hopefully one of those others will surprise me. Lucky I still have a ton of PS4 games to finish.', TIMESTAMP '2020-03-27 00:21:42', 3, 9);
+insert into comment (id, body, date_time, id_member, id_post) values (14, 'Can we have uncap the fps limit on HZD while were at it too please?', TIMESTAMP '2020-03-26 23:55:14', 29, 9);
+insert into comment (id, body, date_time, id_member, id_post) values (15, 'Hit or miss on some of these.', TIMESTAMP '2020-03-26 23:58:21', 69, 9);
+insert into comment (id, body, date_time, id_member, id_post) values (16, 'Well I have them and played them already, but I will recommend it to the other PSVR owners I know for sure', TIMESTAMP '2020-03-26 23:59:24', 20, 9);
+insert into comment (id, body, date_time, id_member, id_post) values (17, 'I love free games almost as much as I hate them when they''re a title I''ve already bought and paid for but sent them straight to backlog without playing them...', TIMESTAMP '2020-03-26 23:52:11', 56, 9);
+insert into comment (id, body, date_time, id_member, id_post) values (18, 'This is almost exactly how I feel. If only I would resist buying games until I am actually going to play them, instead of "ooh, it''s on sale, and I''m somewhat interested, better buy it now." Three months later, it''s on PS+ or twitch prime or epic free games, and I''ve never even installed it.', TIMESTAMP '2020-03-26 23:59:21', 6, 9);
+insert into reply (id_comment, id_parent) values (18, 17);
+
+insert into comment (id, body, date_time, id_member, id_post) values (19, 'Wow....that character design kinda misses the mark for me', TIMESTAMP '2020-11-24 15:37:52', 57, 10);
+insert into comment (id, body, date_time, id_member, id_post) values (20, 'Yeah. Samesies. He looks like part claymation part anime and part that new spongebob animation art abomination.', TIMESTAMP '2020-11-24 16:40:21', 51, 10);
+insert into reply (id_comment, id_parent) values (20, 19);
+insert into comment (id, body, date_time, id_member, id_post) values (21, 'Must have missed the part where anyone asked for a Gollum game.', TIMESTAMP '2020-11-24 16:40:21', 54, 10);
+insert into comment (id, body, date_time, id_member, id_post) values (22, 'I''m a nerd, but you gotta be a mega nerd to want to play as Golem through an entire videogame.', TIMESTAMP '2020-11-25 11:22:21', 34, 10);
+insert into comment (id, body, date_time, id_member, id_post) values (23, 'YUP', TIMESTAMP '2020-11-25 13:21:53', 31, 10);
+insert into reply (id_comment, id_parent) values (23, 22);
+
+insert into comment (id, body, date_time, id_member, id_post) values (31, 'This controller has looked great in every color they made for it.. Just don''t like the white back.', TIMESTAMP '2018-06-01 05:45:25', 37, 11);
+insert into comment (id, body, date_time, id_member, id_post) values (32, 'I like the white back with the blue one, that''s about it', TIMESTAMP '2018-06-01 06:50:30', 54, 11);
+insert into reply (id_comment, id_parent) values (32, 31);
+insert into comment (id, body, date_time, id_member, id_post) values (33, 'Nice to see colour spelt correctly.', TIMESTAMP '2018-06-01 09:54:12', 23, 11);
+
+insert into comment (id, body, date_time, id_member, id_post) values (34, 'I love Rocket League but HELL NO to mobile.', TIMESTAMP '2018-10-03 16:10:15', 29, 12);
+insert into comment (id, body, date_time, id_member, id_post) values (35, 'Does it really change anything for you though? We won’t download it, but some people will and It could get a whole new crop of people to download the console and pc version and increase player base further.', TIMESTAMP '2018-10-03 19:22:11', 5, 12);
+insert into comment (id, body, date_time, id_member, id_post) values (36, 'Sideswipe? More like Sadswipe, amirite?', TIMESTAMP '2018-10-03 17:21:33', 11, 12);
+insert into comment (id, body, date_time, id_member, id_post) values (37, 'Rocket League already had bad controls, how much worse could it be on mobile?', TIMESTAMP '2018-10-03 18:11:22', 20, 12);
+insert into comment (id, body, date_time, id_member, id_post) values (38, 'You mean you’re bad at the game?', TIMESTAMP '2018-10-03 18:16:11', 15, 12);
+insert into reply (id_comment, id_parent) values (38, 37);
+insert into comment (id, body, date_time, id_member, id_post) values (39, 'Yes, that''s exactly it. You got though my coded message. Bravo.', TIMESTAMP '2018-10-03 18:50:25', 70, 12);
+insert into reply (id_comment, id_parent) values (39, 38);
+insert into comment (id, body, date_time, id_member, id_post) values (40, 'Controller supported?', TIMESTAMP '2018-10-03 17:22:25', 22, 12);
+
+insert into comment (id, body, date_time, id_member, id_post) values (24, 'I love being a PC gamer', TIMESTAMP '2020-05-16 12:56:39', 13, 13);
+insert into comment (id, body, date_time, id_member, id_post) values (25, 'It''s easily the best platform.', TIMESTAMP '2020-05-16 13:30:11', 48, 13);
+insert into reply (id_comment, id_parent) values (25, 24);
+
+insert into comment (id, body, date_time, id_member, id_post) values (26, 'My favourite game of 2021 so far, although that’s not saying much, but I imagine it will still be up there by the end of the year. Fingers crossed they do just one more new map at some point.', TIMESTAMP '2020-04-08 12:37:11', 14, 14);
+insert into comment (id, body, date_time, id_member, id_post) values (27, 'You''re right, your opinion never says much.', TIMESTAMP '2020-04-08 19:27:23', 44, 14);
+insert into comment (id, body, date_time, id_member, id_post) values (28, 'Paid escalations? HAHAHAHA. God damn they turned greedy when they opened second studio.\nAt best I expect shitshow like they did with Hitman 2 "missions".', TIMESTAMP '2020-04-08 10:27:42', 13, 14);
+insert into comment (id, body, date_time, id_member, id_post) values (29, 'They are now an independent studio and they published Hitman 3 on their own. So I don''t see what''s wrong with keeping the lights on.', TIMESTAMP '2020-04-08 08:27:32', 34, 14);
+insert into comment (id, body, date_time, id_member, id_post) values (30, 'What was wrong with hitman 2''s missions?', TIMESTAMP '2020-04-08 18:55:32', 34, 14);
+insert into reply (id_comment, id_parent) values (27, 26);
+insert into reply (id_comment, id_parent) values (30, 28);
+
+insert into comment (id, body, date_time, id_member, id_post) values (41, 'Cage is not in the movie because of how he is its similar to how Kano is now in the movie.', TIMESTAMP '2021-01-11 23:12:12', 35, 15);
+insert into comment (id, body, date_time, id_member, id_post) values (42, 'False. See below.', TIMESTAMP '2021-01-12 09:11:12', 22, 15);
+insert into comment (id, body, date_time, id_member, id_post) values (43, 'I guess you know more that the director,because that''s what he said', TIMESTAMP '2021-01-12 09:18:12', 13, 15);
+insert into comment (id, body, date_time, id_member, id_post) values (44, 'I guess you know more than the PRODUCER, because that''s what HE said.', TIMESTAMP '2021-01-12 19:11:12', 5, 15);
+insert into comment (id, body, date_time, id_member, id_post) values (45, 'What? No Johnny Cage? Is that an actual quote from the movie makers about him "not working in 2021"?', TIMESTAMP '2021-01-12 11:11:12', 49, 15);
+insert into reply (id_comment, id_parent) values (42, 41);
+insert into reply (id_comment, id_parent) values (43, 42);
+insert into reply (id_comment, id_parent) values (44, 41);
+
+insert into comment (id, body, date_time, id_member, id_post) values (46, 'Today I learned there was mobile port of XI in the works, and it has been canceled.', TIMESTAMP '2020-02-23 14:32:13', 37, 16);
+insert into comment (id, body, date_time, id_member, id_post) values (47, 'Today was a roller coaster ride.', TIMESTAMP '2020-02-23 15:22:25', 35, 16);
+insert into comment (id, body, date_time, id_member, id_post) values (48, 'They should remake 11''s story as a single player game.', TIMESTAMP '2020-02-23 16:23:16', 35, 16);
+insert into comment (id, body, date_time, id_member, id_post) values (49, 'No they really shouldn''t. I say that as an FFXI player since 2003 launch to current day. It''s best experienced with friends.', TIMESTAMP '2020-02-23 17:45:53', 70, 16);
+insert into comment (id, body, date_time, id_member, id_post) values (50, 'It''s better that the Nexon agreement died. Square Enix should remaster FFXI as an offline game, or put its world into the FF14 engine.', TIMESTAMP '2020-02-23 20:32:43', 6, 16);
+insert into reply (id_comment, id_parent) values (47, 46);
+insert into reply (id_comment, id_parent) values (49, 48);
+
+insert into comment (id, body, date_time, id_member, id_post) values (51, 'This is a complete joke. Microsoft says "unable to purachase" as I try to check out, GAME had me wait in an hour long queue and now when I try to sign up to All Access it says an "error occured loading the current bundles" and PC world has me in a queue of 80,000 people.', TIMESTAMP '2020-08-07 16:20:00', 5, 17);
+insert into comment (id, body, date_time, id_member, id_post) values (52, 'Yep I saw that game uk queue and said eff that got mine on argos website about 8:04am', TIMESTAMP '2020-08-07 16:22:00', 14, 17);
+insert into reply (id_comment, id_parent) values (52, 51);
+insert into comment (id, body, date_time, id_member, id_post) values (53, 'I was trying all morning and eventually managed to get one one Amazon. I have to pay the money down (which I didnt want to do), but at least i have an order secured.', TIMESTAMP '2020-08-07 16:27:00', 16, 17);
+insert into reply (id_comment, id_parent) values (53, 52);
+insert into comment (id, body, date_time, id_member, id_post) values (54, 'Seems to be far more stock available all round, a lot of stores have been releasing PS5 stock on an almost weekly basis throughout March... and not just the traditional game stores either.', TIMESTAMP '2020-08-07 16:23:00', 42, 17);
+insert into comment (id, body, date_time, id_member, id_post) values (55, 'Thank goodness i have a PC. saved £450 already.', TIMESTAMP '2020-08-07 17:01:00', 12, 17);
+
+insert into comment (id, body, date_time, id_member, id_post) values (56, 'After Andromeda and Anthem, I have 0 faith in this.', TIMESTAMP '2020-11-01 00:06:10', 20, 18);
+insert into comment (id, body, date_time, id_member, id_post) values (57, 'After DA2 and DA3/DA:Inquisition I have no faith in this.', TIMESTAMP '2020-11-01 00:08:22', 35, 18);
+insert into reply (id_comment, id_parent) values (57, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (58, 'For me the alarm bells of Bioware started ringing with Inquisition.', TIMESTAMP '2020-11-01 00:50:40', 56, 18);
+insert into reply (id_comment, id_parent) values (58, 57);
+insert into comment (id, body, date_time, id_member, id_post) values (59, 'I think Andromeda was a decent game on it''s own, it just tried way too hard to be a Mass Effect game and completely missed the mark, and I understand as a ME fan (I''ve played ME 1-3 through in order countless times) why people hate it.\nThat and ME doesn''t need MP; that was terrible.\nThat said, if this next ME game doesn''t return to the quality of ME2, I''m probably going to throw in the towel on any future faith in Bioware.', TIMESTAMP '2020-11-01 00:55:40', 40, 18);
+insert into reply (id_comment, id_parent) values (59, 58);
+insert into comment (id, body, date_time, id_member, id_post) values (60, 'Hopefully it''s not designed like a single player MMO. Those fetch quests and empty areas of Inquisition gave me PTSD.', TIMESTAMP '2020-11-01 02:25:32', 51, 18);
+
+insert into comment (id, body, date_time, id_member, id_post) values (61, 'sad day for 3090 users.', TIMESTAMP '2019-11-04 05:57:10', 11, 19);
+insert into comment (id, body, date_time, id_member, id_post) values (62, 'Was hoping for a Switch port', TIMESTAMP '2019-11-04 05:59:24', 23, 19);
+insert into reply (id_comment, id_parent) values (62, 61);
+insert into comment (id, body, date_time, id_member, id_post) values (63, 'Was actually looking forward to this. Picking the wrong choices in these games is peak comedy. Someone at Steam is out of touch with their playerbase.', TIMESTAMP '2019-11-04 06:57:22', 33, 19);
+insert into comment (id, body, date_time, id_member, id_post) values (64, 'What kind of bottom dweller makes this sort of game? Jesus...', TIMESTAMP '2019-11-04 06:57:22', 16, 19);
+insert into comment (id, body, date_time, id_member, id_post) values (65, 'Believe it or not, the first two games actually have a rating of "very positive" on steam.', TIMESTAMP '2019-11-04 08:50:10', 13, 19);
+insert into reply (id_comment, id_parent) values (65, 64);
+insert into comment (id, body, date_time, id_member, id_post) values (71, 'why am I not surprised?', TIMESTAMP '2019-11-04 08:55:22', 16, 19);
+insert into reply (id_comment, id_parent) values (71, 65);
+insert into comment (id, body, date_time, id_member, id_post) values (72, '"After multiple resubmissions" Damn, I want the unedited, first edition anyways.', TIMESTAMP '2019-11-04 10:50:11', 40, 19);
+
+insert into comment (id, body, date_time, id_member, id_post) values (66, 'This game is literally perfect. It''s so perfect. I hate the people that whine about perfect mechanics in the game, because they are struggling to get gud.Good work developers!', TIMESTAMP '2019-01-01 22:42:21', 23, 20);
+insert into comment (id, body, date_time, id_member, id_post) values (67, 'Its alright. Not perfect. But its a fun game to play to waste about 20 minutes of your time before moving on to something else', TIMESTAMP '2019-01-02 10:05:34', 42, 20);
+insert into comment (id, body, date_time, id_member, id_post) values (68, 'You get nothing done in 20min.', TIMESTAMP '2019-01-03 12:12:53', 55, 20);
+insert into comment (id, body, date_time, id_member, id_post) values (69, 'What do you play instead?', TIMESTAMP '2019-01-03 20:23:24', 14, 20);
+insert into reply (id_comment, id_parent) values (67, 66);
+insert into reply (id_comment, id_parent) values (68, 67);
+
+insert into comment (id, body, date_time, id_member, id_post) values (73, 'Gotta get back to this game soon. It''s so huge, but man do I love working through it', TIMESTAMP '2018-06-01 00:40:17', 33, 21);
+insert into comment (id, body, date_time, id_member, id_post) values (74, 'I love this game about 130 hours into it. The weakest part is collecting everything in each state but everything else is good. Still have more to do probably be close to 150 hours when I''m done with it.', TIMESTAMP '2018-06-01 00:50:21', 11, 21);
+insert into comment (id, body, date_time, id_member, id_post) values (75, 'Expansion sounds pretty interesting. The transmog ability is definitely a welcome addition.', TIMESTAMP '2018-06-01 02:21:54', 69, 21);
+
+insert into comment (id, body, date_time, id_member, id_post) values (76, 'The weird RAM hold it back more than a weaker GPU.', TIMESTAMP '2020-08-26 11:24:32', 66, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (77, 'Not really man. 8 GB of RAM is a good amount. 8 GB RAM is still the “optimal” amount of RAM in most of the spec listings for games, even newer titles sans VR stuff like HL: Alyx', TIMESTAMP '2020-08-25 17:43:32', 10, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (78, 'Consoles use shared memory though, not a good comparison', TIMESTAMP '2020-08-25 14:23:32', 4, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (79, 'Actually I was wrong, the Series S has 10 GB of RAM, so it has at least 8 GB of usable RAM, at least, if not closer to 9.', TIMESTAMP '2020-08-25 06:54:32', 12, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (80, 'Not true at all, devs have control over the minimum spec requirements on pc. They don''t have control over console hardware', TIMESTAMP '2020-08-27 08:43:32', 66, 22);
+insert into reply (id_comment, id_parent) values (77, 76);
+insert into reply (id_comment, id_parent) values (78, 77);
+insert into reply (id_comment, id_parent) values (79, 77);
+insert into reply (id_comment, id_parent) values (80, 79);
+
+insert into comment (id, body, date_time, id_member, id_post) values (81, 'This game really was a lesson on why you should control your hype.', TIMESTAMP '2018-08-31 19:22:30', 13, 23);
+insert into comment (id, body, date_time, id_member, id_post) values (82, 'The fault is on CDPR, not the fans. They created this hype over the years and released without plenty of features that were hyped up by them and with loads of bugs in the game.', TIMESTAMP '2018-08-31 19:34:11', 48, 23);
+insert into reply (id_comment, id_parent) values (82, 81);
+insert into comment (id, body, date_time, id_member, id_post) values (83, 'Yeah no amount of patching can fix the core issues of this game.', TIMESTAMP '2018-08-31 20:11:54', 11, 23);
+insert into comment (id, body, date_time, id_member, id_post) values (84, 'This is the big 1.2 patch? That''s bad.', TIMESTAMP '2018-08-31 20:43:25', 29, 23);
+insert into comment (id, body, date_time, id_member, id_post) values (85, 'Um no. They confirmed it’s just a few things in the patch they are highlighting.', TIMESTAMP '2018-08-31 21:54:19', 15, 23);
+insert into reply (id_comment, id_parent) values (85, 84);
+insert into comment (id, body, date_time, id_member, id_post) values (86, 'That''s even worse.', TIMESTAMP '2018-09-01 12:35:11', 29, 23);
+insert into reply (id_comment, id_parent) values (86, 85);
+insert into comment (id, body, date_time, id_member, id_post) values (87, 'Wow, forgot about this game', TIMESTAMP '2018-09-01 15:32:12', 15, 23);
+insert into comment (id, body, date_time, id_member, id_post) values (88, 'At this point I''d rather they just release that Witcher 3 update they talked about last year.', TIMESTAMP '2018-09-02 07:22:30', 47, 23);
+insert into comment (id, body, date_time, id_member, id_post) values (89, 'It''s almost as if they released an unfinished and unpolished product.', TIMESTAMP '2018-09-02 22:14:21', 54, 23);
+
+insert into comment (id, body, date_time, id_member, id_post) values (90, 'That''s cool. I recently played the last gen version on my series x, and it was freaking beautiful. So a native next gen would be pretty exciting.', TIMESTAMP '2019-04-03 00:42:50', 36, 24);
+
+insert into comment (id, body, date_time, id_member, id_post) values (91, 'No planned DLC, proceeds to make DLC lol.', TIMESTAMP '2018-03-25 12:11:25', 41, 25);
+insert into comment (id, body, date_time, id_member, id_post) values (92, 'Don''t trust what they say. They also promised a next gen version wasn''t coming to the first part. I would have happily waited for ps5 version.', TIMESTAMP '2018-03-25 13:54:11', 49, 25);
+insert into comment (id, body, date_time, id_member, id_post) values (93, 'The need to re-hire the writers who did ff7-9. Those were brilliant. 10 wasn''t bad either.', TIMESTAMP '2018-03-25 22:45:43', 17, 25);
+
+insert into comment (id, body, date_time, id_member, id_post) values (94, 'EMERGENCY MEETING!\non march 31', TIMESTAMP '2019-04-05 20:22:43', 22, 26);
+insert into comment (id, body, date_time, id_member, id_post) values (95, 'no no, i was in electrical', TIMESTAMP '2019-04-06 09:32:23', 15, 26);
+insert into comment (id, body, date_time, id_member, id_post) values (96, 'Body was in med...', TIMESTAMP '2019-04-06 10:14:43', 16, 26);
+insert into comment (id, body, date_time, id_member, id_post) values (97, 'I saw him vent. And if it''s not him, vote me.', TIMESTAMP '2019-04-06 14:54:35', 18, 26);
+insert into comment (id, body, date_time, id_member, id_post) values (98, 'he''s lying. it''s gotta be him', TIMESTAMP '2019-04-06 18:34:12', 61, 26);
+insert into comment (id, body, date_time, id_member, id_post) values (99, 'Proof?!', TIMESTAMP '2019-04-06 21:23:15', 10, 26);
+insert into comment (id, body, date_time, id_member, id_post) values (100, 'I saw you! I did I did!', TIMESTAMP '2019-04-07 14:12:54', 63, 26);
+insert into reply (id_comment, id_parent) values (95, 94);
+insert into reply (id_comment, id_parent) values (96, 95);
+insert into reply (id_comment, id_parent) values (97, 95);
+insert into reply (id_comment, id_parent) values (98, 95);
+insert into reply (id_comment, id_parent) values (99, 95);
+
+insert into comment (id, body, date_time, id_member, id_post) values (101, 'I think we can admit that the people who hate on this series have really bad taste lol.', TIMESTAMP '2018-11-27 10:22:24', 58, 27);
+insert into comment (id, body, date_time, id_member, id_post) values (102, 'And i''m sure the games you hate yourself means you have bad tastes.', TIMESTAMP '2018-11-27 10:24:10', 33, 27);
+insert into reply (id_comment, id_parent) values (102, 101);
+insert into comment (id, body, date_time, id_member, id_post) values (103, 'I tried to play Before the Storm but I cant stand Rachel after everything you learn about her in Life is Strange so couldn''t bring myself to play it. First game was awesome though.', TIMESTAMP '2018-11-27 12:55:21', 41, 27);
+insert into comment (id, body, date_time, id_member, id_post) values (104, 'Woo hoo! Old walking simulators in HDR!', TIMESTAMP '2018-11-27 15:52:11', 56, 27);
+insert into comment (id, body, date_time, id_member, id_post) values (105, 'Hella good - Any excuse to play these again.', TIMESTAMP '2018-11-27 18:11:42', 56, 27);
+
+insert into comment (id, body, date_time, id_member, id_post) values (106, 'Look interesting, will wait for reviews for it', TIMESTAMP '2019-12-23 16:22:49', 66, 29);
+insert into comment (id, body, date_time, id_member, id_post) values (107, 'Okay, I know I asked for a Scarlet Nexus anime but I wasn''t expecting it to come out so soon. I just hope it''s really well executed. It''s such an interesting concept.', TIMESTAMP '2019-12-24 15:12:32', 29, 29);
+insert into comment (id, body, date_time, id_member, id_post) values (108, 'Why is everything coming out in June!', TIMESTAMP '2019-12-24 22:32:49', 5, 29);
+
+insert into comment (id, body, date_time, id_member, id_post) values (109, 'It wouldn''t be possible with every game but open the demos up to people online.', TIMESTAMP '2019-12-23 16:12:32', 23, 30);
+insert into comment (id, body, date_time, id_member, id_post) values (110, 'Are we still getting E3 digital event', TIMESTAMP '2019-12-23 17:21:32', 62, 30);
+
+insert into comment (id, body, date_time, id_member, id_post) values (111, 'Oh well, guess I''m not playing this game then.\nAnd if players supposedly aren''t understanding the full extent of the game''s current content, that''s either your fault for failing to thoroughly showcase that to players and/or you''re just overselling said content as more than what it actually is. Your fault either way, not the players/customers.', TIMESTAMP '2020-02-01 18:21:44', 5, 31);
+insert into comment (id, body, date_time, id_member, id_post) values (112, 'Agreed. They seem to think it’s the consumer’s fault? Stupid.', TIMESTAMP '2020-02-01 19:21:33', 57, 31);
+insert into reply (id_comment, id_parent) values (112, 111);
+insert into comment (id, body, date_time, id_member, id_post) values (113, 'I went into this expecting a campaign and some multi-player content that would grow over time. That is what I got. If you expected the entire MCU on day 1, you didn''t get that from the developer.', TIMESTAMP '2020-02-01 19:41:44', 32, 31);
+insert into reply (id_comment, id_parent) values (113, 111);
+insert into comment (id, body, date_time, id_member, id_post) values (114, 'Well I guess a lot of people did expect that and were disappointed, despite the fact that "game as a service" was the big, giant red flag saying you surely wouldn''t get that at release. Managing expectations is not a strong suite of most gamers though.', TIMESTAMP '2020-02-01 19:44:21', 17, 31);
+insert into reply (id_comment, id_parent) values (114, 113);
+insert into comment (id, body, date_time, id_member, id_post) values (115, 'So explain why ultimate alliance, 20 years ago, can offer 10x more characters and far superior RPG elements? As well as costumes that actually do something', TIMESTAMP '2020-02-01 19:47:21', 47, 31);
+insert into reply (id_comment, id_parent) values (115, 113);
+insert into comment (id, body, date_time, id_member, id_post) values (116, 'I have ultimate alliance 3. They are very different games. For better or worse, this one is much more ambitious. They are trying to give the characters more depth and a unique feel. I like the direction of Avengers more than MUA3, but they are both good games.', TIMESTAMP '2020-02-01 19:50:21', 32, 31);
+insert into reply (id_comment, id_parent) values (116, 115);
+insert into comment (id, body, date_time, id_member, id_post) values (117, 'Then it will die braver than most failed games', TIMESTAMP '2020-02-02 15:11:22', 14, 31);
+insert into comment (id, body, date_time, id_member, id_post) values (118, 'This guy misses the point.. your game looks and plays like a f2p game. I miss the other f2p marvel game that lasted a month.', TIMESTAMP '2020-02-02 16:21:33', 28, 31);
+insert into comment (id, body, date_time, id_member, id_post) values (119, 'I smell another Anthem...', TIMESTAMP '2020-02-03 09:21:54', 49, 31);
+insert into comment (id, body, date_time, id_member, id_post) values (120, 'They must have enough loyal players to justify it I guess. It would take a lot more content to get me on board, but kudos if you’re enjoying it.', TIMESTAMP '2020-02-03 16:54:12', 26, 31);
+
+insert into comment (id, body, date_time, id_member, id_post) values (121, '"each employee laid off was given $200 in gift cards to Battle.net"\nSo random I can just imagine them walking out their office with some sad dude handing them coupons on the way out.', TIMESTAMP '2020-05-13 19:46:21', 32, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (122, 'Just goes to show how out of touch they are.', TIMESTAMP '2020-05-13 21:53:57', 55, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (123, 'Very convenient of you to leave out 3 months of severance package and 1 year health benefits', TIMESTAMP '2020-05-14 09:12:35', 31, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (124, 'Only for the US employees.', TIMESTAMP '2020-05-13 14:54:32', 7, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (125, 'While you assume it was malicious, it could easily be because the non us employees are under socialized healthcare and get non-voluntary serverance through the state.', TIMESTAMP '2020-05-13 19:32:23', 32, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (126, 'Even socialized healthcare doesn’t cover everything.', TIMESTAMP '2020-05-13 20:48:42', 32, 32);
+insert into reply (id_comment, id_parent) values (122, 121);
+insert into reply (id_comment, id_parent) values (123, 121);
+insert into reply (id_comment, id_parent) values (124, 123);
+insert into reply (id_comment, id_parent) values (125, 124);
+insert into reply (id_comment, id_parent) values (126, 124);
+
+insert into comment (id, body, date_time, id_member, id_post) values (127, 'I hope they''ve found some funding that offers them the required time it needs, Techland as a company wouldn''t survive a Cyberpunk 2077', TIMESTAMP '2019-12-03 01:23:45', 42, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (128, 'Haha Cyberpunk made plenty of money, and will continue to sell over the years, but if your point is the reception and triggering the legion of angry neck-beards you may be right.', TIMESTAMP '2019-12-04 03:12:21', 31, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (129, 'It will impact future releases from CDPR. They won''t be as successful for sure.', TIMESTAMP '2019-12-04 08:43:32', 70, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (130, 'I’ll still preorder anything they put out that interests me. I never had any issues with cyberpunk 2077 during my 80+ hours of play and will gladly play it several more times, once more content drops for it.', TIMESTAMP '2019-12-04 08:12:15', 9, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (131, 'If you honestly think the next Witcher game (which they confirmed they are working on) is somehow not goin to be absolutely massive after the success of Witcher 3 idk what to tell you.\nPeople will build up less "hype" for it probably, but that is a good thing anyways.', TIMESTAMP '2019-12-05 10:53:36', 5, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (132, 'Totally agree...I hope they are aware of that', TIMESTAMP '2019-12-06 11:25:52', 4, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (133, 'Guess I should finally play the first one since it seems I will have time.', TIMESTAMP '2019-12-10 15:56:12', 11, 33);
+insert into reply (id_comment, id_parent) values (128, 127);
+insert into reply (id_comment, id_parent) values (129, 128);
+insert into reply (id_comment, id_parent) values (130, 129);
+insert into reply (id_comment, id_parent) values (131, 130);
+insert into reply (id_comment, id_parent) values (132, 127);
+
+insert into comment (id, body, date_time, id_member, id_post) values (134, 'Horizon was one of the best new IP’s of last gen. Awesome', TIMESTAMP '2019-03-14 09:54:22', 25, 34);
+insert into comment (id, body, date_time, id_member, id_post) values (135, 'I genuinely disagree. I didn’t get that far though and mostly couldn’t deal with stuff like the character design, writing, pacing, the general presentation, how characters talked. I suppose the game engine and game play was good.', TIMESTAMP '2019-03-14 10:21:54', 20, 34);
+insert into reply (id_comment, id_parent) values (135, 134);
+insert into comment (id, body, date_time, id_member, id_post) values (136, 'I couldnt finish Horizon.\nOne of the biggest slogs I played all of last gen unfortunately', TIMESTAMP '2019-03-14 15:32:11', 8, 34);
+insert into comment (id, body, date_time, id_member, id_post) values (137, 'I really want to like it. But I agree. Started it with my daughter and we loved the first half hour. Then there was that cut scene of her growing up and training. Doing flips and climbing all sorts of stuff. Then the game starts and you can do none of that. You''re just the same skill-less character you started as. They should''ve made the game her growing up and learning the skills while still telling the story they have in the game', TIMESTAMP '2019-03-14 22:43:21', 35, 34);
+insert into reply (id_comment, id_parent) values (137, 136);
+insert into comment (id, body, date_time, id_member, id_post) values (138, 'giving ratchet and horizon free to 100+ million playstation users is pretty good marketing for their new games this year.', TIMESTAMP '2019-03-15 12:32:53', 20, 34);
+insert into comment (id, body, date_time, id_member, id_post) values (139, 'Let’s just hope Horizon Forbidden West still is slated for this year. It’s funny I own all ten of these games. But my best friend doesn’t own any and never played Horizon so for him that and Ratchet is new experiences for him', TIMESTAMP '2019-03-15 13:21:54', 42, 34);
+insert into reply (id_comment, id_parent) values (139, 138);
+insert into comment (id, body, date_time, id_member, id_post) values (140, 'Subnautica is a game I''ve wanted to play for awhile...nice', TIMESTAMP '2019-03-15 19:50:39', 39, 34);
+insert into comment (id, body, date_time, id_member, id_post) values (141, 'Can''t play it any other way than VR at this point. Great game though.', TIMESTAMP '2019-03-15 23:29:18', 47, 34);
+insert into reply (id_comment, id_parent) values (141, 140);
+insert into comment (id, body, date_time, id_member, id_post) values (142, 'VR made me sick when I tried it with Subnautica. Really cool - but just not for me.', TIMESTAMP '2019-03-15 23:59:58', 20, 34);
+insert into reply (id_comment, id_parent) values (142, 141);
+insert into comment (id, body, date_time, id_member, id_post) values (143, 'To everyone here enter the gungeon is one of my favorite games and is very amazing i reccomend it to everyone with a PS4 or Ps5', TIMESTAMP '2019-03-16 05:32:50', 42, 34);
+
+insert into comment (id, body, date_time, id_member, id_post) values (144, 'YESSS!!!! Really looking forward to checking this out. Just judging by what I''ve seen the quality looks excellent.', TIMESTAMP '2019-05-09 18:21:08', 15, 35);
+insert into comment (id, body, date_time, id_member, id_post) values (145, 'Nice. This is the MS game I''m looking forward to the most.', TIMESTAMP '2019-05-10 11:22:32', 26, 35);
+
+insert into comment (id, body, date_time, id_member, id_post) values (146, 'That’s fine. Just keep adding gamepass games for the gamepass machine and we’re good.', TIMESTAMP '2019-07-25 10:43:55', 66, 36);
+insert into comment (id, body, date_time, id_member, id_post) values (147, 'Too bad. I loved my PSVR and can''t wait for PSVR 2.', TIMESTAMP '2019-07-25 12:32:32', 50, 36);
+insert into comment (id, body, date_time, id_member, id_post) values (148, 'I just sold my Series X and I''m buying a PS5 tomorrow', TIMESTAMP '2019-07-25 15:12:54', 49, 36);
+insert into comment (id, body, date_time, id_member, id_post) values (149, 'Only thing MS cares about is their Netflix knockoff of $15 old game rentals.', TIMESTAMP '2019-07-25 20:12:21', 42, 36);
+insert into comment (id, body, date_time, id_member, id_post) values (150, 'Tbf PSNow is the same in that regard. Gamepass occasionally has new games and day one exclusives', TIMESTAMP '2019-07-26 22:21:11', 15, 36);
+insert into reply (id_comment, id_parent) values (150, 149);
+
+insert into comment (id, body, date_time, id_member, id_post) values (151, 'Someone is gonna get fired over this, guaranteed.', TIMESTAMP '2020-08-28 13:11:44', 32, 37);
+insert into comment (id, body, date_time, id_member, id_post) values (152, 'Production''s long wrapped.', TIMESTAMP '2020-08-28 13:43:44', 24, 37);
+insert into reply (id_comment, id_parent) values (152, 151);
+insert into comment (id, body, date_time, id_member, id_post) values (153, 'Why all the articles? We can’t even watch it yet, and it’s not like Gameorama is great with spoilers.', TIMESTAMP '2020-08-28 15:21:44', 57, 37);
+insert into comment (id, body, date_time, id_member, id_post) values (154, 'What a hack.', TIMESTAMP '2020-08-28 17:10:22', 24, 37);
+insert into comment (id, body, date_time, id_member, id_post) values (155, 'This sounds as silly as the time someone on Gameorama wrote a piece about Game of Thrones because Peter Dinklage sat by a window that was architected like ghost in Destiny.', TIMESTAMP '2020-08-29 20:11:44', 16, 37);
+
+insert into comment (id, body, date_time, id_member, id_post) values (156, 'They need to work on the actual game and stop trying to make a gta online clone. I seriously hate game publishers.', TIMESTAMP '2020-12-09 23:12:42', 13, 38);
+insert into comment (id, body, date_time, id_member, id_post) values (157, 'Definitely. Reviews and players alike have been criticizing how empty the world is and how everything feels like a chore. Doing the same with friends isn''t gonna change anything.', TIMESTAMP '2020-12-10 00:17:21', 34, 38);
+insert into reply (id_comment, id_parent) values (157, 156);
+insert into comment (id, body, date_time, id_member, id_post) values (158, 'That was my problem with the game. The characters all look generic... the weapons feel boring... the world is pretty but dead and just a bunch of copy n paste like most Ubisoft games\nI’m not gonna say it’s a bad game... because it’s not. But it’s like been there, done that. Change your shit up already. I really liked part 1... i thought part 2 was good... part 3 i think focused too much on a gimmick', TIMESTAMP '2020-12-10 00:17:56', 48, 38);
+insert into reply (id_comment, id_parent) values (158, 157);
+insert into comment (id, body, date_time, id_member, id_post) values (159, 'People still play Ubisoft games? Really?', TIMESTAMP '2020-12-11 01:17:32', 58, 38);
+insert into comment (id, body, date_time, id_member, id_post) values (160, 'i used to love the idea of crossplay but now i cannot stand it', TIMESTAMP '2020-12-12 09:17:22', 54, 38);
+
+insert into comment (id, body, date_time, id_member, id_post) values (161, 'Well when your console is almost double the price (or triple when compared to the Switch Lite), of course it has an advantage in dollar sales.', TIMESTAMP '2020-03-28 00:42:11', 5, 39);
+insert into comment (id, body, date_time, id_member, id_post) values (162, 'It''s double the price because the switch is a horrible product, if Nintendo cared about quality it''d be the same as the others.', TIMESTAMP '2020-03-28 00:45:32', 49, 39);
+insert into reply (id_comment, id_parent) values (162, 161);
+insert into comment (id, body, date_time, id_member, id_post) values (163, 'Totally irrelevant and calling the Switch a horrible product when it''s the top selling console is wrong, but thanks for your input', TIMESTAMP '2020-03-28 09:32:25', 42, 39);
+insert into reply (id_comment, id_parent) values (163, 162);
+insert into comment (id, body, date_time, id_member, id_post) values (164, 'That''s cuz Nintendo + PS is the best combo for console games. I use PC gamepass once in a while if something interests me.', TIMESTAMP '2020-03-28 15:21:31', 15, 39);
+insert into comment (id, body, date_time, id_member, id_post) values (165, 'I expect no less. Sony and Nintendo continue to dominate and I don''t see it any different for a long time. ;)', TIMESTAMP '2020-03-28 18:16:56', 69, 39);
+insert into comment (id, body, date_time, id_member, id_post) values (166, 'Imagine if supply wasn''t low.', TIMESTAMP '2020-03-28 19:22:33', 21, 39);
+insert into comment (id, body, date_time, id_member, id_post) values (167, 'Yeah, I was thinking this.', TIMESTAMP '2020-03-28 21:58:21', 35, 39);
+insert into reply (id_comment, id_parent) values (167, 166);
+insert into comment (id, body, date_time, id_member, id_post) values (168, 'Mostly bought by scalpers.', TIMESTAMP '2020-03-28 23:54:39', 61, 39);
+insert into comment (id, body, date_time, id_member, id_post) values (169, 'What difference does it make? You act as though the consoles wouldn''t have sold as fast as they did regardless. Here''s a hint, they would have, maybe 1-2 seconds slower lol. But yes, it sucks scalpers scooped them up before others could.', TIMESTAMP '2020-03-29 06:32:54', 48, 39);
+insert into reply (id_comment, id_parent) values (169, 168);
+insert into comment (id, body, date_time, id_member, id_post) values (170, 'But I thought gamepass was gonna make everyone buy an Xbox and not PlayStation according to everyone on here. It’s gonna be funny when the gap between ps5 and Xbox is even bigger this gen than it was last gen. I wonder what the excuses will be?', TIMESTAMP '2020-03-29 08:33:21', 59, 39);
+
+insert into comment (id, body, date_time, id_member, id_post) values (171, 'I have yet to see a single Zombie in warzone because every time I try to land at the ship half the lobby lands and pipes me.', TIMESTAMP '2020-06-13 18:32:53', 54, 40);
+insert into comment (id, body, date_time, id_member, id_post) values (172, 'i don''t play war zone often, but this comes off like a trio or quads type of thing.', TIMESTAMP '2020-06-13 19:15:23', 58, 40);
+insert into reply (id_comment, id_parent) values (172, 171);
+insert into comment (id, body, date_time, id_member, id_post) values (173, 'Nah man. You have a way better shot solo. You just gotta creep. Land close and gather some weapons first, then play it smart and roll up on the ship quietly. Dead silence will help tremendously and is pretty easy to find.', TIMESTAMP '2020-06-14 10:23:11', 21, 40);
+insert into reply (id_comment, id_parent) values (173, 172);
+insert into comment (id, body, date_time, id_member, id_post) values (174, 'Well the challenge is over so there’s no point now', TIMESTAMP '2020-06-14 15:31:45', 61, 40);
+insert into reply (id_comment, id_parent) values (174, 173);
+insert into comment (id, body, date_time, id_member, id_post) values (175, 'It''s far from pointless. Zombies still dump a ton of cash.', TIMESTAMP '2020-06-15 17:21:21', 30, 40);
+insert into reply (id_comment, id_parent) values (175, 173);
+
+insert into comment (id, body, date_time, id_member, id_post) values (176, 'Very cool. Incidentally, when can we expect the Series X/S and PS5 updates? Been waiting to play this until those come out :)', TIMESTAMP '2018-12-17 22:14:01', 16, 41);
+insert into comment (id, body, date_time, id_member, id_post) values (177, 'Same I downloaded it to my ps5 and saw that it didn''t have any ps5 upgrade and was mad dissapointed.', TIMESTAMP '2018-12-17 21:23:01', 57, 41);
+insert into reply (id_comment, id_parent) values (177, 176);
+insert into comment (id, body, date_time, id_member, id_post) values (178, 'Probably see an Xbox Series X|S update before a PS5 update (if any)', TIMESTAMP '2018-12-18 01:05:01', 10, 41);
+insert into reply (id_comment, id_parent) values (178, 177);
+insert into comment (id, body, date_time, id_member, id_post) values (179, 'Loved this game was such a crazy fun adventure', TIMESTAMP '2018-12-18 02:13:01', 26, 41);
+insert into comment (id, body, date_time, id_member, id_post) values (180, 'What would you guys rate this game . Heard a lot about it .', TIMESTAMP '2018-12-19 14:43:01', 70, 41);
+
+insert into comment (id, body, date_time, id_member, id_post) values (181, 'Not surprised; it''s kind of hard to make a football game when you don''t have anything to copy and paste from the year prior, isn''t EA?', TIMESTAMP '2020-12-26 18:15:00', 3, 42);
+insert into comment (id, body, date_time, id_member, id_post) values (182, 'Always the negative lil nancy', TIMESTAMP '2020-12-26 18:27:00', 7, 42);
+insert into reply (id_comment, id_parent) values (182, 181);
+insert into comment (id, body, date_time, id_member, id_post) values (183, 'No, EA sports are always terrible products.', TIMESTAMP '2020-12-26 20:37:00', 33, 42);
+insert into reply (id_comment, id_parent) values (183, 182);
+insert into comment (id, body, date_time, id_member, id_post) values (184, 'They need that time to upgrade to 2014 graphics', TIMESTAMP '2020-12-26 19:30:00', 19, 42);
+insert into comment (id, body, date_time, id_member, id_post) values (185, 'That’s too long to wait. I’m not 100% convinced the world will be around in 2023. Let''s expedite this game before the rapture.', TIMESTAMP '2020-12-26 21:46:00', 60, 42);
+
+insert into comment (id, body, date_time, id_member, id_post) values (186, 'Urgh. Misread the title and thought the game wasn''t far off, not the theories about it.', TIMESTAMP '2018-12-03 06:12:32', 25, 43);
+insert into comment (id, body, date_time, id_member, id_post) values (187, 'No comment', TIMESTAMP '2018-12-03 10:24:54', 26, 43);
+insert into comment (id, body, date_time, id_member, id_post) values (188, 'ok', TIMESTAMP '2018-12-04 16:21:32', 69, 43);
+insert into reply (id_comment, id_parent) values (188, 187);
+insert into comment (id, body, date_time, id_member, id_post) values (189, 'No reply', TIMESTAMP '2018-12-04 18:25:54', 40, 43);
+insert into reply (id_comment, id_parent) values (189, 187);
+
+insert into comment (id, body, date_time, id_member, id_post) values (190, 'These guys never heard of keeping backups at a secondary location lol', TIMESTAMP '2020-04-23 17:40:46', 13, 44);
+insert into comment (id, body, date_time, id_member, id_post) values (191, 'Was thinking the same thing. That''s basic best practice. I''m sure people can rest easy knowing that even though their data is totally lost they are at least looking into new servers, lol. Yikes...', TIMESTAMP '2020-04-23 18:10:46', 4, 44);
+insert into comment (id, body, date_time, id_member, id_post) values (192, 'This is why offsite backups are a must in any major data infrastructure.', TIMESTAMP '2020-04-23 19:10:46', 15, 44);
+insert into comment (id, body, date_time, id_member, id_post) values (193, 'Terrible business, i guess theres nothing like a clean slate.', TIMESTAMP '2020-04-23 20:10:46', 30, 44);
+insert into comment (id, body, date_time, id_member, id_post) values (194, 'How horrible. Best of luck', TIMESTAMP '2020-04-23 21:10:46', 11, 44);
+insert into comment (id, body, date_time, id_member, id_post) values (195, 'That’s awful, and certainly adding a whole new element to survival games\nAs much as this sucks for rust players in the EU, at least no one was hurt.\nThey may not be able to restore the servers but they’ll find some way to make it up to the players', TIMESTAMP '2020-04-23 23:10:46', 47, 44);
+insert into reply (id_comment, id_parent) values (191, 190);
+
+insert into comment (id, body, date_time, id_member, id_post) values (196, 'I''m not a big Fortnite guy, but honestly I respect how Epic has been able to keep this game relevant for years.', TIMESTAMP '2019-08-20 11:47:00', 3, 45);
+insert into comment (id, body, date_time, id_member, id_post) values (197, 'I''ll play this as Master Chief while I sob into a box tissues.', TIMESTAMP '2019-08-20 12:07:00', 70, 45);
+insert into comment (id, body, date_time, id_member, id_post) values (198, 'I played "save the world" for like a year, back when it was in beta and you could buy a gold pack with the ninja costume. Turned into a completely different monster after that. Now the new feature is... .single player? lol', TIMESTAMP '2019-08-20 12:53:00', 41, 45);
+insert into comment (id, body, date_time, id_member, id_post) values (199, 'Wasn''t single player, but "Save The World" was the only part of Fortnite I enjoyed.', TIMESTAMP '2019-08-20 12:59:00', 23, 45);
+insert into comment (id, body, date_time, id_member, id_post) values (200, 'Wait so you are telling me you guys can still make your own content and not rely on skins?', TIMESTAMP '2019-08-20 13:27:00', 7, 45);
+
+insert into comment (id, body, date_time, id_member, id_post) values (201, 'Looking forward to it', TIMESTAMP '2019-10-19 11:32:53', 23, 46);
+insert into comment (id, body, date_time, id_member, id_post) values (202, 'Gross!', TIMESTAMP '2019-10-19 14:54:15', 55, 46);
+insert into comment (id, body, date_time, id_member, id_post) values (203, 'I''d rather play Valheim.', TIMESTAMP '2019-10-19 16:43:22', 54, 46);
+insert into comment (id, body, date_time, id_member, id_post) values (204, 'there better be crossplay, with the option to turn it off of course. Obviously ps4 with xbox but also console with pc', TIMESTAMP '2019-10-20 10:32:22', 32, 46);
+insert into comment (id, body, date_time, id_member, id_post) values (205, 'This game is for sadists.', TIMESTAMP '2019-10-20 12:29:26', 15, 46);
+
+insert into comment (id, body, date_time, id_member, id_post) values (206, 'Guaranteed to repel all females or your money back.', TIMESTAMP '2020-10-17 21:52:40', 26, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (207, 'If you get those glasses you had no trouble to repel females in the first place.', TIMESTAMP '2020-10-17 23:58:59', 42, 47);
+insert into reply (id_comment, id_parent) values (207, 206);
+insert into comment (id, body, date_time, id_member, id_post) values (208, 'those are great.... if you are dressing up as Waldo for a costume party', TIMESTAMP '2020-10-18 09:22:13', 60, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (209, 'Smart glasses to me would mean a lightweight, indestructible frame material for one\nIf it doesn''t have that.. why would I buy something thats $200 just so that it can break as easily as frames from Target, Costco, etc.', TIMESTAMP '2020-10-18 14:26:29', 22, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (210, 'These will be great for social credit scores! Yay! I''ll be able to see people''s bad ratings bubble and know to stay away.. .', TIMESTAMP '2020-10-18 16:29:16', 27, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (211, 'Ain''t April fools yet', TIMESTAMP '2020-10-18 20:32:43', 6, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (212, 'Getting these and the face mask... I will be the coolest guy around', TIMESTAMP '2020-10-18 23:58:25', 33, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (213, 'These aren’t smart glasses...', TIMESTAMP '2020-10-18 23:59:56', 27, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (214, 'Lol just bring back Google Glass', TIMESTAMP '2020-10-19 05:25:32', 25, 47);
+insert into comment (id, body, date_time, id_member, id_post) values (215, 'But I bet they cant replace my prescription glasses which make these absolutely pointless.', TIMESTAMP '2020-10-19 07:26:43', 26, 47);
+
+insert into comment (id, body, date_time, id_member, id_post) values (216, 'They kinda have to. The PS5 is a desert.', TIMESTAMP '2018-12-07 18:15:00', 60, 48);
+insert into comment (id, body, date_time, id_member, id_post) values (217, 'It has more current gen only titles than the Series X you spanner lol.', TIMESTAMP '2018-12-07 19:32:00', 53, 48);
+insert into reply (id_comment, id_parent) values (217, 216);
+insert into comment (id, body, date_time, id_member, id_post) values (218, 'That''s great, and who cares, I own a switch and Pc you idiot ', TIMESTAMP '2018-12-07 20:43:00', 11, 48);
+insert into reply (id_comment, id_parent) values (218, 217);
+insert into comment (id, body, date_time, id_member, id_post) values (219, 'Then why do you care? You aren''t even affected by it you knob', TIMESTAMP '2018-12-07 21:12:00', 65, 48);
+insert into reply (id_comment, id_parent) values (219, 218);
+insert into comment (id, body, date_time, id_member, id_post) values (220, 'It does affect me you tool. That means less ps exclusive being ported to pC', TIMESTAMP '2018-12-08 07:52:00', 25, 48);
+insert into reply (id_comment, id_parent) values (220, 219);
+insert into comment (id, body, date_time, id_member, id_post) values (221, 'Then why are you crying over what a Sony console has you idiots?  ', TIMESTAMP '2018-12-10 10:23:00', 11, 48);
+insert into reply (id_comment, id_parent) values (221, 219);
+insert into comment (id, body, date_time, id_member, id_post) values (222, 'Oh trust me, I wasn''t crying, I was laughing about it  ', TIMESTAMP '2018-12-10 17:26:00', 11, 48);
+insert into reply (id_comment, id_parent) values (222, 219);
+insert into comment (id, body, date_time, id_member, id_post) values (223, 'bloody hell if the ps5 is a desert then what on earth is the series x lol  ', TIMESTAMP '2018-12-10 10:23:00', 11, 48);
+insert into reply (id_comment, id_parent) values (223, 219);
+
+insert into comment (id, body, date_time, id_member, id_post) values (224, 'I wonder how Activision will manage to mess this one up? I should make a BINGO card.', TIMESTAMP '2018-05-18 12:00:00', 2, 49);
+insert into comment (id, body, date_time, id_member, id_post) values (225, 'They already messed it up by not putting in local/couch co-op. Every console Diablo version going back to Diablo 1 on PSX had it- so why not leave it out here?', TIMESTAMP '2018-05-18 12:47:00', 47, 49);
+insert into reply (id_comment, id_parent) values (225, 224);
+insert into comment (id, body, date_time, id_member, id_post) values (226, 'Signed up! Cant wait to slaughter Satan and his trash mobs once again lol', TIMESTAMP '2018-05-18 12:15:00', 11, 49);
+insert into comment (id, body, date_time, id_member, id_post) values (227, 'Nice!!! I am gonna sign up. I hope I get lucky. :3', TIMESTAMP '2018-05-18 12:35:00', 41, 49);
+insert into comment (id, body, date_time, id_member, id_post) values (228, 'Watch demons chase you for not saying dood.', TIMESTAMP '2018-05-18 13:28:00', 48, 49);
+insert into reply (id_comment, id_parent) values (228, 227);
+insert into comment (id, body, date_time, id_member, id_post) values (229, 'I never played the original Diablo 2 so I’m looking forward to checking out this remaster. Looks good from what they’ve shown so far', TIMESTAMP '2018-05-18 14:20:00', 43, 49);
+insert into comment (id, body, date_time, id_member, id_post) values (230, 'It''s an amazing game. If left perfect, it''ll likely be better than D4 and Def D3.', TIMESTAMP '2018-05-18 14:48:00', 13, 49);
+insert into reply (id_comment, id_parent) values (230, 229);
+
+insert into comment (id, body, date_time, id_member, id_post) values (231, 'We like the stock! We like the stock! We like the stock! We like the stock!', TIMESTAMP '2019-12-10 03:29:00', 6, 50);
+insert into comment (id, body, date_time, id_member, id_post) values (232, '$200 is nothing. Anybody else holding until a share gets them to the moon? #diamondhands', TIMESTAMP '2019-12-10 04:20:00', 31, 50);
+insert into comment (id, body, date_time, id_member, id_post) values (233, 'what the heck do 2 people who work for a pet food company know about video games', TIMESTAMP '2019-12-10 04:56:00', 34, 50);
+insert into comment (id, body, date_time, id_member, id_post) values (234, 'I have a feeling we are going to be hearing about Gamestop''s stock prices for a very long time.', TIMESTAMP '2019-12-10 05:15:00', 45, 50);
+
+insert into comment (id, body, date_time, id_member, id_post) values (235, 'People should stop paying Guinness World Records for every random thing just to massage their ego.\nThey''re like a parasite.\nThe pro speedrunner Karl Jobst did a great summary of why on YouTube. The way these guys behave is utterly shameless.\n(btw cool console.)', TIMESTAMP '2018-08-03 20:45:00', 45, 51);
+insert into comment (id, body, date_time, id_member, id_post) values (236, 'I''d buy that, seriously.', TIMESTAMP '2018-08-03 21:22:00', 11, 51);
+insert into comment (id, body, date_time, id_member, id_post) values (237, 'Nintendo Cease and Desist order coming in 3...2...1....', TIMESTAMP '2018-08-03 22:22:00', 1, 51);
+insert into comment (id, body, date_time, id_member, id_post) values (238, 'Would certainly love to have one. Although that second analog stick won''t do you much good, just makes the C-buttons more awkward', TIMESTAMP '2018-08-04 00:21:00', 33, 51);
+insert into comment (id, body, date_time, id_member, id_post) values (239, 'Now if he could mass produce it, he''d be rich..', TIMESTAMP '2018-08-04 01:27:00', 43, 51);
+insert into comment (id, body, date_time, id_member, id_post) values (240, 'Very impressive.', TIMESTAMP '2018-08-04 02:15:00', 9, 51);
+insert into reply (id_comment, id_parent) values (240, 239);
+
+insert into comment (id, body, date_time, id_member, id_post) values (241, 'A little late. But hey, the paranoids will have something cool for years to come.', TIMESTAMP '2018-10-27 12:21:29', 38, 52);
+insert into comment (id, body, date_time, id_member, id_post) values (242, 'Do you think a true paranoid would rock this? This is fashion, end sentence.', TIMESTAMP '2018-10-27 23:43:29', 40, 52);
+insert into comment (id, body, date_time, id_member, id_post) values (243, 'I know I will be labeled as a “science denier” for having this opinion, but I encourage you to use multiple search engines when researching the effectiveness of masks.\nAny research by legitimate organizations that suggests masks aren’t effective has been buried.\nI’m not necessarily for or against masks, if anything they give me plausible deniability when it comes to “close contact,” but I am pro-information, and we should be able to come to a conclusion based on all of the facts.', TIMESTAMP '2018-10-28 09:15:29', 36, 52);
+insert into comment (id, body, date_time, id_member, id_post) values (244, 'i wear a mask regularly mostly from social pressure...but I have often wondered how well it works. Especially since we have seen outbreaks in states that have pretty strict mask ordinances. The idea that a virus can be slowed down by a piece of cotton over my mouth/nose seems a bit suspect...but..in the end...its not a big deal to wear one.', TIMESTAMP '2018-10-28 11:25:29', 28, 52);
+insert into comment (id, body, date_time, id_member, id_post) values (245, 'There are several nurses in my family and they all say that the cloth/paper masks are more to help make people feel comfortable... they don''t actually do much.', TIMESTAMP '2018-10-29 14:11:29', 5, 52);
+insert into reply (id_comment, id_parent) values (242, 241);
+insert into reply (id_comment, id_parent) values (243, 242);
+insert into reply (id_comment, id_parent) values (244, 243);
+insert into reply (id_comment, id_parent) values (245, 244);
+
+insert into comment (id, body, date_time, id_member, id_post) values (246, 'Having gone back to play Mario Sunshine over the last days, I can confirm that every day I play the pachinko level is when Mario dies.', TIMESTAMP '2018-01-28 22:15:00', 45, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (247, 'The lily pads send their regards...', TIMESTAMP '2018-01-28 23:28:00', 36, 53);
+insert into reply (id_comment, id_parent) values (247, 246);
+insert into comment (id, body, date_time, id_member, id_post) values (248, 'But why are they doing this? It makes zero sense.\nPeople are angry, people are buying it (its near top of the best sellers list since being released), so what do they gain by removing it?', TIMESTAMP '2018-01-28 23:49:00', 13, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (249, 'I''m predicting that scalpers will start buying up codes from every single store so they can sell them for double or triple the price.', TIMESTAMP '2018-01-28 23:40:00', 29, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (250, 'Thanks nintendo now the scalpers won’t slow down', TIMESTAMP '2018-01-29 10:15:00', 15, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (251, 'Nintendo must like enabling them.', TIMESTAMP '2018-01-29 10:40:00', 69, 53);
+insert into reply (id_comment, id_parent) values (251, 250);
+insert into comment (id, body, date_time, id_member, id_post) values (252, 'Nintendo: I said the celebration is over!', TIMESTAMP '2018-01-29 11:38:00', 40, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (253, 'Would this be the same for the Fire Emblem 30th Anniversary download codes as well? Especially the ones included in the 30th Anniversary Collector''s Special Edition that came out last year.', TIMESTAMP '2018-01-29 11:49:00', 15, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (254, 'So i still have my physical copy sealed, are the games on cartridge or are codes inside the case?', TIMESTAMP '2018-01-29 12:15:00', 65, 53);
+insert into comment (id, body, date_time, id_member, id_post) values (255, 'Are they full screen on the Switch? How does Galaxy play on it?', TIMESTAMP '2018-01-29 12:54:00', 31, 53);
+
+insert into comment (id, body, date_time, id_member, id_post) values (256, 'I would like to know who actually has their Diablo Saves from 20 years ago.', TIMESTAMP '2018-07-19 22:00:00', 3, 54);
+insert into comment (id, body, date_time, id_member, id_post) values (257, 'You got me thinking. My oldest confirmed save is the very original halo (still have disc and machine). Unconfirmed is Zelda on SNES. I have the cart but no working machine.', TIMESTAMP '2018-07-19 22:24:00', 69, 54);
+insert into comment (id, body, date_time, id_member, id_post) values (258, 'Everything sounds interesting except for Walmart.', TIMESTAMP '2018-07-19 23:12:00', 7, 54);
+insert into reply (id_comment, id_parent) values (257, 256);
 
 
-insert into post_aura(id_post, id_voter, upvote) values (1,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (1,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (1,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (259, 'Are they including the 20 minutes of credits per episode in the runtime like they did with WandaVision?', TIMESTAMP '2019-11-11 07:20:00', 21, 55);
+insert into comment (id, body, date_time, id_member, id_post) values (260, 'lol', TIMESTAMP '2019-11-11 08:39:00', 22, 55);
+insert into reply (id_comment, id_parent) values (260, 259);
+insert into comment (id, body, date_time, id_member, id_post) values (261, 'I hope it is like a 80''s buddy cop shows/movies with ''the'' Sam L Jackson, as the police captain who ''has had it up to here''. Most importantly they need to keep it fun, light, and lots of great action. Don''t throw in moral ambiguity, because of greenhouse gases making endangered polar bears turn lesbian and vegan homemade soap makers, along with self introspection on self determination.. or societies'' pressure,- (the heroes, not the bears) and it will just drag the show to a crawl, I mean slower then the middle of Jessica Jones and Luke Cage seasons, slow.', TIMESTAMP '2019-11-11 08:12:00', 23, 55);
+insert into comment (id, body, date_time, id_member, id_post) values (262, 'LOL yeah was kinda hoping that’s how they keep the show. Light hearted team comedy. Wanda vision surprisingly didn’t disappoint', TIMESTAMP '2019-11-11 08:34:00', 19, 55);
+insert into reply (id_comment, id_parent) values (262, 261);
+insert into comment (id, body, date_time, id_member, id_post) values (263, 'I just finish binging.... (work interruptions binging) Wanda Vision, and as a whole from first episode to the last, the work was pretty amazing. During the 8th when it got near the ''Office'' 2000''s and she was talking to the camera.... lmao.', TIMESTAMP '2019-11-11 08:50:00', 1, 55);
+insert into reply (id_comment, id_parent) values (263, 262);
+insert into comment (id, body, date_time, id_member, id_post) values (264, 'Great show!', TIMESTAMP '2019-11-11 09:15:00', 18, 55);
+insert into comment (id, body, date_time, id_member, id_post) values (265, 'Agreed', TIMESTAMP '2019-11-11 09:36:00', 51, 55);
+insert into reply (id_comment, id_parent) values (265, 264);
+insert into comment (id, body, date_time, id_member, id_post) values (266, 'Wish they could bring a little more detail like Wandavision', TIMESTAMP '2019-11-11 10:40:00', 38, 55);
+insert into comment (id, body, date_time, id_member, id_post) values (267, 'You have to watch theories on youtube, they showcase all the little details', TIMESTAMP '2019-11-11 10:59:00', 11, 55);
+insert into reply (id_comment, id_parent) values (266, 267);
+insert into comment (id, body, date_time, id_member, id_post) values (268, 'Yeah I watch emergency awesome there and he really has the best theory videos', TIMESTAMP '2019-11-11 11:13:00', 11, 55);
+insert into reply (id_comment, id_parent) values (268, 267);
+insert into comment (id, body, date_time, id_member, id_post) values (269, 'Loved it', TIMESTAMP '2019-11-11 11:20:00', 23, 55);
+insert into comment (id, body, date_time, id_member, id_post) values (270, 'Loved the winter soldier movie... so I think this might be my favorite marvel show, though wandavision will be hard to beat!', TIMESTAMP '2019-11-11 11:34:00', 64, 55);
 
-insert into post_aura(id_post, id_voter, upvote) values (2,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (2,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (2,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (271, 'Ah yes this relates to modern warfare game as the site related link says. now the article makes perfect sense', TIMESTAMP '2019-12-31 09:43:00', 50, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (272, 'Everyone can say something stupid, especially in those kind of moments. A clap on the back of the head, a warning, and moving on...Only the perpetuation of the stupidity is the problem. He recognize his mistake, and that should be praised, not punished.', TIMESTAMP '2019-12-31 10:14:00', 43, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (273, 'Yeah, I don''t buy that he didn''t know what the term meant. I also don''t buy that people randomly blurt out racial slurs when something bad/unexpected happens. Does this mean that Meyers is racist/anti-semetic? Up in the air.', TIMESTAMP '2019-12-31 10:28:00', 13, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (274, 'If you''re finding yourself defending the use of this "k-word", then seriously, check your sh-t, learn to do a bit of introspection and maybe get a therapist, because you''re off the goddamn wall, way off the reservation and you''ve become nothing but a mindless reactionary sponge who''s soaked up waaaaay too much alt-right reactionary propaganda.', TIMESTAMP '2019-12-31 10:48:00', 11, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (275, 'Something something freedom of speech, something something cancel culture. Something something you are the real fascist.', TIMESTAMP '2019-12-31 11:04:00', 11, 56);
+insert into reply (id_comment, id_parent) values (275, 274);
+insert into comment (id, body, date_time, id_member, id_post) values (276, 'I really don''t know what he said, I heard "kite" and then the word that means female dog. Isn''t kiting a tactic used in video games to run around shooting projectiles and baiting someone to chase you??', TIMESTAMP '2019-12-31 11:21:00', 7, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (277, 'Meanwhile the "N" word is still easily thrown around by black people (I''m black) without this type of energy being directed towards it.', TIMESTAMP '2019-12-31 11:29:00', 1, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (278, 'Uh huh...sure. Context never matters and owning the word to purge it of its power has nothing to do with it. Your presponse, yes, PRE-sponse, because it''s a card played every single time this comes up, was PRE-dictable.', TIMESTAMP '2019-12-31 11:40:00', 43, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (279, 'Huh.. I actually don''t know what that censored word is that he said. Guess I''m not as racist as everyone else likes to have me believe.', TIMESTAMP '2019-12-31 12:00:00', 54, 56);
+insert into comment (id, body, date_time, id_member, id_post) values (280, 'It had been too long since we were outraged over insensitive remarks. We were due.', TIMESTAMP '2019-12-31 13:15:00', 19, 56);
+insert into reply (id_comment, id_parent) values (278, 277);
 
-insert into post_aura(id_post, id_voter, upvote) values (3,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (3,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (3,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (281, 'All the Smash related packs have been a waste of what was initially promised with the NSO launch. ', TIMESTAMP '2018-03-03 18:00:00', 2, 57);
+insert into comment (id, body, date_time, id_member, id_post) values (282, 'This is great news', TIMESTAMP '2018-03-03 18:28:00', 23, 57);
+insert into comment (id, body, date_time, id_member, id_post) values (283, 'Great. I love Smash brothers.', TIMESTAMP '2018-03-03 20:21:00', 11, 57);
 
-insert into post_aura(id_post, id_voter, upvote) values (4,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (4,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (4,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (284, 'When the whole game gonna be Vaulted? Its time.', TIMESTAMP '2020-01-19 13:00:00', 37, 58);
+insert into comment (id, body, date_time, id_member, id_post) values (285, 'So long as they replace it with enough cool new stuff, that''s fine. I get why Bungie has to vault stuff and keep the game to a certain max size, but it really does put them behind the eight-ball to keep pumping out new content good enough to make players not care that old content is leaving.', TIMESTAMP '2020-01-19 13:34:00', 2, 58);
+insert into comment (id, body, date_time, id_member, id_post) values (286, 'I still think they should use a system like Halo Master Chief Edition - where you have the main menu and from there you can optionally download the individual games. It keeps it lean and you can still enjoy the old content. Problem solved Bungie!', TIMESTAMP '2020-01-19 14:12:00', 59, 58);
+insert into comment (id, body, date_time, id_member, id_post) values (287, 'so even less reason to return to destiny. bungie keeps the incompetency train rolling.', TIMESTAMP '2020-01-19 14:42:00', 43, 58);
+insert into comment (id, body, date_time, id_member, id_post) values (288, 'WoW did the competing storylines for new players and it is incredibly successfull. I don''t get it, vaulting so many content, weapons and stuff really harms the game in the long run.', TIMESTAMP '2020-01-19 15:10:00', 32, 58);
+insert into comment (id, body, date_time, id_member, id_post) values (289, 'they stated in their public livestream that the choice to vault old content is to keep the game at a smaller size and help with performance... they did not state that upon vaulting they are just simply removing the content and it''s gone as this article suggests....', TIMESTAMP '2020-01-19 15:23:00', 41, 58);
+insert into reply (id_comment, id_parent) values (289, 288);
+insert into comment (id, body, date_time, id_member, id_post) values (290, 'What does "vaulting" mean anyway? And if it''s not about the removing of content, then why isn''t there a quote like, "We''re vaulting it, so it will be optionally available at X / via Y"?', TIMESTAMP '2020-01-19 15:40:00', 46, 58);
+insert into reply (id_comment, id_parent) values (290, 289);
 
-insert into post_aura(id_post, id_voter, upvote) values (5,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (5,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (5,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (291, 'So their devs can do anything....\nBut they can''t do what Bungie did well in 2004. Way to set the bar low.', TIMESTAMP '2020-01-30 17:15:00', 23, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (292, 'Can''t or won''t? I mean, it could just be a design choice.', TIMESTAMP '2020-01-30 17:30:00', 60, 59);
+insert into reply (id_comment, id_parent) values (292, 291);
+insert into comment (id, body, date_time, id_member, id_post) values (293, 'can''t of course. Everyone and their mother knows that 343 is incompetent.', TIMESTAMP '2020-01-30 17:43:00', 25, 59);
+insert into reply (id_comment, id_parent) values (293, 292);
+insert into comment (id, body, date_time, id_member, id_post) values (294, 'I don''t care much for that response as I believe that is a bunch of bull, but dual wielding always felt like a novelty to me anyway. Absolutely devastating if you have the right combination of weapons though.', TIMESTAMP '2020-01-30 17:43:00', 4, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (295, 'No Dual wielding, That fine halo is still good without No playable elite. Shame, but not fine with reasoning. Since it will take time to make work. Only one biome and no rain fall or hostile wild life......... That a red flag ! It showing that 343, is going though development hell! You see it from developer eye in the video they look exhausted. Imagine this game releasing last year in nov. It would be cyberpunk2077 before cyberpunk2077...', TIMESTAMP '2020-01-30 17:43:00', 45, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (296, 'I can smell smoke here. Hope its not a fire closeby.', TIMESTAMP '2020-01-30 17:43:00', 46, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (297, 'I was excited for this game, now not so much.', TIMESTAMP '2020-01-30 17:43:00', 46, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (298, 'Was a crap implementation to begin with.... Spartans should have had heavier strong weapons than regular soldiers to begin with, instead of going the John Wayne way. Let’s just hope no Warden Eternals and other such crap.', TIMESTAMP '2020-01-30 17:43:00', 48, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (299, 'That''s interesting, I thought it would be open world', TIMESTAMP '2020-01-30 17:43:00', 1, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (300, 'Never could enjoy dual weilding beyond the first few minutes of playing with a new gimmicky feature.', TIMESTAMP '2020-01-30 17:43:00', 60, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (301, 'Thanks to the Zenimax acquisition, MS now has teams that really know how to do shooters. Let them have a crack at Halo.', TIMESTAMP '2020-01-30 17:43:00', 2, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (302, 'yeah Halo from id software!', TIMESTAMP '2020-01-30 17:43:00', 64, 59);
+insert into reply (id_comment, id_parent) values (302, 301);
+insert into comment (id, body, date_time, id_member, id_post) values (303, 'Such a great deep dive! Bunch of dudes desperately trying to sell their product from their in home studio with nothing to actually show after 5+ years! This game is still on track to the dumpster', TIMESTAMP '2020-01-30 17:43:00', 14, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (304, 'I get that dual wield isn''t simple to implement with the weapons sandbox they must have but then again I don''t have any faith after their last attempt with its swollen/duplicated weapons list. There better be a lot of fat trimming this time around.', TIMESTAMP '2020-01-30 17:43:00', 63, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (305, 'Getting rid of dual-wielding is a start.', TIMESTAMP '2020-01-30 17:43:00', 62, 59);
+insert into reply (id_comment, id_parent) values (305, 304);
+insert into comment (id, body, date_time, id_member, id_post) values (306, 'YAY, removing features from a series that have been a part of it for over a decade! SWEET.', TIMESTAMP '2020-01-30 17:43:00', 59, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (307, 'Bungie themselves removed dual wielding long ago. It was overpowered in H2 and under powered in Halo 3 and too hard to balance around weapons that also still had to function as a standalone gun in a balanced way which is why the magnum is so bad in H3 because it was balanced around dual wielding but pretty useless as a standalone gun.', TIMESTAMP '2020-01-30 17:43:00', 37, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (308, 'Sounds like it was pretty balanced to me', TIMESTAMP '2020-01-30 17:43:00', 36, 59);
+insert into reply (id_comment, id_parent) values (308, 307);
+insert into comment (id, body, date_time, id_member, id_post) values (309, 'Have you ever played Halo ? Dual wielding was a mistake that Bungie took out. Its hard to balance weapons , and its more fun to use a BR.', TIMESTAMP '2020-01-30 17:43:00', 38, 59);
+insert into comment (id, body, date_time, id_member, id_post) values (310, 'Good decision. Couldn''t stand it in H2. Instead of adding stupid dual wield mechanics, add more weapons, but they better not be the garbage they''ve added in H5.', TIMESTAMP '2020-01-30 17:43:00', 7, 59);
 
-insert into post_aura(id_post, id_voter, upvote) values (6,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (6,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (6,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (311, 'wait lets do one of those comparisonsYoU CaN HaVe A HoRsE AuTo tReK yOu AcRoSs ThE MaP In ReD DeAd 2', TIMESTAMP '2018-04-18 21:15:00', 25, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (312, 'In 2077 alternate world... the local big shot is gonna have a personal driver, the hacker isn''t gonna trust AI, the Nomad isn''t gonna trust AI, most people shouldn''t trust anything, etc. And, look at how bad the NPC drivers are. They ARE using self-driving cars.', TIMESTAMP '2018-04-18 21:15:00', 64, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (313, 'Bezos doesn''t complain that the Expanse doesn''t have fully automated ships. Musk needs to learn from a fellow billionaire. Sometimes you just need to suspend disbelief and enjoy the ride (pun very much intended).', TIMESTAMP '2018-04-18 21:15:00', 56, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (314, 'He seems unaware that the game is set in a fictional reality where technology has developed differently than it did in ours. And there are self driving cars already. When you call your vehicle it drives itself. You just can''t sit in the car and let it drive itself while picking your nose. Who would want that anyway?', TIMESTAMP '2018-04-18 21:15:00', 55, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (315, 'If Elon wants to gift CDPR his driving AI, I''m sure they''d be happy to take the donation.While we''re at it, anyone want to donate some police spawning AI?', TIMESTAMP '2018-04-18 21:15:00', 28, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (316, 'Heck, man, we need Cyberpunk''s police spawning AI in real life.', TIMESTAMP '2018-04-18 21:15:00', 44, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (317, 'Most people here are missing the point. It isn''t a feature just because the AI sucks, it''s because that would be super boring to play...or watch, as it were.', TIMESTAMP '2018-04-18 21:15:00', 58, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (318, 'Haven''t played GTA IV or GTA V then? In both of those games the cab rides work extremely well and often provided a welcome alternative if you couldn''t be bothered to drive somewhere yourself, but still wanted to maintain the immersion.', TIMESTAMP '2018-04-18 21:15:00', 53, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (319, 'Not to mention far better pathfinding and driver AI. Oh, and in single-player you can skip the trip if you want.', TIMESTAMP '2018-04-18 21:15:00', 28, 60);
+insert into comment (id, body, date_time, id_member, id_post) values (320, 'You can skip those taxi rides, which turns them into a fast travel option. And only someone bored out of their mind who likes to go for walks in videogames would ever consider not skipping a taxi ride in GTA.', TIMESTAMP '2018-04-18 21:15:00', 24, 60);
 
-insert into post_aura(id_post, id_voter, upvote) values (7,1,'true');
-insert into post_aura(id_post, id_voter, upvote) values (7,2,'false');
-insert into post_aura(id_post, id_voter, upvote) values (7,3,'true');
+insert into comment (id, body, date_time, id_member, id_post) values (321, 'Just whose bright idea was it to "yell" at an employee anyway? Even without the pandemic that wouldn''t go over well with most people, and with the heightened tension these workers have every day now, it''d be a quick way to a violent encounter sooner or later.', TIMESTAMP '2018-08-18 19:20:00', 47, 62);
+
+insert into comment (id, body, date_time, id_member, id_post) values (322, 'As we work on our next-generation of games, I can think of no better place to be than here at Xbox. No matter how crazy the idea, the team at Xbox always says yes, "Let''s try it."', TIMESTAMP '2018-04-23 20:35:00', 59, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (323, 'I mean, they TRIED Scalebound; it was in development for years.', TIMESTAMP '2018-04-23 20:35:00', 10, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (324, 'Because MS kept changing their minds on what they wanted. Clearly MS treats certain devs better than others, so a big fish like Bethesda would get preferential treatment.', TIMESTAMP '2018-04-23 20:35:00', 8, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (325, 'Where did you get that MS changed their minds on what they wanted?? As far as I know Scalebound was cancelled because it wasn''t looking to turn out very well.', TIMESTAMP '2018-04-23 20:35:00', 68, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (326, 'I imagine that''ll depend on the project and whether MS thinks it''ll make money or not. Bethesda Softworks, the main studio, will probably be given a blank check to make mainline Fallout and Elder Scrolls, but I''ll bet folks like Tango Gameworks probably have a little more oversite.', TIMESTAMP '2018-04-23 20:35:00', 53, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (327, 'I''m not an Xbox fanboy, the only Xbox I''ve ever owned was a 360 so I could play Lost Odyssey. I''ve been a Playstation guy since PS1 and every so often get a Nintendo. BUT I think this is a good thing to be honest because Playstation needs competition and one of the reasons Xbox falls behind PS is due to the lack of exclusives and first party games.', TIMESTAMP '2018-04-23 20:35:00', 60, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (328, 'I''ve seen every major PS5 game reduced to about $50 (Can) at some point in the last few months. Just develop some patience if you can''t afford it.', TIMESTAMP '2018-04-23 20:35:00', 50, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (329, 'Wow.\nI''m going to assume you''re a child because there''s basic comprehension problems you''ve demonstrated here.', TIMESTAMP '2018-04-23 20:35:00', 5, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (330, 'ah yes hating on poor people', TIMESTAMP '2018-04-23 20:35:00', 3, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (331, 'I honestly can''t even stomach the idea of buying Elder Scrolls, Fallout, Doom, Wolfenstein, etc on PlayStation. Like, sucks for people who prefer PlayStation I guess, but it''s just business as usual from where I stand.', TIMESTAMP '2018-04-23 20:35:00', 16, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (332, 'they said wherever Xbox Games Pass is on... but they didn''t say it will only be on those platforms and if they will be timed exclusive like Deathloop/Ghostwire is for PS5.', TIMESTAMP '2018-04-23 20:35:00', 38, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (333, 'Sony has a TON of exclusive games, they can afford to lose a few to MS. Also, Gamepass is available on PC, so they''re not losing that business either.', TIMESTAMP '2018-04-23 20:35:00', 33, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (334, 'While there is a lot of money to be had on other platforms, MS is the one company that can afford to lose it and it''s well inline with their operating history.', TIMESTAMP '2018-04-23 20:35:00', 19, 63);
+insert into comment (id, body, date_time, id_member, id_post) values (335, 'We should all take a step back and look at the situation with at least a bit of objectivity -- given the history and position of Microsoft XBox up to this point, the moves made by Spencer since he has been at the helm, and Sony''s exclusive and timed-exclusive love affair...', TIMESTAMP '2018-04-23 20:35:00', 16, 63);
+insert into reply (id_comment, id_parent) values (323, 322);
+insert into reply (id_comment, id_parent) values (324, 323);
+insert into reply (id_comment, id_parent) values (325, 323);
+insert into reply (id_comment, id_parent) values (326, 323);
+insert into reply (id_comment, id_parent) values (328, 327);
+insert into reply (id_comment, id_parent) values (329, 327);
+insert into reply (id_comment, id_parent) values (330, 327);
+insert into reply (id_comment, id_parent) values (333, 332);
+insert into reply (id_comment, id_parent) values (334, 332);
+insert into reply (id_comment, id_parent) values (335, 332);
 
 
-insert into topic_follow(id_topic, id_member) values (1,1);
-insert into topic_follow(id_topic, id_member) values (2,1);
-insert into topic_follow(id_topic, id_member) values (3,1);
-insert into topic_follow(id_topic, id_member) values (4,1);
-insert into topic_follow(id_topic, id_member) values (5,1);
+insert into comment (id, body, date_time, id_member, id_post) values (336, 'Do they have sources for their claims? I don''t think we should be putting stock in rumors by bloomberg. Especially when it''s hearsay. If Nintendo themselves say it, then fine.', TIMESTAMP '2018-01-13 22:55:48', 5, 64);
+insert into comment (id, body, date_time, id_member, id_post) values (337, 'Yeah Bloomberg just repeats rumors created by others.', TIMESTAMP '2018-01-13 22:55:48', 3, 64);
+insert into reply (id_comment, id_parent) values (337, 336);
+insert into comment (id, body, date_time, id_member, id_post) values (338, 'They''ve been "reporting" about a Switch Upgrade for years.', TIMESTAMP '2018-01-13 22:55:48', 36, 64);
+insert into comment (id, body, date_time, id_member, id_post) values (339, 'it''ll good since technology keep on growing, eventually nintendo has to adopt to these new tech.', TIMESTAMP '2018-01-13 22:55:48', 16, 64);
+insert into comment (id, body, date_time, id_member, id_post) values (340, 'Releasing a switch without a significant boost to the specs is a mistake. That being said nintendo does weird stuff and is usually successful', TIMESTAMP '2018-01-13 22:55:48', 70, 64);
+insert into comment (id, body, date_time, id_member, id_post) values (341, 'If the rumours are true and the pro model has DLSS 2.0 tech, it doesn''t need a boost to specs outside of the screen. That existing 720p / 1080p output can easily be reconstructed to 4K, and developers could even add more graphical details in with lower resolution, since they know it''s going to be reconstructed anyway.', TIMESTAMP '2018-01-13 22:55:48', 50, 64);
+insert into reply (id_comment, id_parent) values (341, 340);
 
+insert into comment (id, body, date_time, id_member, id_post) values (342, 'Not just a driver thing lmao', TIMESTAMP '2020-05-16 05:46:48', 12, 65);
+insert into comment (id, body, date_time, id_member, id_post) values (343, 'NVIDIA is such a clusterfuck these days this is not surprising.', TIMESTAMP '2020-05-16 05:46:48', 38, 65);
+insert into comment (id, body, date_time, id_member, id_post) values (344, 'Knew someone would figure out a way around it. Didn''t expect Nvidia to be the one to do it, heh.', TIMESTAMP '2020-05-16 05:46:48', 36, 65);
+insert into comment (id, body, date_time, id_member, id_post) values (345, 'Yeah, called this one. These people are making millions in fake money and other people are stupid enough to be paid with their fake money so they have plenty of fake money to go around to pay people to write drivers and firmware updates even if the company didn''t make this boner move.', TIMESTAMP '2020-05-16 05:46:48', 31, 65);
 
-insert into topic_follow(id_topic, id_member) values (1,2);
-insert into topic_follow(id_topic, id_member) values (2,2);
-insert into topic_follow(id_topic, id_member) values (3,2);
-insert into topic_follow(id_topic, id_member) values (4,2);
+insert into comment (id, body, date_time, id_member, id_post) values (346, 'Will the gay Captain throw double dongs along with his shield?', TIMESTAMP '2018-03-18 05:07:48', 35, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (347, 'Everything coming out of the comic and movie industries nowdays is gay, and videogames are probably not far behind at this rate.', TIMESTAMP '2018-03-18 05:07:48', 5, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (348, 'As a liberal, I think it''s the messaging that gets people riled up. I think what will help the LGBTQ+ community the best is this: let there be a gay or trans captain, and let their reveal in the comic be the reveal. ', TIMESTAMP '2018-03-18 05:07:48', 49, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (349, 'Instead of Ms Pacman, the trope should now be Gay Pacman.', TIMESTAMP '2018-03-18 05:07:48', 46, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (350, 'I don''t care if he''s gay. I just want him to be a bad ass. Don''t make him gay for the sole purpose of including a gay person. Have him humble Steve Rogers with his commitment to his cause.', TIMESTAMP '2018-03-18 05:07:48', 34, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (351, 'The Catholic Church does not approve.', TIMESTAMP '2018-03-18 05:07:48', 30, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (352, 'I am always so surprised at how intimidated some people are over inclusion. Everyone deserves mainstream representation, it''s nothing to be frightened of. Change is good, and diversity should be celebrated and embraced.', TIMESTAMP '2018-03-18 05:07:48', 22, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (353, 'So over the fake woke stuff and companies trying to grandstand.', TIMESTAMP '2018-03-18 05:07:48', 23, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (354, 'Everything is going to be g@y. The world wont be happy until it is smh', TIMESTAMP '2018-03-18 05:07:48', 21, 66);
+insert into comment (id, body, date_time, id_member, id_post) values (355, 'As someone that FULLY supports inclusiveness and equality, this type of pandering and false attempt to look progressive is embarrassing.', TIMESTAMP '2018-03-18 05:07:48', 18, 66);
+insert into reply (id_comment, id_parent) values (352, 351);
 
+insert into comment (id, body, date_time, id_member, id_post) values (356, '“We don’t know. . .\nSpeak for yourself Eddie!', TIMESTAMP '2020-02-16 19:40:00', 1, 67);
+insert into comment (id, body, date_time, id_member, id_post) values (357, 'not to mention the tails that can be seen on the number 2 in the teaser image of a directors chair...', TIMESTAMP '2020-02-16 19:40:00', 58, 67);
+insert into comment (id, body, date_time, id_member, id_post) values (358, '"if the rumors of Tails appearing in the sequel are true." Eddie...in case you didn''t know, the first movie has an in credits scene that might answer that-_-', TIMESTAMP '2020-02-16 19:40:00', 63, 67);
+insert into comment (id, body, date_time, id_member, id_post) values (359, 'be kinda hard to not have tails in the sequel since he''s in the post credit scene going to find sonic... apparently Eddie didn''t see that lol.', TIMESTAMP '2020-02-16 19:40:00', 51, 67);
 
-insert into topic_follow(id_topic, id_member) values (1,3);
-insert into topic_follow(id_topic, id_member) values (4,3);
+insert into comment (id, body, date_time, id_member, id_post) values (360, 'Games not nearly out yet but they''re making huge profits. wtf', TIMESTAMP '2020-05-23 21:30:00', 6, 68);
+insert into comment (id, body, date_time, id_member, id_post) values (361, 'I bought it a few years ago, stopped playing, tried it again last week, the game didn''t boot, it crashed.', TIMESTAMP '2020-05-23 21:30:00', 52, 68);
+insert into comment (id, body, date_time, id_member, id_post) values (362, 'I''ve never heard of the game. Must be amazing!!', TIMESTAMP '2020-05-23 21:30:00', 34, 68);
+insert into comment (id, body, date_time, id_member, id_post) values (363, 'How, I mean just how is this game still getting money? The fact that you can buy packs for 10-$20,000 should be enough evidence alone that devs how zero faith in the mess they''re making?', TIMESTAMP '2020-05-23 21:30:00', 32, 68);
+insert into comment (id, body, date_time, id_member, id_post) values (364, 'Dang these devs still havent taken the money and run, but they are still scamming thats for sure', TIMESTAMP '2020-05-23 21:30:00', 27, 68);
+insert into comment (id, body, date_time, id_member, id_post) values (365, 'A 5 Million $ Villa was purchased by CR (imagine the upkeep costs!!) and they taken backer money to settle law suits that they themselves provoked, yet again spending many Millions there. CR has used up plenty Millions unfairly in regards to his backers.', TIMESTAMP '2020-05-23 21:30:00', 50, 68);
+insert into reply (id_comment, id_parent) values (365, 364);
+insert into comment (id, body, date_time, id_member, id_post) values (366, 'I''m just lovin how everybody yells scam this and scam that ;-P God I''m looking forward to when this game is released and everybody who thought that this game wasn''t going to evolve into anything is proved wrong ;-P', TIMESTAMP '2020-05-23 21:30:00', 69, 68);
+insert into comment (id, body, date_time, id_member, id_post) values (367, 'The game is prone to fail (if it ever is released) These “alpha versions” they keep pumping are tiny and already full of bugs and completely unimpressive.', TIMESTAMP '2020-05-23 21:30:00', 52, 68);
+insert into reply (id_comment, id_parent) values (367, 366);
 
-insert into topic_follow(id_topic, id_member) values (1,4);
-insert into topic_follow(id_topic, id_member) values (2,4);
-insert into topic_follow(id_topic, id_member) values (3,4);
-insert into topic_follow(id_topic, id_member) values (4,4);
-insert into topic_follow(id_topic, id_member) values (5,4);
+insert into comment (id, body, date_time, id_member, id_post) values (368, 'That was quick.. Must have got a nice severance check from Google..', TIMESTAMP '2019-11-01 02:40:00', 58, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (369, 'Good luck to her but she has nothing to show since AC 1. And that was a long time ago.', TIMESTAMP '2019-11-01 02:40:00', 2, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (370, '"We want to create worlds where players can escape, have fun, express themselves, and find community"This is gonna suck.', TIMESTAMP '2019-11-01 02:40:00', 66, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (371, 'Good luck. Don''t make a GaS game.', TIMESTAMP '2019-11-01 02:40:00', 5, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (372, 'How this lady keeps getting hired to head game studios and/or projects is mind bogglingly. Stadia ring a bell to anyone?', TIMESTAMP '2019-11-01 02:40:00', 35, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (373, 'Tommy Likey. Tommy want Jadey.', TIMESTAMP '2019-11-01 02:40:00', 63, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (374, 'Overrated.', TIMESTAMP '2019-11-01 02:40:00', 61, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (375, 'Translation. Sony offered me mo money than the other two.', TIMESTAMP '2019-11-01 02:40:00', 11, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (376, 'I''m all for supporting my fellow Canadians, but if Wikipedia has her complete works on it... since Far Cry 4, all she has to show for the last 6-7 years of being in the industry as far as actual shipped products go is a failed free to play game and the shitbomb that was Battlefront II. I won''t be holding my breath personally... ', TIMESTAMP '2019-11-01 02:40:00', 42, 69);
+insert into reply (id_comment, id_parent) values (376, 375);
+insert into comment (id, body, date_time, id_member, id_post) values (377, 'She was in management, through much of Stadia and EA, not sure any works produced would follow.', TIMESTAMP '2019-11-01 02:40:00', 29, 69);
+insert into reply (id_comment, id_parent) values (377, 375);
+insert into comment (id, body, date_time, id_member, id_post) values (378, 'She''s been around a long time. She was pretty much the spokesperson for Assassin''s Creed.', TIMESTAMP '2019-11-01 02:40:00', 24, 69);
+insert into reply (id_comment, id_parent) values (378, 375);
+insert into comment (id, body, date_time, id_member, id_post) values (379, 'Good on Sony for swooping in. Hope they are rewarded with a great new IP.', TIMESTAMP '2019-11-01 02:40:00', 41, 69);
+insert into comment (id, body, date_time, id_member, id_post) values (380, 'Likely. Sony tends to actually get mileage out of their IPs while MS'' tend to wither over time.', TIMESTAMP '2019-11-01 02:40:00', 13, 69);
+insert into reply (id_comment, id_parent) values (380, 379);
 
-insert into topic_follow(id_topic, id_member) values (1,5);
-insert into topic_follow(id_topic, id_member) values (2,5);
-insert into topic_follow(id_topic, id_member) values (3,5);
-insert into topic_follow(id_topic, id_member) values (4,5);
-insert into topic_follow(id_topic, id_member) values (5,5);
+insert into comment (id, body, date_time, id_member, id_post) values (381, 'Ah so the classic bait and switch. So it begins.', TIMESTAMP '2018-01-08 07:30:00', 20, 70);
+insert into comment (id, body, date_time, id_member, id_post) values (382, 'Who cares? Enough already.', TIMESTAMP '2018-01-08 07:30:00', 14, 70);
+insert into comment (id, body, date_time, id_member, id_post) values (383, 'We''ve been tricked, we''ve been backstabbed, and we''ve been quite possibly, bamboozled.', TIMESTAMP '2018-01-08 07:30:00', 58, 70);
+insert into comment (id, body, date_time, id_member, id_post) values (384, 'Oh my God, the joke that is really just a reference isn''t in the movie?What a story. A cool story. Bro.', TIMESTAMP '2018-01-08 07:30:00', 67, 70);
+insert into comment (id, body, date_time, id_member, id_post) values (385, 'What a d*** move.', TIMESTAMP '2018-01-08 07:30:00', 19, 70);
 
+insert into comment (id, body, date_time, id_member, id_post) values (386, 'Not even giving credit, let alone money. Too busy sending out legal threats I guess.', TIMESTAMP '2019-02-06 00:24:45', 50, 71);
+insert into comment (id, body, date_time, id_member, id_post) values (387, 'yep', TIMESTAMP '2019-02-06 00:24:45', 63, 71);
+insert into reply (id_comment, id_parent) values (387, 386);
+insert into comment (id, body, date_time, id_member, id_post) values (388, 'actually they gave him credit and $10,000.', TIMESTAMP '2019-02-06 00:24:45', 70, 71);
+insert into reply (id_comment, id_parent) values (388, 386);
+insert into comment (id, body, date_time, id_member, id_post) values (389, 'You don''t give him JUST credit or cash... YOU HIRE THIS MAN!!!', TIMESTAMP '2019-02-06 00:24:45', 57, 71);
+insert into reply (id_comment, id_parent) values (389, 388);
+insert into comment (id, body, date_time, id_member, id_post) values (390, 'Raise a toast for T0st!', TIMESTAMP '2019-02-06 00:24:45', 63, 71);
+insert into comment (id, body, date_time, id_member, id_post) values (391, 'Too many devs nowadays are too lazy or incompetent to realize and fix problems with their games. Most of the time it comes down to the community because at least they still care.', TIMESTAMP '2019-02-06 00:24:45', 36, 71);
+insert into comment (id, body, date_time, id_member, id_post) values (392, 'It took a Modder for them to do this... just sad.\nThat''s the reason why I stopped playing, it took SOO long to load!', TIMESTAMP '2019-02-06 00:24:45', 23, 71);
+insert into comment (id, body, date_time, id_member, id_post) values (393, 'Seriously, 8 years after this game was released and they just NOW fix this? Just...wow.', TIMESTAMP '2019-02-06 00:24:45', 52, 71);
+insert into comment (id, body, date_time, id_member, id_post) values (394, 'How sad is it that some hobby progammer has to point out such a flaw in their game''s programming to them. And such an easy one to fix as well. But that''s what happens if all you focus on is putting out more items to sell MTs.', TIMESTAMP '2019-02-06 00:24:45', 48, 71);
+insert into comment (id, body, date_time, id_member, id_post) values (395, 'I don''t get it, either. Don''t they play their own games?\nRockstar dev: "This loading taking forever...Somebody ought to look into this..."', TIMESTAMP '2019-02-06 00:24:45', 58, 71);
+insert into reply (id_comment, id_parent) values (395, 394);
 
+insert into comment (id, body, date_time, id_member, id_post) values (396, '"An investigation commissioned by League of Legends and Valorant publisher Riot Games amid accusations of misconduct by CEO Nicolas Laurent has concluded, finding no evidence of wrongdoing and recommending no sanctions." So they investigated themselves?', TIMESTAMP '2018-01-04 19:10:00', 2, 72);
+insert into comment (id, body, date_time, id_member, id_post) values (397, 'It was commissioned by them, not conducted by them. They brought in a 3rd party law firm to perform the actual investigation.', TIMESTAMP '2018-01-04 19:10:00', 6, 72);
+insert into reply (id_comment, id_parent) values (397, 396);
+insert into comment (id, body, date_time, id_member, id_post) values (398, '"investigated by the third-party as lacking any evidence of her specific accusations." "The special committee consisted of three members as part of Riot''s board of directors"I guess this was my confusion.', TIMESTAMP '2018-01-04 19:10:00', 2, 72);
+insert into reply (id_comment, id_parent) values (398, 397);
 
+insert into comment (id, body, date_time, id_member, id_post) values (399, 'No preorder bonuses have been revealed, and it''s unknown if EA will release any editions beyond the standard $60 version. Of course they will. They will go the same route as for ME2-3, cause they love $$. Additional 30 bucks for From Ashes DLC!!!!!!', TIMESTAMP '2020-01-09 13:20:00', 32, 73);
+insert into comment (id, body, date_time, id_member, id_post) values (400, 'You did catch the part where they said every DLC was already included, right?', TIMESTAMP '2020-01-09 13:20:00', 8, 73);
+insert into reply (id_comment, id_parent) values (400, 399);
+insert into comment (id, body, date_time, id_member, id_post) values (401, 'i didn''t, because i don''t care. But thanks for caring for whether I read or not, means a lot!!!', TIMESTAMP '2020-01-09 13:20:00', 12, 73);
+insert into reply (id_comment, id_parent) values (401, 400);
+insert into comment (id, body, date_time, id_member, id_post) values (402, 'I hope no-one actually goes ahead and pre-order before we see what these remasters actually look like.', TIMESTAMP '2020-01-09 13:20:00', 37, 73);
+insert into comment (id, body, date_time, id_member, id_post) values (403, ' Seriously. One would think people learned from the various pre-order debacles like Cyberpunk... that maybe waiting for release and system-wide reviews is the way to go', TIMESTAMP '2020-01-09 13:20:00', 2, 73);
+insert into reply (id_comment, id_parent) values (403, 402);
+insert into comment (id, body, date_time, id_member, id_post) values (404, 'Cool, I''ve wanted to play the trilogy again, but it''s a mess of DLCs, online passes (remember those?) and clients to sort out to get all the relevant story content. But seriously, they can keep the next Mass Effect; the series died in 3 and Andromeda was not only a technical mess, I couldn''t get myself to care about the characters or the setting, and more importantly, it just highlighted how stupid the rationale of the Reapers was and by extension, how absolutely bad ME3''s story was.', TIMESTAMP '2020-01-09 13:20:00', 59, 73);
+insert into comment (id, body, date_time, id_member, id_post) values (405, 'Been waiting for this for a long time. Can''t wait.', TIMESTAMP '2020-01-09 13:20:00', 22, 73);
+
+insert into comment (id, body, date_time, id_member, id_post) values (406, 'meh, games old.', TIMESTAMP '2020-02-09 17:15:00', 38, 74);
+insert into comment (id, body, date_time, id_member, id_post) values (407, 'World Smartest Impostor Ever! Among Us Funny Moments: [youtube link that is totally not a funny among us moments video]', TIMESTAMP '2020-02-09 17:15:00', 37, 74);
+
+insert into comment (id, body, date_time, id_member, id_post) values (408, 'That''s 17:00h for those who live in the UK (GMT).', TIMESTAMP '2018-03-07 11:00:00', 9, 75);
+insert into comment (id, body, date_time, id_member, id_post) values (409, ' Thank you sir', TIMESTAMP '2018-03-07 11:00:00', 65, 75);
+insert into reply (id_comment, id_parent) values (409, 408);
+insert into comment (id, body, date_time, id_member, id_post) values (410, 'I''m checking it out.', TIMESTAMP '2018-03-07 11:00:00', 35, 75);
+insert into comment (id, body, date_time, id_member, id_post) values (411, 'How can they release a hitman game? I’m confused. I thought IO owned it again.', TIMESTAMP '2018-03-07 11:00:00', 30, 75);
+
+insert into comment (id, body, date_time, id_member, id_post) values (412, 'Founder here, won''t be cancelling any time soon. Highly useful streaming service.', TIMESTAMP '2019-05-05 02:10:00', 64, 76);
+insert into comment (id, body, date_time, id_member, id_post) values (413, 'Free user here. I just wait in the queue and play for an hour when I use it. Free is good. No complaints.', TIMESTAMP '2019-05-05 02:10:00', 67, 76);
+insert into comment (id, body, date_time, id_member, id_post) values (414, 'If i own the game why the hell would want to pay to stream it from cloud? in fact why would I want to stream/cloud gaming in first place? Answer I dont and wont I like Own my game and not be at mercy of Internet and and Latency', TIMESTAMP '2019-05-05 02:10:00', 8, 76);
+
+insert into comment (id, body, date_time, id_member, id_post) values (415, 'Everyone gets a headpat! And then a currency swap.', TIMESTAMP '2019-06-22 10:50:00', 35, 77);
+insert into comment (id, body, date_time, id_member, id_post) values (416, 'Cool, that means the latest Halo won''t have any microtransactions either, right?', TIMESTAMP '2019-06-22 10:50:00', 44, 77);
+insert into comment (id, body, date_time, id_member, id_post) values (417, 'Does this affect Single Player / Co-Op at all? All the customization for your character in Reach are locked behind multiplayer content as far as I can tell. Really wish they''d let you use your MP character from other games in the campaigns, but that''s why Reach is one of my favorites.', TIMESTAMP '2019-06-22 10:50:00', 40, 77);
+
+insert into comment (id, body, date_time, id_member, id_post) values (418, 'I absolutely loathe the philosophy of pushing hardware to its limits just for the sake of it -- that is the quickest way of ensuring that your game is just nothing more than a pretty looking mess. I wish more studios would just pick a performance profile and design their tech around hitting that level of performance.', TIMESTAMP '2018-10-19 12:00:00', 10, 78);
+insert into comment (id, body, date_time, id_member, id_post) values (419, ' I don''t know if you''ve played Control but I found it really good, both in terms of gameplay and story. The fact that they also went all out with the graphics and raytracing isn''t taking anything away from the game in my opinion.', TIMESTAMP '2018-10-19 12:00:00', 39, 78);
+insert into reply (id_comment, id_parent) values (419, 418);
+insert into comment (id, body, date_time, id_member, id_post) values (420, 'Keep pushing. This game needs a 1080p/RayTracing mode at 60fps on console. Everything doesn''t need to be 4K, especially at the expense of graphics.', TIMESTAMP '2018-10-19 12:00:00', 2, 78);
+insert into comment (id, body, date_time, id_member, id_post) values (421, 'Meanwhile on PC.... Ha!', TIMESTAMP '2018-10-19 12:00:00', 17, 78);
+
+insert into comment (id, body, date_time, id_member, id_post) values (422, 'I think it needs to, TBH. Without it, the platform is doomed to be the "2 generations back in power" option - but with it the effective visual output and/or framerate can be much closer to standards set by the desktop competitors. DLSS 2.0 works wonders on PC for hardware punching way above its weight', TIMESTAMP '2018-12-22 04:50:00', 4, 80);
+insert into comment (id, body, date_time, id_member, id_post) values (423, 'DLSS is cool, but claiming little to no impact on visual quality is a lie. DLSS2 is great and all but you can still easily see the granular artifacting and blurring vs native resolution. The tech is great, but claiming there''s no visual quality trade off is untrue.', TIMESTAMP '2018-12-22 04:50:00', 53, 80);
+insert into comment (id, body, date_time, id_member, id_post) values (424, 'Need games and price cant be over 100 tops otherwise it will not sell that much.', TIMESTAMP '2018-12-22 04:50:00', 68, 80);
+insert into comment (id, body, date_time, id_member, id_post) values (425, 'I''m glad to hear that there will be a bump in CPU performance and RAM, DLSS can''t fix the low poly counts and frame rate of Switch games', TIMESTAMP '2018-12-22 04:50:00', 54, 80);
+insert into comment (id, body, date_time, id_member, id_post) values (426, 'sounds great.', TIMESTAMP '2018-12-22 04:50:00', 7, 80);
+insert into comment (id, body, date_time, id_member, id_post) values (427, 'Isn''t OLED prone to burn in? Seems weird to risk burn in on a screen mounted on the console, unless you just want to sell new ones.', TIMESTAMP '2018-12-22 04:50:00', 24, 80);
+
+insert into comment (id, body, date_time, id_member, id_post) values (428, 'What''s going on here is the result of price manipulation. It''s the sort of thing that''s really cool to stumble upon, and it''s very lucky if you happen to be there at the beginning, but everything after that is incredibly volatile and highly risky. If you''re conservative, it''s best to avoid it, but if you like to gamble...it could be rewarding.', TIMESTAMP '2019-10-27 04:50:00', 62, 83);
+
+insert into comment (id, body, date_time, id_member, id_post) values (429, 'I would totally pay full price for this game to not have to deal with gacha and make everything unlockable in game. But of course that model doesn''t make economic sense. $1 billion in revenue is equivalent to selling 16.6 million copies of a game at $60 a pop, and they''re far from done. I''m saddened by this actually, and worried that more and more games will shift towards f2p after seeing the success of this game.', TIMESTAMP '2019-08-16 01:00:00', 68, 84);
+
+insert into comment (id, body, date_time, id_member, id_post) values (430, 'I''m playing through Uncharted 4 for the first time, and I found that easter egg literally the morning before this article came out.', TIMESTAMP '2019-05-29 16:40:00', 66, 85);
+
+insert into comment (id, body, date_time, id_member, id_post) values (431, 'Can I play this on GeForce Now when it becomes free this weekend?', TIMESTAMP '2020-02-04 20:15:00', 42, 86);
+insert into comment (id, body, date_time, id_member, id_post) values (432, 'Do you have to be a PS Plus member to access even the single player part of the demo?', TIMESTAMP '2020-02-04 20:15:00', 16, 86);
+insert into comment (id, body, date_time, id_member, id_post) values (433, 'Why would you need PS+ for that? Even if a game has an online requirement you don''t need PS+ if you can still play it fully solo. PS+ is only necessary for multiplayer.', TIMESTAMP '2020-02-04 20:15:00', 39, 86);
+insert into reply (id_comment, id_parent) values (433, 432);
+insert into comment (id, body, date_time, id_member, id_post) values (434, 'So how come this crap is down to $20 already but the latest AC has still barely dropped in price? Even though it still seems to be completely broken, with every new patch only making things worse while fixing little. Are people buying the latter like crazy while this one is a huge flop?', TIMESTAMP '2020-02-04 20:15:00', 38, 86);
+
+insert into comment (id, body, date_time, id_member, id_post) values (435, 'Somehow I feel those numbers are skewed for "tax purposes" & they their sales associates were left to rot mostly. I heard a lack of gear from a number of associates was the actual case.', TIMESTAMP '2021-02-10 17:10:00', 49, 87);
+
+insert into comment (id, body, date_time, id_member, id_post) values (436, 'I wonder when we will get a PC announcement!', TIMESTAMP '2018-09-18 17:40:00', 53, 89);
+insert into comment (id, body, date_time, id_member, id_post) values (437, 'Never', TIMESTAMP '2018-09-18 17:40:00', 39, 89);
+insert into reply (id_comment, id_parent) values (437, 436);
+insert into comment (id, body, date_time, id_member, id_post) values (438, 'I''d be surprised. The devs still had some smidgen of control with Horizon, but Bloodborne is a first-party property. Not only that, but their only reason for considering PC was to compete with MS. Now that MS has played their exclusivity card, Sony has no choice but to retain their exclusives. If their games were to hit PC now, they will have absolutely nothing to offer over any other platform.', TIMESTAMP '2018-09-18 17:40:00', 22, 89);
+insert into reply (id_comment, id_parent) values (438, 436);
+insert into comment (id, body, date_time, id_member, id_post) values (439, 'Hell, I''d take Bloodborne at 30FPS on PC', TIMESTAMP '2018-09-18 17:40:00', 61, 89);
+insert into comment (id, body, date_time, id_member, id_post) values (440, 'If you''re that desperate to play it, it is available on PS Now. Though I don''t really wanna know how this game runs when streamed. The lag and connection issues would probably cause a lot of deaths.', TIMESTAMP '2018-09-18 17:40:00', 65, 89);
+insert into reply (id_comment, id_parent) values (440, 439);
+insert into comment (id, body, date_time, id_member, id_post) values (441, 'Sony''s fault. There is no good reason why they can''t update the game, even just for better framerates. I know From is busy working on their own stuff and they dissolved Japan Studio, but someone should be able to update the game. Blue Point, maybe?', TIMESTAMP '2018-09-18 17:40:00', 1, 89);
+insert into comment (id, body, date_time, id_member, id_post) values (442, '"get the game running at an (almost) flawless 60fps " so when you say "flawless 60fps" you don''t actually mean "flawless 60fps". how about just not say that?', TIMESTAMP '2018-09-18 17:40:00', 20, 89);
+
+insert into comment (id, body, date_time, id_member, id_post) values (443, 'Testing consumer patience now are we? *makes a Yoda "Hmmph" sound*', TIMESTAMP '2019-02-12 01:50:00', 41, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (444, 'Give it few more years once streaming live tv dies off and more people going to do subscription D+ and all the dogs will charge us 50$, same crap goes for gaming once MS and Sony stop production of Consoles and focus more on streaming price hike is guaranteed', TIMESTAMP '2019-02-12 01:50:00', 53, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (445, 'Wow, didn''t take them long. Greedy ass company.', TIMESTAMP '2019-02-12 01:50:00', 9, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (446, 'I''m not surprised given their low initial price. Luckily I paid for three years in advance $3.89 a month, so I won''t have to worry about this increase for a little while.', TIMESTAMP '2019-02-12 01:50:00', 28, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (447, 'You know damn well in another few months it''s $9 & then $10 by 2023. It is cheaper to just keep cable with all the increases all around.', TIMESTAMP '2019-02-12 01:50:00', 26, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (448, 'Not Comcast if you get all the trimmings which may cost you up to three figures an month versus Disney+ $80.00 an year.', TIMESTAMP '2019-02-12 01:50:00', 57, 90);
+
+insert into comment (id, body, date_time, id_member, id_post) values (449, 'Not in Quebec, Canada. Cable is extremely overpriced and has terrible value. I''ll keep my sub services.', TIMESTAMP '2019-02-12 01:50:00', 40, 90);
+
+insert into comment (id, body, date_time, id_member, id_post) values (450, 'Basic cable for me is still $70 a month plus subscriptions for additional boxes for each TV beyond the first. I already subscribe to way too many streaming services, and I''m still saving money over basic cable. Plus I can just drop the parts that aren''t getting used.', TIMESTAMP '2019-02-12 01:50:00', 18, 90);
+
+insert into comment (id, body, date_time, id_member, id_post) values (451, 'That sure is one Greedy little Mouse', TIMESTAMP '2019-02-12 01:50:00', 67, 90);
+insert into reply (id_comment, id_parent) values (451, 450);
+insert into comment (id, body, date_time, id_member, id_post) values (452, 'Gonna happen!!!\nAs long as the quality remains its good', TIMESTAMP '2019-02-12 01:50:00', 8, 90);
+insert into reply (id_comment, id_parent) values (452, 450);
+insert into comment (id, body, date_time, id_member, id_post) values (453, 'If you supported racism and ouigours concentration camp that is!', TIMESTAMP '2019-02-12 01:50:00', 39, 90);
+insert into reply (id_comment, id_parent) values (453, 450);
+insert into comment (id, body, date_time, id_member, id_post) values (454, 'Guess they heard news of the stimulus checks going out, and they want some of that $$. Good thing I am mooching.', TIMESTAMP '2019-02-12 01:50:00', 19, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (455, 'A price hike after only 16 months? That was fast.', TIMESTAMP '2019-02-12 01:50:00', 13, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (456, 'I can''t afford to sub to Disney+ because I simp to too many female Twitch streamers.', TIMESTAMP '2019-02-12 01:50:00', 57, 90);
+insert into reply (id_comment, id_parent) values (456, 455);
+insert into comment (id, body, date_time, id_member, id_post) values (457, 'And probably won''t be the last, and they''ll get away with it too cause it''s Disney.', TIMESTAMP '2019-02-12 01:50:00', 40, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (458, 'I enjoyed it a lot, but after the "premium surprise" to watch Raya I just lost interest. Falcon and Winter Soldier series was good, it''s likely I''lll come back eventually.', TIMESTAMP '2019-02-12 01:50:00', 34, 90);
+insert into comment (id, body, date_time, id_member, id_post) values (459, 'Of course. Now that they are finally producing the series that made people want to get Disney+ in the first place, they hike up the rates.', TIMESTAMP '2019-02-12 01:50:00', 60, 90);
+insert into reply (id_comment, id_parent) values (459, 458);
+insert into comment (id, body, date_time, id_member, id_post) values (460, 'I think you get disney plus with xbox network', TIMESTAMP '2019-02-12 01:50:00', 39, 90);
+insert into reply (id_comment, id_parent) values (460, 459);
+insert into comment (id, body, date_time, id_member, id_post) values (461, 'It was a Trial.', TIMESTAMP '2019-02-12 01:50:00', 32, 90);
+
+insert into comment (id, body, date_time, id_member, id_post) values (462, 'Xbox port. #solved I''m actually totally serious here. Support controller, mouse + controller, and mouse + keyboard. Works great on all kinds of games (IT''S A WIN10 PC RUNNING DIRECTX).', TIMESTAMP '2019-06-08 22:55:00', 13, 98);
+insert into comment (id, body, date_time, id_member, id_post) values (463, 'Honestly, this sucks. People are just lazy. Git gud.', TIMESTAMP '2019-06-08 22:55:00', 32, 98);
+
+insert into comment (id, body, date_time, id_member, id_post) values (464, 'Samurai john Wick? Can''t think of a better mix! Looking forward to it', TIMESTAMP '2019-05-02 05:40:00', 20, 99);
+insert into comment (id, body, date_time, id_member, id_post) values (465, 'They should make this movie Japanese language with subtitles but considering that they didn’t have the guts to make the game Japanese only (and the English dubbed track just didn’t feel right), there is no way that Sony Pictures/Columbia will potentially limit their audience for artistic benefit by making it a foreign language movie.', TIMESTAMP '2019-05-02 05:40:00', 63, 99);
+insert into comment (id, body, date_time, id_member, id_post) values (466, 'Just wrapped up the main story two nights ago. I had no idea I could be moved so deeply by a video game story. Truly moving.', TIMESTAMP '2019-05-02 05:40:00', 21, 99);
