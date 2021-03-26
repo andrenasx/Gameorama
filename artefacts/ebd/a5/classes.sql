@@ -77,6 +77,7 @@ CREATE TABLE comment (
     body text NOT NULL,
     date_time timestamp NOT NULL DEFAULT now(),
     aura integer DEFAULT 0 NOT NULL,
+    id_member integer NOT NULL REFERENCES member(id) ON DELETE CASCADE,
     id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE
 );
 
