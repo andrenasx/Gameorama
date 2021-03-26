@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS member CASCADE;
+DROP TABLE IF EXISTS member_image CASCADE;
 DROP TABLE IF EXISTS member_follow CASCADE;
 DROP TABLE IF EXISTS administrator CASCADE;
 DROP TABLE IF EXISTS news_post CASCADE;
@@ -18,6 +19,10 @@ DROP TABLE IF EXISTS comment_report CASCADE;
 DROP TABLE IF EXISTS topic_report CASCADE;
 DROP TABLE IF EXISTS member_report CASCADE;
 
+CREATE TABLE member_image (
+    id serial PRIMARY KEY,
+    file bytea NOT NULL
+);
 
 CREATE TABLE member (
     id serial PRIMARY KEY,
@@ -26,8 +31,8 @@ CREATE TABLE member (
     email text NOT NULL UNIQUE,
     password text NOT NULL,
     bio text,
-    profile_img bytea,
-    banner_img bytea,
+    profile_image integer NOT NULL REFERENCES member_image(id),
+    banner_image integer NOT NULL REFERENCES member_image(id),
     aura integer DEFAULT 0 NOT NULL
 );
 
@@ -77,13 +82,14 @@ CREATE TABLE comment (
 
 CREATE TABLE reply (
     id_comment integer PRIMARY KEY REFERENCES comment(id) ON DELETE CASCADE,
-    id_parent integer REFERENCES comment(id) ON DELETE CASCADE
+    id_parent integer NOT NULL REFERENCES comment(id) ON DELETE CASCADE,
+    CONSTRAINT reply_ids CHECK (id_comment <> id_parent)
 );
 
 CREATE TABLE post_image (
-    id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
-    file bytea NOT NULL,
-    PRIMARY KEY(id_post, file)
+    id serial PRIMARY KEY,
+    id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE,
+    file bytea NOT NULL
 );
 
 CREATE TABLE post_aura (
@@ -104,7 +110,8 @@ CREATE TABLE follow_notification (
     id_follower integer REFERENCES member(id) ON DELETE CASCADE,
     id_followed integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(id_follower, id_followed)
+    PRIMARY KEY(id_follower, id_followed),
+    CONSTRAINT follow_notification_ids CHECK (id_follower <> id_followed)
 );
 
 CREATE TABLE comment_notification (
@@ -146,5 +153,6 @@ CREATE TABLE member_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_reported integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
-    PRIMARY KEY(id_reporter, id_reported)
+    PRIMARY KEY(id_reporter, id_reported),
+    CONSTRAINT member_report_ids CHECK (id_reporter <> id_reported)
 );
