@@ -50,7 +50,7 @@ CREATE TABLE news_post (
     id serial PRIMARY KEY,
     title text NOT NULL,
     body text,
-    post_date timestamp NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE
 );
 
@@ -74,7 +74,7 @@ CREATE TABLE post_topic (
 CREATE TABLE comment (
     id serial PRIMARY KEY,
     body text NOT NULL,
-    comment_date timestamp NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     aura integer DEFAULT 0 NOT NULL,
     id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE
 );
@@ -108,7 +108,7 @@ CREATE TABLE comment_aura (
 CREATE TABLE follow_notification (
     id_follower integer REFERENCES member(id) ON DELETE CASCADE,
     id_followed integer REFERENCES member(id) ON DELETE CASCADE,
-    body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_follower, id_followed),
     CONSTRAINT follow_notification_ids CHECK (id_follower <> id_followed)
 );
@@ -116,14 +116,14 @@ CREATE TABLE follow_notification (
 CREATE TABLE comment_notification (
     id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
     id_commenter integer REFERENCES member(id) ON DELETE CASCADE,
-    body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_comment, id_commenter)
 );
 
 CREATE TABLE reply_notification (
     id_reply integer REFERENCES reply(id_comment) ON DELETE CASCADE,
     id_commenter integer REFERENCES member(id) ON DELETE CASCADE,
-    body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_reply, id_commenter)
 );
 
@@ -131,6 +131,7 @@ CREATE TABLE post_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
     body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_reporter, id_post)
 );
 
@@ -138,6 +139,7 @@ CREATE TABLE comment_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
     body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_reporter, id_comment)
 );
 
@@ -145,6 +147,7 @@ CREATE TABLE topic_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
     body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_reporter, id_topic)
 );
 
@@ -152,6 +155,7 @@ CREATE TABLE member_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_reported integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
+    date_time timestamp NOT NULL DEFAULT now(),
     PRIMARY KEY(id_reporter, id_reported),
     CONSTRAINT member_report_ids CHECK (id_reporter <> id_reported)
 );
