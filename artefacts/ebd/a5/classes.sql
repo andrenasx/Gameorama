@@ -51,7 +51,6 @@ CREATE TABLE news_post (
     title text NOT NULL,
     body text,
     post_date timestamp NOT NULL,
-    aura integer DEFAULT 0 NOT NULL,
     owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE
 );
 

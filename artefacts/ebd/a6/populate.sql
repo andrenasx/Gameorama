@@ -61,3 +61,86 @@ insert into administrator (id) values (1);
 insert into administrator (id) values (2);
 insert into administrator (id) values (3);
 insert into administrator (id) values (4);
+
+
+insert into news_post(title, body, post_date, owner) values ('Razer presents webcam Kiyo Pro', 'Razer unveiled the Kiyo Pro webcam. With a scope that goes beyond the gaming world, it has the Adaptive Light Sensor as its main novelty. We live in an age marked by telecommuting. And this has awakened a long dormant problem: the poor quality of the cameras in our portable computers.', TIMESTAMP '2004-10-19 10:23:54', 1);
+insert into news_post(title, body, post_date, owner) values ( 'Viego champion Spotlight, The Ruined King', 'Viego will debut on the release of patch 11.2, which will feature several Nerfs to well-known characters like Akali and Maokai, and buffs to champions like Shako and Varus.
+As it could not be otherwise, Viego will have its own skin called Lunar Beast Viego, and will grant its own line of skins, "Ruined", starting with Shyvana, Draven and Karma.', TIMESTAMP '2004-10-19 10:23:54', 2);
+insert into news_post(title, body, post_date, owner) values ('Lego Marvel Super Heroes', 'Rumor: LEGO Marvel Super Heroes on its way to Switch', TIMESTAMP '2004-10-19 10:23:54', 3);
+insert into news_post(title, body, post_date, owner) values ('The Last of Us 2 surpasses The Witcher 3 and is the most awarded game ever', 'Naughty Dog latest title, The Last of Us - Part II, reached the most awarded game title ever, thus succeeding The Witcher 3: Wild Hunt.
+This information is advanced by the Game Awards website, which points out that The Last of Us 2, the winner of the Game of the Year category at The Game Awards, reached a total of 261 prizes (so far), thus surpassing the 260 achieved by the title of 2015 from CD Projekt Red.', TIMESTAMP '2004-10-19 10:23:54', 4);
+
+insert into news_post(title, body, post_date, owner) values ('GTA 5 biggest secret was discovered', 'Rockstar star franchise, Grand Theft Auto, is one of the most cherished and desired by the public. Proof of this is even today that we can count on news on the part of Take-Two that, wanting to meet the expectations of fans, addresses topics such as the possible production of a GTA 6 or remastering of previous successful games.', TIMESTAMP '2004-10-19 10:23:54', 3);
+
+insert into news_post(title, body, post_date, owner) values ('Cyberpunk 2077 fixes security vulnerability', 'CD Projekt Red has released an update that addresses the vulnerability flaw that jeopardized the safety of players using mods in the game. The update was announced via Twitter and is now available for PC, correcting two elements that could potentially be used to activate harmful files hidden within mods.', TIMESTAMP '2004-10-19 10:23:54', 1);
+insert into news_post(title, body, post_date, owner) values ('PlayStation 5 arrives in Portugal', 'PlayStation 5 will be available in Portugal from November 19 in two versions, one normal (€ 499) and one without the Blu-ray player (€ 399). There are no differences in specifications between them, one is dedicated to those who definitely embraced the digital world, while another serves those who do not give up the physical format to adorn the shelves with their favorite games, thanks to the optical drive prepared for the Ultra HD Blu -ray up to 100GB.
+', TIMESTAMP '2004-10-19 10:23:54', 2);
+
+
+insert into topic(name) values ('League of Legends');
+insert into topic(name) values ('Lego Marvel Super Heroes');
+insert into topic(name) values ('The Witcher 3');
+insert into topic(name) values ('Gaming Gadgets');
+insert into topic(name) values ('Razer');
+insert into topic(name) values ('Esports');
+
+
+insert into post_aura(id_post, id_voter, upvote) values (1,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (1,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (1,3,'true');
+
+insert into post_aura(id_post, id_voter, upvote) values (2,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (2,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (2,3,'true');
+
+insert into post_aura(id_post, id_voter, upvote) values (3,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (3,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (3,3,'true');
+
+insert into post_aura(id_post, id_voter, upvote) values (4,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (4,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (4,3,'true');
+
+insert into post_aura(id_post, id_voter, upvote) values (5,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (5,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (5,3,'true');
+
+insert into post_aura(id_post, id_voter, upvote) values (6,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (6,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (6,3,'true');
+
+insert into post_aura(id_post, id_voter, upvote) values (7,1,'true');
+insert into post_aura(id_post, id_voter, upvote) values (7,2,'false');
+insert into post_aura(id_post, id_voter, upvote) values (7,3,'true');
+
+
+insert into topic_follow(id_topic, id_member) values (1,1);
+insert into topic_follow(id_topic, id_member) values (2,1);
+insert into topic_follow(id_topic, id_member) values (3,1);
+insert into topic_follow(id_topic, id_member) values (4,1);
+insert into topic_follow(id_topic, id_member) values (5,1);
+
+
+insert into topic_follow(id_topic, id_member) values (1,2);
+insert into topic_follow(id_topic, id_member) values (2,2);
+insert into topic_follow(id_topic, id_member) values (3,2);
+insert into topic_follow(id_topic, id_member) values (4,2);
+
+
+insert into topic_follow(id_topic, id_member) values (1,3);
+insert into topic_follow(id_topic, id_member) values (4,3);
+
+insert into topic_follow(id_topic, id_member) values (1,4);
+insert into topic_follow(id_topic, id_member) values (2,4);
+insert into topic_follow(id_topic, id_member) values (3,4);
+insert into topic_follow(id_topic, id_member) values (4,4);
+insert into topic_follow(id_topic, id_member) values (5,4);
+
+insert into topic_follow(id_topic, id_member) values (1,5);
+insert into topic_follow(id_topic, id_member) values (2,5);
+insert into topic_follow(id_topic, id_member) values (3,5);
+insert into topic_follow(id_topic, id_member) values (4,5);
+insert into topic_follow(id_topic, id_member) values (5,5);
+
+
+
