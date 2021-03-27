@@ -36,14 +36,15 @@ CREATE TABLE member (
     aura integer DEFAULT 0 NOT NULL
 );
 
-CREATE TABLE member_follow (
-    id_follower integer REFERENCES member(id) ON DELETE CASCADE,
-    id_followed integer REFERENCES member(id) ON DELETE CASCADE,
-    PRIMARY KEY(id_follower, id_followed)
-);
-
 CREATE TABLE administrator (
     id integer PRIMARY KEY REFERENCES member(id)
+);
+
+CREATE TABLE member_follow (
+    id_followed integer REFERENCES member(id) ON DELETE CASCADE,
+    id_follower integer REFERENCES member(id) ON DELETE CASCADE,
+    PRIMARY KEY(id_follower, id_followed),
+    CONSTRAINT follow_ids CHECK (id_followed <> id_follower)
 );
 
 CREATE TABLE news_post (
