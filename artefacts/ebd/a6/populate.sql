@@ -2,8 +2,8 @@
 -- Populate the database
 -----------------------------------------
 
-insert into member_image (file) values (bytea('profile_image'));
-insert into member_image (file) values (bytea('banner_image'));
+insert into member_image (id, file) values (1, bytea('profile_image'));
+insert into member_image (id, file) values (2, bytea('banner_image'));
 
 
 
@@ -2219,7 +2219,7 @@ insert into news_post (id, title, body, date_time, owner) values (3, 'The Last o
 
 --https://pt.ign.com/cyberpunk-2077/95347/news/cyberpunk-2077-corrige-vulnerabilidade-de-seguranca
 --Cyberpunk 2077 ; Fps ; Open World
-insert into news_post (id, title, body, date_time, owner) values (4, 'Cyberpunk 2077 fixes security vulnerability', null, TIMESTAMP '2021-01-28 10:21:25', 41);
+insert into news_post (id, title, body, date_time, owner) values (4, 'Cyberpunk 2077 fixes security vulnerability', null, TIMESTAMP '2021-03-28 10:21:25', 41);
 
 --https://pt.ign.com/lego-marvel-super-heroes/94255/news/rumor-lego-marvel-super-heroes-a-caminho-da-switch
 --Lego Super Heroes ; Lego ; Open World
@@ -9676,6 +9676,12 @@ insert into comment (id, body, date_time, id_member, id_post) values (463, 'Hone
 insert into comment (id, body, date_time, id_member, id_post) values (464, 'Samurai john Wick? Can''t think of a better mix! Looking forward to it', TIMESTAMP '2019-05-02 05:40:00', 20, 99);
 insert into comment (id, body, date_time, id_member, id_post) values (465, 'They should make this movie Japanese language with subtitles but considering that they didn’t have the guts to make the game Japanese only (and the English dubbed track just didn’t feel right), there is no way that Sony Pictures/Columbia will potentially limit their audience for artistic benefit by making it a foreign language movie.', TIMESTAMP '2019-05-02 05:40:00', 63, 99);
 insert into comment (id, body, date_time, id_member, id_post) values (466, 'Just wrapped up the main story two nights ago. I had no idea I could be moved so deeply by a video game story. Truly moving.', TIMESTAMP '2019-05-02 05:40:00', 21, 99);
+
+
+
+insert into post_image (id, id_post, file) values (1, 1, bytea('post_image1'));
+insert into post_image (id, id_post, file) values (2, 1, bytea('post_image2'));
+insert into post_image (id, id_post, file) values (3, 1, bytea('post_image3'));
 
 
 
