@@ -24129,3 +24129,56 @@ insert into comment_aura (id_comment, id_voter, upvote) values (466, 67, 'true')
 insert into comment_aura (id_comment, id_voter, upvote) values (466, 69, 'true');
 
 
+
+insert into follow_notification (id_notified, id_follower, date_time) values (1, 10, TIMESTAMP '2020-03-29 17:30:00');
+insert into follow_notification (id_notified, id_follower, date_time) values (1, 11, TIMESTAMP '2020-03-25 17:30:00');
+insert into follow_notification (id_notified, id_follower, date_time) values (1, 12, TIMESTAMP '2020-03-20 17:30:00');
+insert into follow_notification (id_notified, id_follower, date_time) values (1, 14, TIMESTAMP '2020-03-15 17:30:00');
+insert into follow_notification (id_notified, id_follower, date_time) values (1, 15, TIMESTAMP '2020-03-01 17:30:00');
+
+
+
+insert into comment_notification (id_notified, id_comment, date_time) values (2, 356, TIMESTAMP '2020-02-16 19:40:00');
+insert into comment_notification (id_notified, id_comment, date_time) values (2, 357, TIMESTAMP '2020-02-16 19:40:00');
+insert into comment_notification (id_notified, id_comment, date_time) values (2, 358, TIMESTAMP '2020-02-16 19:40:00');
+insert into comment_notification (id_notified, id_comment, date_time) values (2, 359, TIMESTAMP '2020-02-16 19:40:00');
+
+
+
+insert into reply_notification (id_notified, id_reply, date_time) values (25, 135, TIMESTAMP '2019-03-14 10:21:54');
+insert into reply_notification (id_notified, id_reply, date_time) values (8, 137, TIMESTAMP '2019-03-14 22:43:21');
+insert into reply_notification (id_notified, id_reply, date_time) values (20, 139, TIMESTAMP '2019-03-15 13:21:54');
+insert into reply_notification (id_notified, id_reply, date_time) values (39, 141, TIMESTAMP '2019-03-15 23:29:18');
+insert into reply_notification (id_notified, id_reply, date_time) values (47, 142, TIMESTAMP '2019-03-15 23:59:58');
+
+
+
+insert into post_report (id_reporter, id_post, body, date_time) values (11, 34, 'This is misinformation', TIMESTAMP '2019-03-20 09:50:35');
+insert into post_report (id_reporter, id_post, body, date_time) values (21, 55, 'This is abusive or harassing', TIMESTAMP '2019-11-18 06:39:52');
+insert into post_report (id_reporter, id_post, body, date_time) values (69, 94, 'This is spam', TIMESTAMP '2020-04-25 07:45:55');
+insert into post_report (id_reporter, id_post, body, date_time) values (6, 38, 'This is abusive or harassing', TIMESTAMP '2020-12-15 22:17:56');
+insert into post_report (id_reporter, id_post, body, date_time) values (60, 57, 'This is abusive or harassing', TIMESTAMP '2018-03-05 17:30:00');
+
+
+
+insert into comment_report (id_reporter, id_comment, body, date_time) values (36, 8, 'This is spam', TIMESTAMP '2019-11-10 22:02:40');
+insert into comment_report (id_reporter, id_comment, body, date_time) values (15, 6, 'This is abusive or harassing', TIMESTAMP '2019-11-13 13:02:30');
+insert into comment_report (id_reporter, id_comment, body, date_time) values (22, 9, 'This is misinformation', TIMESTAMP '2019-11-15 12:52:50');
+insert into comment_report (id_reporter, id_comment, body, date_time) values (59, 7, 'This is abusive or harassing', TIMESTAMP '2019-11-18 12:42:30');
+insert into comment_report (id_reporter, id_comment, body, date_time) values (34, 4, 'This is misinformation', TIMESTAMP '2018-09-20 06:29:00');
+
+
+
+insert into topic_report (id_reporter, id_topic, body, date_time) values (50, 2, 'Inapropriate name', TIMESTAMP '2020-03-29 17:30:00');
+insert into topic_report (id_reporter, id_topic, body, date_time) values (61, 8, 'This is abusive or harassing', TIMESTAMP '2020-03-25 17:30:00');
+insert into topic_report (id_reporter, id_topic, body, date_time) values (43, 1, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
+insert into topic_report (id_reporter, id_topic, body, date_time) values (21, 9, 'This is abusive or harassing', TIMESTAMP '2020-03-15 17:30:00');
+insert into topic_report (id_reporter, id_topic, body, date_time) values (68, 8, 'Posts are offensive', TIMESTAMP '2020-03-01 17:30:00');
+
+
+
+insert into member_report (id_reporter, id_reported, body, date_time) values (5, 26, 'Inapropriate username', TIMESTAMP '2020-03-29 17:30:00');
+insert into member_report (id_reporter, id_reported, body, date_time) values (20, 66, 'Impersonating someone', TIMESTAMP '2020-03-25 17:30:00');
+insert into member_report (id_reporter, id_reported, body, date_time) values (41, 13, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
+insert into member_report (id_reporter, id_reported, body, date_time) values (56, 41, 'Posts are offensive', TIMESTAMP '2020-03-15 17:30:00');
+insert into member_report (id_reporter, id_reported, body, date_time) values (16, 60, 'Impersonating someone', TIMESTAMP '2020-03-01 17:30:00');
