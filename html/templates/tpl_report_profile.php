@@ -13,7 +13,7 @@
                     <div>
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
                         <label class="form-check-label" for="exampleRadios1">
-                            Inapropriate Username
+                            Inapropriate username
                         </label>
                     </div>
                     <div>
