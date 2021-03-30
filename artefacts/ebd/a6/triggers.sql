@@ -1,239 +1,290 @@
-DROP FUNCTION IF EXISTS update_post_aura;
+-----------------------------------------
+-- Triggers and UDFs
+-----------------------------------------
+
+DROP FUNCTION IF EXISTS update_post_aura CASCADE;
 CREATE FUNCTION update_post_aura() RETURNS TRIGGER AS $$
-    BEGIN
-      IF NEW.upvote AND NOT OLD.upvote THEN
-        UPDATE news_post
-          SET aura = aura + 2
-          WHERE NEW.id_post = news_post.id;
-        UPDATE member
-          SET aura = aura + 2
-          WHERE OLD.id_voter = member.id;
-      ELSIF NOT NEW.upvote AND OLD.upvote THEN
-        UPDATE news_post
-          SET aura = aura - 2
-          WHERE NEW.message_id = news_post.id;
-        UPDATE member
-          SET aura = aura - 2
-          WHERE OLD.id_voter = member.id;
-      END IF;
-      RETURN NEW;
-    END;
+  BEGIN
+    IF NEW.upvote AND NOT OLD.upvote THEN
+      UPDATE news_post
+        SET aura = aura + 2
+        WHERE NEW.id_post = news_post.id;
+      UPDATE member
+        SET aura = aura + 2
+        WHERE NEW.id_voter = member.id;
+
+    ELSIF NOT NEW.upvote AND OLD.upvote THEN
+      UPDATE news_post
+        SET aura = aura - 2
+        WHERE NEW.id_post = news_post.id;
+      UPDATE member
+        SET aura = aura - 2
+        WHERE NEW.id_voter = member.id;
+    END IF;
+    RETURN NEW;
+  END;
   $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS update_post_aura;
+DROP TRIGGER IF EXISTS update_post_aura ON post_aura CASCADE;
 CREATE TRIGGER update_post_aura
 	BEFORE UPDATE ON post_aura
 	FOR EACH ROW EXECUTE PROCEDURE update_post_aura();
 
+
+DROP FUNCTION IF EXISTS insert_post_aura CASCADE;
 CREATE FUNCTION insert_post_aura() RETURNS TRIGGER AS $$
-    BEGIN
-      IF NEW.upvote THEN
-        UPDATE news_post
-          SET aura = aura + 1
-          WHERE NEW.id_post = news_post.id;
-          
-        UPDATE member
-          SET aura = aura + 1
-          WHERE OLD.id_voter = member.id;
-      ELSIF NOT NEW.upvote THEN
-        UPDATE news_post
-          SET aura = aura - 1
-          WHERE NEW.id_post = news_post.id;
-          
-        UPDATE member
-          SET aura = aura - 1
-          WHERE OLD.id_voter = member.id;
-      END IF;
-      RETURN NEW;
-    END;
+  BEGIN
+    IF NEW.upvote THEN
+      UPDATE news_post
+        SET aura = aura + 1
+        WHERE NEW.id_post = news_post.id;
+      UPDATE member
+        SET aura = aura + 1
+        WHERE NEW.id_voter = member.id;
+
+    ELSIF NOT NEW.upvote THEN
+      UPDATE news_post
+        SET aura = aura - 1
+        WHERE NEW.id_post = news_post.id;
+      UPDATE member
+        SET aura = aura - 1
+        WHERE NEW.id_voter = member.id;
+    END IF;
+    RETURN NEW;
+  END;
   $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS insert_post_aura ON post_aura CASCADE;
 CREATE TRIGGER insert_post_aura
-    BEFORE INSERT ON post_aura
-    FOR EACH ROW EXECUTE PROCEDURE insert_post_aura();
+  BEFORE INSERT ON post_aura
+  FOR EACH ROW EXECUTE PROCEDURE insert_post_aura();
 
 
+DROP FUNCTION IF EXISTS delete_post_aura CASCADE;
 CREATE FUNCTION delete_post_aura() RETURNS TRIGGER AS $$
-    BEGIN
-      IF OLD.upvote THEN
-        UPDATE news_post
-          SET aura = aura - 1
-          WHERE OLD.id_post = news_post.id;
-          
-        UPDATE member
-          SET aura = aura - 1
-          WHERE OLD.id_voter = member.id;
-      ELSIF NOT OLD.upvote THEN
-        UPDATE news_post
-          SET aura = aura + 1
-          WHERE OLD.id_post = news_post.id;
-        
-        UPDATE member
-          SET aura = aura + 1
-          WHERE OLD.id_voter = member.id;
-      END IF;
-      RETURN NEW;
-    END;
+  BEGIN
+    IF OLD.upvote THEN
+      UPDATE news_post
+        SET aura = aura - 1
+        WHERE OLD.id_post = news_post.id;
+      UPDATE member
+        SET aura = aura - 1
+        WHERE OLD.id_voter = member.id;
+
+    ELSIF NOT OLD.upvote THEN
+      UPDATE news_post
+        SET aura = aura + 1
+        WHERE OLD.id_post = news_post.id;
+      UPDATE member
+        SET aura = aura + 1
+        WHERE OLD.id_voter = member.id;
+    END IF;
+    RETURN NEW;
+  END;
   $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS delete_post_aura ON post_aura CASCADE;
 CREATE TRIGGER delete_post_aura
     BEFORE DELETE ON post_aura
     FOR EACH ROW EXECUTE PROCEDURE delete_post_aura();
 
 
-
-
-
-
+DROP FUNCTION IF EXISTS update_comment_aura CASCADE;
 CREATE FUNCTION update_comment_aura() RETURNS TRIGGER AS $$
-    BEGIN
-      IF NEW.upvote AND NOT OLD.upvote THEN
-        UPDATE comment
-          SET aura = aura + 2
-          WHERE NEW.id_comment = comment.id;
-          
-        UPDATE member
-          SET aura = aura + 2
-          WHERE OLD.id_voter = member.id;
-      ELSIF NOT NEW.upvote AND OLD.upvote THEN
-        UPDATE comment
-          SET aura = aura - 2
-          WHERE NEW.message_id = comment.id;
-          
-        UPDATE member
-          SET aura = aura - 2
-          WHERE OLD.id_voter = member.id;
-      END IF;
-      RETURN NEW;
-    END;
-  $$ LANGUAGE plpgsql;
-
-CREATE TRIGGER update_comment_aura
-	BEFORE UPDATE ON comment_aura
-	FOR EACH ROW EXECUTE PROCEDURE update_comment_aura();
-
-CREATE FUNCTION insert_comment_aura() RETURNS TRIGGER AS $$
-    BEGIN
-      IF NEW.upvote THEN
-        UPDATE comment
-          SET aura = aura + 1
-          WHERE NEW.id_comment = comment.id;
-         
-        UPDATE member
-          SET aura = aura + 1
-          WHERE OLD.id_voter = member.id;
-      ELSIF NOT NEW.upvote THEN
-        UPDATE comment
-          SET aura = aura - 1
-          WHERE NEW.id_comment = comment.id;
-        AND
-        UPDATE member
-          SET aura = aura - 1
-          WHERE OLD.id_voter = member.id;
-      END IF;
-      RETURN NEW;
-    END;
-  $$ LANGUAGE plpgsql;
-
-CREATE TRIGGER insert_comment_aura
-    BEFORE INSERT ON comment_aura
-    FOR EACH ROW EXECUTE PROCEDURE insert_comment_aura();
-
-
-CREATE FUNCTION delete_comment_aura() RETURNS TRIGGER AS $$
-    BEGIN
-      IF OLD.upvote THEN
-        UPDATE comment
-          SET aura = aura - 1
-          WHERE OLD.id_comment = comment.id;
-        
-        UPDATE member
-          SET aura = aura - 1
-          WHERE OLD.id_voter = member.id;
-        
-      ELSIF NOT OLD.upvote THEN
-        UPDATE comment
-          SET aura = aura + 1
-          WHERE OLD.id_comment = comment.id;
-        
-        UPDATE member
-          SET aura = aura + 1
-          WHERE OLD.id_voter = member.id;
-
-      END IF;
-      RETURN NEW;
-    END;
-  $$ LANGUAGE plpgsql;
-
-CREATE TRIGGER delete_comment_aura
-    BEFORE DELETE ON comment_aura
-    FOR EACH ROW EXECUTE PROCEDURE delete_comment_aura();
-
-
-
-
-CREATE FUNCTION check_topics() RETURNS TRIGGER AS $$
-    DECLARE num_topics SMALLINT;
-    DECLARE current RECORD;
-    BEGIN
-        IF TG_OP = 'INSERT' THEN
-          current = NEW;
-        ELSE
-          current = OLD;
-        END IF;
-        SELECT INTO num_topics count(*)
-        FROM post_topic
-        WHERE current.id_post = post_topic.id_post;
-      IF num_topics > 10 THEN
-        RAISE EXCEPTION 'A post can only have a maximum of 10 topics';
-      ELSIF num_topics < 1 THEN
-        RAISE EXCEPTION 'A post must have at least 1 topic';
-      END IF;
-      RETURN NEW;
-    END;
-  $$ LANGUAGE plpgsql;
-
-CREATE TRIGGER check_topics
-    AFTER INSERT OR DELETE ON post_topic
-    FOR EACH ROW EXECUTE PROCEDURE check_topics();
-
-
-CREATE FUNCTION check_date_post() RETURNS TRIGGER AS $$
   BEGIN
-    IF EXISTS (SELECT date_time FROM comment INNER JOIN news_post 
-      ON comment.id_post = news_post.id
-      WHERE comment.date_time < news_post.date_time)
-      THEN
-        RAISE EXCEPTION 'A comment can only be posted afer the post it refers to.';
+    IF NEW.upvote AND NOT OLD.upvote THEN
+      UPDATE comment
+        SET aura = aura + 2
+        WHERE NEW.id_comment = comment.id;    
+      UPDATE member
+        SET aura = aura + 2
+        WHERE NEW.id_voter = member.id;
+
+    ELSIF NOT NEW.upvote AND OLD.upvote THEN
+      UPDATE comment
+        SET aura = aura - 2
+        WHERE NEW.id_comment = comment.id;
+      UPDATE member
+        SET aura = aura - 2
+        WHERE NEW.id_voter = member.id;
     END IF;
     RETURN NEW;
   END;
   $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER check_date_post
+DROP TRIGGER IF EXISTS update_comment_aura ON comment_aura CASCADE;
+CREATE TRIGGER update_comment_aura
+	BEFORE UPDATE ON comment_aura
+	FOR EACH ROW EXECUTE PROCEDURE update_comment_aura();
+
+
+DROP FUNCTION IF EXISTS insert_comment_aura CASCADE;
+CREATE FUNCTION insert_comment_aura() RETURNS TRIGGER AS $$
+  BEGIN
+    IF NEW.upvote THEN
+      UPDATE comment
+        SET aura = aura + 1
+        WHERE NEW.id_comment = comment.id;
+      UPDATE member
+        SET aura = aura + 1
+        WHERE NEW.id_voter = member.id;
+
+    ELSIF NOT NEW.upvote THEN
+      UPDATE comment
+        SET aura = aura - 1
+        WHERE NEW.id_comment = comment.id;
+      UPDATE member
+        SET aura = aura - 1
+        WHERE NEW.id_voter = member.id;
+    END IF;
+    RETURN NEW;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS insert_comment_aura ON comment_aura CASCADE;
+CREATE TRIGGER insert_comment_aura
+  BEFORE INSERT ON comment_aura
+  FOR EACH ROW EXECUTE PROCEDURE insert_comment_aura();
+
+
+DROP FUNCTION IF EXISTS delete_comment_aura CASCADE;
+CREATE FUNCTION delete_comment_aura() RETURNS TRIGGER AS $$
+  BEGIN
+    IF OLD.upvote THEN
+      UPDATE comment
+        SET aura = aura - 1
+        WHERE OLD.id_comment = comment.id;
+      UPDATE member
+        SET aura = aura - 1
+        WHERE OLD.id_voter = member.id;
+
+    ELSIF NOT OLD.upvote THEN
+      UPDATE comment
+        SET aura = aura + 1
+        WHERE OLD.id_comment = comment.id;
+      UPDATE member
+        SET aura = aura + 1
+        WHERE OLD.id_voter = member.id;
+    END IF;
+    RETURN NEW;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS delete_comment_aura ON comment_aura CASCADE;
+CREATE TRIGGER delete_comment_aura
+  BEFORE DELETE ON comment_aura
+  FOR EACH ROW EXECUTE PROCEDURE delete_comment_aura();
+
+
+
+DROP FUNCTION IF EXISTS check_topics CASCADE;
+CREATE FUNCTION check_topics() RETURNS TRIGGER AS $$
+  DECLARE num_topics SMALLINT;
+  DECLARE current RECORD;
+  BEGIN
+    IF TG_OP = 'INSERT' THEN
+      current = NEW;
+    ELSE
+      current = OLD;
+    END IF;
+    SELECT INTO num_topics count(*)
+    FROM post_topic
+    WHERE current.id_post = post_topic.id_post;
+    IF num_topics > 10 THEN
+      RAISE EXCEPTION 'A post can only have a maximum of 10 topics';
+    ELSIF num_topics < 1 THEN
+      RAISE EXCEPTION 'A post must have at least 1 topic';
+    END IF;
+    RETURN NEW;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS check_topics ON post_topic CASCADE;
+CREATE TRIGGER check_topics
+  AFTER INSERT OR DELETE ON post_topic
+  FOR EACH ROW EXECUTE PROCEDURE check_topics();
+
+
+DROP FUNCTION IF EXISTS check_date_post CASCADE;
+CREATE FUNCTION check_date_post() RETURNS TRIGGER AS $$
+  BEGIN
+    IF EXISTS (SELECT news_post.date_time FROM comment INNER JOIN news_post 
+      ON comment.id_post = news_post.id
+      WHERE comment.date_time < news_post.date_time)
+      THEN
+        RAISE EXCEPTION 'A comment can only be posted after the post it refers to.';
+    END IF;
+    RETURN NEW;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS check_date_post ON comment CASCADE;
+CREATE TRIGGER check_date_post 
   BEFORE INSERT ON comment
   FOR EACH ROW
   EXECUTE PROCEDURE check_date_post();
 
 
+DROP FUNCTION IF EXISTS check_date_comment CASCADE;
 CREATE FUNCTION check_date_comment() RETURNS TRIGGER AS $$
   BEGIN
-    IF EXISTS (SELECT date_time FROM comment C1 INNER JOIN reply 
+    IF EXISTS (SELECT C1.date_time FROM comment C1 INNER JOIN reply 
       ON C1.id = reply.id_parent
       INNER JOIN comment C2 
       ON C2.id = reply.id_comment
       WHERE C2.date_time < C1.date_time)
       THEN
-        RAISE EXCEPTION 'A reply can only be posted afer the comment it refers to.';
+        RAISE EXCEPTION 'A reply can only be posted after the comment it refers to.';
     END IF;
     RETURN NEW;
   END;
   $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS check_date_comment ON comment CASCADE;
 CREATE TRIGGER check_date_comment
   BEFORE INSERT ON comment
   FOR EACH ROW
   EXECUTE PROCEDURE check_date_comment();
 
 
+DROP FUNCTION IF EXISTS create_follow_notification CASCADE;
+CREATE FUNCTION create_follow_notification() RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO follow_notification (id_notified, id_follower, date_time) VALUES (NEW.id_followed, NEW.id_follower, now());
+    RETURN NULL;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS create_follow_notification ON member_follow CASCADE;
+CREATE TRIGGER create_follow_notification
+  AFTER INSERT ON member_follow
+  FOR EACH ROW EXECUTE PROCEDURE create_follow_notification();
+
+
+DROP FUNCTION IF EXISTS create_comment_notification CASCADE;
+CREATE FUNCTION create_comment_notification() RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO comment_notification (id_notified, id_comment, date_time) VALUES ((SELECT id_owner FROM news_post WHERE news_post.id=NEW.id_post), NEW.id, now());
+    RETURN NULL;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS create_comment_notification ON comment CASCADE;
+CREATE TRIGGER create_comment_notification
+  AFTER INSERT ON comment
+  FOR EACH ROW EXECUTE PROCEDURE create_comment_notification();
+
+
+DROP FUNCTION IF EXISTS create_reply_notification CASCADE; 
+CREATE FUNCTION create_reply_notification() RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO reply_notification (id_notified, id_reply, date_time) VALUES ((SELECT id_member FROM comment WHERE comment.id=NEW.id_parent), NEW.id_comment, now());
+    RETURN NULL;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS create_reply_notification ON reply CASCADE;
+CREATE TRIGGER create_reply_notification
+  AFTER INSERT ON reply
+  FOR EACH ROW EXECUTE PROCEDURE create_reply_notification();
 
