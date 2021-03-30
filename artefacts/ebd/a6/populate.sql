@@ -2323,7 +2323,7 @@ insert into news_post (id, title, body, date_time, id_owner) values (29, 'Scarle
 
 --https://www.ign.com/articles/gamescom-will-be-a-hybrid-digital-and-physical-event-in-2021
 --Gamescom; Gaming conferences
-insert into news_post (id, title, body, date_time, id_owner) values (30, 'Gamescom Will Be A Hybrid Digital And Physical Event In 2021', 'Koelnmesse has announced that Gamescom 2021 will be a hybrid event, with in-person and digital sections.\nThe team behind the huge European gaming show asked the community what they wanted from this year''s event, using feedback to inform how the Cologne convention would take shape in 2021. "In addition to the digital aspects, the possibility of trying out the latest games on-site and diving into the gaming world form an integral part of Gamescom," the release reads. "This is why Gamescom 2021 is going to be staged as a hybrid event and thus unite the best of both worlds, physical and digital."', TIMESTAMP '2021-02-15 05:52:03', 12);
+insert into news_post (id, title, body, date_time, id_owner) values (30, 'Gamescom Will Be A Hybrid Digital And Physical Event In 2021', 'Koelnmesse has announced that Gamescom 2021 will be a hybrid event, with in-person and digital sections.\nThe team behind the huge European gaming show asked the community what they wanted from this year''s event, using feedback to inform how the Cologne convention would take shape in 2021. "In addition to the digital aspects, the possibility of trying out the latest games on-site and diving into the gaming world form an integral part of Gamescom," the release reads. "This is why Gamescom 2021 is going to be staged as a hybrid event and thus unite the best of both worlds, physical and digital."', TIMESTAMP '2019-02-15 05:52:03', 12);
 
 --https://www.ign.com/articles/marvels-avengers-free-to-play
 --Marvel Avengers; Multiplayer; RPG; Marvel
@@ -7119,8 +7119,8 @@ insert into reply (id_comment, id_parent) values (3, 1);
 insert into comment (id, body, date_time, id_member, id_post) values (4, 'Dammit, I’ve been clean from Warhammer 2 for months. I''m not ready to relapse again....', TIMESTAMP '2018-09-14 06:29:00', 27, 6);
 insert into comment (id, body, date_time, id_member, id_post) values (5, 'This is the game that was so good it was used in a History Channel documentary', TIMESTAMP '2018-09-14 8:30:00', 35, 6);
 
-insert into comment (id, body, date_time, id_member, id_post) values (6, 'Cool finally a developer that doesn''t allow streamers cheating to make videos.', TIMESTAMP '2019-11-04 13:02:30', 1, 7);
-insert into comment (id, body, date_time, id_member, id_post) values (7, 'You can make videos you just have to deal with the shame of being branded a cheater. Makes it even better', TIMESTAMP '2019-11-04 12:42:30', 30, 7);
+insert into comment (id, body, date_time, id_member, id_post) values (6, 'Cool finally a developer that doesn''t allow streamers cheating to make videos.', TIMESTAMP '2019-11-04 12:42:30', 1, 7);
+insert into comment (id, body, date_time, id_member, id_post) values (7, 'You can make videos you just have to deal with the shame of being branded a cheater. Makes it even better', TIMESTAMP '2019-11-04 13:02:30', 30, 7);
 insert into comment (id, body, date_time, id_member, id_post) values (8, 'I''d bet if there wasn''t streamers and tubers, 60-80% of all cheaters would dissapear from games', TIMESTAMP '2019-11-04 22:02:40', 66, 7);
 insert into comment (id, body, date_time, id_member, id_post) values (9, 'Yeah I think I like that better than banning', TIMESTAMP '2019-11-04 12:52:50', 12, 7);
 insert into comment (id, body, date_time, id_member, id_post) values (10, 'Ya, but see the difference is what Outriders is doing is awesome, what you said is stupid and cringepilled.', TIMESTAMP '2019-11-04 15:11:31', 52, 7);
@@ -7230,10 +7230,10 @@ insert into comment (id, body, date_time, id_member, id_post) values (73, 'Gotta
 insert into comment (id, body, date_time, id_member, id_post) values (74, 'I love this game about 130 hours into it. The weakest part is collecting everything in each state but everything else is good. Still have more to do probably be close to 150 hours when I''m done with it.', TIMESTAMP '2018-06-01 00:50:21', 11, 21);
 insert into comment (id, body, date_time, id_member, id_post) values (75, 'Expansion sounds pretty interesting. The transmog ability is definitely a welcome addition.', TIMESTAMP '2018-06-01 02:21:54', 69, 21);
 
-insert into comment (id, body, date_time, id_member, id_post) values (76, 'The weird RAM hold it back more than a weaker GPU.', TIMESTAMP '2020-08-26 11:24:32', 66, 22);
-insert into comment (id, body, date_time, id_member, id_post) values (77, 'Not really man. 8 GB of RAM is a good amount. 8 GB RAM is still the “optimal” amount of RAM in most of the spec listings for games, even newer titles sans VR stuff like HL: Alyx', TIMESTAMP '2020-08-25 17:43:32', 10, 22);
-insert into comment (id, body, date_time, id_member, id_post) values (78, 'Consoles use shared memory though, not a good comparison', TIMESTAMP '2020-08-25 14:23:32', 4, 22);
-insert into comment (id, body, date_time, id_member, id_post) values (79, 'Actually I was wrong, the Series S has 10 GB of RAM, so it has at least 8 GB of usable RAM, at least, if not closer to 9.', TIMESTAMP '2020-08-25 06:54:32', 12, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (76, 'The weird RAM hold it back more than a weaker GPU.', TIMESTAMP '2020-08-25 11:24:32', 66, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (77, 'Not really man. 8 GB of RAM is a good amount. 8 GB RAM is still the “optimal” amount of RAM in most of the spec listings for games, even newer titles sans VR stuff like HL: Alyx', TIMESTAMP '2020-08-25 14:43:32', 10, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (78, 'Consoles use shared memory though, not a good comparison', TIMESTAMP '2020-08-25 17:23:32', 4, 22);
+insert into comment (id, body, date_time, id_member, id_post) values (79, 'Actually I was wrong, the Series S has 10 GB of RAM, so it has at least 8 GB of usable RAM, at least, if not closer to 9.', TIMESTAMP '2020-08-26 06:54:32', 12, 22);
 insert into comment (id, body, date_time, id_member, id_post) values (80, 'Not true at all, devs have control over the minimum spec requirements on pc. They don''t have control over console hardware', TIMESTAMP '2020-08-27 08:43:32', 66, 22);
 insert into reply (id_comment, id_parent) values (77, 76);
 insert into reply (id_comment, id_parent) values (78, 77);
@@ -7305,9 +7305,9 @@ insert into comment (id, body, date_time, id_member, id_post) values (120, 'They
 insert into comment (id, body, date_time, id_member, id_post) values (121, '"each employee laid off was given $200 in gift cards to Battle.net"\nSo random I can just imagine them walking out their office with some sad dude handing them coupons on the way out.', TIMESTAMP '2020-05-13 19:46:21', 32, 32);
 insert into comment (id, body, date_time, id_member, id_post) values (122, 'Just goes to show how out of touch they are.', TIMESTAMP '2020-05-13 21:53:57', 55, 32);
 insert into comment (id, body, date_time, id_member, id_post) values (123, 'Very convenient of you to leave out 3 months of severance package and 1 year health benefits', TIMESTAMP '2020-05-14 09:12:35', 31, 32);
-insert into comment (id, body, date_time, id_member, id_post) values (124, 'Only for the US employees.', TIMESTAMP '2020-05-13 14:54:32', 7, 32);
-insert into comment (id, body, date_time, id_member, id_post) values (125, 'While you assume it was malicious, it could easily be because the non us employees are under socialized healthcare and get non-voluntary serverance through the state.', TIMESTAMP '2020-05-13 19:32:23', 32, 32);
-insert into comment (id, body, date_time, id_member, id_post) values (126, 'Even socialized healthcare doesn’t cover everything.', TIMESTAMP '2020-05-13 20:48:42', 32, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (124, 'Only for the US employees.', TIMESTAMP '2020-05-14 14:54:32', 7, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (125, 'While you assume it was malicious, it could easily be because the non us employees are under socialized healthcare and get non-voluntary serverance through the state.', TIMESTAMP '2020-05-14 19:32:23', 32, 32);
+insert into comment (id, body, date_time, id_member, id_post) values (126, 'Even socialized healthcare doesn’t cover everything.', TIMESTAMP '2020-05-14 20:48:42', 32, 32);
 insert into reply (id_comment, id_parent) values (122, 121);
 insert into reply (id_comment, id_parent) values (123, 121);
 insert into reply (id_comment, id_parent) values (124, 123);
@@ -7317,7 +7317,7 @@ insert into reply (id_comment, id_parent) values (126, 124);
 insert into comment (id, body, date_time, id_member, id_post) values (127, 'I hope they''ve found some funding that offers them the required time it needs, Techland as a company wouldn''t survive a Cyberpunk 2077', TIMESTAMP '2019-12-03 01:23:45', 42, 33);
 insert into comment (id, body, date_time, id_member, id_post) values (128, 'Haha Cyberpunk made plenty of money, and will continue to sell over the years, but if your point is the reception and triggering the legion of angry neck-beards you may be right.', TIMESTAMP '2019-12-04 03:12:21', 31, 33);
 insert into comment (id, body, date_time, id_member, id_post) values (129, 'It will impact future releases from CDPR. They won''t be as successful for sure.', TIMESTAMP '2019-12-04 08:43:32', 70, 33);
-insert into comment (id, body, date_time, id_member, id_post) values (130, 'I’ll still preorder anything they put out that interests me. I never had any issues with cyberpunk 2077 during my 80+ hours of play and will gladly play it several more times, once more content drops for it.', TIMESTAMP '2019-12-04 08:12:15', 9, 33);
+insert into comment (id, body, date_time, id_member, id_post) values (130, 'I’ll still preorder anything they put out that interests me. I never had any issues with cyberpunk 2077 during my 80+ hours of play and will gladly play it several more times, once more content drops for it.', TIMESTAMP '2019-12-04 08:50:15', 9, 33);
 insert into comment (id, body, date_time, id_member, id_post) values (131, 'If you honestly think the next Witcher game (which they confirmed they are working on) is somehow not goin to be absolutely massive after the success of Witcher 3 idk what to tell you.\nPeople will build up less "hype" for it probably, but that is a good thing anyways.', TIMESTAMP '2019-12-05 10:53:36', 5, 33);
 insert into comment (id, body, date_time, id_member, id_post) values (132, 'Totally agree...I hope they are aware of that', TIMESTAMP '2019-12-06 11:25:52', 4, 33);
 insert into comment (id, body, date_time, id_member, id_post) values (133, 'Guess I should finally play the first one since it seems I will have time.', TIMESTAMP '2019-12-10 15:56:12', 11, 33);
@@ -7393,8 +7393,8 @@ insert into reply (id_comment, id_parent) values (174, 173);
 insert into comment (id, body, date_time, id_member, id_post) values (175, 'It''s far from pointless. Zombies still dump a ton of cash.', TIMESTAMP '2020-06-15 17:21:21', 30, 40);
 insert into reply (id_comment, id_parent) values (175, 173);
 
-insert into comment (id, body, date_time, id_member, id_post) values (176, 'Very cool. Incidentally, when can we expect the Series X/S and PS5 updates? Been waiting to play this until those come out :)', TIMESTAMP '2018-12-17 22:14:01', 16, 41);
-insert into comment (id, body, date_time, id_member, id_post) values (177, 'Same I downloaded it to my ps5 and saw that it didn''t have any ps5 upgrade and was mad dissapointed.', TIMESTAMP '2018-12-17 21:23:01', 57, 41);
+insert into comment (id, body, date_time, id_member, id_post) values (176, 'Very cool. Incidentally, when can we expect the Series X/S and PS5 updates? Been waiting to play this until those come out :)', TIMESTAMP '2018-12-17 21:23:01', 16, 41);
+insert into comment (id, body, date_time, id_member, id_post) values (177, 'Same I downloaded it to my ps5 and saw that it didn''t have any ps5 upgrade and was mad dissapointed.', TIMESTAMP '2018-12-17 22:14:01', 57, 41);
 insert into reply (id_comment, id_parent) values (177, 176);
 insert into comment (id, body, date_time, id_member, id_post) values (178, 'Probably see an Xbox Series X|S update before a PS5 update (if any)', TIMESTAMP '2018-12-18 01:05:01', 10, 41);
 insert into reply (id_comment, id_parent) values (178, 177);
@@ -7448,7 +7448,7 @@ insert into comment (id, body, date_time, id_member, id_post) values (213, 'Thes
 insert into comment (id, body, date_time, id_member, id_post) values (214, 'Lol just bring back Google Glass', TIMESTAMP '2020-10-19 05:25:32', 25, 47);
 insert into comment (id, body, date_time, id_member, id_post) values (215, 'But I bet they cant replace my prescription glasses which make these absolutely pointless.', TIMESTAMP '2020-10-19 07:26:43', 26, 47);
 
-insert into comment (id, body, date_time, id_member, id_post) values (216, 'They kinda have to. The PS5 is a desert.', TIMESTAMP '2018-12-07 18:15:00', 60, 48);
+insert into comment (id, body, date_time, id_member, id_post) values (216, 'They kinda have to. The PS5 is a desert.', TIMESTAMP '2018-12-07 19:15:00', 60, 48);
 insert into comment (id, body, date_time, id_member, id_post) values (217, 'It has more current gen only titles than the Series X you spanner lol.', TIMESTAMP '2018-12-07 19:32:00', 53, 48);
 insert into reply (id_comment, id_parent) values (217, 216);
 insert into comment (id, body, date_time, id_member, id_post) values (218, 'That''s great, and who cares, I own a switch and Pc you idiot ', TIMESTAMP '2018-12-07 20:43:00', 11, 48);
@@ -7530,7 +7530,7 @@ insert into comment (id, body, date_time, id_member, id_post) values (265, 'Agre
 insert into reply (id_comment, id_parent) values (265, 264);
 insert into comment (id, body, date_time, id_member, id_post) values (266, 'Wish they could bring a little more detail like Wandavision', TIMESTAMP '2019-11-11 10:40:00', 38, 55);
 insert into comment (id, body, date_time, id_member, id_post) values (267, 'You have to watch theories on youtube, they showcase all the little details', TIMESTAMP '2019-11-11 10:59:00', 11, 55);
-insert into reply (id_comment, id_parent) values (266, 267);
+insert into reply (id_comment, id_parent) values (267, 266);
 insert into comment (id, body, date_time, id_member, id_post) values (268, 'Yeah I watch emergency awesome there and he really has the best theory videos', TIMESTAMP '2019-11-11 11:13:00', 11, 55);
 insert into reply (id_comment, id_parent) values (268, 267);
 insert into comment (id, body, date_time, id_member, id_post) values (269, 'Loved it', TIMESTAMP '2019-11-11 11:20:00', 23, 55);
@@ -22268,7 +22268,7 @@ insert into comment_aura (id_comment, id_voter, upvote) values (466, 67, 'true')
 insert into comment_aura (id_comment, id_voter, upvote) values (466, 69, 'true');
 
 
-
+/*
 insert into follow_notification (id_notified, id_follower, date_time) values (1, 10, TIMESTAMP '2020-03-29 17:30:00');
 insert into follow_notification (id_notified, id_follower, date_time) values (1, 11, TIMESTAMP '2020-03-25 17:30:00');
 insert into follow_notification (id_notified, id_follower, date_time) values (1, 12, TIMESTAMP '2020-03-20 17:30:00');
@@ -22321,3 +22321,4 @@ insert into member_report (id_reporter, id_reported, body, date_time) values (20
 insert into member_report (id_reporter, id_reported, body, date_time) values (41, 13, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (56, 41, 'Posts are offensive', TIMESTAMP '2020-03-15 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (16, 60, 'Impersonating someone', TIMESTAMP '2020-03-01 17:30:00');
+*/
