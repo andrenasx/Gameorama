@@ -1,3 +1,7 @@
+-----------------------------------------
+-- Drop old schmema
+-----------------------------------------
+
 DROP TABLE IF EXISTS member CASCADE;
 DROP TABLE IF EXISTS member_image CASCADE;
 DROP TABLE IF EXISTS member_follow CASCADE;
@@ -19,6 +23,11 @@ DROP TABLE IF EXISTS comment_report CASCADE;
 DROP TABLE IF EXISTS topic_report CASCADE;
 DROP TABLE IF EXISTS member_report CASCADE;
 
+
+-----------------------------------------
+-- Create tables
+-----------------------------------------
+
 CREATE TABLE member_image (
     id serial PRIMARY KEY,
     file bytea NOT NULL
@@ -31,8 +40,8 @@ CREATE TABLE member (
     email text NOT NULL UNIQUE,
     password text NOT NULL,
     bio text,
-    profile_image integer NOT NULL REFERENCES member_image(id),
-    banner_image integer NOT NULL REFERENCES member_image(id),
+    id_profile_image integer NOT NULL REFERENCES member_image(id),
+    id_banner_image integer NOT NULL REFERENCES member_image(id),
     aura integer DEFAULT 0 NOT NULL
 );
 
@@ -53,7 +62,7 @@ CREATE TABLE news_post (
     body text,
     date_time timestamp NOT NULL DEFAULT now(),
     aura integer DEFAULT 0 NOT NULL,
-    owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE
+    id_owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE topic (

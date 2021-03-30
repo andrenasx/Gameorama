@@ -1,3 +1,7 @@
+-----------------------------------------
+-- Frequent Queries
+-----------------------------------------
+
 -- Select member profile image
 DROP VIEW IF EXISTS member_profile_image CASCADE;
 CREATE VIEW member_profile_image AS
@@ -14,8 +18,8 @@ FROM member_image;
 -- Select member information
 SELECT *
 FROM member
-INNER JOIN member_profile_image ON profile_image=pid
-INNER JOIN member_banner_image ON banner_image=bid
+INNER JOIN member_profile_image ON id_profile_image=pid
+INNER JOIN member_banner_image ON id_banner_image=bid
 WHERE member.id = $id_member;
 
 -- Select member password
@@ -99,7 +103,7 @@ ORDER BY aura DESC;
 
 --select all posts from a user 
 SELECT * FROM news_post 
-WHERE owner = $id_user;
+WHERE id_owner = $id_user;
 
 
 --select all comments from a user
@@ -157,7 +161,11 @@ OR body LIKE '%$search%';
 
 
 
-    -- *UPDATES* --
+-----------------------------------------
+-- Frequent Updates
+-----------------------------------------
+
+    --*UPDATES*--
 
 --UPDATE member informations (Edit profile page)
 UPDATE member SET full_name = $full_name, bio = $bio
@@ -178,13 +186,13 @@ WHERE id = $id_post;
 
 insert into member_image (id, file) values ($id, $file));
 
-insert into member (id, username, full_name, email, password, bio, profile_image, banner_image) values ($id, $username, $full_name, $email, $password, $bio, $profile_image, $banner_image)
+insert into member (id, username, full_name, email, password, bio, id_profile_image, id_banner_image) values ($id, $username, $full_name, $email, $password, $bio, $id_profile_image, $id_banner_image)
 
 insert into administrator (id) values ($id);
 
 insert into member_follow (id_followed, id_follower) values ($id_followed, $id_follower);
 
-insert into news_post (id, title, body, date_time, owner) values ($id, $title, $body, $date_time, $owner)
+insert into news_post (id, title, body, date_time, id_owner) values ($id, $title, $body, $date_time, $id_owner)
 
 insert into topic (id, name) values ($id, $name);
 
@@ -215,8 +223,6 @@ insert into comment_report (id_reporter, id_comment, body, date_time) values ($i
 insert into topic_report (id_reporter, id_topic, body, date_time) values ($id_reporter, $id_topic, $body, $date_time)
 
 insert into member_report (id_reporter, id_reported, body, date_time) values ($id_reporter, $id_reported, $body, $date_time) 
-
-
 
 
     --*DELETES*--
@@ -267,12 +273,6 @@ CREATE INDEX IF NOT EXISTS post_date ON news_post USING btree (date_time);
 
 BEGIN TRANSACTION
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
-
-    insert into member (id, username, full_name, email, password, bio, profile_image, banner_image) 
-    values ($id, $username, $full_name, $email, $password, $bio, $profile_image, $banner_image);
-
+    insert into member (id, username, full_name, email, password, bio, id_profile_image, id_banner_image) 
+    values ($id, $username, $full_name, $email, $password, $bio, $id_profile_image, $id_banner_image);
 COMMIT;
-
-
-
-
