@@ -2,23 +2,13 @@
 -- Frequent Queries
 -----------------------------------------
 
--- Select member profile image
-DROP VIEW IF EXISTS member_profile_image CASCADE;
-CREATE VIEW member_profile_image AS
-SELECT id AS pid, file AS p_image
-FROM member_image;
-
--- Select member banner image
-DROP VIEW IF EXISTS member_banner_image CASCADE;
-CREATE VIEW member_banner_image AS
-SELECT id AS bid, file AS b_image
-FROM member_image;
-
 -- Select member information
 SELECT *
 FROM member
-INNER JOIN member_profile_image ON id_profile_image=pid
-INNER JOIN member_banner_image ON id_banner_image=bid
+NATURAL JOIN 
+(SELECT id AS id_profile_image, file AS profile_image FROM member_image) AS member_profile_image
+NATURAL JOIN 
+(SELECT id AS id_banner_image, file AS banner_image FROM member_image) AS member_banner_image
 WHERE member.id = $id_member;
 
 -- Select member password
@@ -27,15 +17,11 @@ FROM member
 WHERE username = $username;
 
 
--- Select post's number of comments
-DROP VIEW IF EXISTS post_num_comments;
-CREATE VIEW post_num_comments AS 
-SELECT id_post AS id, COUNT(*) AS num_comments from comment group by id_post;
-
 -- Select all news posts and respective aura score and number of comments, sorted by recent
 SELECT * 
 FROM news_post
-NATURAL JOIN post_num_comments
+NATURAL JOIN 
+(SELECT id_post AS id, COUNT(*) AS num_comments FROM comment GROUP BY id_post) AS post_num_comments
 ORDER BY news_post.date_time DESC;
 
 -- Select main page trending posts - posts from last 2 weeks with the most amount of aura score
@@ -91,13 +77,9 @@ FROM member
 ORDER BY aura DESC LIMIT 5;
 
 -- Select most popular topics (5 topics with the most amount of followers)
-DROP VIEW IF EXISTS num_followers_topics;
-CREATE VIEW num_followers_topics AS
-SELECT id_topic AS id, COUNT(*) AS num_followers FROM topic_follow
-GROUP BY id_topic;
-
 SELECT * FROM topic
-NATURAL JOIN num_followers_topics
+NATURAL JOIN 
+(SELECT id_topic AS id, COUNT(*) AS num_followers FROM topic_follow GROUP BY id_topic) AS num_followers_topics
 ORDER BY num_followers DESC
 LIMIT 5;
 
@@ -119,46 +101,25 @@ WHERE id_member = $id_user;
 
 
 -- Select most reported members
-DROP VIEW IF EXISTS reported_members CASCADE;
-CREATE VIEW reported_members AS
-SELECT id_reported AS id, COUNT(*) AS num_reports FROM member_report 
-GROUP BY id_reported;
-
 SELECT * FROM member
-NATURAL JOIN reported_members
+NATURAL JOIN (SELECT id_reported AS id, COUNT(*) AS num_reports FROM member_report GROUP BY id_reported) AS reported_members
 ORDER BY num_reports DESC;
 
 
 -- Select most reported posts
-DROP VIEW IF EXISTS reported_posts CASCADE;
-CREATE VIEW reported_posts AS
-SELECT id_post AS id, COUNT(*) AS num_reports FROM post_report 
-GROUP BY id_post;
-
 SELECT * FROM news_post
-NATURAL JOIN reported_posts
+NATURAL JOIN (SELECT id_post AS id, COUNT(*) AS num_reports FROM post_report GROUP BY id_post) AS reported_posts
 ORDER BY num_reports DESC;
 
 
 -- Select most reported topics
-DROP VIEW IF EXISTS reported_topics CASCADE;
-CREATE VIEW reported_topics AS
-SELECT id_topic AS id, COUNT(*) AS num_reports FROM topic_report 
-GROUP BY id_topic;
-
 SELECT * FROM topic
-NATURAL JOIN reported_topics
+NATURAL JOIN (SELECT id_topic AS id, COUNT(*) AS num_reports FROM topic_report GROUP BY id_topic) AS reported_topics
 ORDER BY num_reports DESC;
 
-
 -- Select most reported comments
-DROP VIEW IF EXISTS reported_comments CASCADE;
-CREATE VIEW reported_comments AS
-SELECT id_comment AS id, COUNT(*) AS num_reports FROM comment_report 
-GROUP BY id_comment;
-
 SELECT * FROM comment
-NATURAL JOIN reported_comments
+NATURAL JOIN (SELECT id_comment AS id, COUNT(*) AS num_reports FROM comment_report GROUP BY id_comment) AS reported_comments
 ORDER BY num_reports DESC;
 
 
@@ -217,7 +178,7 @@ INSERT INTO administrator (id) VALUES ($id);
 
 INSERT INTO member_follow (id_followed, id_follower) VALUES ($id_followed, $id_follower);
 
-INSERT INTO news_post (title, body, date_time, id_owner) VALUES ($title, $body, $date_time, $id_owner);
+INSERT INTO news_post (title, body, id_owner) VALUES ($title, $body, $id_owner);
 
 INSERT INTO topic (name) VALUES ($name) ON CONFLICT DO NOTHING;
 
@@ -225,7 +186,7 @@ INSERT INTO topic_follow (id_topic, id_member) VALUES ($id_topic, $id_member);
 
 INSERT INTO post_topic (id_topic,id_post) VALUES ($id_topic, $id_post);
 
-INSERT INTO comment (body, date_time, id_member, id_post) VALUES ($body, $date_time, $id_member, $id_post);
+INSERT INTO comment (body, id_member, id_post) VALUES ($body, $id_member, $id_post);
 
 INSERT INTO reply (id_comment, id_parent) VALUES ($id_comment, $id_parent);
 
@@ -235,19 +196,28 @@ INSERT INTO post_aura (id_post, id_voter, upvote) VALUES ($id_post, $id_voter, $
 
 INSERT INTO comment_aura (id_comment, id_voter, upvote) VALUES ($id_comment, $id_voter, $upvote);
 
-INSERT INTO post_report (id_reporter, id_post, body, date_time) VALUES ($id_reporter, $id_post, $body, $date_time);
+INSERT INTO follow_notification (id_followed, id_follower) VALUES ($id_followed, $id_follower);
 
-INSERT INTO comment_report (id_reporter, id_comment, body, date_time) VALUES ($id_reporter, $id_comment, $body, $date_time);
+INSERT INTO comment_notification (id_notified, id_comment) VALUES ($id_notified, $id_comment);
 
-INSERT INTO topic_report (id_reporter, id_topic, body, date_time) VALUES ($id_reporter, $id_topic, $body, $date_time);
+INSERT INTO reply_notification (id_notified, id_comment) VALUES ($id_notified, $id_comment);
 
-INSERT INTO member_report (id_reporter, id_reported, body, date_time) VALUES ($id_reporter, $id_reported, $body, $date_time);
+INSERT INTO post_report (id_reporter, id_post, body) VALUES ($id_reporter, $id_post, $body);
+
+INSERT INTO comment_report (id_reporter, id_comment, body) VALUES ($id_reporter, $id_comment, $body);
+
+INSERT INTO topic_report (id_reporter, id_topic, body) VALUES ($id_reporter, $id_topic, $body);
+
+INSERT INTO member_report (id_reporter, id_reported, body) VALUES ($id_reporter, $id_reported, $body);
 
 
     --*DELETES*--
 
 --Deletes a member (delete account) from the DBMS
 DELETE FROM member WHERE id = $id_member;
+
+--Deletes a member image
+DELETE FROM member_image WHERE id = $id_image;
 
 --Delete from member_follow when a member unfollows another member
 DELETE FROM member_follow
@@ -258,6 +228,12 @@ AND id_followed = $id_followed;
 DELETE FROM topic_follow
 WHERE id_member = $id_member
 AND id_topic = $id_topic;
+
+--Delete a post
+DELETE FROM news_post WHERE id = $id_post;
+
+--Delete a comment
+DELETE FROM comment WHERE id = $id_comment;
 
 --Delete a vote from a post
 DELETE FROM post_aura
@@ -300,16 +276,3 @@ CREATE INDEX IF NOT EXISTS member_username ON member USING gist (to_tsvector('en
 DROP INDEX IF EXISTS search_posts;
 CREATE INDEX search_posts ON news_post USING gist (to_tsvector('english', title));
 
------------------------------------------
--- Transactions
------------------------------------------
-
---inserting members into the DBMS
---concurrent transactions cannot read uncommited data (and data cannot change)
---isolation level: REPEATABLE READ
-
-BEGIN TRANSACTION
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
-    INSERT INTO member (id, username, full_name, email, password, bio, id_profile_image, id_banner_image) 
-    VALUES ($id, $username, $full_name, $email, $password, $bio, $id_profile_image, $id_banner_image);
-COMMIT;
