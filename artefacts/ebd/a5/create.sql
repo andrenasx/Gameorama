@@ -40,8 +40,8 @@ CREATE TABLE member (
     email text NOT NULL UNIQUE,
     password text NOT NULL,
     bio text,
-    id_profile_image integer NOT NULL REFERENCES member_image(id),
-    id_banner_image integer NOT NULL REFERENCES member_image(id),
+    id_profile_image integer NOT NULL DEFAULT 1 REFERENCES member_image(id) ON DELETE SET DEFAULT,
+    id_banner_image integer NOT NULL DEFAULT 2 REFERENCES member_image(id) ON DELETE SET DEFAULT,
     aura integer DEFAULT 0 NOT NULL
 );
 

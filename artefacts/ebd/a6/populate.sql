@@ -22289,7 +22289,7 @@ insert into reply_notification (id_notified, id_reply, date_time) values (8, 137
 insert into reply_notification (id_notified, id_reply, date_time) values (20, 139, TIMESTAMP '2019-03-15 13:21:54');
 insert into reply_notification (id_notified, id_reply, date_time) values (39, 141, TIMESTAMP '2019-03-15 23:29:18');
 insert into reply_notification (id_notified, id_reply, date_time) values (47, 142, TIMESTAMP '2019-03-15 23:59:58');
-
+*/
 
 
 insert into post_report (id_reporter, id_post, body, date_time) values (11, 34, 'This is misinformation', TIMESTAMP '2019-03-20 09:50:35');
@@ -22321,4 +22321,3 @@ insert into member_report (id_reporter, id_reported, body, date_time) values (20
 insert into member_report (id_reporter, id_reported, body, date_time) values (41, 13, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (56, 41, 'Posts are offensive', TIMESTAMP '2020-03-15 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (16, 60, 'Impersonating someone', TIMESTAMP '2020-03-01 17:30:00');
-*/
