@@ -11,7 +11,7 @@ CREATE FUNCTION update_post_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_post = news_post.id;
       UPDATE member
         SET aura = aura + 2
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM news_post WHERE NEW.id_post = news_post.id) = member.id;
 
     ELSIF NOT NEW.upvote AND OLD.upvote THEN
       UPDATE news_post
@@ -19,7 +19,7 @@ CREATE FUNCTION update_post_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_post = news_post.id;
       UPDATE member
         SET aura = aura - 2
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM news_post WHERE NEW.id_post = news_post.id) = member.id;
     END IF;
     RETURN NEW;
   END;
@@ -40,7 +40,7 @@ CREATE FUNCTION insert_post_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_post = news_post.id;
       UPDATE member
         SET aura = aura + 1
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM news_post WHERE NEW.id_post = news_post.id) = member.id;
 
     ELSIF NOT NEW.upvote THEN
       UPDATE news_post
@@ -48,7 +48,7 @@ CREATE FUNCTION insert_post_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_post = news_post.id;
       UPDATE member
         SET aura = aura - 1
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM news_post WHERE NEW.id_post = news_post.id) = member.id;
     END IF;
     RETURN NEW;
   END;
@@ -69,7 +69,7 @@ CREATE FUNCTION delete_post_aura() RETURNS TRIGGER AS $$
         WHERE OLD.id_post = news_post.id;
       UPDATE member
         SET aura = aura - 1
-        WHERE OLD.id_voter = member.id;
+        WHERE (SELECT id_owner FROM news_post WHERE OLD.id_post = news_post.id) = member.id;
 
     ELSIF NOT OLD.upvote THEN
       UPDATE news_post
@@ -77,7 +77,7 @@ CREATE FUNCTION delete_post_aura() RETURNS TRIGGER AS $$
         WHERE OLD.id_post = news_post.id;
       UPDATE member
         SET aura = aura + 1
-        WHERE OLD.id_voter = member.id;
+        WHERE (SELECT id_owner FROM news_post WHERE OLD.id_post = news_post.id) = member.id;
     END IF;
     RETURN NEW;
   END;
@@ -98,7 +98,7 @@ CREATE FUNCTION update_comment_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_comment = comment.id;    
       UPDATE member
         SET aura = aura + 2
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM comment WHERE NEW.id_comment = comment.id) = member.id;
 
     ELSIF NOT NEW.upvote AND OLD.upvote THEN
       UPDATE comment
@@ -106,7 +106,7 @@ CREATE FUNCTION update_comment_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_comment = comment.id;
       UPDATE member
         SET aura = aura - 2
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM comment WHERE NEW.id_comment = comment.id) = member.id;
     END IF;
     RETURN NEW;
   END;
@@ -127,7 +127,7 @@ CREATE FUNCTION insert_comment_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_comment = comment.id;
       UPDATE member
         SET aura = aura + 1
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM comment WHERE NEW.id_comment = comment.id) = member.id;
 
     ELSIF NOT NEW.upvote THEN
       UPDATE comment
@@ -135,7 +135,7 @@ CREATE FUNCTION insert_comment_aura() RETURNS TRIGGER AS $$
         WHERE NEW.id_comment = comment.id;
       UPDATE member
         SET aura = aura - 1
-        WHERE NEW.id_voter = member.id;
+        WHERE (SELECT id_owner FROM comment WHERE NEW.id_comment = comment.id) = member.id;
     END IF;
     RETURN NEW;
   END;
@@ -156,7 +156,7 @@ CREATE FUNCTION delete_comment_aura() RETURNS TRIGGER AS $$
         WHERE OLD.id_comment = comment.id;
       UPDATE member
         SET aura = aura - 1
-        WHERE OLD.id_voter = member.id;
+        WHERE (SELECT id_owner FROM comment WHERE OLD.id_comment = comment.id) = member.id;
 
     ELSIF NOT OLD.upvote THEN
       UPDATE comment
@@ -164,7 +164,7 @@ CREATE FUNCTION delete_comment_aura() RETURNS TRIGGER AS $$
         WHERE OLD.id_comment = comment.id;
       UPDATE member
         SET aura = aura + 1
-        WHERE OLD.id_voter = member.id;
+        WHERE (SELECT id_owner FROM comment WHERE OLD.id_comment = comment.id) = member.id;
     END IF;
     RETURN NEW;
   END;
@@ -278,7 +278,7 @@ CREATE TRIGGER create_comment_notification
 DROP FUNCTION IF EXISTS create_reply_notification CASCADE; 
 CREATE FUNCTION create_reply_notification() RETURNS TRIGGER AS $$
   BEGIN
-    INSERT INTO reply_notification (id_notified, id_reply, date_time) VALUES ((SELECT id_member FROM comment WHERE comment.id=NEW.id_parent), NEW.id_comment, now());
+    INSERT INTO reply_notification (id_notified, id_reply, date_time) VALUES ((SELECT id_owner FROM comment WHERE comment.id=NEW.id_parent), NEW.id_comment, now());
     RETURN NULL;
   END;
   $$ LANGUAGE plpgsql;
@@ -288,3 +288,29 @@ CREATE TRIGGER create_reply_notification
   AFTER INSERT ON reply
   FOR EACH ROW EXECUTE PROCEDURE create_reply_notification();
 
+
+DROP FUNCTION IF EXISTS auto_post_upvote CASCADE;
+CREATE FUNCTION auto_post_upvote() RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO post_aura(id_post, id_voter, upvote) VALUES(NEW.id, NEW.id_owner, 'true');
+    RETURN NULL;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS auto_post_upvote ON news_post CASCADE;
+CREATE TRIGGER auto_post_upvote
+  AFTER INSERT ON news_post
+  FOR EACH ROW EXECUTE PROCEDURE auto_post_upvote();
+
+DROP FUNCTION IF EXISTS auto_comment_upvote CASCADE;
+CREATE FUNCTION auto_comment_upvote() RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO comment_aura(id_comment, id_voter, upvote) VALUES(NEW.id, NEW.id_owner, 'true');
+    RETURN NULL;
+  END;
+  $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS auto_comment_upvote ON comment CASCADE;
+CREATE TRIGGER auto_comment_upvote
+  AFTER INSERT ON comment
+  FOR EACH ROW EXECUTE PROCEDURE auto_comment_upvote();
