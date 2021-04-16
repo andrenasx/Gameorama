@@ -69,7 +69,8 @@ FROM news_post
 NATURAL JOIN 
 (SELECT id_post AS id, COUNT(*) AS num_comments FROM comment GROUP BY id_post) AS post_num_comments
 INNER JOIN member ON id_owner = member.id
-INNER JOIN post_bookmark ON news_post.id = id_post
+INNER JOIN post_bookmark ON news_post.id = post_bookmark.id_post
+WHERE id_bookmarker = $id_member
 ORDER BY news_post.date_time DESC;
 
 
