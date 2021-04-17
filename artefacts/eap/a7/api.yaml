@@ -24,6 +24,7 @@ tags:
   - name: 'M07: Administrator and Static Pages'
 
 paths:
+  # M01
   /login:
     get:
       operationId: R101
@@ -65,11 +66,9 @@ paths:
                 type: string
               examples:
                 302Success:
-                  description: 'Successful authentication. Redirect to user feed.'
-                  value: '/users/{id}'
+                  description: 'Successful authentication. Redirect to previous page.'
                 302Error:
-                  description: 'Failed authentication. Redirect to login form.'
-                  value: '/login'
+                  description: 'Failed authentication. Redirect to previous page.'
  
   /logout:
     post:
@@ -100,6 +99,8 @@ paths:
       responses:
         '200':
           description: 'Ok. Show [UI07](https://web.fe.up.pt/~jlopes/doku.php/doc/lbaw/201920/medialib/a03#ui07sign_up)'
+        '404':
+          description: 'Page not found. Show [UI14](https://user-images.githubusercontent.com/55626181/111075873-d15d6900-84e1-11eb-97bc-0951d6b2a6fb.png)'
 
     post:
       operationId: R105
@@ -107,24 +108,29 @@ paths:
       description: 'Processes the new user registration form submission. Access: PUB'
       tags:
         - 'M01: Authentication and Individual Profile'
-
       requestBody:
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties: 
+              properties:
                 name:
                   type: string
                 email:
                   type: string
-                picture:
+                username:
                   type: string
-                  format: binary
+                password:
+                  type: string
+                confirm_password:
+                  type: string
               required:
+                - name
                 - email
+                - username
                 - password
+                - confirm_password
 
       responses:
         '302':
@@ -140,144 +146,397 @@ paths:
                 302Failure:
                   description: 'Failed authentication. Redirect to login form.'
                   value: '/login'
-    
-    
-    
-    
-  #EXAMPLE BELLOW
-  /inventory:
+
+  /user/{username}:
     get:
+      operationId: R10X
+      summary: 'R10X: Members Profile'
+      description: 'Page that shows users information, created posts, comments, bookmarked posts. Access: PUB'
       tags:
-        - developers
-      summary: searches inventory
-      operationId: searchInventory
-      description: |
-        By passing in the appropriate options, you can search for
-        available inventory in the system
+        - 'M01: Authentication and Individual Profile'
       parameters:
-        - in: query
-          name: searchString
-          description: pass an optional search string for looking up inventory
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: skip
-          description: number of records to skip for pagination
-          schema:
-            type: integer
-            format: int32
-            minimum: 0
-        - in: query
-          name: limit
-          description: maximum number of records to return
-          schema:
-            type: integer
-            format: int32
-            minimum: 0
-            maximum: 50
+        - in: path
+        name: username
+        required: true
+        description: 'Specifies the username for the profile'
       responses:
         '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InventoryItem'
-        '400':
-          description: bad input parameter
-    post:
+          description: 'Ok. Show [UI07]()'
+        '404':
+          description: 'User not found. Show [UI14]()'
+
+    delete:
+      operationId: R10X
+      summary: 'R10X: Delete account'
+      description: 'Allows a user to delete his account. Access OWN, ADM'
       tags:
-        - admins
-      summary: adds an inventory item
-      operationId: addInventory
-      description: Adds an item to the system
+        - 'M01: Authentication and Individual Profile'
+
+  /account_settings:
+    get:
+      operationId: R10X
+      summary: 'R10X: Member account settings'
+      description: 'Page to edit users account. Access: PUB'
+      tags:
+        - 'M01: Authentication and Individual Profile'
       responses:
-        '201':
-          description: item created
-        '400':
-          description: 'invalid input, object invalid'
-        '409':
-          description: an existing item already exists
+        '200':
+          description: 'Ok. Show [UI07]()'
+    
+  /account_settings/change_email:
+    put:
+      operationId: R10X
+      summary: 'R10X: Change members email'
+      description: 'Allows a member to change its email. Access: OWN'
+      tags:
+        - 'M01: Authentication and Individual Profile'
       requestBody:
+        required: true
         content:
-          application/json:
+          application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/InventoryItem'
-        description: Inventory item to add
+              type: object
+              properties:
+                old_email:
+                  type: string
+                new_email:
+                  type: string
+                conf_new_email:
+                  type: string
+              required:
+                - old_email
+                - new_emai
+                - conf_new_email      
+      responses:
+        "200":
+          description: "Updated email."
+        "403":
+          description: "Forbidden access"
+        "404":
+          description: "Page not found"
+
+  /account_settings/change_password:
+    put:
+      operationId: R10X
+      summary: 'R10X: Change members password'
+      description: 'Allows a member to change its email. Access: OWN'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                new_password:
+                  type: string
+                conf_new_password:
+                  type: string
+              required:
+                - old_password
+                - new_password
+                - conf_new_password      
+      responses:
+        "200":
+          description: "Updated password."
+        "403":
+          description: "Forbidden access"
+        "404":
+          description: "Page not found"
+  
+  /follow/{id_member}:
+    post:
+      operationId: R10X
+      summary: 'R10X: Follow a member'
+      description: 'Allows a member to follow another member. Access: USR'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      parameters:
+        - in: path
+        name: id_member
+        required: true
+        description: 'Specifies the id of the member that will be followed'
+      responses:
+        "200":
+          description: "Member followed successfully"
+        "400":
+          description: "Invalid member ID"
+        "404":
+          description: "Member not found"
+    delete:
+      operationId: R10X
+      summary: 'R10X: Unfollow a member'
+      description: 'Allows a member to unfollow another member. Access: USR'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      parameters:
+        - in: path
+        name: id_member
+        required: true
+        description: 'Specifies the id of the member that will be unfollowed'
+      responses:
+        "200":
+          description: "Member unfollowed successfully"
+        "400":
+          description: "Invalid member ID"
+        "404":
+          description: "Member not found"  
+  /report/{id}:
+
+  
+
+  # M02
+  /home/{filter}:
+    get:
+      operationId: R201
+      summary: 'R201: Shows feed'
+      description: 'Obtains main page posts for a member based on a search criteria. Access: PUB'
+      tags:
+        - 'M02: Posts'
+      parameters:
+        - in: path
+        name: filter
+        required: true
+        description: 'Specifies the search parameter for posts shown in main page'
+        schema:
+          type: string
+          enum: [feed,trending,latest]
+        responses:
+          '200':
+            description: 'Ok. Show [UI01]()'
+          '404':
+            description: 'Invalid filter: Show [UI14]()'
+
+  /post/new_post:
+    get:
+      operationId: R203
+      summary: 'R203: Shows create post page'
+      description: 'Allows member to access create post page. Access: PUB'
+      tags:
+        - 'M02: Posts'
+      responses:
+        '200':
+          description: 'Ok. Show [UI05]()'
+          
+    
+    post:
+      operationId: R203
+      summary: 'R203: Adds a news post'
+      description: 'Allows a member to create a news post. Access: PUB'
+      tags:
+        - 'M02: Posts'
+      
+
+  /post/{id_post}:
+    get:
+      operationId: R202
+      summary: 'R202: Shows post'
+      description: 'Shows a post and its comments. Access: PUB'
+      tags:
+        - 'M02: Posts'
+      parameters:
+        - in: path
+        name: id_post 
+        required: true
+        description: 'Specifies the id of the post to be displayed'
+      responses:
+        '200':
+          description: 'Ok. Show [UI04]()'
+        '404':
+          description: 'Invalid post id: Show [UI14]()'
+
+    /post/{id_post}/edit:
+      get:
+        operationId: R204
+        summary: 'R204: Shows edit post page'
+        description: 'Allows a member to edit his post. Access: OWN'
+        tags:
+          - 'M02: Posts'
+        parameters:
+          - in: path
+          name: id_post 
+          required: true
+          description: 'Specifies the id of the post to be edited'
+        responses:
+          '200':
+            description: 'Ok. Show [UI06]()'
+          '403':
+            description: 'Forbidden access'
+          '404':
+            description: 'Invalid post id: Show [UI14]()'
+    
+      put:
+        operationId: R205
+        summary: 'R205: Edit a post'
+        description: 'Edits the content of a post. Access: OWN'
+        tags: 
+          - 'M02: Posts'
+        parameters:
+          - in: path
+          name: id 
+          required: true
+          description: 'Specifies the id of the post to be edited'
+        requestBody:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/NewsPost'
+        responses:
+          '302':
+            description: 'Redirect after updating the news_post content.'
+            headers:
+              Location:
+                schema:
+                  type: string
+                examples:
+                  302Success:
+                    description: 'Successful edition. Redirect to previous page.'
+                  302Error:
+                    description: 'Failed edition. Redirect to previous page.'
+      
+
+
+
+
+
+  /post/{id_post}/comment:         
+    put:
+      operationId: R301
+      summary: 'R301: Comment on a post'
+      description: 'Allows a member to comment on a post. Access: USR'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_post 
+        required: true
+        description: 'Specifies the id of the post to be commented'
+      requestBody:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/Comment'     
+      responses:
+        "200":
+          description: "Created comment"
+        "404":
+          description: "Not found"
+
+  /comment/{id_comment}/reply:         
+    put:
+      operationId: R302
+      summary: 'R301: Reply on a comment'
+      description: 'Allows a member to reply on a comment. Access: USR'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment 
+        required: true
+        description: 'Specifies the id of the comment to be replied'
+      requestBody:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/Reply'     
+      responses:
+        "200":
+          description: "Created reply"
+        "404":
+          description: "Not found"
+
+  
+  
+
+
 components:
   schemas:
     Member:
       type: object
       properties:
         id:
-          type: 
-
+          type: integer
+        username:
+          type: string
+        full_name:
+          type: string
+        bio:
+          type: string
+        aura:
+          type: integer
+        profile_image:
+          type: string
+          format: byte
+        banner_image:
+          type: string
+          format: byte
     Topic:
       type: object
       properties:
         id:
           type: integer
-          
-
-    NewsPost:
-      type: object
-
-
+        name:
+          type: string
     Comment:
       type: object
-
-
-
-    MemberReport:
-      type: object
-
-    PostReport:
-      type: object
-
-    CommentReport:
-      type: object
-
-    TopicReport:
-      type: object
-
-
-      
-
-    InventoryItem:
-      type: object
-      required:
-        - id
-        - name
-        - manufacturer
-        - releaseDate
       properties:
         id:
+          type: integer
+        body:
           type: string
-          format: uuid
-          example: d290f1ee-6c54-4b01-90e6-d701748f0851
-        name:
-          type: string
-          example: Widget Adapter
-        releaseDate:
+        date_time:
           type: string
           format: date-time
-          example: '2016-08-29T09:12:33.001Z'
-        manufacturer:
-          $ref: '#/components/schemas/Manufacturer'
-    Manufacturer:
-      required:
-        - name
-      properties:
-        name:
-          type: string
-          example: ACME Corporation
-        homePage:
-          type: string
-          format: url
-          example: 'https://www.acme-corp.com'
-        phone:
-          type: string
-          example: 408-867-5309
+        aura:
+          type: integer
+        id_owner:
+          type: integer
+    Reply:
       type: object
+      properties:
+        id:
+          type: integer
+        body:
+          type: string
+        date_time:
+          type: string
+          format: date-time
+        aura:
+          type: integer
+        id_owner:
+          type: integer
+        id_parent:
+          type: integer
+    NewsPost:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+        date_time:
+          type: string
+          format: date-time
+        aura:
+          type: integer
+        id_owner:
+          type: integer
+        username:
+          type: string
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Topic'
+        images:
+          type: array
+          items: 
+            type: string
+            format: byte
