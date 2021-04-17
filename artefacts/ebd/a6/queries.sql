@@ -3,7 +3,7 @@
 -----------------------------------------
 
 -- Select member information
-SELECT *
+SELECT id, username, full_name, bio, aura, profile_image, banner_image
 FROM member
 NATURAL JOIN 
 (SELECT id AS id_profile_image, file AS profile_image FROM member_image) AS member_profile_image
@@ -17,29 +17,23 @@ FROM member
 WHERE username = $username;
 
 
--- Select all news posts and respective aura score and number of comments, sorted by recent
-SELECT news_post.id, title, body, date_time, news_post.aura, num_comments, id_owner, username
+-- Select all news posts and respective owner, sorted by recent
+SELECT news_post.id, title, body, date_time, news_post.aura, id_owner, username
 FROM news_post
-NATURAL JOIN 
-(SELECT id_post AS id, COUNT(*) AS num_comments FROM comment GROUP BY id_post) AS post_num_comments
 INNER JOIN member ON id_owner = member.id
 ORDER BY news_post.date_time DESC;
 
 -- Select main page trending posts - posts from last 2 weeks with the most amount of aura score
-SELECT news_post.id, title, body, date_time, news_post.aura, num_comments, id_owner, username
+SELECT news_post.id, title, body, date_time, news_post.aura, id_owner, username
 FROM news_post
-NATURAL JOIN 
-(SELECT id_post AS id, COUNT(*) AS num_comments FROM comment GROUP BY id_post) AS post_num_comments
 INNER JOIN member ON id_owner = member.id
 WHERE date_time BETWEEN NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER - 14 
 AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER + 1
 ORDER BY aura DESC;
 
 -- Select all news_posts for a member feed
-SELECT news_post.id, title, body, date_time, news_post.aura, num_comments, id_owner, username
+SELECT news_post.id, title, body, date_time, news_post.aura, id_owner, username
 FROM news_post
-NATURAL JOIN 
-(SELECT id_post AS id, COUNT(*) AS num_comments FROM comment GROUP BY id_post) AS post_num_comments
 INNER JOIN member ON id_owner = member.id
 WHERE news_post.id IN
 (
@@ -64,22 +58,30 @@ FROM post_bookmark
 WHERE id_post = $id_post AND id_bookmarker = $id_member
 
 -- Select all member's bookmarked posts
-SELECT DISTINCT news_post.id, title, body, date_time, news_post.aura, num_comments, id_owner, username
+SELECT news_post.id, title, body, date_time, news_post.aura, id_owner, username
 FROM news_post
-NATURAL JOIN 
-(SELECT id_post AS id, COUNT(*) AS num_comments FROM comment GROUP BY id_post) AS post_num_comments
 INNER JOIN member ON id_owner = member.id
 INNER JOIN post_bookmark ON news_post.id = post_bookmark.id_post
 WHERE id_bookmarker = $id_member
 ORDER BY news_post.date_time DESC;
 
 
--- Select topics for a post
+-- Select topics from a post
 SELECT id, name
 FROM post_topic 
 INNER JOIN topic ON topic.id = post_topic.id_topic
 WHERE id_post = $id_post;
 
+-- Select all images from a post
+SELECT id, file
+FROM post_image
+WHERE id_post = $id_post;
+
+
+-- Select number of comments of a post
+SELECT COUNT(*)
+FROM comment
+WHERE id_post = $id_post;
 
 -- Select all "parent" comments from a post
 SELECT id, body, date_time, aura, id_owner, id_post
@@ -271,8 +273,6 @@ INSERT INTO comment_report (id_reporter, id_comment, body) VALUES ($id_reporter,
 INSERT INTO topic_report (id_reporter, id_topic, body) VALUES ($id_reporter, $id_topic, $body);
 
 INSERT INTO member_report (id_reporter, id_reported, body) VALUES ($id_reporter, $id_reported, $body);
-
-insert into post_bookmark (id_post, id_bookmarker) values ($id_post, $id_bookmarker);
 
 
     --*DELETES*--
