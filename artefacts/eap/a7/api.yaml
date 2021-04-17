@@ -69,6 +69,8 @@ paths:
                   description: 'Successful authentication. Redirect to previous page.'
                 302Error:
                   description: 'Failed authentication. Redirect to previous page.'
+        '400':
+          description: 'Bad Request'
  
   /logout:
     post:
@@ -88,6 +90,7 @@ paths:
                 302Success:
                   description: 'Successful logout. Redirect to login form.'
                   value: '/login'
+        
 
   /register:
     get:
@@ -99,6 +102,8 @@ paths:
       responses:
         '200':
           description: 'Ok. Show [UI07](https://web.fe.up.pt/~jlopes/doku.php/doc/lbaw/201920/medialib/a03#ui07sign_up)'
+        '400':
+          description: 'Bad Request'
         '404':
           description: 'Page not found. Show [UI14](https://user-images.githubusercontent.com/55626181/111075873-d15d6900-84e1-11eb-97bc-0951d6b2a6fb.png)'
 
@@ -146,6 +151,8 @@ paths:
                 302Failure:
                   description: 'Failed authentication. Redirect to login form.'
                   value: '/login'
+        '400':
+          description: 'Bad Request'
 
   /user/{username}:
     get:
@@ -162,6 +169,8 @@ paths:
       responses:
         '200':
           description: 'Ok. Show [UI07]()'
+        '400':
+          description: 'Bad Request'
         '404':
           description: 'User not found. Show [UI14]()'
 
@@ -182,6 +191,8 @@ paths:
       responses:
         '200':
           description: 'Ok. Show [UI07]()'
+        '400':
+          description: 'Bad Request'
     
   /account_settings/change_email:
     put:
@@ -205,11 +216,13 @@ paths:
                   type: string
               required:
                 - old_email
-                - new_emai
+                - new_email
                 - conf_new_email      
       responses:
         "200":
           description: "Updated email."
+        '400':
+          description: 'Bad Request'
         "403":
           description: "Forbidden access"
         "404":
@@ -242,6 +255,8 @@ paths:
       responses:
         "200":
           description: "Updated password."
+        '400':
+          description: 'Bad Request'
         "403":
           description: "Forbidden access"
         "404":
@@ -285,7 +300,6 @@ paths:
         "404":
           description: "Member not found"  
   /report/{id}:
-
   
 
   # M02
@@ -304,36 +318,71 @@ paths:
         schema:
           type: string
           enum: [feed,trending,latest]
-        responses:
-          '200':
-            description: 'Ok. Show [UI01]()'
-          '404':
-            description: 'Invalid filter: Show [UI14]()'
+      responses:
+        '200':
+          description: 'Ok. Show [UI01]()'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Invalid filter: Show [UI14]()'
 
   /post/new_post:
     get:
       operationId: R203
       summary: 'R203: Shows create post page'
-      description: 'Allows member to access create post page. Access: PUB'
+      description: 'Allows member to access create post page. Access: USR'
       tags:
         - 'M02: Posts'
       responses:
         '200':
           description: 'Ok. Show [UI05]()'
-          
-    
+        '400':
+          description: 'Bad Request'
+        '302':
+          description: 'Redirect visitor.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Redirect to login form'
+                  value: '/login'
+        
+            
     post:
-      operationId: R203
-      summary: 'R203: Adds a news post'
-      description: 'Allows a member to create a news post. Access: PUB'
+      operationId: R204
+      summary: 'R204: Adds a news post'
+      description: 'Allows a member to create a news post. Access: USR'
       tags:
         - 'M02: Posts'
-      
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NewsPost'
+      responses:
+        '302':
+          description: 'Redirect visitor.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Redirect to login form.'
+                  value: '/login'
+        
+        '400':
+          description: 'Bad Request'
+        
 
+      
   /post/{id_post}:
     get:
       operationId: R202
-      summary: 'R202: Shows post'
+      summary: 'R202: Shows a news post'
       description: 'Shows a post and its comments. Access: PUB'
       tags:
         - 'M02: Posts'
@@ -345,62 +394,150 @@ paths:
       responses:
         '200':
           description: 'Ok. Show [UI04]()'
+        '400':
+          description: 'Bad Request'
         '404':
           description: 'Invalid post id: Show [UI14]()'
 
-    /post/{id_post}/edit:
-      get:
-        operationId: R204
-        summary: 'R204: Shows edit post page'
-        description: 'Allows a member to edit his post. Access: OWN'
-        tags:
-          - 'M02: Posts'
-        parameters:
-          - in: path
-          name: id_post 
-          required: true
-          description: 'Specifies the id of the post to be edited'
-        responses:
-          '200':
-            description: 'Ok. Show [UI06]()'
-          '403':
-            description: 'Forbidden access'
-          '404':
-            description: 'Invalid post id: Show [UI14]()'
-    
-      put:
-        operationId: R205
-        summary: 'R205: Edit a post'
-        description: 'Edits the content of a post. Access: OWN'
-        tags: 
-          - 'M02: Posts'
-        parameters:
-          - in: path
-          name: id 
-          required: true
-          description: 'Specifies the id of the post to be edited'
-        requestBody:
-          required: true
-          content:
-            application/x-www-form-urlencoded:
+
+  /post/{id_post}/edit:
+    get:
+      operationId: R205
+      summary: 'R205: Shows edit post page'
+      description: 'Allows a member to edit his post. Access: OWN'
+      tags:
+        - 'M02: Posts'
+      parameters:
+        - in: path
+        name: id_post 
+        required: true
+        description: 'Specifies the id of the post to be edited'
+      responses:
+        '200':
+          description: 'Ok. Show [UI06]()'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+        '404':
+          description: 'Invalid post id: Show [UI14]()'
+  
+    put:
+      operationId: R206
+      summary: 'R206: Edit a post'
+      description: 'Edits the content of a post. Access: OWN'
+      tags: 
+        - 'M02: Posts'
+      parameters:
+        - in: path
+        name: id_post 
+        required: true
+        description: 'Specifies the id of the post to be edited'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NewsPost'
+      responses:
+        '302':
+          description: 'Redirect after updating the news_post content.'
+          headers:
+            Location:
               schema:
-                $ref: '#/components/schemas/NewsPost'
-        responses:
-          '302':
-            description: 'Redirect after updating the news_post content.'
-            headers:
-              Location:
-                schema:
-                  type: string
-                examples:
-                  302Success:
-                    description: 'Successful edition. Redirect to previous page.'
-                  302Error:
-                    description: 'Failed edition. Redirect to previous page.'
+                type: string
+              examples:
+                302Success:
+                  description: 'Successful edition. Redirect to previous page.'
+                302Error:
+                  description: 'Failed edition. Redirect to previous page.'
+        '400':
+          description: 'Bad Request'
+    
+
+  /post/{id_post}/vote:
+    post:
+      operationId: R207
+      summary: 'R207: Rate a post'
+      description: 'Allows a member to rate a news post. Access USR'
+      parameters:
+        - in: path
+        name: id_post 
+        required: true
+        description: 'Specifies the id of the post to be rated'
+      tags: 
+        - 'M02: Posts'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vote'
+      responses:
+        '200':
+          description: 'Report successfully sent'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Page not found.'
+        '302':
+          description: 'Redirect visitor.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Redirect to login form.'
+                  value: '/login'
+
+    delete:
+      operationId: R208
+      summary: 'R208: Delete a vote'
+      description: 'Allows a member to undo his vote on a post. Access: PUB'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the comment to be deleted'
+      responses:
+        '200':
+          description: 'Comment deleted successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'   
+         
+
+  /post/{id_post}/report:
+    post:
+      operationId: R208
+      summary: 'R208: Report a post'
+      description: 'Allows a member to report a news post. Access: USR'
+      tags: 
+        - 'M02: Posts'
+      parameters:
+        - in: path
+        name: id_post 
+        required: true
+        description: 'Specifies the id of the post to be reported'
       
-
-
-
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Report'
+      
+      responses: 
+        '200':
+          description: 'Report successfully sent'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Page not found.'
 
 
   /post/{id_post}/comment:         
@@ -416,16 +553,18 @@ paths:
         required: true
         description: 'Specifies the id of the post to be commented'
       requestBody:
-          required: true
-          content:
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Comment'     
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'     
       responses:
-        "200":
-          description: "Created comment"
-        "404":
-          description: "Not found"
+        '200':
+          description: 'Comment created successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Post not found'
 
   /comment/{id_comment}/reply:         
     put:
@@ -440,19 +579,445 @@ paths:
         required: true
         description: 'Specifies the id of the comment to be replied'
       requestBody:
-          required: true
-          content:
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Reply'     
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Reply'     
       responses:
-        "200":
-          description: "Created reply"
-        "404":
-          description: "Not found"
+        '200':
+          description: 'Reply created successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+  
+  /comment/{id_comment}/edit:
+    put:
+      operationId: R303
+      summary: 'R303: Edit a comment'
+      description: 'Allows a member to edit a comment. Access: OWN'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment 
+        required: true
+        description: 'Specifies the id of the comment to be edited'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'     
+      responses:
+        '200':
+          description: 'Comment edited successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+
+  /comment/{id_comment}/delete:
+    delete:
+      operationId: R304
+      summary: 'R304: Delete a comment'
+      description: 'Allows a member to delete a comment. Access: OWN'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the comment to be deleted'
+      responses:
+        '200':
+          description: 'Comment deleted successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+
+  /comment/{id_comment}/report:
+    post:
+      operationId: R305
+      summary: 'R305: Report a comment'
+      description: 'Allows a member to report a comment. Access: USR'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment 
+        required: true
+        description: 'Specifies the id of the comment to be reported'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Report'     
+      responses:
+        '200':
+          description: 'Comment reported successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+
+  /comment/{id_comment}/vote:
+    post:
+      operationId: R306
+      summary: 'R306: Vote on a comment'
+      description: 'Allows a member to vote on a comment. Access: USR'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment 
+        required: true
+        description: 'Specifies the id of the comment to be voted'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vote'     
+      responses:
+        '200':
+          description: 'Vote added successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+  
+
+  /comment/{id_comment}/vote:
+    put:
+      operationId: R307
+      summary: 'R307: Edit vote on a comment'
+      description: 'Allows a member to edit their vote on a comment. Access: OWN'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment 
+        required: true
+        description: 'Specifies the id of the comment where the vote is to be edited'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vote'     
+      responses:
+        '200':
+          description: 'Vote edited successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+
+  /comment/{id_comment}/vote:
+    delete:
+      operationId: R308
+      summary: 'R308: Delete a vote on a comment'
+      description: 'Allows a member to delete a vote on a comment. Access: OWN'
+      tags:
+        - 'M03: Comments'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the comment where the vote is to be deleted'
+      responses:
+        '200':
+          description: 'Vote deleted successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Comment not found'
+
+
+
+  /topic/{id_topic}:
+    get:
+      operationid: R401
+      summary: 'R401: Show a topic page'
+      description: 'Show a topic page and it's posts. Access:PUB'
+      tags:
+        - 'M04: Topic'
+      parameters:
+        - in: path
+        name: id_topic
+        required: true
+        description: 'Specifies the id of the topic'
+      responses:
+        '200':
+          description: 'Ok. Show [UI03]()'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Topic not found'
 
   
+  /follow/{id_topic}:
+    post:
+      operationId: R402
+      summary: 'R402: Follow a topic'
+      description: 'Allows a member to follow a topic. Access: USR'
+      tags:
+        - 'M04: Topic'
+      parameters:
+        - in: path
+        name: id_topic
+        required: true
+        description: 'Specifies the id of the topic that will be followed'
+      responses:
+        '200':
+          description: "Topic unfollowed successfully"
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Topic not found'
+    delete:
+      operationId: R403
+      summary: 'R403: Unfollow a topic'
+      description: 'Allows a member to unfollow a topic. Access: USR'
+      tags:
+        - 'M04:Topic'
+      parameters:
+        - in: path
+        name: id_topic
+        required: true
+        description: 'Specifies the id of the topic that will be unfollowed'
+      responses:
+        '200':
+          description: "Topic unfollowed successfully"
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Topic not found'
+
+
+  /topic/{id_topic}/delete: 
+    delete:
+      operationId: R404
+      summary: 'R404: Delete a topic'
+      description: 'Allows an admin to delete a topic. Access: ADM'
+      tags:
+        - 'M04: Topic'
+      parameters:
+        - in: path
+        name: id_topic
+        required: true
+        description: 'Specifies the id of the topic to be deleted'
+      responses:
+        '200':
+          description: 'Topic deleted successfully'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Topic not found'
   
+  
+  /topic/{id_topic}/report:
+    post:
+      operationId: R405
+      summary: 'R405: Report a topic'
+      description: 'Allows a member to report a topic. Access: USR'
+      tags:
+        - 'M04: Topic'
+      parameters:
+        - in: path
+        name: id_topic
+        required: true
+        description: 'Specifies the id of the topic to be reported'
+      
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Report'
+      
+      responses: 
+        '200':
+          description: 'Report successfully sent'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Page not found.'
+
+  /notification/{id_noti}:
+    post:
+      operationId: R501
+      summary:'R501: Receive notification'
+      description: 'Allows the member to see the notification. Access: OWN'
+      tags:
+        - 'M05: Notification'
+      parameters:
+        - in: path
+        name: id_notification
+        required: true
+        description: 'Specifies the id of the notification received'
+
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Notification'
+
+      responses: 
+        '200':
+          description: 'OK'
+        '400':
+          description: 'Bad Request'
+        '404':
+          description: 'Notification not found.'
+      
+
+        
+
+
+
+
+
+
+
+  
+
+
+  /admin/{filter}:
+    get:
+      operationid: R701
+      summary: 'R701: Show admin page'
+      description: 'Show a admin page with most reported content. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      parameters:
+        - in: path
+        name: filter
+        required: true
+        description: 'Specifies the content to be shown in admin page'
+        schema:
+          type: string
+          enum: [posts,comments,topics,users]
+      responses:
+        '200':
+          description: 'Ok. Show [UI13]()'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+        '404':
+          description: 'Invalid filter: Show [UI14]()'
+
+  /admin/posts/{id_post}/ban:
+    delete:
+      operationId: R702
+      summary: 'R702: Ban a post'
+      description: 'Allows an admin to ban a post. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the post to be deleted'
+      responses:
+        '200':
+          description: 'Post banned successfully'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'   
+        '404':
+          description: 'Post not found'    
+
+
+  /admin/comments/{id_comment}/ban:
+    delete:
+      operationId: R703
+      summary: 'R703: Ban a comment'
+      description: 'Allows an admin to ban a comment. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the comment to be deleted'
+      responses:
+        '200':
+          description: 'Comment banned successfully'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'   
+        '404':
+          description: 'Comment not found'  
+
+            
+  /admin/topics/{id_topic}/ban:
+    delete:
+      operationId: R704
+      summary: 'R704: Ban a topic'
+      description: 'Allows an admin to ban a topic. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the post to be deleted'
+      responses:
+        '200':
+          description: 'Topic banned successfully'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'   
+        '404':
+          description: 'Topic not found'    
+
+  /admin/users/{id_member}/ban:
+    delete:
+      operationId: R705
+      summary: 'R705: Ban a member'
+      description: 'Allows an admin to ban a member. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      parameters:
+        - in: path
+        name: id_comment
+        required: true
+        description: 'Specifies the id of the post to be deleted'
+      responses:
+        '200':
+          description: 'Member banned successfully'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'   
+        '404':
+          description: 'Member not found'
+  
+  /about_us:
+    get:
+      operationid: R706
+      summary: 'R706: Show admin page'
+      description: 'Show about us page. Access: PUB'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      responses:
+        '200':
+          description: 'Ok. Show [UI12]()'
+        '400':
+          description: 'Bad Request'
+
+
+
 
 
 components:
@@ -540,3 +1105,27 @@ components:
           items: 
             type: string
             format: byte
+    Report:
+      type: object
+      properties:
+        id_reporter:
+          type: integer
+        id:
+          type: integer
+        body:
+          type: string
+        date_time:
+          type: string
+          format: date-time
+        
+    Vote: 
+      type: object
+      properties:
+        id:
+          type: integer
+        id_voter:
+          type: integer
+        vote:
+          type: string
+          enum: [true,false]
+        
