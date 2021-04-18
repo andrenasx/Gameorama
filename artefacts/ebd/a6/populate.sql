@@ -23832,6 +23832,7 @@ insert into reply_notification (id_notified, id_reply, date_time) values (47, 14
 */
 
 
+insert into post_report (id_reporter, id_post, body, date_time) values (2, 9, 'This is misinformation', TIMESTAMP '2019-03-20 09:42:33');
 insert into post_report (id_reporter, id_post, body, date_time) values (11, 34, 'This is misinformation', TIMESTAMP '2019-03-20 09:50:35');
 insert into post_report (id_reporter, id_post, body, date_time) values (21, 55, 'This is abusive or harassing', TIMESTAMP '2019-11-18 06:39:52');
 insert into post_report (id_reporter, id_post, body, date_time) values (69, 94, 'This is spam', TIMESTAMP '2020-04-25 07:45:55');
@@ -23840,6 +23841,7 @@ insert into post_report (id_reporter, id_post, body, date_time) values (60, 57, 
 
 
 
+insert into comment_report (id_reporter, id_comment, body, date_time) values (1, 49, 'This is abusive or harassing', TIMESTAMP '2019-11-10 22:02:30');
 insert into comment_report (id_reporter, id_comment, body, date_time) values (36, 8, 'This is spam', TIMESTAMP '2019-11-10 22:02:40');
 insert into comment_report (id_reporter, id_comment, body, date_time) values (15, 6, 'This is abusive or harassing', TIMESTAMP '2019-11-13 13:02:30');
 insert into comment_report (id_reporter, id_comment, body, date_time) values (22, 9, 'This is misinformation', TIMESTAMP '2019-11-15 12:52:50');
@@ -23848,6 +23850,7 @@ insert into comment_report (id_reporter, id_comment, body, date_time) values (34
 
 
 
+insert into topic_report (id_reporter, id_topic, body, date_time) values (4, 47, 'Posts are offensive', TIMESTAMP '2020-03-29 17:29:45');
 insert into topic_report (id_reporter, id_topic, body, date_time) values (50, 2, 'Inapropriate name', TIMESTAMP '2020-03-29 17:30:00');
 insert into topic_report (id_reporter, id_topic, body, date_time) values (61, 8, 'This is abusive or harassing', TIMESTAMP '2020-03-25 17:30:00');
 insert into topic_report (id_reporter, id_topic, body, date_time) values (43, 1, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
@@ -23856,6 +23859,7 @@ insert into topic_report (id_reporter, id_topic, body, date_time) values (68, 8,
 
 
 
+insert into member_report (id_reporter, id_reported, body, date_time) values (5, 2, 'Impersonating someone', TIMESTAMP '2020-03-29 17:29:33');
 insert into member_report (id_reporter, id_reported, body, date_time) values (5, 26, 'Inapropriate username', TIMESTAMP '2020-03-29 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (20, 66, 'Impersonating someone', TIMESTAMP '2020-03-25 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (41, 13, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
