@@ -26,7 +26,7 @@ The diagram of **Figure 1** represents the main organizational entities, the rel
 
 - When a comment is deleted, all replies associated with it are deleted;
 
-- A newly created member has a default profile picture and banner images;
+- A newly created member has a default profile picture and banner image;
 
   
 
