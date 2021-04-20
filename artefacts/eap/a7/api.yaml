@@ -30,7 +30,7 @@ paths:
         - 'M01: Authentication and Individual Profile'
       responses:
         '200':
-          description: 'Ok. Show [UI]()'
+          description: 'Ok. Show [UI10](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui10-login)'
     post:
       operationId: R102
       summary: 'R102: Login Action'
@@ -82,7 +82,7 @@ paths:
               examples:
                 302Success:
                   description: 'Successful logout. Redirect to home page.'
-                  value: '/home/trending'
+                  value: '/home'
         '400':
           description: 'Bad Request'
   /register:
@@ -94,11 +94,11 @@ paths:
         - 'M01: Authentication and Individual Profile'
       responses:
         '200':
-          description: 'Ok. Show [UI]()'
+          description: 'Ok. Show [UI11](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui11-sign-up)'
         '400':
           description: 'Bad Request'
         '404':
-          description: 'Page not found. Show [UI14]()'
+          description: 'Page not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     post:
       operationId: R105
       summary: 'R105: Register Action'
@@ -160,11 +160,82 @@ paths:
           required: true
       responses:
         '200':
-          description: 'Ok. Show [UI07]()'
+          description: 'Ok. Show [UI07](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui07-user-profile)'
         '400':
           description: 'Bad Request'
         '404':
-          description: 'Member not found. Show [UI14]()'
+          description: 'Member not found. Show [UI07](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui07-user-profile)'
+  /user/{usernam}/edit:
+    get:
+      operationId: R10X
+      summary: 'R10X: Members Profile'
+      description: 'Page that allows a member to update his information. Access: OWN'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          description: 'Specifies the member username'
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Show [UI08](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui08-edit-profile)'
+        '400':
+          description: 'Bad Request'
+        "403":
+          description: "Forbidden access"
+        '404':
+          description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui08-edit-profile)'
+    put:
+      operationId: R10X
+      summary: 'R10X: Edit member information '
+      description: 'Allows a member to edit his information. Access: OWN'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          description: 'Specifies the member username'
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                bio:
+                  type: string
+              required:
+                - name
+                - bio
+      responses:
+        '302':
+          description: 'Redirect member after logout.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Member information edited successfully. Redirects member to their profile page.'
+                  value: '/user/{username}'
+                302Failure:
+                  description: 'Member information editing failed. Stay in edit page.'
+                  value: '/user/{usernam}/edit'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+        '404':
+          description: 'Member not found'
+  /api/user/{username}:
     delete:
       operationId: R107
       summary: 'R10X: Delete an account'
@@ -188,16 +259,16 @@ paths:
               examples:
                 302Success:
                   description: 'Member deleted successfully. Redirect to member to homepage.'
-                  value: '/home/trending'
+                  value: '/home'
                 302Failure:
                   description: 'Member deletion failed. Redirect to member to homepage.'
-                  value: '/home/trending'
+                  value: '/home'
         "400":
           description: 'Bad Request'
         "403":
           description: "Forbidden access"
         "404":
-          description: 'Member not found. Show [UI14]()'
+          description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
   /account_settings:
     get:
       operationId: R108
@@ -207,12 +278,12 @@ paths:
         - 'M01: Authentication and Individual Profile'
       responses:
         '200':
-          description: 'Ok. Show [UI07]()'
+          description: 'Ok. Show [UI09](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui09-account-settings)'
         '400':
           description: 'Bad Request'
         "403":
           description: "Forbidden access"
-  /account_settings/change_email:
+  /api/user/{username}/change_email:
     put:
       operationId: R109
       summary: 'R10X: Change members email'
@@ -245,7 +316,7 @@ paths:
           description: "Forbidden access"
         "404":
           description: "Page not found"
-  /account_settings/change_password:
+  /api/user/{username}/change_password:
     put:
       operationId: R110
       summary: 'R10X: Change members password'
@@ -278,7 +349,7 @@ paths:
           description: 'Forbidden access'
         "404":
           description: 'Page not found'
-  /user/{username}/follow:
+  /api/user/{username}/follow:
     post:
       operationId: R111
       summary: 'R10X: Follow a member'
@@ -319,7 +390,7 @@ paths:
           description: "Invalid member ID"
         "404":
           description: "Member not found"  
-  /user/{username}/report:
+  /api/user/{username}/report:
     post:
       operationId: R113
       summary: 'R10X: Report a member'
@@ -346,7 +417,7 @@ paths:
           description: 'Invalid member ID'
         "404":
           description: 'Member not found'
-  /user/{username}/following:
+  /api/user/{username}/following:
     get:
       operationId: R114
       summary: "R10X: Memeber's following members"
@@ -362,7 +433,7 @@ paths:
           required: true
       responses:
         "200":
-          description: 'Ok. Shows [UI]'
+          description: 'Success. '
           content:
             application/json:
               schema:
@@ -373,7 +444,7 @@ paths:
           description: 'Invalid member ID'
         "404":
           description: 'Member not found'
-  /user/{username}/followers:
+  /api/user/{username}/followers:
     get:
       operationId: R115
       summary: "R10X: Member's followers"
@@ -400,7 +471,7 @@ paths:
           description: 'Invalid member ID'
         "404":
           description: 'Member not found'
-  /user/{username}/following_topics:
+  /api/user/{username}/following_topics:
     get:
       operationId: R116
       summary: "R10X: Member's ollowing topics"
@@ -427,7 +498,7 @@ paths:
           description: 'Invalid member ID'
         "404":
           description: 'Member not found'
-  /user/{username}/posts:
+  /api/user/{username}/posts:
     get:
       operationId: R117
       summary: "R10X: Member's posts"
@@ -454,7 +525,7 @@ paths:
           description: 'Invalid member ID'
         "404":
           description: 'Member not found'
-  /user/{username}/comments:
+  /api/user/{username}/comments:
     get:
       operationId: R118
       summary: "R10X: Member's posts"
@@ -481,7 +552,7 @@ paths:
           description: 'Invalid member ID'
         "404":
           description: 'Member not found'
-  /user/{username}/bookmarked:
+  /api/user/{username}/bookmarked:
     get:
       operationId: R119
       summary: "R10X: Member's bookmarked posts"
@@ -510,28 +581,23 @@ paths:
           description: 'Member not found'
 
 
-  /home/{filter}:
+  /home:
     get:
       operationId: R201
-      summary: 'R201: Shows feed'
-      description: 'Obtains main page posts for a member based on a search criteria. Access: PUB'
+      summary: 'R201: Shows main page'
+      description: 'Obtains main page Hall of Fame and Most Popular Topics. Access: PUB'
       tags:
         - 'M02: Posts'
-      parameters:
-        - in: path
-          name: filter
-          schema:
-            type: string
-            enum: [feed,trending,latest]
-          description: 'Specifies the search parameter for posts shown in main page'
-          required: true
       responses:
         '200':
-          description: 'Ok. Show [UI01]()'
+          description: 'Ok. Show [UI01](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui01-home-page)'
         '400':
           description: 'Bad Request'
         '404':
-          description: 'Invalid filter: Show [UI14]()'
+          description: 'Page not found: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
+  /api/posts/feed:    
+  /api/posts/trending:
+  /api/posts/latest:
   /post/new_post:
     get:
       operationId: R203
@@ -541,7 +607,7 @@ paths:
         - 'M02: Posts'
       responses:
         '200':
-          description: 'Ok. Show [UI05]()'
+          description: 'Ok. Show [UI05](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui05-create-post)'
         '400':
           description: 'Bad Request'
         '403':
@@ -597,11 +663,11 @@ paths:
           required: true
       responses:
         '200':
-          description: 'Ok. Show [UI04]()'
+          description: 'Ok. Show [UI04](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui04-post-page)'
         '400':
           description: 'Bad Request'
         '404':
-          description: 'Invalid post id: Show [UI14]()'
+          description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     post:
       operationId: R210
       summary: 'R210: Bookmarks a post'
@@ -621,7 +687,7 @@ paths:
         '400':
           description: 'Bad Request'
         '404':
-          description: 'Invalid post id: Show [UI14]()'
+          description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     delete:
       operationId: R211
       summary: 'R211: Delete a post'
@@ -663,13 +729,13 @@ paths:
           required: true
       responses:
         '200':
-          description: 'Ok. Show [UI06]()'
+          description: 'Ok. Show [UI06](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui06-edit-post)'
         '400':
           description: 'Bad Request'
         '403':
           description: 'Forbidden access'
         '404':
-          description: 'Invalid post id: Show [UI14]()'
+          description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     put:
       operationId: R206
       summary: 'R206: Edit a post'
@@ -794,7 +860,7 @@ paths:
           description: 'Page not found.'
 
         
-  /post/{id_post}/comment:         
+  /api/post/{id_post}/comment:
     post:
       operationId: R301
       summary: 'R301: Comment on a post'
@@ -817,11 +883,18 @@ paths:
       responses:
         '200':
           description: 'Comment created successfully'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Comment'
         '400':
           description: 'Bad Request'
         '404':
           description: 'Post not found'
-  /comment/{id_comment}/reply:         
+  
+  /api/comment/{id_comment}/reply:         
     post:
       operationId: R302
       summary: 'R301: Reply on a comment'
@@ -844,11 +917,18 @@ paths:
       responses:
         '200':
           description: 'Reply created successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                items: 
+                  $ref: '#/components/schemas/Comment'
         '400':
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
-  /comment/{id_comment}/edit:
+  
+  /api/comment/{id_comment}/edit:
     put:
       operationId: R303
       summary: 'R303: Edit a comment'
@@ -871,11 +951,18 @@ paths:
       responses:
         '200':
           description: 'Comment edited successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                items: 
+                  $ref: '#/components/schemas/Comment'
         '400':
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
-  /comment/{id_comment}/delete:
+  
+  /api/comment/{id_comment}/delete:
     delete:
       operationId: R304
       summary: 'R304: Delete a comment'
@@ -896,6 +983,7 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
+  
   /comment/{id_comment}/report:
     post:
       operationId: R305
@@ -1014,7 +1102,7 @@ paths:
           description: 'Specifies the id of the topic'
       responses:
         '200':
-          description: 'Ok. Show [UI03]()'
+          description: 'Ok. Show [UI03](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui03-topic-page)'
         '400':
           description: 'Bad Request'
         '404':
@@ -1039,7 +1127,7 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Topic not found'
-  /topic/{id_topic}/follow:
+  /api/topic/{id_topic}/follow:
     post:
       operationId: R402
       summary: 'R402: Follow a topic'
@@ -1080,7 +1168,7 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Topic not found' 
-  /topic/{id_topic}/report:
+  /api/topic/{id_topic}/report:
     post:
       operationId: R405
       summary: 'R405: Report a topic'
@@ -1141,8 +1229,8 @@ paths:
 
   /search:
     post:
-      operationId: R601
-      summary: 'R601: Search for a post, topic or member'
+      operationId: R70X
+      summary: 'R70X: Search for a post, topic or member'
       description: 'Allows a website user to search for a post,topic or member. Access: PUB'
       tags:
         - 'M06: Search'
@@ -1152,30 +1240,30 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:    
+              properties:
                 query:
                   type: string
               required:
                 - query
       responses:
-        '302':
-          description: 'Redirect after completing the search.'
+        302':
+          description: 'Redirect after processing the login credentials.'
           headers:
             Location:
               schema:
                 type: string
               examples:
                 302Success:
-                  description: 'Successful search. Redirect to search page.'
-                302Error:
-                  description: 'Failed search. Redirect to previous page.'
+                  description: 'Successful search. Redirect to search results page.'
+                  value: '/search/{query}'
         '400':
           description: 'Bad Request'
-  /search/posts/{query}:
+  
+  /search/{query}:
     get:
-      operationId: R602
-      summary: 'R602: Search for post'
-      description: 'Allows a website user to search for a post. Access: PUB'
+      operationId: R70X
+      summary: 'R70X: Search results'
+      description: 'Show the search results for a post, topic or member. Access: PUB'
       tags:
         - 'M06: Search'
       parameters:
@@ -1187,7 +1275,27 @@ paths:
           description: 'Specifies the query received'
       responses:
         '200':
-          description: 'Ok. Show [UI13]()'
+          description: 'Success. Show [UI02](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui02-search-page)'
+        '400':
+          description: 'Bad Request'
+
+  /api/search/posts:
+    get:
+      operationId: R602
+      summary: 'R602: Search for post'
+      description: 'Allows a website user to search for a post. Access: PUB'
+      tags:
+        - 'M06: Search'
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+          description: 'Specifies the query received'
+      responses:
+        '200':
+          description: 'Success'
           content:
             application/json:
               schema:
@@ -1196,7 +1304,7 @@ paths:
                   $ref: '#/components/schemas/NewsPost'
         '400':
           description: 'Bad Request'
-  /search/topics/{query}:
+  /api/search/topics:
     get:
       operationId: R603
       summary: 'R603: Search for topic'
@@ -1204,7 +1312,7 @@ paths:
       tags:
         - 'M06: Search'
       parameters:
-        - in: path
+        - in: query
           name: query
           schema:
             type: string
@@ -1212,7 +1320,7 @@ paths:
           description: 'Specifies the query received'
       responses:
         '200':
-          description: 'Ok. Show [UI13]()'
+          description: 'Success'
           content:
             application/json:
               schema:
@@ -1221,7 +1329,7 @@ paths:
                   $ref: '#/components/schemas/Topic'
         '400':
           description: 'Bad Request'
-  /search/members/{query}:
+  /api/search/members:
     get:
       operationId: R604
       summary: 'R604: Search for member'
@@ -1229,7 +1337,7 @@ paths:
       tags:
         - 'M06: Search'
       parameters:
-        - in: path
+        - in: query
           name: query
           schema:
             type: string
@@ -1237,7 +1345,7 @@ paths:
           description: 'Specifies the query received'
       responses:
         '200':
-          description: 'Ok. Show [UI13]()'
+          description: 'Success'
           content:
             application/json:
               schema:
@@ -1265,13 +1373,13 @@ paths:
             enum: [posts,comments,topics,users]
       responses:
         '200':
-          description: 'Ok. Show [UI13]()'
+          description: 'Ok. Show [UI13](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui13-administration-area)'
         '400':
           description: 'Bad Request'
         '403':
           description: 'Forbidden access'
         '404':
-          description: 'Invalid filter: Show [UI14]()'
+          description: 'Invalid filter: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
   /about_us:
     get:
       operationId: R706
@@ -1281,7 +1389,7 @@ paths:
         - 'M07: Administrator and Static Pages'
       responses:
         '200':
-          description: 'Ok. Show [UI12]()'
+          description: 'Ok. Show [UI12](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui12-about-us)'
         '400':
           description: 'Bad Request'
 
