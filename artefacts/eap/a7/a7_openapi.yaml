@@ -188,9 +188,9 @@ paths:
           description: "Forbidden access"
         '404':
           description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui08-edit-profile)'
-    put:
+    patch:
       operationId: R10X
-      summary: 'R10X: Edit member information '
+      summary: 'R10X: Edit member information'
       description: 'Allows a member to edit his information. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -284,7 +284,7 @@ paths:
         "403":
           description: "Forbidden access"
   /api/user/{username}/change_email:
-    put:
+    patch:
       operationId: R109
       summary: 'R10X: Change members email'
       description: 'Allows a member to change its email. Access: OWN'
@@ -306,7 +306,7 @@ paths:
               required:
                 - old_email
                 - new_email
-                - conf_new_email      
+                - conf_new_email
       responses:
         "200":
           description: "Updated email."
@@ -317,7 +317,7 @@ paths:
         "404":
           description: "Page not found"
   /api/user/{username}/change_password:
-    put:
+    patch:
       operationId: R110
       summary: 'R10X: Change members password'
       description: 'Allows a member to change its email. Access: OWN'
@@ -761,7 +761,7 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
-    put:
+    patch:
       operationId: R206
       summary: 'R206: Edit a post'
       description: 'Edits the content of a post. Access: OWN'
@@ -875,7 +875,6 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/Report'
-      
       responses: 
         '200':
           description: 'Report successfully sent'
@@ -958,7 +957,7 @@ paths:
         '404':
           description: 'Comment not found'
   /api/comment/{id_comment}/edit:
-    put:
+    patch:
       operationId: R303
       summary: 'R303: Edit a comment'
       description: 'Allows a member to edit a comment. Access: OWN'
@@ -976,7 +975,12 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Comment'     
+              type: object
+              properties:
+                body:
+                  type: string
+              required:
+                - body
       responses:
         '200':
           description: 'Comment edited successfully'
@@ -1065,7 +1069,7 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
-    put:
+    patch:
       operationId: R307
       summary: 'R307: Edit vote on a comment'
       description: 'Allows a member to edit their vote on a comment. Access: OWN'
