@@ -149,7 +149,7 @@ paths:
   /user/{username}:
     get:
       operationId: R106
-      summary: 'R10X: Members Profile'
+      summary: 'R106: Members Profile'
       description: 'Page that shows member information. Access: PUB'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -169,8 +169,8 @@ paths:
           description: 'Member not found. Show [UI07](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui07-user-profile)'
   /user/{username}/edit:
     get:
-      operationId: R10X
-      summary: 'R10X: Members Profile'
+      operationId: R107
+      summary: 'R107: Members Profile'
       description: 'Page that allows a member to update his information. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -191,8 +191,8 @@ paths:
         '404':
           description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui08-edit-profile)'
     patch:
-      operationId: R10X
-      summary: 'R10X: Edit member information'
+      operationId: R108
+      summary: 'R108: Edit member information'
       description: 'Allows a member to edit his information. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -239,8 +239,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}:
     delete:
-      operationId: R107
-      summary: 'R10X: Delete an account'
+      operationId: R109
+      summary: 'R109: Delete an account'
       description: 'Allows to delete a member account. Access OWN, ADM'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -273,8 +273,8 @@ paths:
           description: 'Member not found'
   /account_settings:
     get:
-      operationId: R108
-      summary: 'R10X: Member account settings'
+      operationId: R110
+      summary: 'R110: Member account settings'
       description: 'Page to edit users account. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -287,11 +287,18 @@ paths:
           description: 'Forbidden access'
   /api/user/{username}/change_email:
     patch:
-      operationId: R109
-      summary: 'R10X: Change members email'
+      operationId: R111
+      summary: 'R111: Change members email'
       description: 'Allows a member to change its email. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          description: 'Specifies the member username'
+          required: true
       requestBody:
         required: true
         content:
@@ -320,11 +327,18 @@ paths:
           description: 'Page not found'
   /api/user/{username}/change_password:
     patch:
-      operationId: R110
-      summary: 'R10X: Change members password'
+      operationId: R112
+      summary: 'R112: Change members password'
       description: 'Allows a member to change its email. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          description: 'Specifies the member username'
+          required: true
       requestBody:
         required: true
         content:
@@ -353,8 +367,8 @@ paths:
           description: 'Page not found'
   /api/user/{username}/follow:
     post:
-      operationId: R111
-      summary: 'R10X: Follow a member'
+      operationId: R113
+      summary: 'R113: Follow a member'
       description: 'Allows a member to follow another member. Access: USR'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -373,8 +387,8 @@ paths:
         '404':
           description: 'Member not found'
     delete:
-      operationId: R112
-      summary: 'R10X: Unfollow a member'
+      operationId: R114
+      summary: 'R114: Unfollow a member'
       description: 'Allows a member to unfollow another member. Access: USR'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -394,8 +408,8 @@ paths:
           description: 'Member not found'  
   /api/user/{username}/report:
     post:
-      operationId: R113
-      summary: 'R10X: Report a member'
+      operationId: R115
+      summary: 'R115: Report a member'
       description: 'Allows a member to report another member. Access: USR'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -421,8 +435,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}/following:
     get:
-      operationId: R114
-      summary: "R10X: Memeber's following members"
+      operationId: R116
+      summary: "R116: Memeber's following members"
       description: "Shows member's following members. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -448,8 +462,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}/followers:
     get:
-      operationId: R115
-      summary: "R10X: Member's followers"
+      operationId: R117
+      summary: "R117: Member's followers"
       description: "Shows member's followers. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -475,8 +489,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}/following_topics:
     get:
-      operationId: R116
-      summary: "R10X: Member's following topics"
+      operationId: R118
+      summary: "R118: Member's following topics"
       description: "Shows member's following topics. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -502,8 +516,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}/posts:
     get:
-      operationId: R117
-      summary: "R10X: Member's posts"
+      operationId: R119
+      summary: "R119: Member's posts"
       description: "Shows member's posted news. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -529,8 +543,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}/comments:
     get:
-      operationId: R118
-      summary: "R10X: Member's posts"
+      operationId: R120
+      summary: "R120: Member's posts"
       description: "Shows member's posted comments. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -556,8 +570,8 @@ paths:
           description: 'Member not found'
   /api/user/{username}/bookmarked:
     get:
-      operationId: R119
-      summary: "R10X: Member's bookmarked posts"
+      operationId: R121
+      summary: "R121: Member's bookmarked posts"
       description: "Shows member's bookmarked newsposts. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -676,8 +690,8 @@ paths:
           description: 'Bad Request'
   /post/{id_post}:
     get:
-      operationId: R202
-      summary: 'R202: Shows a news post'
+      operationId: R205
+      summary: 'R205: Shows a news post'
       description: 'Shows a post and its comments. Access: PUB'
       tags:
         - 'M02: Posts'
@@ -696,8 +710,8 @@ paths:
         '404':
           description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     post:
-      operationId: R210
-      summary: 'R210: Bookmarks a post'
+      operationId: R206
+      summary: 'R206: Bookmarks a post'
       description: 'Allows a member to bookmark a post. Access: PUB'
       tags: 
         - 'M02: Posts'
@@ -716,8 +730,8 @@ paths:
         '404':
           description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     delete:
-      operationId: R211
-      summary: 'R211: Delete a post'
+      operationId: R207
+      summary: 'R207: Delete a post'
       description: 'Allows a member to delete his own post. Access OWN'
       tags: 
         - 'M02: Posts'
@@ -742,8 +756,8 @@ paths:
                   description: 'Failed edition. Redirect to previous page.'
   /post/{id_post}/edit:
     get:
-      operationId: R205
-      summary: 'R205: Shows edit post page'
+      operationId: R208
+      summary: 'R208: Shows edit post page'
       description: 'Allows a member to edit his post. Access: OWN'
       tags:
         - 'M02: Posts'
@@ -764,8 +778,8 @@ paths:
         '404':
           description: 'Invalid post id: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     patch:
-      operationId: R206
-      summary: 'R206: Edit a post'
+      operationId: R209
+      summary: 'R209: Edit a post'
       description: 'Edits the content of a post. Access: OWN'
       tags: 
         - 'M02: Posts'
@@ -800,8 +814,8 @@ paths:
           description: 'Bad Request'
   /api/post/{id_post}/vote:
     post:
-      operationId: R207
-      summary: 'R207: Rate a post'
+      operationId: R210
+      summary: 'R210: Rate a post'
       description: 'Allows a member to rate a news post. Access USR'
       tags: 
         - 'M02: Posts'
@@ -838,11 +852,11 @@ paths:
                   description: 'Redirect to login form.'
                   value: '/login'
     patch:
-      operationId: R20X
-      summary: 'R20X: Change vote on a news post'
+      operationId: R211
+      summary: 'R211: Change vote on a news post'
       description: 'Allows a member to change their vote on a news post. Access: OWN'
       tags:
-        - 'M03: Comments'
+        - 'M02: Posts'
       parameters:
         - in: path
           name: id_post
@@ -866,8 +880,8 @@ paths:
         '404':
           description: 'Post not found'
     delete:
-      operationId: R208
-      summary: 'R208: Remove a vote on a news post'
+      operationId: R212
+      summary: 'R212: Remove a vote on a news post'
       description: 'Allows a member to remove their vote on a post. Access: OWN'
       tags:
         - 'M02: Posts'
@@ -889,8 +903,8 @@ paths:
           description: 'Post not found'   
   /api/post/{id_post}/report:
     post:
-      operationId: R209
-      summary: 'R208: Report a post'
+      operationId: R213
+      summary: 'R213: Report a post'
       description: 'Allows a member to report a news post. Access: USR'
       tags: 
         - 'M02: Posts'
@@ -965,8 +979,8 @@ paths:
           description: 'Post not found'
   /api/comment/{id_comment}:
     patch:
-      operationId: R303
-      summary: 'R303: Edit a comment'
+      operationId: R302
+      summary: 'R302: Edit a comment'
       description: 'Allows a member to edit a comment. Access: OWN'
       tags:
         - 'M03: Comments'
@@ -1004,8 +1018,8 @@ paths:
         '404':
           description: 'Comment not found'
     delete:
-      operationId: R304
-      summary: 'R304: Delete a comment'
+      operationId: R303
+      summary: 'R303: Delete a comment'
       description: 'Allows a member to delete a comment. Access: OWN, ADM'
       tags:
         - 'M03: Comments'
@@ -1027,8 +1041,8 @@ paths:
           description: 'Comment not found'
   /api/post/{id_post}/comment/{id_comment}/reply:         
     post:
-      operationId: R302
-      summary: 'R301: Reply on a comment'
+      operationId: R304
+      summary: 'R304: Reply on a comment'
       description: 'Allows a member to reply on a comment. Access: USR'
       tags:
         - 'M03: Comments'
@@ -1208,8 +1222,8 @@ paths:
         '404':
           description: 'Topic not found'
     delete:
-      operationId: R404
-      summary: 'R404: Delete a topic'
+      operationId: R402
+      summary: 'R402: Delete a topic'
       description: 'Allows an admin to delete a topic. Access: ADM'
       tags:
         - 'M04: Topics'
@@ -1225,12 +1239,14 @@ paths:
           description: 'Topic deleted successfully'
         '400':
           description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
         '404':
           description: 'Topic not found'
   /api/topic/{id_topic}/follow:
     post:
-      operationId: R402
-      summary: 'R402: Follow a topic'
+      operationId: R403
+      summary: 'R403: Follow a topic'
       description: 'Allows a member to follow a topic. Access: USR'
       tags:
         - 'M04: Topics'
@@ -1246,11 +1262,13 @@ paths:
           description: 'Topic followed successfully'
         '400':
           description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
         '404':
           description: 'Topic not found'
     delete:
-      operationId: R403
-      summary: 'R403: Unfollow a topic'
+      operationId: R404
+      summary: 'R404: Unfollow a topic'
       description: 'Allows a member to unfollow a topic. Access: USR'
       tags:
         - 'M04: Topics'
@@ -1266,6 +1284,8 @@ paths:
           description: 'Topic unfollowed successfully'
         '400':
           description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
         '404':
           description: 'Topic not found' 
   /api/topic/{id_topic}/report:
@@ -1293,36 +1313,47 @@ paths:
           description: 'Report successfully sent'
         '400':
           description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
         '404':
           description: 'Page not found.'
 
 
-  /api/notifications:
+  /api/user/{username}/notifications:
     post:
       operationId: R501
-      summary: 'R501: Get notifications'
-      description: 'Returns all notifications as JSON. Access: USR'
+      summary: "R501: Get member's notifications"
+      description: "Returns all member's notifications as JSON. Access: USR"
       tags:
         - 'M05: Notifications'
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Notification'
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          description: 'Specifies the member username'
+          required: true
       responses: 
         '200':
           description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Notifications'
         '400':
           description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
         '404':
           description: 'Notification not found.'
 
 
   /search:
     post:
-      operationId: R70X
-      summary: 'R70X: Search for a post, topic or member'
+      operationId: R601
+      summary: 'R601: Search for a post, topic or member'
       description: 'Allows a website user to search for a post,topic or member. Access: PUB'
       tags:
         - 'M06: Search'
@@ -1339,7 +1370,7 @@ paths:
                 - query
       responses:
         '302':
-          description: 'Redirect after processing the login credentials.'
+          description: 'Redirect after processing the query.'
           headers:
             Location:
               schema:
@@ -1352,8 +1383,8 @@ paths:
           description: 'Bad Request'
   /search/{query}:
     get:
-      operationId: R70X
-      summary: 'R70X: Search results'
+      operationId: R602
+      summary: 'R602: Search results'
       description: 'Show the search results for posts, topics or members according to query. Access: PUB'
       tags:
         - 'M06: Search'
@@ -1369,10 +1400,12 @@ paths:
           description: 'Success. Show [UI02](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui02-search-page)'
         '400':
           description: 'Bad Request'
+        '404':
+          description: 'Page not found'
   /api/search/posts:
     get:
-      operationId: R602
-      summary: 'R602: Search Posts API'
+      operationId: R603
+      summary: 'R603: Search Posts API'
       description: 'Searches for posts and returns the result as JSON. Access: PUB'
       tags:
         - 'M06: Search'
@@ -1396,8 +1429,8 @@ paths:
           description: 'Bad Request'
   /api/search/topics:
     get:
-      operationId: R603
-      summary: 'R603: Search Topics API'
+      operationId: R604
+      summary: 'R604: Search Topics API'
       description: 'Searches for topics and returns the result as JSON. Access: PUB'
       tags:
         - 'M06: Search'
@@ -1421,8 +1454,8 @@ paths:
           description: 'Bad Request'
   /api/search/members:
     get:
-      operationId: R604
-      summary: 'R604: Search Members API'
+      operationId: R605
+      summary: 'R605: Search Members API'
       description: 'Searches for members and returns the result as JSON. Access: PUB'
       tags:
         - 'M06: Search'
@@ -1484,8 +1517,8 @@ paths:
           description: 'Forbidden access'
   /api/reports/comments:
     post:
-      operationId: R702
-      summary: 'R702: Reported Comments API'
+      operationId: R703
+      summary: 'R703: Reported Comments API'
       description: 'Returns reported comments as JSON. Access: ADM'
       tags:
         - 'M07: Administrator and Static Pages'
@@ -1504,8 +1537,8 @@ paths:
           description: 'Forbidden access'
   /api/reports/topics:
     post:
-      operationId: R702
-      summary: 'R702: Reported Topics API'
+      operationId: R704
+      summary: 'R704: Reported Topics API'
       description: 'Returns reported topics as JSON. Access: ADM'
       tags:
         - 'M07: Administrator and Static Pages'
@@ -1524,8 +1557,8 @@ paths:
           description: 'Forbidden access'
   /api/reports/members:
     post:
-      operationId: R702
-      summary: 'R702: Reported Members API'
+      operationId: R705
+      summary: 'R705: Reported Members API'
       description: 'Returns reported members as JSON. Access: ADM'
       tags:
         - 'M07: Administrator and Static Pages'
@@ -1662,6 +1695,8 @@ components:
       properties:
         id_follower:
           type: integer
+        username_follower:
+          type: string
         date_time:
           type: string
           format: date-time
@@ -1670,6 +1705,10 @@ components:
       properties:
         id_comment:
           type: integer
+        id_post:
+          type: integer
+        title_post:
+          type: string
         date_time:
           type: string
           format: date-time
@@ -1678,6 +1717,25 @@ components:
       properties:
         id_reply:
           type: integer
+        id_post:
+          type: integer
+        title_post:
+          type: integer
         date_time:
           type: string
           format: date-time
+    Notifications:
+      type: object
+      properties:
+        follows:
+          type: array
+          items:
+            $ref: '#/components/schemas/FollowNotification'
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommentNotification'
+        replies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReplyNotification'
