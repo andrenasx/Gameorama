@@ -595,9 +595,34 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Page not found: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
-  /api/posts/feed:    
-  /api/posts/trending:
-  /api/posts/latest:
+  /api/home/{filter}:
+    post:
+      operationId: R202
+      summary: 'R202: Main page posts'
+      description: 'Returns main page posts as JSON according to filter. Access: PUB'
+      tags:
+        - 'M02: Posts'
+      parameters:
+        - in: path
+          name: filter
+          schema:
+            type: string
+            enum: [feed,trending,latest]
+          description: 'Specifies the filter parameter for posts shown in the main page'
+          required: true
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsPost'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
   /post/new_post:
     get:
       operationId: R203
@@ -859,7 +884,7 @@ paths:
         '404':
           description: 'Page not found.'
 
-        
+
   /api/post/{id_post}/comment:
     post:
       operationId: R301
@@ -893,8 +918,7 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Post not found'
-  
-  /api/comment/{id_comment}/reply:         
+  /api/post/{id_post}/comment/{id_comment}/reply:         
     post:
       operationId: R302
       summary: 'R301: Reply on a comment'
@@ -902,6 +926,12 @@ paths:
       tags:
         - 'M03: Comments'
       parameters:
+        - in: path
+          name: id_post
+          schema:
+            type: integer
+          required: true
+          description: 'Specifies the id of the post where the reply will be added'
         - in: path
           name: id_comment
           schema:
@@ -913,7 +943,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Reply'     
+              $ref: '#/components/schemas/Comment'     
       responses:
         '200':
           description: 'Reply created successfully'
@@ -927,7 +957,6 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
-  
   /api/comment/{id_comment}/edit:
     put:
       operationId: R303
@@ -961,7 +990,6 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
-  
   /api/comment/{id_comment}/delete:
     delete:
       operationId: R304
@@ -983,7 +1011,6 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Comment not found'
-  
   /comment/{id_comment}/report:
     post:
       operationId: R305
@@ -1195,23 +1222,15 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Page not found.'
-         
 
-  /notification/{id_notification}:
+
+  api/notifications:
     post:
       operationId: R501
-      summary: 'R501: Receive notification'
-      description: 'Allows the member to see the notification. Access: OWN'
+      summary: 'R501: Get notifications'
+      description: 'Returns all notifications as JSON. Access: USR'
       tags:
         - 'M05: Notifications'
-      parameters:
-        - in: path
-          name: id_notification
-          schema:
-            type: integer
-          required: true
-          description: 'Specifies the id of the notification received'
-
       requestBody:
         required: true
         content:
@@ -1246,7 +1265,7 @@ paths:
               required:
                 - query
       responses:
-        302':
+        '302':
           description: 'Redirect after processing the login credentials.'
           headers:
             Location:
@@ -1258,12 +1277,11 @@ paths:
                   value: '/search/{query}'
         '400':
           description: 'Bad Request'
-  
   /search/{query}:
     get:
       operationId: R70X
       summary: 'R70X: Search results'
-      description: 'Show the search results for a post, topic or member. Access: PUB'
+      description: 'Show the search results for posts, topics or members according to query. Access: PUB'
       tags:
         - 'M06: Search'
       parameters:
@@ -1278,12 +1296,11 @@ paths:
           description: 'Success. Show [UI02](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui02-search-page)'
         '400':
           description: 'Bad Request'
-
   /api/search/posts:
     get:
       operationId: R602
-      summary: 'R602: Search for post'
-      description: 'Allows a website user to search for a post. Access: PUB'
+      summary: 'R602: Search Posts API'
+      description: 'Searches for posts and returns the result as JSON. Access: PUB'
       tags:
         - 'M06: Search'
       parameters:
@@ -1307,8 +1324,8 @@ paths:
   /api/search/topics:
     get:
       operationId: R603
-      summary: 'R603: Search for topic'
-      description: 'Allows a website user to search for a topic. Access: PUB'
+      summary: 'R603: Search Topics API'
+      description: 'Searches for topics and returns the result as JSON. Access: PUB'
       tags:
         - 'M06: Search'
       parameters:
@@ -1332,8 +1349,8 @@ paths:
   /api/search/members:
     get:
       operationId: R604
-      summary: 'R604: Search for member'
-      description: 'Allows a website user to search for a member. Access: PUB'
+      summary: 'R604: Search Members API'
+      description: 'Searches for members and returns the result as JSON. Access: PUB'
       tags:
         - 'M06: Search'
       parameters:
@@ -1356,21 +1373,13 @@ paths:
           description: 'Bad Request'
 
 
-  /admin/{filter}:
+  /admin:
     get:
       operationId: R701
       summary: 'R701: Show admin page'
-      description: 'Show a admin page with most reported content. Access: ADM'
+      description: 'Shows a admin page with most reported content. Access: ADM'
       tags:
         - 'M07: Administrator and Static Pages'
-      parameters:
-        - in: path
-          name: filter
-          required: true
-          description: 'Specifies the content to be shown in admin page'
-          schema:
-            type: string
-            enum: [posts,comments,topics,users]
       responses:
         '200':
           description: 'Ok. Show [UI13](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui13-administration-area)'
@@ -1380,7 +1389,87 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Invalid filter: Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
-  /about_us:
+  /api/reports/posts:
+    post:
+      operationId: R702
+      summary: 'R702: Reported Posts API'
+      description: 'Returns reported posts as JSON. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsPost'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+  /api/reports/comments:
+    post:
+      operationId: R702
+      summary: 'R702: Reported Comments API'
+      description: 'Returns reported comments as JSON. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+  /api/reports/topics:
+    post:
+      operationId: R702
+      summary: 'R702: Reported Topics API'
+      description: 'Returns reported topics as JSON. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topic'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+  /api/reports/members:
+    post:
+      operationId: R702
+      summary: 'R702: Reported Members API'
+      description: 'Returns reported members as JSON. Access: ADM'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Member'
+        '400':
+          description: 'Bad Request'
+        '403':
+          description: 'Forbidden access'
+  /abot_us:
     get:
       operationId: R706
       summary: 'R706: Show admin page'
