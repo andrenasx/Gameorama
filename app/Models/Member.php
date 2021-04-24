@@ -38,7 +38,7 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function posts(): HasMany
+    public function posts()
     {
         return $this->hasMany(NewsPost::class, 'id_owner');
     }
@@ -48,7 +48,7 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function posts_auras(): BelongsToMany
+    public function posts_auras()
     {
         return $this->belongsToMany(NewsPost::class, 'post_aura', 'id_voter', 'id_post')->withPivot('upvote');
     }
@@ -58,7 +58,7 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comments(): HasMany
+    public function comments()
     {
         return $this->hasMany(Comment::class, 'id_owner');
     }
@@ -68,7 +68,7 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comments_auras(): BelongsToMany
+    public function comments_auras()
     {
         return $this->belongsToMany(Comment::class, 'comment_aura', 'id_voter', 'id_comment')->withPivot('upvote');
     }
@@ -78,9 +78,9 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function topics(): BelongsToMany
+    public function topics()
     {
-        return $this->belongsToMany(Member::class, 'topic_follow', 'id_member', 'id_topic');
+        return $this->belongsToMany(Topic::class, 'topic_follow', 'id_member', 'id_topic');
     }
 
     /**
@@ -88,7 +88,7 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function bookmarks(): BelongsToMany
+    public function bookmarks()
     {
         return $this->belongsToMany(NewsPost::class, 'post_bookmark', 'id_bookmarker', 'id_post');
     }
@@ -98,7 +98,7 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function followers(): BelongsToMany
+    public function followers()
     {
         return $this->belongsToMany(Member::class, 'member_follow', 'id_followed', 'id_follower');
     }
@@ -108,8 +108,8 @@ class Member extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function following(): BelongsToMany
+    public function following()
     {
-        return $this->belongsToMany(Member::class, 'member_follow', 'id_follower', 'id_following');
+        return $this->belongsToMany(Member::class, 'member_follow', 'id_follower', 'id_followed');
     }
 }

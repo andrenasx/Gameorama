@@ -29,7 +29,7 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function member(): BelongsTo
+    public function owner()
     {
         return $this->belongsTo(Member::class, 'id_owner');
     }
@@ -39,7 +39,7 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function topics(): BelongsToMany
+    public function topics()
     {
         return $this->belongsToMany(Topic::class, 'post_topic', 'id_post', 'id_topic');
     }
@@ -49,7 +49,7 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function images(): HasMany
+    public function images()
     {
         return $this->hasMany(PostImage::class, 'id_post');
     }
@@ -59,7 +59,7 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comments(): HasMany
+    public function comments()
     {
         return $this->hasMany(Comment::class, 'id_post');
     }
@@ -69,7 +69,7 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function auras(): BelongsToMany
+    public function auras()
     {
         return $this->belongsToMany(Member::class, 'post_aura', 'id_post', 'id_voter')->withPivot('upvote');
     }
@@ -79,7 +79,7 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function bookmarkers(): BelongsToMany
+    public function bookmarkers()
     {
         return $this->belongsToMany(Member::class, 'post_bookmark', 'id_post', 'id_bookmarker');
     }

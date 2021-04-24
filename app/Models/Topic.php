@@ -29,7 +29,7 @@ class Topic extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function followers(): BelongsToMany
+    public function followers()
     {
         return $this->belongsToMany(Member::class, 'topic_follow', 'id_topic', 'id_member');
     }
@@ -39,7 +39,7 @@ class Topic extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function posts(): BelongsToMany
+    public function posts()
     {
         return $this->belongsToMany(NewsPost::class, 'post_topic', 'id_topic', 'id_post');
     }
