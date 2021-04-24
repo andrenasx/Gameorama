@@ -38,3 +38,35 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('/search', function() {
     return view('pages.search');
 });
+
+Route::get('/login', function() {
+    return view('pages.login');
+});
+
+Route::get('/signup', function() {
+    return view('pages.signup');
+});
+
+Route::get('/home', function() {
+    return view('pages.home');
+});
+
+Route::get('/settings', function() {
+    return view('pages.settings');
+});
+
+Route::get('/about', function() {
+    return view('pages.about');
+});
+
+Route::get('/admin', function() {
+    return view('pages.admin');
+});
+
+
+
+Route::get('/topic', function() {
+    return view('pages.topic');
+});
+
+

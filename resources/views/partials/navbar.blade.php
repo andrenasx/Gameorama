@@ -14,13 +14,11 @@
           </form>
         </div>
         <ul class="navbar-nav d-flex justify-content-end" >
-
-                <button class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn" onclick="window.location.href='create_post.php'">
-                    <row class="d-flex ">
-                        <span class="material-icons-round me-1">add</span> Create a News Post
-                    </row>
-                </button>
-
+          <button class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn" onclick="window.location.href='create_post.php'">
+              <row class="d-flex ">
+                  <span class="material-icons-round me-1">add</span> Create a News Post
+              </row>
+          </button>
           <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
               <a class="nav-link gx-0 mx-0 px-0" id="navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#modalNotifications" >
               <button type="button" class="navbar-icon grey-hover"  style="margin-top:2px"  ><span class="material-icons-round">notifications</span></button>
