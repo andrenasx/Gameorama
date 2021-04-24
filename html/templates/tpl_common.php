@@ -35,7 +35,6 @@
                 </div>
                 
                 <span class="color-orange col-12 col-md-8 text-md-end">&copy; Copyright 2021 Gameorama. All rights reserved.</span>
-            </div>
         </footer>
     </body>
 </html>
