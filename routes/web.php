@@ -63,10 +63,22 @@ Route::get('/admin', function() {
     return view('pages.admin');
 });
 
-
-
 Route::get('/topic', function() {
     return view('pages.topic');
 });
 
+Route::get('/profile', function() {
+    return view('pages.profile');
+});
 
+Route::get('/create_post', function() {
+    return view('pages.create_post');
+});
+
+Route::get('/edit_post', function() {
+    return view('pages.edit_post');
+});
+
+Route::get('/edit_profile', function() {
+    return view('pages.edit_profile');
+});

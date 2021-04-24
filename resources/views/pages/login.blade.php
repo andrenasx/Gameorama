@@ -4,7 +4,7 @@
     <div class="background-color"></div>
     <div class="background-image"></div>
     <main class="form-signin">
-        <form>
+        <form action="" method="POST">
             @csrf
             <img class="img-fluid" src={{asset('storage/assets/logo.png')}} alt=""
                 onclick="window.location.href='logout_mainpage.php#'" style="cursor:pointer;">
@@ -20,7 +20,7 @@
             </div>
             <a class="blue-hover mb-5" id="forgotPassword" href="login.php">Forgot your password?</a>
             <div class="col-12 mb-3 d-flex justify-content-center">
-                <button class="col-5 btn btn-lg btn-primary me-3" id="loginButton" type="submit" onclick="window.location.href='mainpage.php#'">Login</button>
+                <button class="col-5 btn btn-lg btn-primary me-3" id="loginButton" type="submit">Login</button>
                 <a class="col-5 btn btn-outline-dark" href="/users/googleauth" id="googleButton" role="button"
                     style="text-transform:none">
                     <img width="30px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
