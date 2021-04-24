@@ -87,7 +87,7 @@ paths:
           description: 'Bad Request'
         '403':
           description: 'Forbidden access'
-  /register:
+  /signup:
     get:
       operationId: R104
       summary: 'R104: Register Form'
@@ -166,7 +166,7 @@ paths:
         '400':
           description: 'Bad Request'
         '404':
-          description: 'Member not found. Show [UI07](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui07-user-profile)'
+          description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
   /user/{username}/edit:
     get:
       operationId: R107
@@ -189,7 +189,7 @@ paths:
         '403':
           description: 'Forbidden access'
         '404':
-          description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui08-edit-profile)'
+          description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     patch:
       operationId: R108
       summary: 'R108: Edit member information'
@@ -271,7 +271,7 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Member not found'
-  /account_settings:
+  /settings:
     get:
       operationId: R110
       summary: 'R110: Member account settings'
@@ -1602,16 +1602,28 @@ paths:
           description: 'Bad Request'
         '403':
           description: 'Forbidden access'
-  /abot_us:
+  /about:
     get:
       operationId: R706
-      summary: 'R706: Show admin page'
+      summary: 'R706: About Us page'
       description: 'Show about us page. Access: PUB'
       tags:
         - 'M07: Administrator and Static Pages'
       responses:
         '200':
           description: 'Ok. Show [UI12](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui12-about-us)'
+        '400':
+          description: 'Bad Request'
+  /404:
+    get:
+      operationId: R707
+      summary: 'R707: 404 page'
+      description: 'Show 404 (Not found) page. Access: PUB'
+      tags:
+        - 'M07: Administrator and Static Pages'
+      responses:
+        '200':
+          description: 'Ok. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
         '400':
           description: 'Bad Request'
 
