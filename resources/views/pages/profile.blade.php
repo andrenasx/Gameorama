@@ -18,11 +18,10 @@
 
             <div class="col-sm-12">
                 <div class="details ">
-                    <h3>John Marston</h3>
-                    <h4 class="color-orange fst-italic">kaka34</h4>
-                    <p>214,385 Aura Score</p>
-                    <p class="bio mb-4 px-3">What's up! I'm kaka34 and I love sports games, especially FIFA! Every other
-                        game is bad (this is my opinion and therefore the truth).</p>
+                    <h3>{{$member->full_name}}</h3>
+                    <h4 class="color-orange fst-italic">{{$member->username}}</h4>
+                    <p>{{$member->aura}} Aura Score</p>
+                    <p class="bio mb-4 px-3">{{$member->bio}}</p>
                     <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3"></button>
                 </div>
             </div>
@@ -30,15 +29,15 @@
                 <div class="row g-0 d-flex justify-content-around">
                     <div class="col text-center px-2">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
-                            data-bs-target="#modalFollowing">1021 Following</button>
+                            data-bs-target="#modalFollowing">{{$member->following->count()}} Following</button>
                     </div>
                     <div class="col text-center px-2">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
-                            data-bs-target="#modalFollowers">1542 Followers</button>
+                            data-bs-target="#modalFollowers">{{$member->followers->count()}} Followers</button>
                     </div>
                     <div class="col text-center px-2">
                         <button type="button" class="text-button-profile" data-bs-toggle="modal"
-                            data-bs-target="#modalFollowedTopics">162 Followed Topics</button>
+                            data-bs-target="#modalFollowedTopics">{{$member->topics->count()}} Followed Topics</button>
                     </div>
                 </div>
             </section>
@@ -162,8 +161,8 @@
 </section>
 <!--<script src="../js/voting.js"></script>-->
 @include('partials.report_profile')
-@include('partials.following')
-@include('partials.followers')
-@include('partials.followed_topics')
+@include('partials.following', ['following' => $member->following])
+@include('partials.followers', ['followers' => $member->followers])
+@include('partials.followed_topics', ['topics' => $member->topics])
 @include('partials.footer')
 @endsection

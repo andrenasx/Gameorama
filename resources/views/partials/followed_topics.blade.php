@@ -8,202 +8,22 @@
             </div>
             <div class="modal-body">
                 <div class="profiles-container">
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
+                    @foreach ($topics as $topic)
+                        <div class="profile-container d-flex justify-content-between mb-2">
+                            <div class="d-flex">
+                                <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
+                                    style="width:50px;height:50px;" alt="">
+                                <div class="ms-2">
+                                    <h1 class="h5 fw-normal">{{$topic->name}}</h1>
+                                    <p class="h6 fw-normal">{{$topic->followers->count()}} Followers</p>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button"
+                                    class="following-button btn btn-outline-primary col-12 mb-1"></button>
                             </div>
                         </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
-                    <div class="profile-container d-flex justify-content-between mb-2">
-                        <div class="d-flex">
-                            <img src="../assets/avatar2.png" class="flex-shrink-0 rounded-circle"
-                                style="width:50px;height:50px;" alt="">
-                            <div class="ms-2">
-                                <h1 class="h5 fw-normal">League of Legends</h1>
-                                <p class="h6 fw-normal">1.5M Followers</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="following-button btn btn-outline-primary col-12 mb-1"></button>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

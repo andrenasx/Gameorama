@@ -20,10 +20,10 @@
             <div class="col">
                 <h5 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h5>
                 <div class="d-inline">
-                    <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
-                    <small>45 minutes ago</small>
+                    <small class="post-user">Posted by <a href="./profile.php">{{$post->owner->username}}</a></small>
+                    <small>{{$post->date_time}}</small>
                 </div>
-                <h1 class="post-title">Razer apresenta webcam Kiyo Pro</h1>
+                <h1 class="post-title">{{$post->title}}</h1>
             </div>
         </header>
         <div class="news-card-body">
@@ -53,12 +53,12 @@
                 <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <p class="card-text px-lg-5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho. E isto veio o despertar um problema há muito dormente: a fraca qualidade das câmaras nos nossos computadores portáteis.</p>
+            <p class="card-text px-lg-5">{{$post->body}}</p>
         </div>
         <div class="row mt-4 news-card-options">
             <div class="col d-flex justify-content-center btn-outline-blue">
                 <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                <span class="d-none d-md-flex"> 321</span>
+                <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
             </div>
             <div class="col d-flex justify-content-center btn-outline-blue">
                 <span class="material-icons-outlined align-middle me-1">bookmark_add</span>

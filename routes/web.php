@@ -67,9 +67,13 @@ Route::get('/topic', function() {
     return view('pages.topic');
 });
 
+Route::get('/user/{username}', 'MemberController@show')->name('profile');
+
 Route::get('/profile', function() {
     return view('pages.profile');
 });
+
+Route::get('/post/{id_post}', 'PostController@show')->name('post');
 
 Route::get('/create_post', function() {
     return view('pages.create_post');
