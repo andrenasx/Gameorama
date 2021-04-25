@@ -40,11 +40,17 @@ Route::get('/search', function() {
 });
 
 Route::get('/login', function() {
-    return view('pages.login');
+    return view('auth.login');
 });
 
+Route::post('login', 'Auth\LoginController@login')->name('login');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::post('signup', 'Auth\RegisterController@register')->name('signup');
+
 Route::get('/signup', function() {
-    return view('pages.signup');
+    return view('auth.signup');
 });
 
 Route::get('/home', function() {
@@ -69,7 +75,7 @@ Route::get('/topic', function() {
 
 Route::get('/profile', function() {
     return view('pages.profile');
-});
+})->middleware('auth');
 
 Route::get('/create_post', function() {
     return view('pages.create_post');
@@ -82,3 +88,4 @@ Route::get('/edit_post', function() {
 Route::get('/edit_profile', function() {
     return view('pages.edit_profile');
 });
+

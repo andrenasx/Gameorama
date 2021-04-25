@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Providers\RouteServiceProvider;
+use App\Models\Member;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -27,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/cards';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -48,9 +53,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'full_name' => ['required', 'string', 'max:255'],
+            'username'=> ['required', 'string', 'max:255', 'unique:member'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:member'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'confirmPassword'  => ['required', 'string', 'min:8', 'same:password']
         ]);
     }
 
@@ -58,14 +65,34 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Models\User
+     * @return \App\Models\Member
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        
+
+        return Member::create([
+            'full_name' => $data['full_name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'username' => $data['username'],
+            'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request) {
+        
+        Log::debug($request->all()); //logs debug array in storage/logs/laravel.log
+        
+
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        }
+
+        event(new Registered($member = $this->create($request->all())));
+
+        $this->guard()->login($member);
+        return $this->registered($request, $member) ?: redirect($this->$redirectTo);
     }
 }

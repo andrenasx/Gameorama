@@ -54,18 +54,18 @@
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">League of Legends</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">WanWan</a></small>
+                                <small class="post-user">Posted by <a href="profile">WanWan</a></small>
                                 <small>2 hours ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">Champion Spotlight de Viego, The Ruined King</a>
+                                <a href="post" class="black-a">Champion Spotlight de Viego, The Ruined King</a>
                             </h4>
                         </div>
                     </div>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://s2.glbimg.com/zavTeT4iIiVKpefK-TWGsg0Tas0=/0x0:3840x2160/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/U/5/cfZdJHSCiXpc23vCzYGg/58332729.jpg">
                             <p class="card-text truncate-multiple">
@@ -111,18 +111,18 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">League of Legends</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">WanWan</a></small>
+                                <small class="post-user">Posted by <a href="profile">WanWan</a></small>
                                 <small>2 days ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">League of Legends: Global Positional Top Ten Players</a>
+                                <a href="post" class="black-a">League of Legends: Global Positional Top Ten Players</a>
                             </h4>
                         </div>
                     </div>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://images2.minutemediacdn.com/image/fetch/w_850,h_560,c_fill,g_auto,f_auto/https%3A%2F%2Fblogoflegends.com%2Ffiles%2F2021%2F03%2F50528170178_9de38412cc_k-850x560.jpg">
                             <p class="card-text truncate-multiple">
@@ -166,18 +166,18 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a>; <a href="#">Esports</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">League of Legends</a>; <a href="#">Esports</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">El_Biden</a></small>
+                                <small class="post-user">Posted by <a href="profile">El_Biden</a></small>
                                 <small>2 weeks ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">Mid-Season Invitational returns for 2021 in Reykjavík, Iceland</a>
+                                <a href="post" class="black-a">Mid-Season Invitational returns for 2021 in Reykjavík, Iceland</a>
                             </h4>
                         </div>
                     </div>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://www.dailyesports.gg/wp-content/uploads/2021/03/MSI-Iceland-800x400.jpg">
                             <p class="card-text truncate-multiple">
@@ -219,18 +219,18 @@ The Mid-Season Invitational (MSI) pits the Spring Split champions from each glob
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">League of Legends</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">Legalt_of_Rivia</a></small>
+                                <small class="post-user">Posted by <a href="profile">Legalt_of_Rivia</a></small>
                                 <small>17 hours ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">League of Legends patch 11.6 PBE updates introduce new Battle Academia skins</a>
+                                <a href="post" class="black-a">League of Legends patch 11.6 PBE updates introduce new Battle Academia skins</a>
                             </h4>
                         </div>
                     </div>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://staticg.sportskeeda.com/editor/2021/03/83328-16150422444954-800.jpg">
                             <p class="card-text truncate-multiple">
@@ -270,18 +270,18 @@ League of Legends fans got a first glance at the new Battle Academia skins for C
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">League of Legends</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">WanWan</a></small>
+                                <small class="post-user">Posted by <a href="profile">WanWan</a></small>
                                 <small>2 hours ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">Champion Spotlight de Viego, The Ruined King</a>
+                                <a href="post" class="black-a">Champion Spotlight de Viego, The Ruined King</a>
                             </h4>
                         </div>
                     </div>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://s2.glbimg.com/zavTeT4iIiVKpefK-TWGsg0Tas0=/0x0:3840x2160/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/U/5/cfZdJHSCiXpc23vCzYGg/58332729.jpg">
                             <p class="card-text truncate-multiple">
@@ -327,18 +327,18 @@ Como não poderia deixar de ser, Viego contará com uma skin própria intitulada
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">League of Legends</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">League of Legends</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">WanWan</a></small>
+                                <small class="post-user">Posted by <a href="profile">WanWan</a></small>
                                 <small>2 days ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">League of Legends: Global Positional Top Ten Players</a>
+                                <a href="post" class="black-a">League of Legends: Global Positional Top Ten Players</a>
                             </h4>
                         </div>
                     </div>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://images2.minutemediacdn.com/image/fetch/w_850,h_560,c_fill,g_auto,f_auto/https%3A%2F%2Fblogoflegends.com%2Ffiles%2F2021%2F03%2F50528170178_9de38412cc_k-850x560.jpg">
                             <p class="card-text truncate-multiple">

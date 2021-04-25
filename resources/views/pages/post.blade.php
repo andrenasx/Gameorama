@@ -20,7 +20,7 @@
             <div class="col">
                 <h5 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h5>
                 <div class="d-inline">
-                    <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                    <small class="post-user">Posted by <a href="profile">kaka34</a></small>
                     <small>45 minutes ago</small>
                 </div>
                 <h1 class="post-title">Razer apresenta webcam Kiyo Pro</h1>

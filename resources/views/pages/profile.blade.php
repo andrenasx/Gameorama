@@ -78,19 +78,19 @@
                             </ul>
                         </div>
                         <div class="col">
-                            <h6 class="post-topics">Topics: <a href="../pages/topic.php">Gaming Gadgets</a>; <a
-                                    href="../pages/topic.php">Razer</a></h6>
+                            <h6 class="post-topics">Topics: <a href="topic">Gaming Gadgets</a>; <a
+                                    href="topic">Razer</a></h6>
                             <div class="d-inline">
-                                <small class="post-user">Posted by <a href="./profile.php">kaka34</a></small>
+                                <small class="post-user">Posted by <a href="profile">kaka34</a></small>
                                 <small>45 minutes ago</small>
                             </div>
                             <h4 class="post-title-smaller">
-                                <a href="../pages/post.php" class="black-a">Razer apresenta webcam Kiyo Pro</a>
+                                <a href="post" class="black-a">Razer apresenta webcam Kiyo Pro</a>
                             </h4>
                         </div>
                     </header>
                     <div class="news-card-body">
-                        <a href="../pages/post.php" class="black-a">
+                        <a href="post" class="black-a">
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
                                 src="https://assets2.razerzone.com/images/pnx.assets/b6873991d1d643906221aa99f822a195/razer-kiyo-usp-synapse-3-mobile.jpg">
                             <p class="card-text truncate-multiple">A Razer revelou a webcam Kiyo Pro. Com uma
@@ -120,7 +120,7 @@
                 <section class="bg-white rounded p-4">
                     <div class="row p-3 g-0 mb-3 rounded border">
                         <header class="d-flex justify-content-between">
-                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Razer apresenta webcam Kiyo
+                            <h5 class="font-weight-bold">on "<a href="post">Razer apresenta webcam Kiyo
                                     Pro</a>"</h5>
                             <small style="color: darkgray;">35 minutes ago</small>
                         </header>
@@ -139,7 +139,7 @@
 
                     <div class="row p-3 g-0 rounded border">
                         <header class="d-flex justify-content-between">
-                            <h5 class="font-weight-bold">on "<a href="../pages/post.php">Gran Turismo 7 adiado para
+                            <h5 class="font-weight-bold">on "<a href="post">Gran Turismo 7 adiado para
                                     2022</a>"</h5>
                             <small style="color: darkgray;">2 hours ago</small>
                         </header>
