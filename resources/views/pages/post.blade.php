@@ -10,7 +10,7 @@
                         <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                     </li>
                     <li>
-                        <span class="score d-flex justify-content-center" id="score">23</span>
+                        <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
                     </li>
                     <li>
                         <span class="downvote material-icons-round d-flex justify-content-center">south</span>
@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="col">
-                <h5 class="post-topics">Topics: <a href="#">Gaming Gadgets</a>; <a href="#">Razer</a></h5>
+                <h5 class="post-topics">Topics:@foreach ($post->topics as $topic) <a href="#">{{$topic->name}}</a>; @endforeach</h5>
                 <div class="d-inline">
                     <small class="post-user">Posted by <a href="./profile.php">{{$post->owner->username}}</a></small>
                     <small>{{$post->date_time}}</small>
@@ -27,6 +27,7 @@
             </div>
         </header>
         <div class="news-card-body">
+            @if ($post->images != null)
             <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -53,6 +54,7 @@
                 <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            @endif
             <p class="card-text px-lg-5">{{$post->body}}</p>
         </div>
         <div class="row mt-4 news-card-options">
@@ -80,23 +82,24 @@
                 <button type="button" class="btn btn-primary mt-2 float-end">Add Comment</button>
             </div>
         </section>
-
+        
+        @foreach ($post->comments as $comment)
         <!-- comment -->
-        <div class = "row g-0 border rounded">
+        <div class = "row g-0 border rounded mb-3">
             <div class = "d-flex p-4">
                 <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
                     <div class = "row justify-content-between g-0">
-                        <h4 class="col color-orange">kaka34</h4>
-                        <small class="col text-end" style = "color: darkgray;">2 hours ago</small>
+                        <h4 class="col color-orange">{{$comment->owner->username}}</h4>
+                        <small class="col text-end" style = "color: darkgray;">{{$comment->date_time}}</small>
                     </div>
                     
-                    <p>Gostei muito desta câmara. É uma excelente opção para quem usa o Zoom para trabalhar.</p>
+                    <p>{{$comment->body}}</p>
 
                     <div class="row mt-4">
                         <div class = "col d-flex justify-content-center post-voting">
                             <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "score d-flex justify-content-center mx-2">1178</label>
+                            <label class = "score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
                             <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-blue">
@@ -111,6 +114,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
 
         <!-- reply -->
         <div class = "row g-0 offset-1 border rounded">
@@ -145,39 +149,31 @@
                 </div>
             </div>
         </div>
-
-        <!-- comment -->
-        <div class = "row g-0 mt-3 border rounded">
-            <div class = "d-flex p-4">
-                <img src="../assets/avatar3.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
-                <div class = "ms-2 col-lg-11">
-                    <div class = "row justify-content-between g-0">
-                        <h4 class="col">El_biden</h4>
-                        <small class="col text-end" style = "color: darkgray;">1 day ago</small>
-                    </div>
-                    
-                    <p>Essa webcam permite 1080p 60fps?</p>
-
-                    <div class="row mt-4">
-                        <div class = "col d-flex justify-content-center post-voting">
-                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "score d-flex justify-content-center mx-2">57</label>
-                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
-                        </div>
-                        <div class="col d-flex justify-content-center btn-outline-blue">
-                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-flex"> Reply</span>
-                        </div>
-                        <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
-                            <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-flex"> Report<span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 </section>
 <!--<script src="../js/voting.js"></script>-->
 @include('partials.footer')
 @endsection
+
+
+
+
+
+<!--
+    $comments=DB::select(DB::raw("  
+    SELECT id, body, date_time, aura, id_owner, id_post
+    FROM comment
+    WHERE id_post = $id_post 
+    AND id NOT IN (SELECT id_comment as id FROM reply WHERE id_post = $id_post)
+    );
+-->
+
+<!--
+    $comments=DB::select(DB::raw("  
+    SELECT id, body, date_time, aura, id_owner, id_post
+    FROM reply
+    INNER JOIN comment ON id_comment = id
+    WHERE id_parent = $id_comment
+    ); 
+
+-->
