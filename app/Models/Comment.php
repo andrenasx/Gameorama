@@ -29,7 +29,7 @@ class Comment extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function member(): BelongsTo
+    public function owner()
     {
         return $this->belongsTo(Member::class, 'id_owner');
     }
@@ -39,7 +39,7 @@ class Comment extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function post(): BelongsTo
+    public function post()
     {
         return $this->belongsTo(NewsPost::class, 'id_post');
     }
@@ -49,7 +49,7 @@ class Comment extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function auras(): BelongsToMany
+    public function auras()
     {
         return $this->belongsToMany(Member::class, 'comment_aura', 'id_comment', 'id_voter')->withPivot('upvote');
     }
