@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.navbar')
+@auth
+    @include('partials.navbar')
+@endauth
+@guest
+    @include('partials.logout_navbar')
+@endguest
 
 <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
     <h1 class="h2 fw-bold">Account Settings</h1>

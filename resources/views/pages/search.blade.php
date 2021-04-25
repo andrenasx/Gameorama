@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.navbar')
+@auth
+    @include('partials.navbar')
+@endauth
+
+@guest
+    @include('partials.logout_navbar')
+@endguest
+
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <header class="p-4 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
         <h3 class="mb-3 color-orange">Results for</h3>

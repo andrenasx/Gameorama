@@ -28,7 +28,7 @@
                     <label for="inputPassword">Password</label>
                 </div>
                 <div class="form-floating mb-4">
-                    <input type="password" id="inputConfirmPassword" name="confirmPassword" class="form-control mb-3" placeholder=" " required>
+                    <input type="password" id="inputConfirmPassword" name="password_confirmation" class="form-control mb-3" placeholder=" " required>
                     <label for="inputConfirmPassword">Confirm Password</label>
                 </div>
                 <div class="col-12 mb-3 d-flex justify-content-center">
@@ -43,7 +43,7 @@
                     <a class="blue-hover" id="signUpLogin" href="/login">Already have an account? Login</a>
                 </div>
                 @foreach ($errors->all() as $error)
-                <li class = "register-error">{{$error}}</li>
+                <li class = "error">{{$error}}</li>
                 @endforeach
                 <p class="mt-4 mb-1 text-center text-muted">&copy; Copyright 2021 Gameorama. All rights reserved.</p>
             </form>

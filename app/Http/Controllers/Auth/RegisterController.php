@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'username'=> ['required', 'string', 'max:255', 'unique:member'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:member'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'confirmPassword'  => ['required', 'string', 'min:8', 'same:password']
+            'password_confirmation'  => ['required', 'string', 'min:8', 'same:password']
         ]);
     }
 
@@ -82,6 +82,7 @@ class RegisterController extends Controller
     public function register(Request $request) {
         
         Log::debug($request->all()); //logs debug array in storage/logs/laravel.log
+        Log::debug("redirectTo: ". $this->redirectTo);
         
 
         $validator = $this->validator($request->all());
@@ -93,6 +94,6 @@ class RegisterController extends Controller
         event(new Registered($member = $this->create($request->all())));
 
         $this->guard()->login($member);
-        return $this->registered($request, $member) ?: redirect($this->$redirectTo);
+        return $this->registered($request, $member) ?: redirect($this->redirectTo);
     }
 }

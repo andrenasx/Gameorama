@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.navbar')
+@auth
+    @include('partials.navbar')
+@endauth
+
+@guest
+    
+    @include('partials.logout_navbar')
+@endguest
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <section class="profile-widget bg-white rounded mb-3">
         <div class="row g-0">

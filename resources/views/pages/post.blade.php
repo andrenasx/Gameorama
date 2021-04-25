@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.navbar')
+@auth
+    @include('partials.navbar')
+@endauth
+
+@guest
+    @include('partials.logout_navbar')
+@endguest
 <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7">
     <section class="news-card mb-3 p-4">
         <header class="row news-card-header">
@@ -84,8 +90,8 @@
         </section>
         
         @foreach ($post->comments as $comment)
-        <!-- comment -->
-        <div class = "row g-0 border rounded mb-3">
+        <!-- comment -->   
+        <div class = "row g-0 border rounded">
             <div class = "d-flex p-4">
                 <img src="../assets/avatar1.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
                 <div class = "ms-2 col-lg-11">
@@ -114,41 +120,42 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @foreach ($comment->replies as $reply)
+            <!-- reply -->
+            <div class = "row g-0 offset-1 border rounded mb-3">
+                <div class = "d-flex p-4">
+                    <img src="../assets/avatar2.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
+                    <div class = "ms-2 col-lg-11">
+                        <div class = "row justify-content-between g-0">
+                            <h4 class="col">{{$reply->owner->username}}</h4>
+                            <small class="col text-end" style = "color: darkgray;">35 minutes ago</small>
+                        </div>
+                        
+                        <p>{{$reply->body}}</p>
 
-        <!-- reply -->
-        <div class = "row g-0 offset-1 border rounded">
-            <div class = "d-flex p-4">
-                <img src="../assets/avatar2.png" class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" alt="">
-                <div class = "ms-2 col-lg-11">
-                    <div class = "row justify-content-between g-0">
-                        <h4 class="col">WanWan</h4>
-                        <small class="col text-end" style = "color: darkgray;">35 minutes ago</small>
-                    </div>
-                    
-                    <p>Tenho o modelo anterior e gostaria de saber se vale a pena o upgrade.</p>
-
-                    <div class="row mt-4">
-                        <div class = "col d-flex justify-content-center post-voting">
-                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                            <label class = "score d-flex justify-content-center mx-2">101</label>
-                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                        <div class="row mt-4">
+                            <div class = "col d-flex justify-content-center post-voting">
+                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                                <label class = "score d-flex justify-content-center mx-2">101</label>
+                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                            </div>
+                            <div class="col d-flex justify-content-center btn-outline-blue">
+                                <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                                <span class="d-none d-md-flex"> Reply</span>
+                            </div>
+                            <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                <span class="material-icons-round">more_horiz</span>
+                            </div>
+                            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                                <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                            </ul>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-blue">
-                            <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                            <span class="d-none d-md-flex"> Reply</span>
-                        </div>
-                        <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
-                            <span class="material-icons-round">more_horiz</span>
-                        </div>
-                        <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
-                            <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
-                            <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
+        @endforeach
     </section>
 </section>
 <!--<script src="../js/voting.js"></script>-->
