@@ -396,6 +396,14 @@ form h2{
   filter: blur(3px);
 }
 
+.error {
+  color: red;
+
+  text-shadow: 1px 1px darkgray;
+}
+
+
+
  #signUpButton{
   background-color: var(--gameOrange);
   border-color: var(--gameOrange);

@@ -6,7 +6,7 @@
         <main class="form-signin">
             <form>
                 <img class="img-fluid" src="../assets/Logo.png" alt=""
-                    onclick="window.location.href='logout_mainpage.php#'" style="cursor:pointer;">
+                    onclick="window.location.href='home'" style="cursor:pointer;">
                 <h1 class="h2 mb-5 fw-normal">The Panorama of Gaming</h1>
                 <h2 class="h3 mb-4 fw-bold">Login</h2>
                 <div class="form-floating mb-5">

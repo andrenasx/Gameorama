@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
-      <div class="col-1 ps-lg-2" id= "Logo" onclick="window.location.href='mainpage.php'" style="cursor:pointer;">
-        <img src="../assets/Logo.png" class="img-logo" alt = "" >
+      <div class="col-1 ps-lg-2" id= "Logo" onclick="window.location.href='/home'" style="cursor:pointer;">
+        <img src={{asset('storage/assets/logo.png')}} class="img-logo" alt = "" >
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,13 +26,13 @@
               </a>
               <a class="nav-link dropdown-toggle d-flex mt-1 grey-hover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" style="color:black" aria-expanded="false" >
               <span class="material-icons-round me-1">account_circle</span>
-                WanWan
+                {{Auth::user()->username}}
               </a>
             <ul class="dropdown-menu" id="hamburguerMenu"aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="my_profile.php">My Profile</a></li>
               <li><a class="dropdown-item" href="accsettings.php">Account Settings</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="logout_mainpage.php">Log out</a></li>
+              <li><a class="dropdown-item" href="{{route('logout')}}">Log out</a></li>
             </ul>
         </li>
           <li class="nav-item d-flex align-items-start mt-2" id="colapsedHamburguer">
