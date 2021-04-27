@@ -56,15 +56,6 @@ class Comment extends Model
         return $this->belongsToMany(Member::class, 'comment_aura', 'id_comment', 'id_voter')->withPivot('upvote');
     }
 
-
-    /*public static function replies($id)
-    {
-        
-        $results = DB::select(DB::raw(" SELECT id, body, date_time, aura, id_owner, id_post FROM reply INNER JOIN comment ON id_comment = id WHERE id_parent = $id")); 
-        Log::debug($results);
-        return $results; 
-    }*/
-
     /**
      * Get all of the comments for the Comment
      *
@@ -72,6 +63,6 @@ class Comment extends Model
      */
     public function replies()
     {
-        return $this->belongsToMany(Comment::class, 'reply', 'id_parent', 'id_comment');
+        return $this->belongsToMany(Comment::class, 'reply', 'id_parent', 'id_comment')->orderBy('date_time', 'desc');
     }
 }

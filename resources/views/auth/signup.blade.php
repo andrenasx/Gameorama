@@ -43,7 +43,7 @@
                     <a class="blue-hover" id="signUpLogin" href="/login">Already have an account? Login</a>
                 </div>
                 @foreach ($errors->all() as $error)
-                <li class = "error">{{$error}}</li>
+                    <li class = "error">{{$error}}</li>
                 @endforeach
                 <p class="mt-4 mb-1 text-center text-muted">&copy; Copyright 2021 Gameorama. All rights reserved.</p>
             </form>

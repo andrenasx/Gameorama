@@ -80,11 +80,6 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request) {
-        
-        Log::debug($request->all()); //logs debug array in storage/logs/laravel.log
-        Log::debug("redirectTo: ". $this->redirectTo);
-        
-
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {

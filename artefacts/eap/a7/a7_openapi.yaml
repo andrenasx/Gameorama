@@ -66,23 +66,15 @@ paths:
         '400':
           description: 'Bad Request'
   /logout:
-    post:
+    get:
       operationId: R103
       summary: 'R103: Logout Action'
       description: 'Logout the current authenticated used. Access: USR'
       tags:
         - 'M01: Authentication and Individual Profile'
       responses:
-        '302':
-          description: 'Redirect after processing logout.'
-          headers:
-            Location:
-              schema:
-                type: string
-              examples:
-                302Success:
-                  description: 'Successful logout. Redirect to home page.'
-                  value: '/home'
+        '200':
+          description: 'Ok. Show [UI01](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui01-home-page)'  
         '400':
           description: 'Bad Request'
         '403':
@@ -146,7 +138,7 @@ paths:
                   value: '/login'
         '400':
           description: 'Bad Request'
-  /user/{username}:
+  /member/{username}:
     get:
       operationId: R106
       summary: 'R106: Members Profile'
@@ -167,10 +159,10 @@ paths:
           description: 'Bad Request'
         '404':
           description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
-  /user/{username}/edit:
+  /member/{username}/edit:
     get:
       operationId: R107
-      summary: 'R107: Members Profile'
+      summary: 'R107: Edit Profile Form'
       description: 'Page that allows a member to update his information. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -192,7 +184,7 @@ paths:
           description: 'Member not found. Show [UI14](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui14-error-404-page)'
     patch:
       operationId: R108
-      summary: 'R108: Edit member information'
+      summary: 'R108: Edit Profile Action'
       description: 'Allows a member to edit his information. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -271,7 +263,7 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Member not found'
-  /settings:
+  /member/{username}/settings:
     get:
       operationId: R110
       summary: 'R110: Member account settings'
@@ -436,7 +428,7 @@ paths:
   /api/user/{username}/following:
     get:
       operationId: R116
-      summary: "R116: Memeber's following members"
+      summary: "R116: Member's following members"
       description: "Shows member's following members. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -544,7 +536,7 @@ paths:
   /api/user/{username}/comments:
     get:
       operationId: R120
-      summary: "R120: Member's posts"
+      summary: "R120: Member's comments"
       description: "Shows member's posted comments. Access: PUB"
       tags:
         - 'M01: Authentication and Individual Profile'
@@ -1227,7 +1219,7 @@ paths:
           description: 'Comment not found'
 
 
-  /topic/{id_topic}:
+  /topic/{name}:
     get:
       operationId: R401
       summary: 'R401: Show a topic page'
@@ -1236,11 +1228,11 @@ paths:
         - 'M04: Topics'
       parameters:
         - in: path
-          name: id_topic
+          name: name
           schema:
             type: integer
           required: true
-          description: 'Specifies the id of the topic'
+          description: 'Specifies the name of the topic'
       responses:
         '200':
           description: 'Ok. Show [UI03](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2133/-/wikis/er#ui03-topic-page)'

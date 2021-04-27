@@ -15,7 +15,7 @@
         <button type="button" class="btn btn-primary p-2 col-4" id="accept-button" data-bs-toggle="modal"
             data-bs-target="#staticBackdropEmail">Change</button>
         <h1 class="h4 fw-bold">Email Address</h1>
-        <h2 class="h5 fw-lighter">nick.rogers@email.com</h2>
+        <h2 class="h5 fw-lighter">{{$member->email}}</h2>
     </div>
 
     <div class="col-12 col-lg-10 mt-5 mx-auto px-4 pt-5 pb-5 rounded" id="field-container">
@@ -45,22 +45,22 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-floating mb-5">
-                            <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required
+                            <input type="email" id="inputNewEmail" class="form-control mb-3" placeholder=" " required
                                 autofocus>
-                            <label for="inputEmail">Old Email Address</label>
-                        </div>
-                        <div class="form-floating mb-5">
-                            <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required
-                                autofocus>
-                            <label for="inputEmail">New Email Address</label>
+                            <label for="inputNewEmail">New Email Address</label>
                         </div>
 
                         <div class="form-floating mb-5">
-                            <input type="email" id="inputEmail" class="form-control mb-3" placeholder=" " required
+                            <input type="email" id="inputConfEmail" class="form-control mb-3" placeholder=" " required
                                 autofocus>
-                            <label for="inputEmail">Confirm New Email Address</label>
+                            <label for="inputConfEmail">Confirm New Email Address</label>
                         </div>
-                        <form>
+                        <div class="form-floating mb-5">
+                            <input type="password" id="inputPass" class="form-control mb-3" placeholder=" " required
+                                autofocus>
+                            <label for="inputPass">Password</label>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -82,22 +82,22 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-floating mb-5">
-                            <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" "
+                            <input type="password" id="inputPass" class="form-control mb-3" placeholder=" "
                                 required autofocus>
-                            <label for="inputPassword">Old Password</label>
+                            <label for="inputPass">Old Password</label>
                         </div>
                         <div class="form-floating mb-5">
-                            <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" "
+                            <input type="password" id="inputNewPass" class="form-control mb-3" placeholder=" "
                                 required autofocus>
-                            <label for="inputPassword">New Password</label>
+                            <label for="inputNewPass">New Password</label>
                         </div>
 
                         <div class="form-floating mb-5">
-                            <input type="password" id="inputPassword" class="form-control mb-3" placeholder=" "
+                            <input type="password" id="inputConfPass" class="form-control mb-3" placeholder=" "
                                 required autofocus>
-                            <label for="inputPassword">Confirm New Password</label>
+                            <label for="inputConfPass">Confirm New Password</label>
                         </div>
-                        <form>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

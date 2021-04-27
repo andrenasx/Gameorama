@@ -26,6 +26,7 @@
 
     <!-- CSS -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    
   </head>
   <body class="d-flex flex-column min-vh-100">
     @yield('content')

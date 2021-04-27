@@ -8,7 +8,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="col-lg-6" id="navbar_search">
-          <form class="col-lg-6 d-flex " style="width:85%" onclick="window.location.href='search_results.php'">
+          <form class="col-lg-6 d-flex " style="width:85%">
             <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
             <input class="form-control" type="search" placeholder="Search"aria-label="Search"></input>
           </form>
@@ -29,8 +29,8 @@
                 {{Auth::user()->username}}
               </a>
             <ul class="dropdown-menu" id="hamburguerMenu"aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="my_profile.php">My Profile</a></li>
-              <li><a class="dropdown-item" href="accsettings.php">Account Settings</a></li>
+              <li><a class="dropdown-item" href="/member/{{Auth::user()->username}}">My Profile</a></li>
+              <li><a class="dropdown-item" href="/member/{{Auth::user()->username}}/settings  ">Account Settings</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{{route('logout')}}">Log out</a></li>
             </ul>
@@ -43,7 +43,7 @@
                 <span class="badge rounded-pill badge-notification bg-danger mt-2">1</span>
                 <span class="">Notifications</span>
             </li>
-            <li><a class=" mt-2 grey-hover" href="my_profile.php" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a></li>
+            <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a></li>
             <li><a class=" mt-2 grey-hover" href="accsettings.php" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">settings</span> Account Settings</a></li>
             <li><a class=" mt-2 grey-hover" href="logout_mainpage.php"id= "colapsedHamburguer"><span class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span> Log out</a></li>
           </li>

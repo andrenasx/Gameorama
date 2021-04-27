@@ -41,7 +41,7 @@ class Member extends Authenticatable
      */
     public function posts()
     {
-        return $this->hasMany(NewsPost::class, 'id_owner');
+        return $this->hasMany(NewsPost::class, 'id_owner')->orderBy('id', 'desc');
     }
 
     /**
@@ -61,7 +61,7 @@ class Member extends Authenticatable
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'id_owner');
+        return $this->hasMany(Comment::class, 'id_owner')->orderBy('id', 'desc');
     }
 
     /**
@@ -81,7 +81,7 @@ class Member extends Authenticatable
      */
     public function topics()
     {
-        return $this->belongsToMany(Topic::class, 'topic_follow', 'id_member', 'id_topic');
+        return $this->belongsToMany(Topic::class, 'topic_follow', 'id_member', 'id_topic')->orderBy('name', 'asc');
     }
 
     /**
@@ -91,7 +91,7 @@ class Member extends Authenticatable
      */
     public function bookmarks()
     {
-        return $this->belongsToMany(NewsPost::class, 'post_bookmark', 'id_bookmarker', 'id_post');
+        return $this->belongsToMany(NewsPost::class, 'post_bookmark', 'id_bookmarker', 'id_post')->orderBy('id', 'desc');
     }
 
     /**
@@ -101,7 +101,7 @@ class Member extends Authenticatable
      */
     public function followers()
     {
-        return $this->belongsToMany(Member::class, 'member_follow', 'id_followed', 'id_follower');
+        return $this->belongsToMany(Member::class, 'member_follow', 'id_followed', 'id_follower')->orderBy('username', 'asc');
     }
 
     /**
@@ -111,6 +111,33 @@ class Member extends Authenticatable
      */
     public function following()
     {
-        return $this->belongsToMany(Member::class, 'member_follow', 'id_follower', 'id_followed');
+        return $this->belongsToMany(Member::class, 'member_follow', 'id_follower', 'id_followed')->orderBy('username', 'asc');
+    }
+
+    public function isMe(int $id)
+    {
+        return $id === $this->id;
+    }
+
+    /**
+     * Get the profile image associated with the Member
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile_image()
+    {
+        $image = MemberImage::find($this->id_profile_image);
+        return $image->file;
+    }
+
+    /**
+     * Get the banner image associated with the Member
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function banner_image()
+    {
+        $image = MemberImage::find($this->id_banner_image);
+        return $image->file;
     }
 }

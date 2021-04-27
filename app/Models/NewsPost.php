@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class NewsPost extends Model
 {
@@ -62,6 +63,25 @@ class NewsPost extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class, 'id_post');
+    }
+
+    /**
+     * Get all of the comments for the NewsPost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function parentComments()
+    {
+        $parentComments = [];
+        $aux= DB::select(DB::raw("SELECT comment.id
+        FROM comment
+        WHERE id_post = ".$this->id." 
+        AND id NOT IN (SELECT id_comment as id FROM reply WHERE id_post = ".$this->id.")
+        ORDER BY date_time DESC"));
+        foreach($aux as $auxIds ){
+            array_push($parentComments,Comment::find($auxIds->id));
+        }
+        return $parentComments;
     }
 
     /**

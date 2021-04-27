@@ -919,7 +919,8 @@ a.black-a:hover {
 /*  Edit profile   */
 
 .edit_profile_username h2{
-  color: var(--gameOrange);
+  color: var(--gameOrange); 
+  text-shadow: none;
 }
 
 .edit_banner_photo {

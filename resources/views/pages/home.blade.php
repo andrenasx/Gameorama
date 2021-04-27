@@ -13,44 +13,32 @@
     <div class="row justify-content-evenly g-0">
         <section class="all-news-cards col-md-8">
             <section class="pill-navigation">
-                @auth
-                <ul class="nav nav-pills mb-1 justify-content-space-between bg-white rounded" id="pills-tab"
-                    role="tablist">
-                    
-                    <li class="nav-item col-4" role="presentation">
+                <ul class="nav nav-pills mb-1 bg-white rounded" id="pills-tab" role="tablist">
+                    @auth
+                    <li class="nav-item col" role="presentation">
                         <button class="nav-link active w-100" id="pills-feed-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-feed" type="button" role="tab" aria-controls="pills-feed"
                             aria-selected="true">Feed</button>
                     </li>
-                    <li class="nav-item col-4" role="presentation">
+                    <li class="nav-item col" role="presentation">
                         <button class="nav-link w-100" id="pills-trending-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending"
                             aria-selected="false">Trending</button>
                     </li>
-                    <li class="nav-item col-4" role="presentation">
-                        <button class="nav-link w-100" id="pills-latest-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest"
-                            aria-selected="false">Latest</button>
-                    </li>
-                </ul>
-                @endauth
-
-                @guest
-                <ul class="nav nav-pills mb-1 justify-content-space-between bg-white rounded" id="pills-tab"
-                role="tablist">
-            
-                    <li class="nav-item col-6" role="presentation">
+                    @endauth
+                    @guest
+                    <li class="nav-item col" role="presentation">
                         <button class="nav-link active w-100" id="pills-trending-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending"
                             aria-selected="false">Trending</button>
                     </li>
-                    <li class="nav-item col-6" role="presentation">
+                    @endguest
+                    <li class="nav-item col" role="presentation">
                         <button class="nav-link w-100" id="pills-latest-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest"
                             aria-selected="false">Latest</button>
                     </li>
                 </ul>
-                @endguest
                 
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="pills-feed-tab">

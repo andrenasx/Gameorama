@@ -34,10 +34,7 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 */
 
-//Search
-Route::get('/search', function() {
-    return view('pages.search');
-});
+// Authentication
 
 Route::get('/login', function() {
     return view('auth.login');
@@ -57,10 +54,6 @@ Route::get('/home', function() {
     return view('pages.home');
 });
 
-Route::get('/settings', function() {
-    return view('pages.settings');
-});
-
 Route::get('/about', function() {
     return view('pages.about');
 });
@@ -69,16 +62,20 @@ Route::get('/admin', function() {
     return view('pages.admin');
 });
 
-Route::get('/topic', function() {
+Route::get('/topic/{name}', function () {
     return view('pages.topic');
 });
 
-Route::get('/user/{username}', 'MemberController@show')->name('profile');
+// Member
+Route::get('/member/{username}', 'MemberController@show');
 
-Route::get('/profile', function() {
-    return view('pages.profile');
-})->middleware('auth');
+Route::get('/member/{username}/edit', 'MemberController@edit');
 
+Route::patch('/member/{username}/edit', 'MemberController@update')->name('edit');
+
+Route::get('/member/{username}/settings', 'MemberController@settings');
+
+// Post
 Route::get('/post/{id_post}', 'PostController@show')->name('post');
 
 Route::get('/create_post', function() {
@@ -89,7 +86,11 @@ Route::get('/edit_post', function() {
     return view('pages.edit_post');
 });
 
-Route::get('/edit_profile', function() {
-    return view('pages.edit_profile');
+// Search
+Route::get('/search', function() {
+    return view('pages.search');
 });
 
+Route::fallback(function() {
+    return view('pages.404');
+});
