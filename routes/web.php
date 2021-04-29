@@ -34,8 +34,11 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 */
 
-// Authentication
+Route::get('/', function() {
+    return redirect('/home');
+});
 
+// Authentication
 Route::get('/login', function() {
     return view('auth.login');
 });
@@ -44,11 +47,12 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
-
 Route::get('/signup', function() {
     return view('auth.signup');
 });
+
+Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
+
 
 Route::get('/home', function() {
     return view('pages.home');
@@ -67,9 +71,9 @@ Route::get('/topic/{name}', function () {
 });
 
 // Member
-Route::get('/member/{username}', 'MemberController@show');
+Route::get('/member/{username}', 'MemberController@show')->name('profile');
 
-Route::get('/member/{username}/edit', 'MemberController@edit');
+Route::get('/member/{username}/edit', 'MemberController@edit')->name('edit_profile');
 
 Route::patch('/member/{username}/edit', 'MemberController@update');
 
@@ -96,6 +100,10 @@ Route::get('/edit_post', function() {
 Route::get('/search', function() {
     return view('pages.search');
 });
+
+Route::get('/404', function () {
+    return view('pages.404');
+})->name('404');
 
 Route::fallback(function() {
     return view('pages.404');

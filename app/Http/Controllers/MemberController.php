@@ -55,12 +55,11 @@ class MemberController extends Controller
     public function show($username)
     {
         $member = Member::firstWhere('username', $username);
-
-        if ($member != NULL) {
-            return view('pages.profile', ['member' => $member]);
+        if ($member == null) {
+            return redirect(route('404'));
         }
 
-        return view('pages.404');
+        return view('pages.profile', ['member' => $member]);
     }
 
     /**
@@ -68,13 +67,18 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($username) {
+    public function edit($username)
+    {
+        if (!Auth::check()) redirect('login');
+
         $member = Member::firstWhere('username', $username);
-        if ($member != NULL) {
-            return view('pages.edit_profile', ['member' => $member]);
+        if ($member == null) {
+            return redirect(route('404'));
         }
 
-        return view('pages.404');
+        $this->authorize('update', $member);
+
+        return view('pages.edit_profile', ['member' => $member]);
     }
 
     /**
@@ -97,10 +101,17 @@ class MemberController extends Controller
 
     public function update(Request $request, $username)
     {
-        $member = Member::firstWhere('username', $username);
+        if (!Auth::check()) redirect('login');
 
-        $id_banner = $member->id_banner_image;
+        $member = Member::firstWhere('username', $username);
+        if ($member == null) {
+            return redirect(route('404'));
+        }
+
+        $this->authorize('update', $member);
+
         $id_profile = $member->id_profile_image;
+        $id_banner = $member->id_banner_image;
 
         if ($request->hasFile("profile_photo")) {
             $id_profile = $this->createImage($request, "profile_photo")->id;
@@ -117,7 +128,7 @@ class MemberController extends Controller
         'id_banner_image' => $id_banner
         ]);
 
-        return redirect("/member/". $member->username);
+        return redirect(route('profile', $member->username));
     }
 
     /**
@@ -126,12 +137,16 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function settings($username) {
+        if (!Auth::check()) redirect('login');
+
         $member = Member::firstWhere('username', $username);
-        if ($member != NULL) {
-            return view('pages.settings', ['member' => $member]);
+        if ($member == null) {
+            return redirect(route('404'));
         }
 
-        return view('pages.404');
+        $this->authorize('update', $member);
+
+        return view('pages.settings', ['member' => $member]);
     }
 
     /**
@@ -150,8 +165,9 @@ class MemberController extends Controller
     }
 
     public function change_email(Request $request) {
-        $validator = $this->change_email_validator($request->all());
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
+        $validator = $this->change_email_validator($request->all());
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
@@ -161,8 +177,8 @@ class MemberController extends Controller
             return response()->json(array('password' => 'Incorrect Password'), 400);
         }
 
-        DB::table('member')->where('id', $member->id)
-        ->update(["email" => $request->input("email")]);
+        $member->email = $request->input("email");
+        $member->save();
     }
 
     /**
@@ -181,8 +197,9 @@ class MemberController extends Controller
     }
 
     public function change_password(Request $request) {
-        $validator = $this->change_password_validator($request->all());
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
+        $validator = $this->change_password_validator($request->all());
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
@@ -193,8 +210,8 @@ class MemberController extends Controller
             return response()->json(array('old_password' => 'Incorrect Password'), 400);
         }
 
-        DB::table('member')->where('id', $member->id)
-        ->update(["password" => Hash::make($request->input("new_password"))]);
+        $member->password = Hash::make($request->input("new_password"));
+        $member->save();
     }
 
     /**
@@ -205,8 +222,10 @@ class MemberController extends Controller
      */
     public function destroy(Request $request, $username)
     {
+        if (!Auth::check()) return response()->json('Forbidden Access', 403);
+
         $member = Member::firstWhere('username', $username);
-        if ($member == NULL) {
+        if ($member == null) {
             return view('pages.404');
         }
 
