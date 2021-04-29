@@ -229,7 +229,7 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Member not found'
-  /api/user/{username}:
+  /api/member/{username}:
     delete:
       operationId: R109
       summary: 'R109: Delete an account'
@@ -243,6 +243,15 @@ paths:
             type: string
           description: 'Specifies the member username'
           required: true
+      requestBody:
+        required: false
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
       responses:
         '302':
           description: 'Redirect member after logout.'
@@ -277,20 +286,13 @@ paths:
           description: 'Bad Request'
         '403':
           description: 'Forbidden access'
-  /api/user/{username}/change_email:
+  /api/change_email:
     patch:
       operationId: R111
       summary: 'R111: Change members email'
       description: 'Allows a member to change its email. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
-      parameters:
-        - in: path
-          name: username
-          schema:
-            type: string
-          description: 'Specifies the member username'
-          required: true
       requestBody:
         required: true
         content:
@@ -298,16 +300,16 @@ paths:
             schema:
               type: object
               properties:
-                old_email:
-                  type: string
                 new_email:
                   type: string
                 conf_new_email:
                   type: string
+                password:
+                  type: string
               required:
-                - old_email
                 - new_email
                 - conf_new_email
+                - password
       responses:
         '200':
           description: 'Updated email.'
@@ -317,20 +319,13 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Page not found'
-  /api/user/{username}/change_password:
+  /api/change_password:
     patch:
       operationId: R112
       summary: 'R112: Change members password'
       description: 'Allows a member to change its email. Access: OWN'
       tags:
         - 'M01: Authentication and Individual Profile'
-      parameters:
-        - in: path
-          name: username
-          schema:
-            type: string
-          description: 'Specifies the member username'
-          required: true
       requestBody:
         required: true
         content:
@@ -506,7 +501,7 @@ paths:
           description: 'Invalid member ID'
         '404':
           description: 'Member not found'
-  /api/user/{username}/posts:
+  /api/member/{username}/posts:
     get:
       operationId: R119
       summary: "R119: Member's posts"
@@ -533,7 +528,7 @@ paths:
           description: 'Invalid member ID'
         '404':
           description: 'Member not found'
-  /api/user/{username}/comments:
+  /api/member/{username}/comments:
     get:
       operationId: R120
       summary: "R120: Member's comments"
@@ -560,7 +555,7 @@ paths:
           description: 'Invalid member ID'
         '404':
           description: 'Member not found'
-  /api/user/{username}/bookmarked:
+  /api/member/{username}/bookmarked:
     get:
       operationId: R121
       summary: "R121: Member's bookmarked posts"
@@ -631,7 +626,7 @@ paths:
           description: 'Bad Request'
         '403':
           description: 'Forbidden access'
-  /post/new_post:
+  /post/create:
     get:
       operationId: R203
       summary: 'R203: Shows create post page'
@@ -1338,7 +1333,7 @@ paths:
           description: 'Page not found.'
 
 
-  /api/user/{username}/notifications:
+  /api/member/{username}/notifications:
     post:
       operationId: R501
       summary: "R501: Get member's notifications"

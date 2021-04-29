@@ -67,6 +67,5 @@ class LoginController extends Controller
         $request->session()->regenerate(); 
      
         return redirect($this->redirectTo);
-          
     }
 }

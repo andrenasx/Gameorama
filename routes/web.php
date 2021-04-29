@@ -40,11 +40,11 @@ Route::get('/login', function() {
     return view('auth.login');
 });
 
-Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::post('signup', 'Auth\RegisterController@register')->name('signup');
+Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
 
 Route::get('/signup', function() {
     return view('auth.signup');
@@ -71,9 +71,15 @@ Route::get('/member/{username}', 'MemberController@show');
 
 Route::get('/member/{username}/edit', 'MemberController@edit');
 
-Route::patch('/member/{username}/edit', 'MemberController@update')->name('edit');
+Route::patch('/member/{username}/edit', 'MemberController@update');
 
 Route::get('/member/{username}/settings', 'MemberController@settings');
+
+Route::patch('/api/change_email', 'MemberController@change_email');
+
+Route::patch('/api/change_password', 'MemberController@change_password');
+
+Route::delete('/api/member/{username}', 'MemberController@destroy');
 
 // Post
 Route::get('/post/{id_post}', 'PostController@show')->name('post');

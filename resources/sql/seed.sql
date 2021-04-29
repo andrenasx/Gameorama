@@ -47,7 +47,7 @@ CREATE TABLE member (
 );
 
 CREATE TABLE administrator (
-    id integer PRIMARY KEY REFERENCES member(id)
+    id integer PRIMARY KEY REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE member_follow (
@@ -147,35 +147,35 @@ CREATE TABLE reply_notification (
 );
 
 CREATE TABLE post_report (
+    id serial PRIMARY KEY,
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_reporter, id_post)
+    date_time timestamp NOT NULL DEFAULT now()
 );
 
 CREATE TABLE comment_report (
+    id serial PRIMARY KEY,
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_reporter, id_comment)
+    date_time timestamp NOT NULL DEFAULT now()
 );
 
 CREATE TABLE topic_report (
+    id serial PRIMARY KEY,
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_reporter, id_topic)
+    date_time timestamp NOT NULL DEFAULT now()
 );
 
 CREATE TABLE member_report (
+    id serial PRIMARY KEY,
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_reported integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
     date_time timestamp NOT NULL DEFAULT now(),
-    PRIMARY KEY(id_reporter, id_reported),
     CONSTRAINT member_report_ids CHECK (id_reporter <> id_reported)
 );
 
@@ -431,7 +431,7 @@ CREATE FUNCTION check_topics() RETURNS TRIGGER AS $$
     WHERE current.id_post = post_topic.id_post;
     IF num_topics > 10 THEN
       RAISE EXCEPTION 'A post can only have a maximum of 10 topics';
-    ELSIF num_topics < 1 THEN
+    ELSIF num_topics > 0 AND num_topics < 1 THEN
       RAISE EXCEPTION 'A post must have at least 1 topic';
     END IF;
     RETURN NEW;
