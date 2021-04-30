@@ -87,7 +87,8 @@ Route::patch('/api/change_password', 'MemberController@change_password');
 Route::delete('/api/member/{username}', 'MemberController@destroy');
 
 //  Member content
-Route::get('/api/member/{username}/posts/{page}', 'MemberController@posts')->name('member_posts');
+Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content');
+
 
 // Post
 Route::get('/post/{id_post}', 'PostController@show')->name('post');

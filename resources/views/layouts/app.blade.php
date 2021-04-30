@@ -28,11 +28,10 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-    @stack('headscripts')
-    
+    @stack('scripts')
+
   </head>
   <body class="d-flex flex-column min-vh-100">
     @yield('content')
-    @stack('endscripts')
   </body>
 </html>

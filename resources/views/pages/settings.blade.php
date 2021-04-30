@@ -6,10 +6,14 @@
 @guest
     @include('partials.logout_navbar')
 @endguest
+@push('scripts')
+    <script defer src={{ asset('js/ajax.js') }}></script>
+    <script defer src={{ asset('js/settings.js') }}></script>
+@endpush
 
 <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
     <h1 class="h2 fw-bold">Account Settings</h1>
-    <hr class="rounded"></hr>
+    <hr class="rounded">
 
     <div class="col-12 col-lg-10 mt-5 mx-auto px-4 py-5 rounded" id="field-container">
         <button type="button" class="btn btn-primary p-2 col-4" id="accept-button" data-bs-toggle="modal"
@@ -27,7 +31,7 @@
 
     <div class="col-12 col-lg-8 pt-4 pb-4 container" id="field-delete-container">
         <h1 class="h4 fw-bold">Danger Zone</h1>
-        <h2 class="h5 fw-bold">☢️ BEWARE THE NUCLEAR BUTTON ☢️</h1>
+        <h2 class="h5 fw-bold">☢️ BEWARE THE NUCLEAR BUTTON ☢️</h2>
             <button type="button" class="btn btn-danger mt-2 p-2 col-8 col-xxl-4" id="delete-button"
                 data-bs-toggle="modal" data-bs-target="#staticBackdropDelete">Delete Account</button>
     </div>
@@ -143,8 +147,4 @@
 </section>
 
 @include('partials.footer')
-@push('endscripts')
-    <script src={{ asset('js/ajax.js') }}></script>
-    <script src={{ asset('js/settings.js') }}></script>
-@endpush
 @endsection

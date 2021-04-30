@@ -61,7 +61,7 @@ class Member extends Authenticatable
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'id_owner')->orderBy('id', 'desc');
+        return $this->hasMany(Comment::class, 'id_owner');
     }
 
     /**
@@ -75,23 +75,23 @@ class Member extends Authenticatable
     }
 
     /**
-     * The topics that the Member follows
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function topics()
-    {
-        return $this->belongsToMany(Topic::class, 'topic_follow', 'id_member', 'id_topic')->orderBy('name', 'asc');
-    }
-
-    /**
      * The news posts that the Member bookmarked
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function bookmarks()
     {
-        return $this->belongsToMany(NewsPost::class, 'post_bookmark', 'id_bookmarker', 'id_post')->orderBy('id', 'desc');
+        return $this->belongsToMany(NewsPost::class, 'post_bookmark', 'id_bookmarker', 'id_post');
+    }
+
+    /**
+     * The topics that the Member follows
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function topics()
+    {
+        return $this->belongsToMany(Topic::class, 'topic_follow', 'id_member', 'id_topic')->orderBy('name');
     }
 
     /**
@@ -101,7 +101,7 @@ class Member extends Authenticatable
      */
     public function followers()
     {
-        return $this->belongsToMany(Member::class, 'member_follow', 'id_followed', 'id_follower')->orderBy('username', 'asc');
+        return $this->belongsToMany(Member::class, 'member_follow', 'id_followed', 'id_follower')->orderBy('username');
     }
 
     /**
@@ -111,7 +111,7 @@ class Member extends Authenticatable
      */
     public function following()
     {
-        return $this->belongsToMany(Member::class, 'member_follow', 'id_follower', 'id_followed')->orderBy('username', 'asc');
+        return $this->belongsToMany(Member::class, 'member_follow', 'id_follower', 'id_followed')->orderBy('username');
     }
 
     public function isMe(int $id)

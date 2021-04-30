@@ -240,18 +240,69 @@ class MemberController extends Controller
         $member->delete();
     }
 
-    public function posts($username, $page)
+    public function content($username, $content, $page)
     {
         $member = Member::firstWhere('username', $username);
         if ($member == null) {
             return response()->json('Member not found', 404);
         }
 
-        $posts = $member->posts()->orderBy('id', 'desc')->forPage($page)->get();
+        $data = null;
+        $type = "";
+        switch ($content) {
+            case "posts":
+                $data = $member->posts()->orderBy('date_time', 'desc')->forPage($page)->get();
+                $type = 'post';
+                break;
+            case "comments":
+                $data = $member->comments()->orderBy('date_time', 'desc')->forPage($page)->get();
+                $type = 'comment';
+                break;
+            case "bookmarked":
+                $data = $member->bookmarks()->orderBy('date_time', 'desc')->forPage($page)->get();
+                $type = 'post';
+                break;
+            default:
+                return response()->json('Invalid content filter', 400);
+        }
+
+        $html = [];
+        foreach ($data as $element) {
+            array_push($html, view('partials.'.$type.'card', [$type => $element])->render());
+        }
+
+        return response()->json($html);
+    }
+
+    public function comments($username, $page)
+    {
+        $member = Member::firstWhere('username', $username);
+        if ($member == null) {
+            return response()->json('Member not found', 404);
+        }
+
+        $comments = $member->comments()->orderBy('date_time', 'desc')->forPage($page)->get();
 
         $html = "";
-        foreach ($posts as $post) {
-            $html .= view('partials.newscard', ['post' => $post])->render();
+        foreach ($comments as $comment) {
+            $html .= view('partials.commentcard', ['comment' => $comment])->render();
+        }
+
+        return response()->json($html);
+    }
+
+    public function bookmarked($username, $page)
+    {
+        $member = Member::firstWhere('username', $username);
+        if ($member == null) {
+            return response()->json('Member not found', 404);
+        }
+
+        $bookmarked = $member->bookmarked()->orderBy('date_time', 'desc')->forPage($page)->get();
+
+        $html = "";
+        foreach ($bookmarked as $post) {
+            $html .= view('partials.postcard', ['post' => $post])->render();
         }
 
         return response()->json($html);

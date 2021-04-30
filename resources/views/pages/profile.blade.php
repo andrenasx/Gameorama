@@ -6,12 +6,15 @@
 @guest
     @include('partials.logout_navbar')
 @endguest
+@push('scripts')
+    <script defer src={{ asset('js/ajax.js') }}></script>
+    <script defer src={{ asset('js/profile.js') }}></script>
+@endpush
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <section class="profile-widget bg-white rounded mb-3">
         <div class="row g-0">
             <div class="col-sm-12">
                 <div class="image-container bg2" style="background-image: url(data:image;base64,{{(stream_get_contents($member->banner_image()))}}); background-size: cover" >
-
                     <img src="data:image;base64,{{(stream_get_contents($member->profile_image()))}}" class = "avatar">
                 </div>
                 <row class="d-flex justify-content-end col-12">
@@ -98,16 +101,18 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                @foreach ($member->comments as $comment)
-                    @include('partials.commentcard', $comment)
-                @endforeach
+                <section id="member-comments"></section>
+                <div id="more-comments" data-page="1" class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-light d-block">Load more</button>
+                </div>
             </div>
             @auth
             @if ($member->isMe(Auth::user()->id))
             <div class="tab-pane fade" id="pills-bookmarked" role="tabpanel" aria-labelledby="pills-bookmarked-tab">
-                @foreach ($member->bookmarks as $post)
-                    @include('partials.newscard', $post)
-                @endforeach
+                <section id="member-bookmarked"></section>
+                <div id="more-bookmarked" data-page="1" class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-light d-block">Load more</button>
+                </div>
             </div>
             @endif
             @endauth
@@ -116,8 +121,4 @@
 </section>
 @include('partials.report_profile')
 @include('partials.footer')
-@push('endscripts')
-    <script src={{ asset('js/ajax.js') }}></script>
-    <script src={{ asset('js/profile.js') }}></script>
-@endpush
 @endsection
