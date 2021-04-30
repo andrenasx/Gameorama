@@ -11,15 +11,16 @@
         <div class="row g-0">
             <div class="col-sm-12">
                 <div class="image-container bg2" style="background-image: url(data:image;base64,{{(stream_get_contents($member->banner_image()))}}); background-size: cover" >
-                    
+
                     <img src="data:image;base64,{{(stream_get_contents($member->profile_image()))}}" class = "avatar">
                 </div>
                 <row class="d-flex justify-content-end col-12">
                     @auth
                         @if ($member->isMe(Auth::user()->id))
-                            <span class="btn-outline-blue mt-2 me-3" style="font-size: 200%;" onclick="location.href = '/member/{{$member->username}}/edit'">create</span>
-                        </button>
-                        @else 
+                            <button type="button" class="btn d-flex align-content-center mt-1 me-1">
+                                <span class="btn-outline-blue" style="font-size: 200%;" onclick="location.href = '/member/{{$member->username}}/edit'">create</span>
+                            </button>
+                        @else
                             <button type="button" class="btn d-flex align-content-center mt-1 me-1" data-bs-toggle="modal"
                                 data-bs-target="#reportProfile">
                                 <span class="btn-outline-red" style="font-size: 200%;">flag</span>
@@ -38,7 +39,7 @@
             <div class="col-sm-12">
                 <div class="details ">
                     <h3>{{$member->full_name}}</h3>
-                    <h4 class="color-orange fst-italic">{{$member->username}}</h4>
+                    <h4 class="color-orange fst-italic" id="username">{{$member->username}}</h4>
                     <p>{{$member->aura}} Aura Score</p>
                     <p class="bio mb-4 px-3">{{$member->bio}}</p>
                     <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3"></button>
@@ -91,30 +92,32 @@
 
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
-                @foreach ($member->posts as $post)
-                    @include('partials.newscard', $post)
-                @endforeach
-            </div> <!-- .pills-posts -->
+                <section id="member-posts"></section>
+                <div id="more-posts" data-page="1" class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-light d-block">Load more</button>
+                </div>
+            </div>
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                <section class="bg-white rounded p-4">
-                    @foreach ($member->comments as $comment)
-                        @include('partials.commentcard', $comment)
-                    @endforeach
-                </section>
-            </div> <!-- .pills-comments -->
+                @foreach ($member->comments as $comment)
+                    @include('partials.commentcard', $comment)
+                @endforeach
+            </div>
             @auth
             @if ($member->isMe(Auth::user()->id))
             <div class="tab-pane fade" id="pills-bookmarked" role="tabpanel" aria-labelledby="pills-bookmarked-tab">
                 @foreach ($member->bookmarks as $post)
                     @include('partials.newscard', $post)
                 @endforeach
-            </div> <!-- .pills-bookmarked -->
+            </div>
             @endif
             @endauth
-        </div> <!-- .tab-content -->
+        </div>
     </section>
 </section>
-<!--<script src="../js/voting.js"></script>-->
 @include('partials.report_profile')
 @include('partials.footer')
+@push('endscripts')
+    <script src={{ asset('js/ajax.js') }}></script>
+    <script src={{ asset('js/profile.js') }}></script>
+@endpush
 @endsection

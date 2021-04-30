@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Member extends Authenticatable 
+class Member extends Authenticatable
 {
     use HasFactory;
 
@@ -41,7 +41,7 @@ class Member extends Authenticatable
      */
     public function posts()
     {
-        return $this->hasMany(NewsPost::class, 'id_owner')->orderBy('id', 'desc');
+        return $this->hasMany(NewsPost::class, 'id_owner');
     }
 
     /**

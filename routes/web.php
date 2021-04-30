@@ -73,6 +73,7 @@ Route::get('/topic/{name}', function () {
 // Member
 Route::get('/member/{username}', 'MemberController@show')->name('profile');
 
+//  Member Settings
 Route::get('/member/{username}/edit', 'MemberController@edit')->name('edit_profile');
 
 Route::patch('/member/{username}/edit', 'MemberController@update');
@@ -84,6 +85,9 @@ Route::patch('/api/change_email', 'MemberController@change_email');
 Route::patch('/api/change_password', 'MemberController@change_password');
 
 Route::delete('/api/member/{username}', 'MemberController@destroy');
+
+//  Member content
+Route::get('/api/member/{username}/posts/{page}', 'MemberController@posts')->name('member_posts');
 
 // Post
 Route::get('/post/{id_post}', 'PostController@show')->name('post');

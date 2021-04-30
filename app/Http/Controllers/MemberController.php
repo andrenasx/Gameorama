@@ -239,4 +239,21 @@ class MemberController extends Controller
 
         $member->delete();
     }
+
+    public function posts($username, $page)
+    {
+        $member = Member::firstWhere('username', $username);
+        if ($member == null) {
+            return response()->json('Member not found', 404);
+        }
+
+        $posts = $member->posts()->orderBy('id', 'desc')->forPage($page)->get();
+
+        $html = "";
+        foreach ($posts as $post) {
+            $html .= view('partials.newscard', ['post' => $post])->render();
+        }
+
+        return response()->json($html);
+    }
 }
