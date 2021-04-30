@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', '404 | ')
 @section('content')
 <div class="col d-flex align-items-center">
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">

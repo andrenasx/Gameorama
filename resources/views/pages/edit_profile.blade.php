@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Edit '.$member->username.'\'s profile | ')
 @section('content')
 @auth
     @include('partials.navbar')
@@ -20,13 +21,13 @@
                     </div>
                 </div>
                 <button type="button" class="btn d-flex align-content-center edit_banner_photo camera_icon" >
-                    <input type="file" hidden id="input_banner_photo" name="banner_photo" id="">
+                    <input type="file" hidden id="input_banner_photo" name="banner_photo">
                     <span class="material-icons-outlined" style="font-size: 200%;">camera_alt</span>
                 </button>
 
                 <div class = "">
                     <button type="button" class="btn d-flex align-content-center camera_icon edit_profile_photo" >
-                        <input type="file" hidden id="input_profile_photo" name="profile_photo" id="">
+                        <input type="file" hidden id="input_profile_photo" name="profile_photo">
                         <span class="material-icons-outlined" style="font-size: 200%;">camera_alt</span>
                     </button>
                 </div>

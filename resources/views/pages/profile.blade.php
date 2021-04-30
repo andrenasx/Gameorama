@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', $member->username.' | ')
 @section('content')
 @auth
     @include('partials.navbar')

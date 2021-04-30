@@ -1,17 +1,17 @@
 @extends('layouts.app')
+@section('page-title', 'About us | ')
 @section('content')
 @auth
     @include('partials.navbar')
 @endauth
-
 @guest
-    
+
     @include('partials.logout_navbar')
 @endguest
+
 <section class="p-3 p-lg-5 my-4 col-lg-7 bg-white container rounded">
     <h2 class="h2 fw-bold ">About Us</h2>
     <hr class="rounded">
-    </hr>
 
     <section>
         <h3 class="mb-3 mt-4">About Gameorama</h3>
@@ -20,7 +20,6 @@
     </section>
 
     <hr class="admin_hr mt-4">
-    </hr>
 
     <section>
         <h3 class="mb-3">Our team</h3>

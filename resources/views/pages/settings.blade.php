@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Account settings | ')
 @section('content')
 @auth
     @include('partials.navbar')
