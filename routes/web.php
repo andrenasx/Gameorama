@@ -11,29 +11,6 @@
 |
 */
 
-/* EXAMPLES
-// Home
-Route::get('/', 'Auth\LoginController@home');
-
-// Cards
-Route::get('cards', 'CardController@list');
-Route::get('cards/{id}', 'CardController@show');
-
-// API
-Route::put('api/cards', 'CardController@create');
-Route::delete('api/cards/{card_id}', 'CardController@delete');
-Route::put('api/cards/{card_id}/', 'ItemController@create');
-Route::post('api/item/{id}', 'ItemController@update');
-Route::delete('api/item/{id}', 'ItemController@delete');
-
-// Authentication
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
-*/
-
 Route::get('/', function() {
     return redirect('/home');
 });
@@ -54,21 +31,17 @@ Route::get('/signup', function() {
 Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
 
 
+// Home
 Route::get('/home', function() {
     return view('pages.home');
 });
 
-Route::get('/about', function() {
-    return view('pages.about');
-});
 
-Route::get('/admin', function() {
-    return view('pages.admin');
-});
-
+// Topic
 Route::get('/topic/{name}', function () {
     return view('pages.topic');
 });
+
 
 // Member
 Route::get('/member/{username}', 'MemberController@show')->name('profile');
@@ -93,19 +66,8 @@ Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content'
 // Post
 Route::get('/post/{id_post}', 'PostController@show')->name('post');
 
-Route::get('/create_post', function() {
-    return view('pages.create_post');
-});
 
-Route::get('/edit_post', function() {
-    return view('pages.edit_post');
-});
-
-// Search
-Route::get('/search', function() {
-    return view('pages.search');
-});
-
+// Static
 Route::get('/404', function () {
     return view('pages.404');
 })->name('404');
