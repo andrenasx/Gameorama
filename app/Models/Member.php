@@ -118,26 +118,4 @@ class Member extends Authenticatable
     {
         return $id === $this->id;
     }
-
-    /**
-     * Get the profile image associated with the Member
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function profile_image()
-    {
-        $image = MemberImage::find($this->id_profile_image);
-        return $image->file;
-    }
-
-    /**
-     * Get the banner image associated with the Member
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function banner_image()
-    {
-        $image = MemberImage::find($this->id_banner_image);
-        return $image->file;
-    }
 }
