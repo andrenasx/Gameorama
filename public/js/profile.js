@@ -4,22 +4,19 @@ const username = document.getElementById('username').innerText;
 let more_posts = document.getElementById('more-posts');
 let more_comments = document.getElementById('more-comments');
 let more_bookmarks = document.getElementById('more-bookmarked');
-const bookmarks = more_bookmarks != null;
-
-console.log(more_bookmarks)
 
 window.onload = function () {
     loadContent('posts', more_posts);
-    more_posts.addEventListener('click', loadContent.bind(null, 'posts', more_posts));
     loadContent('comments', more_comments);
+    more_posts.addEventListener('click', loadContent.bind(null, 'posts', more_posts));
     more_comments.addEventListener('click', loadContent.bind(null, 'comments', more_comments));
-    if (bookmarks) {
+    if (more_bookmarks != null) {
         loadContent('bookmarked', more_bookmarks);
         more_bookmarks.addEventListener('click', loadContent.bind(null, 'bookmarked', more_bookmarks));
     }
 }
 
-function loadContent(content, button) {;
+function loadContent(content, button) {
     let page = button.dataset.page;
     const route = '/api/member/' + username + '/' + content + '/' + page;
     const data = {username: username, page: page};

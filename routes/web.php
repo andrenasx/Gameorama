@@ -32,9 +32,9 @@ Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
 
 
 // Home
-Route::get('/home', function() {
-    return view('pages.home');
-});
+Route::get('/home', 'HomeController@index');
+
+Route::get('/api/home/{content}/{page}', 'HomeController@content');
 
 
 // Topic

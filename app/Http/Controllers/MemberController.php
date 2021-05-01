@@ -273,38 +273,4 @@ class MemberController extends Controller
 
         return response()->json($html);
     }
-
-    public function comments($username, $page)
-    {
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return response()->json('Member not found', 404);
-        }
-
-        $comments = $member->comments()->orderBy('date_time', 'desc')->forPage($page)->get();
-
-        $html = "";
-        foreach ($comments as $comment) {
-            $html .= view('partials.commentcard', ['comment' => $comment])->render();
-        }
-
-        return response()->json($html);
-    }
-
-    public function bookmarked($username, $page)
-    {
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return response()->json('Member not found', 404);
-        }
-
-        $bookmarked = $member->bookmarked()->orderBy('date_time', 'desc')->forPage($page)->get();
-
-        $html = "";
-        foreach ($bookmarked as $post) {
-            $html .= view('partials.postcard', ['post' => $post])->render();
-        }
-
-        return response()->json($html);
-    }
 }

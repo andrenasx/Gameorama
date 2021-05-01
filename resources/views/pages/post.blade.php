@@ -31,7 +31,7 @@
                     @endforeach
                 </h5>
                 <div class="d-inline">
-                    <small class="post-user">Posted by <a href="./profile.php">{{$post->owner->username}}</a></small>
+                    <small class="post-user">Posted by <a href="{{ route('profile', $post->owner->username) }}">{{$post->owner->username}}</a></small>
                     <small>{{$post->date_time}}</small>
                 </div>
                 <h1 class="post-title">{{$post->title}}</h1>
@@ -98,14 +98,10 @@
         </section>
 
         @foreach ($post->parentComments() as $comment)
-        @include('partials.comment', [
-            'comment' => $comment,
-            'offset' => 0
-        ])
+        @include('partials.comment', ['comment' => $comment, 'offset' => 0])
         @endforeach
     </section>
 </section>
-<!--<script src="../js/voting.js"></script>-->
 @include('partials.footer')
 @endsection
 
