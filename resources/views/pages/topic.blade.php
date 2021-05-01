@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@auth
-    @include('partials.navbar')
-@endauth
-
-@guest
-    @include('partials.logout_navbar')
-@endguest
+@include('partials.navbar')
 
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
@@ -76,7 +70,7 @@
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://s2.glbimg.com/zavTeT4iIiVKpefK-TWGsg0Tas0=/0x0:3840x2160/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/U/5/cfZdJHSCiXpc23vCzYGg/58332729.jpg">
                             <p class="card-text truncate-multiple">
-Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerfs a personagens conhecidas como Akali e Maokai, e buffs a campeões como Shako e Varus. 
+Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerfs a personagens conhecidas como Akali e Maokai, e buffs a campeões como Shako e Varus.
 Como não poderia deixar de ser, Viego contará com uma skin própria intitulada Lunar Beast Viego, e irá conceder a sua própria linha de skins, "Ruined", a começar por Shyvana, Draven e Karma.</p>
                         </a>
                     </div>
@@ -203,7 +197,7 @@ The Mid-Season Invitational (MSI) pits the Spring Split champions from each glob
                             </div>
                             <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                                <span class="d-none d-md-flex"> Report<span>
+                                <span class="d-none d-md-flex"> Report</span>
                             </div>
                     </div>
                 </div> <!-- /.news-card -->
@@ -256,7 +250,7 @@ League of Legends fans got a first glance at the new Battle Academia skins for C
                             </div>
                             <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                                <span class="d-none d-md-flex"> Report<span>
+                                <span class="d-none d-md-flex"> Report</span>
                             </div>
                     </div>
                 </div> <!-- /.news-card -->
@@ -292,7 +286,7 @@ League of Legends fans got a first glance at the new Battle Academia skins for C
                             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block"
                                 style="max-height: 650px" src="https://s2.glbimg.com/zavTeT4iIiVKpefK-TWGsg0Tas0=/0x0:3840x2160/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/U/5/cfZdJHSCiXpc23vCzYGg/58332729.jpg">
                             <p class="card-text truncate-multiple">
-Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerfs a personagens conhecidas como Akali e Maokai, e buffs a campeões como Shako e Varus. 
+Viego vai-se estrear no lançamento do patch 11.2, que contará com vários Nerfs a personagens conhecidas como Akali e Maokai, e buffs a campeões como Shako e Varus.
 Como não poderia deixar de ser, Viego contará com uma skin própria intitulada Lunar Beast Viego, e irá conceder a sua própria linha de skins, "Ruined", a começar por Shyvana, Draven e Karma.</p>
                         </a>
                     </div>

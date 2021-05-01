@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@auth
     @include('partials.navbar')
-@endauth
-
-@guest
-    @include('partials.logout_navbar')
-@endguest
 
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <header class="p-4 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
@@ -80,7 +74,7 @@
                         </div>
                         <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-flex"> Report<span>
+                            <span class="d-none d-md-flex"> Report</span>
                         </div>
                     </div>
                 </div> <!-- /.news-card -->
