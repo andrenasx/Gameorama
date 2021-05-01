@@ -36,7 +36,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/api/home/{content}/{page}', 'HomeController@content');
 
-
 // Topic
 Route::get('/topic/{name}', function () {
     return view('pages.topic');
@@ -74,4 +73,23 @@ Route::get('/404', function () {
 
 Route::fallback(function() {
     return view('pages.404');
+});
+
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('About');
+
+// For more clarity try running this 
+Route::get('/test',function(){
+    $langs = ['en', 'fr', 'de','bs'];
+    foreach ($langs as $key) {
+        $path = 'public/test/'.$key;
+        if (!File::exists($path)){
+            $result = Storage::makeDirectory($path);
+            dump("New Folder Created : ".$key);
+        }else{
+            dump("Folder Already Exist : ".$key);
+        }
+    }
+    dd("ALL DONE");
 });

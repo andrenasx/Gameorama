@@ -12,7 +12,7 @@
 
 <div class = "row g-0 offset-{{$offset}} border-start border-bottom border-3 mb-{{$mb}} mt-{{$mt}}" >
     <div class = "d-flex px-3 py-3 ">
-        <img class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" src="data:image/png;base64,{{stream_get_contents($comment->owner->profile_image())}}" alt="">
+        <img class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" src="{{ asset('storage/members/'.$comment->owner->avatar_image) }}" alt="">
         <div class = "ms-2 col-lg-11">
             <div class = "row justify-content-between g-0">
 

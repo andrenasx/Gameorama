@@ -35,8 +35,8 @@ CREATE TABLE member (
     email text NOT NULL UNIQUE,
     password text NOT NULL,
     bio text,
-    id_profile_image text NOT NULL DEFAULT 'default_profile.jpg',
-    id_banner_image text NOT NULL DEFAULT 'default_banner.png',
+    avatar_image text NOT NULL DEFAULT 'default_avatar.png',
+    banner_image text NOT NULL DEFAULT 'default_banner.jpg',
     aura integer DEFAULT 0 NOT NULL
 );
 
@@ -95,7 +95,7 @@ CREATE TABLE reply (
 CREATE TABLE post_image (
     id serial PRIMARY KEY,
     id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE,
-    file bytea NOT NULL
+    file text NOT NULL
 );
 
 CREATE TABLE post_aura (
@@ -554,76 +554,76 @@ CREATE TRIGGER auto_comment_upvote
 -- Populate the database
 -----------------------------------------
 
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('BrotherSena', 'Gustavo Sena', 'up201806078@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Virei Monge!', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('El_biden', 'Andre Nascimento', 'up201806461@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Da-me tu sardita :P', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('kaka34', 'Caio Nogueira', 'up201806218@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Nao mandas em mim nao es minha mae', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('WanWan', 'Diogo Almeida', 'up201806630@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Ta mal, ta errado', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('TMC_OG', 'Thalia Mc Dermid', 'tmc0@arizona.edu', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Stand-alone 4th generation moratorium', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('sionnisian1', 'Shayna Ionnisian', 'sionnisian1@noaa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Customer-focused neutral info-mediaries', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('BlarkBy2', 'Bradley Larkby', 'blarkby2@people.com.cn', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Self-enabling responsive website', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('Jailillo27', 'Jaime Lillo', 'jlillo3@zdnet.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Re-contextualized impactful focus group', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('crazyTowns', 'Roman Towns', 'rtowns4@nydailynews.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Adaptive bi-directional alliance', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('MarryTheWeather', 'Hally Merryweather', 'hmerryweather5@ibm.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Profit-focused tangible internet solution', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('SwordOfGlory', 'Audrie Wordsworth', 'awordsworth6@posterous.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Vision-oriented bi-directional encoding', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('LuxUwULilia', 'Wayland Murra', 'wmurra7@cnn.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Enhanced stable service-desk', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('WhitestMan', 'Regan Whiteman', 'rwhiteman8@fastcompany.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Focused grid-enabled utilisation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('SwineAndPain', 'Jannelle Swinyard', 'jswinyard9@abc.net.au', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Inverse coherent adapter', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ('DacoBellaIt', 'Dion Cobelli', 'dcobellia@ocn.ne.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-lateral foreground initiative', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'PogChampThe1ndOnly', 'Maria Bettenson', 'mbettensonb@microsoft.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Exclusive homogeneous flexibility', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'slalondec', 'Shurlocke Lalonde', 'slalondec@phpbb.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Function-based interactive model', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'KronkTheLeverMan', 'Konstantin Usher', 'kusherd@istockphoto.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Ameliorated empowering strategy', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'Villainoid', 'Valma Gillman', 'vgillmane@pinterest.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Horizontal system-worthy synergy', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'mgurrf', 'Marlyn Gurr', 'mgurrf@meetup.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Enterprise-wide demand-driven encryption', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'IpoConk', 'Isis Pasmore', 'ipasmoreg@odnoklassniki.ru', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Centralized multimedia time-frame', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'DiCalverOfficial', 'Derby Calver', 'dcalverh@nifty.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Quality-focused web-enabled secured line', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'RajeshRajKoothrappali19', 'Keene Whaplington', 'kwhaplingtoni@youtube.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Enterprise-wide bi-directional info-mediaries', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'Staunper', 'Patty Saunper', 'psaunperj@squarespace.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-tiered national support', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'BeefyB', 'Bibi Fittis', 'bfittisk@cnn.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-lateral system-worthy system engine', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'DiamonHands', 'Andee Saines', 'asainesl@t.co', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Configurable system-worthy moderator', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'sbilhamm', 'Sunny Bilham', 'sbilhamm@loc.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Exclusive real-time emulation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'cpitkethlyn', 'Cordelie Pitkethly', 'cpitkethlyn@who.int', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Managed human-resource circuit', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'Badwig75', 'Joanie Badwick', 'jbadwicko@telegraph.co.uk', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Intuitive directional algorithm', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'ApeBrain', 'Lynne Asher', 'lasherp@forbes.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Face to face interactive array', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'agaymarq', 'Alexina Gaymar', 'agaymarq@ehow.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Stand-alone asymmetric extranet', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'gdowberr', 'Glynn Dowber', 'gdowberr@so-net.ne.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Grass-roots multi-state leverage', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'EarlyCoiner', 'Elvyn Aylmer', 'eaylmers@unicef.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'User-friendly object-oriented encryption', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'lateridget', 'Lambert Ateridge', 'lateridget@cocolog-nifty.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Business-focused explicit help-desk', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'BrosDoNanu', 'Shea Brosnan', 'sbrosnanu@epa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Versatile bifurcated alliance', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'MalkovM', 'Melanie Halcro', 'mhalcrov@google.com.br', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Optimized even-keeled archive', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'rdaenenw', 'Randie Daenen', 'rdaenenw@ox.ac.uk', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Total global hierarchy', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'TheGaimer', 'Waverly Plaide', 'wplaidex@discuz.net', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Re-engineered tangible initiative', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'ShawtyLuv', 'Susan Hardin', 'shardiny@dion.ne.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-channelled context-sensitive matrix', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'BrouMe', 'Bobbie Mourant', 'bmourantz@hhs.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Realigned didactic open architecture', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'CrolBrucosMariposa', 'Timmie Croll', 'tcroll10@cocolog-nifty.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Extended 5th generation customer loyalty', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'JumelosJumalos', 'Mal Jumel', 'mjumel11@devhub.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Expanded non-volatile function', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'Seraphine1Trick', 'Evvy Ayris', 'eayris12@delicious.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Reactive systemic pricing structure', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'EW22Corgi', 'Eli Wyche', 'ewyche13@google.co.uk', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Grass-roots value-added system engine', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'MakePeaceNotCheese', 'Caesar Makepeace', 'cmakepeace14@apache.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Adaptive background methodology', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'BetaBetter', 'Arabelle Wathan', 'awathan15@smh.com.au', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Assimilated next generation toolset', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'slabet16', 'Saidee Labet', 'slabet16@cpanel.net', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Fundamental high-level instruction set', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'ProfOsborn10', 'Osborn Brickett', 'obrickett17@last.fm', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Reverse-engineered system-worthy Graphical User Interface', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'vBeanHam', 'Vicki Beenham', 'vbeenham18@tripadvisor.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Object-based 24 hour core', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'CogginsTheTripper', 'Tripp Coggings', 'tcoggings19@blogger.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Monitored interactive synergy', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'SmacaruniesTrusterunies', 'Shep MacTrustrie', 'smactrustrie1a@usa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Polarised full-range installation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'AhriAntlers', 'Ari Antliff', 'aantliff1b@diigo.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Visionary demand-driven workforce', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'LameHero95', 'Noell Woodlands', 'nwoodlands1c@rambler.ru', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Implemented next generation model', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'Follan1d', 'Elvin Follan', 'efollan1d@archive.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Face to face zero tolerance installation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'rdennerly0', 'Renault Dennerly', 'rdennerly0@virginia.edu', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Devolved discrete function', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'AgathaAllAlong', 'Agna Cradock', 'acradock1@businessweek.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Upgradable grid-enabled data-warehouse', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'avarley2', 'Alis Varley', 'avarley2@artisteer.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'User-friendly homogeneous secured line', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'lwiMess3', 'Lenore Wimes', 'lwimes3@chicagotribune.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Digitized exuding budgetary management', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'FurFur', 'Fleurette Furman', 'ffurman4@wordpress.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Cross-platform mobile policy', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'TodMenfry', 'Tammy Dohmer', 'tdohmer5@vimeo.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Profound foreground complexity', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'GarageRuller', 'Emelita McGaraghan', 'emcgaraghan6@ameblo.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Right-sized asymmetric algorithm', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'sbeecham7', 'Sharline Beecham', 'sbeecham7@vkontakte.ru', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Profit-focused static emulation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'KittyKitten', 'Corette Attwell', 'cattwell8@cbsnews.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Sharable eco-centric utilisation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'TheGaze', 'Jilleen Gaze', 'jgaze9@archive.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Switchable mobile strategy', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'WineAndBlood', 'Wilmar Heinish', 'wheinisha@purevolume.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Reverse-engineered background application', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'LeCheeseFattori', 'Dexter Fattori', 'dfattorib@yolasite.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Optimized clear-thinking methodology', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'TimidEGirl', 'Zia Timlin', 'ztimlinc@bing.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'De-engineered maximized emulation', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'MafiaBoss99', 'Maris Meddings', 'mmeddingsd@barnesandnoble.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Polarised human-resource conglomeration', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'MordeLayzer', 'Estel Mordy', 'emordye@elpais.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Function-based user-facing adapter', 1, 2);
-insert into member (username, full_name, email, password, bio, id_profile_image, id_banner_image) values ( 'VodkaMyLove', 'Gonzales Polland', 'gpollandf@tuttocitta.it', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Fundamental systemic hub', 1, 2);
+insert into member (username, full_name, email, password, bio) values ('BrotherSena', 'Gustavo Sena', 'up201806078@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Virei Monge!');
+insert into member (username, full_name, email, password, bio) values ('El_biden', 'Andre Nascimento', 'up201806461@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Da-me tu sardita :P');
+insert into member (username, full_name, email, password, bio) values ('kaka34', 'Caio Nogueira', 'up201806218@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Nao mandas em mim nao es minha mae');
+insert into member (username, full_name, email, password, bio) values ('WanWan', 'Diogo Almeida', 'up201806630@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Ta mal, ta errado');
+insert into member (username, full_name, email, password, bio) values ('TMC_OG', 'Thalia Mc Dermid', 'tmc0@arizona.edu', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Stand-alone 4th generation moratorium');
+insert into member (username, full_name, email, password, bio) values ('sionnisian1', 'Shayna Ionnisian', 'sionnisian1@noaa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Customer-focused neutral info-mediaries');
+insert into member (username, full_name, email, password, bio) values ('BlarkBy2', 'Bradley Larkby', 'blarkby2@people.com.cn', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Self-enabling responsive website');
+insert into member (username, full_name, email, password, bio) values ('Jailillo27', 'Jaime Lillo', 'jlillo3@zdnet.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Re-contextualized impactful focus group');
+insert into member (username, full_name, email, password, bio) values ('crazyTowns', 'Roman Towns', 'rtowns4@nydailynews.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Adaptive bi-directional alliance');
+insert into member (username, full_name, email, password, bio) values ('MarryTheWeather', 'Hally Merryweather', 'hmerryweather5@ibm.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Profit-focused tangible internet solution');
+insert into member (username, full_name, email, password, bio) values ('SwordOfGlory', 'Audrie Wordsworth', 'awordsworth6@posterous.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Vision-oriented bi-directional encoding');
+insert into member (username, full_name, email, password, bio) values ('LuxUwULilia', 'Wayland Murra', 'wmurra7@cnn.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Enhanced stable service-desk');
+insert into member (username, full_name, email, password, bio) values ('WhitestMan', 'Regan Whiteman', 'rwhiteman8@fastcompany.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Focused grid-enabled utilisation');
+insert into member (username, full_name, email, password, bio) values ('SwineAndPain', 'Jannelle Swinyard', 'jswinyard9@abc.net.au', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Inverse coherent adapter');
+insert into member (username, full_name, email, password, bio) values ('DacoBellaIt', 'Dion Cobelli', 'dcobellia@ocn.ne.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-lateral foreground initiative');
+insert into member (username, full_name, email, password, bio) values ( 'PogChampThe1ndOnly', 'Maria Bettenson', 'mbettensonb@microsoft.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Exclusive homogeneous flexibility');
+insert into member (username, full_name, email, password, bio) values ( 'slalondec', 'Shurlocke Lalonde', 'slalondec@phpbb.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Function-based interactive model');
+insert into member (username, full_name, email, password, bio) values ( 'KronkTheLeverMan', 'Konstantin Usher', 'kusherd@istockphoto.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Ameliorated empowering strategy');
+insert into member (username, full_name, email, password, bio) values ( 'Villainoid', 'Valma Gillman', 'vgillmane@pinterest.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Horizontal system-worthy synergy');
+insert into member (username, full_name, email, password, bio) values ( 'mgurrf', 'Marlyn Gurr', 'mgurrf@meetup.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Enterprise-wide demand-driven encryption');
+insert into member (username, full_name, email, password, bio) values ( 'IpoConk', 'Isis Pasmore', 'ipasmoreg@odnoklassniki.ru', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Centralized multimedia time-frame');
+insert into member (username, full_name, email, password, bio) values ( 'DiCalverOfficial', 'Derby Calver', 'dcalverh@nifty.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Quality-focused web-enabled secured line');
+insert into member (username, full_name, email, password, bio) values ( 'RajeshRajKoothrappali19', 'Keene Whaplington', 'kwhaplingtoni@youtube.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Enterprise-wide bi-directional info-mediaries');
+insert into member (username, full_name, email, password, bio) values ( 'Staunper', 'Patty Saunper', 'psaunperj@squarespace.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-tiered national support');
+insert into member (username, full_name, email, password, bio) values ( 'BeefyB', 'Bibi Fittis', 'bfittisk@cnn.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-lateral system-worthy system engine');
+insert into member (username, full_name, email, password, bio) values ( 'DiamonHands', 'Andee Saines', 'asainesl@t.co', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Configurable system-worthy moderator');
+insert into member (username, full_name, email, password, bio) values ( 'sbilhamm', 'Sunny Bilham', 'sbilhamm@loc.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Exclusive real-time emulation');
+insert into member (username, full_name, email, password, bio) values ( 'cpitkethlyn', 'Cordelie Pitkethly', 'cpitkethlyn@who.int', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Managed human-resource circuit');
+insert into member (username, full_name, email, password, bio) values ( 'Badwig75', 'Joanie Badwick', 'jbadwicko@telegraph.co.uk', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Intuitive directional algorithm');
+insert into member (username, full_name, email, password, bio) values ( 'ApeBrain', 'Lynne Asher', 'lasherp@forbes.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Face to face interactive array');
+insert into member (username, full_name, email, password, bio) values ( 'agaymarq', 'Alexina Gaymar', 'agaymarq@ehow.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Stand-alone asymmetric extranet');
+insert into member (username, full_name, email, password, bio) values ( 'gdowberr', 'Glynn Dowber', 'gdowberr@so-net.ne.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Grass-roots multi-state leverage');
+insert into member (username, full_name, email, password, bio) values ( 'EarlyCoiner', 'Elvyn Aylmer', 'eaylmers@unicef.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'User-friendly object-oriented encryption');
+insert into member (username, full_name, email, password, bio) values ( 'lateridget', 'Lambert Ateridge', 'lateridget@cocolog-nifty.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Business-focused explicit help-desk');
+insert into member (username, full_name, email, password, bio) values ( 'BrosDoNanu', 'Shea Brosnan', 'sbrosnanu@epa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Versatile bifurcated alliance');
+insert into member (username, full_name, email, password, bio) values ( 'MalkovM', 'Melanie Halcro', 'mhalcrov@google.com.br', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Optimized even-keeled archive');
+insert into member (username, full_name, email, password, bio) values ( 'rdaenenw', 'Randie Daenen', 'rdaenenw@ox.ac.uk', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Total global hierarchy');
+insert into member (username, full_name, email, password, bio) values ( 'TheGaimer', 'Waverly Plaide', 'wplaidex@discuz.net', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Re-engineered tangible initiative');
+insert into member (username, full_name, email, password, bio) values ( 'ShawtyLuv', 'Susan Hardin', 'shardiny@dion.ne.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Multi-channelled context-sensitive matrix');
+insert into member (username, full_name, email, password, bio) values ( 'BrouMe', 'Bobbie Mourant', 'bmourantz@hhs.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Realigned didactic open architecture');
+insert into member (username, full_name, email, password, bio) values ( 'CrolBrucosMariposa', 'Timmie Croll', 'tcroll10@cocolog-nifty.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Extended 5th generation customer loyalty');
+insert into member (username, full_name, email, password, bio) values ( 'JumelosJumalos', 'Mal Jumel', 'mjumel11@devhub.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Expanded non-volatile function');
+insert into member (username, full_name, email, password, bio) values ( 'Seraphine1Trick', 'Evvy Ayris', 'eayris12@delicious.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Reactive systemic pricing structure');
+insert into member (username, full_name, email, password, bio) values ( 'EW22Corgi', 'Eli Wyche', 'ewyche13@google.co.uk', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Grass-roots value-added system engine');
+insert into member (username, full_name, email, password, bio) values ( 'MakePeaceNotCheese', 'Caesar Makepeace', 'cmakepeace14@apache.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Adaptive background methodology');
+insert into member (username, full_name, email, password, bio) values ( 'BetaBetter', 'Arabelle Wathan', 'awathan15@smh.com.au', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Assimilated next generation toolset');
+insert into member (username, full_name, email, password, bio) values ( 'slabet16', 'Saidee Labet', 'slabet16@cpanel.net', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Fundamental high-level instruction set');
+insert into member (username, full_name, email, password, bio) values ( 'ProfOsborn10', 'Osborn Brickett', 'obrickett17@last.fm', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Reverse-engineered system-worthy Graphical User Interface');
+insert into member (username, full_name, email, password, bio) values ( 'vBeanHam', 'Vicki Beenham', 'vbeenham18@tripadvisor.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Object-based 24 hour core');
+insert into member (username, full_name, email, password, bio) values ( 'CogginsTheTripper', 'Tripp Coggings', 'tcoggings19@blogger.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Monitored interactive synergy');
+insert into member (username, full_name, email, password, bio) values ( 'SmacaruniesTrusterunies', 'Shep MacTrustrie', 'smactrustrie1a@usa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Polarised full-range installation');
+insert into member (username, full_name, email, password, bio) values ( 'AhriAntlers', 'Ari Antliff', 'aantliff1b@diigo.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Visionary demand-driven workforce');
+insert into member (username, full_name, email, password, bio) values ( 'LameHero95', 'Noell Woodlands', 'nwoodlands1c@rambler.ru', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Implemented next generation model');
+insert into member (username, full_name, email, password, bio) values ( 'Follan1d', 'Elvin Follan', 'efollan1d@archive.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Face to face zero tolerance installation');
+insert into member (username, full_name, email, password, bio) values ( 'rdennerly0', 'Renault Dennerly', 'rdennerly0@virginia.edu', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Devolved discrete function');
+insert into member (username, full_name, email, password, bio) values ( 'AgathaAllAlong', 'Agna Cradock', 'acradock1@businessweek.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Upgradable grid-enabled data-warehouse');
+insert into member (username, full_name, email, password, bio) values ( 'avarley2', 'Alis Varley', 'avarley2@artisteer.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'User-friendly homogeneous secured line');
+insert into member (username, full_name, email, password, bio) values ( 'lwiMess3', 'Lenore Wimes', 'lwimes3@chicagotribune.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Digitized exuding budgetary management');
+insert into member (username, full_name, email, password, bio) values ( 'FurFur', 'Fleurette Furman', 'ffurman4@wordpress.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Cross-platform mobile policy');
+insert into member (username, full_name, email, password, bio) values ( 'TodMenfry', 'Tammy Dohmer', 'tdohmer5@vimeo.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Profound foreground complexity');
+insert into member (username, full_name, email, password, bio) values ( 'GarageRuller', 'Emelita McGaraghan', 'emcgaraghan6@ameblo.jp', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Right-sized asymmetric algorithm');
+insert into member (username, full_name, email, password, bio) values ( 'sbeecham7', 'Sharline Beecham', 'sbeecham7@vkontakte.ru', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Profit-focused static emulation');
+insert into member (username, full_name, email, password, bio) values ( 'KittyKitten', 'Corette Attwell', 'cattwell8@cbsnews.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Sharable eco-centric utilisation');
+insert into member (username, full_name, email, password, bio) values ( 'TheGaze', 'Jilleen Gaze', 'jgaze9@archive.org', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Switchable mobile strategy');
+insert into member (username, full_name, email, password, bio) values ( 'WineAndBlood', 'Wilmar Heinish', 'wheinisha@purevolume.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Reverse-engineered background application');
+insert into member (username, full_name, email, password, bio) values ( 'LeCheeseFattori', 'Dexter Fattori', 'dfattorib@yolasite.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Optimized clear-thinking methodology');
+insert into member (username, full_name, email, password, bio) values ( 'TimidEGirl', 'Zia Timlin', 'ztimlinc@bing.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'De-engineered maximized emulation');
+insert into member (username, full_name, email, password, bio) values ( 'MafiaBoss99', 'Maris Meddings', 'mmeddingsd@barnesandnoble.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Polarised human-resource conglomeration');
+insert into member (username, full_name, email, password, bio) values ( 'MordeLayzer', 'Estel Mordy', 'emordye@elpais.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Function-based user-facing adapter');
+insert into member (username, full_name, email, password, bio) values ( 'VodkaMyLove', 'Gonzales Polland', 'gpollandf@tuttocitta.it', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Fundamental systemic hub');
 
 
 
@@ -24378,3 +24378,240 @@ insert into member_report (id_reporter, id_reported, body, date_time) values (20
 insert into member_report (id_reporter, id_reported, body, date_time) values (41, 13, 'Posts are offensive', TIMESTAMP '2020-03-20 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (56, 41, 'Posts are offensive', TIMESTAMP '2020-03-15 17:30:00');
 insert into member_report (id_reporter, id_reported, body, date_time) values (16, 60, 'Impersonating someone', TIMESTAMP '2020-03-01 17:30:00');
+
+
+
+insert into post_image(id, id_post, file) values (1, 1, 'post1_1.jpg');
+insert into post_image(id, id_post, file) values (2, 1, 'post1_2.jpg');
+insert into post_image(id, id_post, file) values (3, 1, 'post1_3.jpg');
+
+insert into post_image(id, id_post, file) values (4, 2, 'post2_1.jpg');
+
+insert into post_image(id, id_post, file) values (5, 3, 'post3_1.png');
+insert into post_image(id, id_post, file) values (6, 3, 'post3_2.png');
+
+
+insert into post_image(id, id_post, file) values (7, 4, 'post4_1.jpg');
+
+insert into post_image(id, id_post, file) values (8, 5, 'post5_1.png');
+insert into post_image(id, id_post, file) values (9, 5, 'post5_2.jpg');
+insert into post_image(id, id_post, file) values (10, 5, 'post5_3.jpg');
+
+
+insert into post_image(id, id_post, file) values (11, 6, 'post6_1.jpg');
+
+insert into post_image(id, id_post, file) values (12, 7, 'post7_1.jpg');
+
+insert into post_image(id, id_post, file) values (13, 8, 'post8_1.jpg');
+insert into post_image(id, id_post, file) values (14, 8, 'post8_2.jpg');
+insert into post_image(id, id_post, file) values (15, 8, 'post8_3.jpg');
+
+insert into post_image(id, id_post, file) values (16, 10, 'post10_1.png');
+insert into post_image(id, id_post, file) values (17, 10, 'post10_2.png');
+
+insert into post_image(id, id_post, file) values (18, 11, 'post2_1.jpg');
+
+insert into post_image(id, id_post, file) values (19, 12, 'post12_1.jpg');
+insert into post_image(id, id_post, file) values (20, 12, 'post12_2.png');
+insert into post_image(id, id_post, file) values (21, 12, 'post12_3.jpg');
+
+insert into post_image(id, id_post, file) values (22, 14, 'post14_1.png');
+insert into post_image(id, id_post, file) values (23, 14, 'post14_2.jpg');
+
+insert into post_image(id, id_post, file) values (24, 15, 'post15_1.jpeg');
+
+insert into post_image(id, id_post, file) values (25, 16, 'post16_1.jpg');
+
+insert into post_image(id, id_post, file) values (26, 17, 'post17_1.jpg');
+
+insert into post_image(id, id_post, file) values (27, 18, 'post18_1.jpg');
+insert into post_image(id, id_post, file) values (28, 18, 'post18_2.jpg');
+
+insert into post_image(id, id_post, file) values (29, 19, 'post19_1.jpg');
+insert into post_image(id, id_post, file) values (30, 19, 'post19_2.jpg');
+
+insert into post_image(id, id_post, file) values (31, 20, 'post20_1.png');
+insert into post_image(id, id_post, file) values (32, 20, 'post20_2.jpg');
+
+insert into post_image(id, id_post, file) values (33, 21, 'post21_1.jpg');
+insert into post_image(id, id_post, file) values (34, 21, 'post21_2.jpg');
+insert into post_image(id, id_post, file) values (35, 21, 'post21_3.jpg');
+
+insert into post_image(id, id_post, file) values (36, 22, 'post22_1.jpg');
+
+insert into post_image(id, id_post, file) values (37, 23, 'post23_1.jpg');
+
+insert into post_image(id, id_post, file) values (38, 24, 'post24_1.jpg');
+insert into post_image(id, id_post, file) values (39, 24, 'post24_2.jpg');
+
+insert into post_image(id, id_post, file) values (40, 25, 'post25_1.jpg');
+
+insert into post_image(id, id_post, file) values (41, 26, 'post26_1.jpg');
+insert into post_image(id, id_post, file) values (42, 26, 'post26_2.jpeg');
+
+insert into post_image(id, id_post, file) values (43, 27, 'post27_1.jpg');
+
+insert into post_image(id, id_post, file) values (44, 28, 'post28_1.jpg');
+
+insert into post_image(id, id_post, file) values (45, 29, 'post29_1.jpg');
+insert into post_image(id, id_post, file) values (46, 29, 'post29_2.jpg');
+
+insert into post_image(id, id_post, file) values (47, 30, 'post30_1.jpg');
+
+insert into post_image(id, id_post, file) values (48, 31, 'post31_1.jpg');
+
+insert into post_image(id, id_post, file) values (49, 32, 'post32_1.jpg');
+insert into post_image(id, id_post, file) values (50, 32, 'post32_2.jpg');
+
+insert into post_image(id, id_post, file) values (51, 33, 'post33_1.jpg');
+insert into post_image(id, id_post, file) values (52, 33, 'post33_2.jpg');
+
+insert into post_image(id, id_post, file) values (53, 34, 'post34_1.jpg');
+
+insert into post_image(id, id_post, file) values (54, 35, 'post35_1.jpg');
+insert into post_image(id, id_post, file) values (55, 35, 'post35_2.jpg');
+
+insert into post_image(id, id_post, file) values (56, 36, 'post36_1.jpg');
+
+insert into post_image(id, id_post, file) values (57, 37, 'post37_1.jpg');
+insert into post_image(id, id_post, file) values (58, 37, 'post37_2.jpg');
+
+insert into post_image(id, id_post, file) values (59, 38, 'post38_1.png');
+
+insert into post_image(id, id_post, file) values (60, 39, 'post39_1.jpg');
+
+insert into post_image(id, id_post, file) values (61, 40, 'post40_1.jpg');
+insert into post_image(id, id_post, file) values (62, 40, 'post40_2.jpg');
+
+insert into post_image(id, id_post, file) values (63, 41, 'post41_1.jpg');
+
+insert into post_image(id, id_post, file) values (64, 42, 'post42_1.jpg');
+
+insert into post_image(id, id_post, file) values (65, 43, 'post43_1.jpg');
+
+insert into post_image(id, id_post, file) values (66, 44, 'post44_1.jpg');
+
+insert into post_image(id, id_post, file) values (67, 45, 'post45_1.jpg');
+
+insert into post_image(id, id_post, file) values (68, 46, 'post46_1.jpg');
+
+insert into post_image(id, id_post, file) values (69, 47, 'post47_1.jpg');
+insert into post_image(id, id_post, file) values (70, 47, 'post47_2.jpg');
+insert into post_image(id, id_post, file) values (71, 47, 'post47_3.jpg');
+
+insert into post_image(id, id_post, file) values (72, 49, 'post49_1.jpg');
+insert into post_image(id, id_post, file) values (73, 49, 'post49_2.png');
+
+insert into post_image(id, id_post, file) values (74, 50, 'post50_1.jpg');
+insert into post_image(id, id_post, file) values (75, 50, 'post50_2.jpg');
+
+insert into post_image(id, id_post, file) values (76, 51, 'post51_1.jpg');
+insert into post_image(id, id_post, file) values (77, 51, 'post51_2.jpg');
+
+insert into post_image(id, id_post, file) values (78, 52, 'post52_1.png');
+insert into post_image(id, id_post, file) values (79, 52, 'post52_2.png');
+
+insert into post_image(id, id_post, file) values (80, 53, 'post53_1.jpg');
+
+insert into post_image(id, id_post, file) values (81, 55, 'post55_1.jpg');
+
+insert into post_image(id, id_post, file) values (82, 56, 'post56_1.jpg');
+
+insert into post_image(id, id_post, file) values (83, 57, 'post57_1.jpg');
+
+insert into post_image(id, id_post, file) values (84, 58, 'post58_1.jpg');
+insert into post_image(id, id_post, file) values (85, 58, 'post58_2.png');
+
+insert into post_image(id, id_post, file) values (86, 59, 'post59_1.jpg');
+insert into post_image(id, id_post, file) values (87, 59, 'post59_2.jpg');
+
+insert into post_image(id, id_post, file) values (88, 60, 'post60_1.jpg');
+
+insert into post_image(id, id_post, file) values (89, 61, 'post61_1.jpg');
+
+insert into post_image(id, id_post, file) values (90, 62, 'post62_1.jpeg');
+insert into post_image(id, id_post, file) values (91, 62, 'post62_2.png');
+
+insert into post_image(id, id_post, file) values (92, 63, 'post63_1.jpg');
+
+insert into post_image(id, id_post, file) values (93, 64, 'post64_1.jpg');
+
+insert into post_image(id, id_post, file) values (94, 65, 'post65_1.jpg');
+
+insert into post_image(id, id_post, file) values (95, 66, 'post66_1.jpg');
+
+insert into post_image(id, id_post, file) values (96, 67, 'post67_1.png');
+
+insert into post_image(id, id_post, file) values (97, 68, 'post68_1.jpg');
+insert into post_image(id, id_post, file) values (98, 68, 'post68_2.jpg');
+
+insert into post_image(id, id_post, file) values (99, 69, 'post69_1.jpg');
+
+insert into post_image(id, id_post, file) values (100, 70, 'post70_1.jpg');
+
+insert into post_image(id, id_post, file) values (101, 71, 'post71_1.png');
+
+insert into post_image(id, id_post, file) values (102, 72, 'post72_1.jpg');
+
+insert into post_image(id, id_post, file) values (103, 73, 'post73_1.jpg');
+
+insert into post_image(id, id_post, file) values (104, 74, 'post74_1.jpg');
+
+insert into post_image(id, id_post, file) values (105, 75, 'post75_1.jpg');
+
+insert into post_image(id, id_post, file) values (106, 76, 'post76_1.jpg');
+
+insert into post_image(id, id_post, file) values (107, 77, 'post77_1.jpg');
+
+insert into post_image(id, id_post, file) values (108, 78, 'post78_1.jpg');
+
+insert into post_image(id, id_post, file) values (109, 79, 'post79_1.jpg');
+
+insert into post_image(id, id_post, file) values (110, 80, 'post80_1.jpg');
+
+insert into post_image(id, id_post, file) values (111, 81, 'post81_1.jpg');
+
+insert into post_image(id, id_post, file) values (112, 82, 'post82_1.jpg');
+insert into post_image(id, id_post, file) values (113, 82, 'post82_1.jpg');
+
+insert into post_image(id, id_post, file) values (114, 83, 'post83_1.jpg');
+
+insert into post_image(id, id_post, file) values (115, 84, 'post84_1.jpg');
+
+insert into post_image(id, id_post, file) values (116, 85, 'post85_1.jpg');
+insert into post_image(id, id_post, file) values (117, 85, 'post85_2.jpg');
+
+insert into post_image(id, id_post, file) values (118, 86, 'post86_1.jpg');
+
+insert into post_image(id, id_post, file) values (119, 87, 'post87_1.jpg');
+
+insert into post_image(id, id_post, file) values (120, 88, 'post88_1.jpg');
+
+insert into post_image(id, id_post, file) values (121, 89, 'post89_1.jpg');
+
+insert into post_image(id, id_post, file) values (122, 90, 'post90_1.jpg');
+
+insert into post_image(id, id_post, file) values (123, 91, 'post91_1.jpg');
+
+insert into post_image(id, id_post, file) values (124, 92, 'post92_1.jpg');
+
+insert into post_image(id, id_post, file) values (125, 93, 'post93_1.jpg');
+
+insert into post_image(id, id_post, file) values (126, 94, 'post94_1.png');
+insert into post_image(id, id_post, file) values (127, 94, 'post94_2.png');
+
+insert into post_image(id, id_post, file) values (128, 95, 'post95_1.jpg');
+
+insert into post_image(id, id_post, file) values (129, 96, 'post96_1.jpg');
+
+insert into post_image(id, id_post, file) values (130, 97, 'post97_1.jpg');
+insert into post_image(id, id_post, file) values (131, 97, 'post97_2.jpg');
+insert into post_image(id, id_post, file) values (132, 97, 'post97_3.jpg');
+
+insert into post_image(id, id_post, file) values (133, 98, 'post98_1.jpg');
+
+insert into post_image(id, id_post, file) values (134, 99, 'post99_1.jpg');
+
+insert into post_image(id, id_post, file) values (135, 100, 'post100_1.jpg');
+insert into post_image(id, id_post, file) values (136, 100, 'post100_2.jpg');
+

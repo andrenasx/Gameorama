@@ -22,7 +22,7 @@ class Member extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'full_name', 'email', 'password', 'bio', 'id_profile_image', 'id_banner_image', 'aura'
+        'username', 'full_name', 'email', 'password', 'bio', 'avatar_image', 'banner_image', 'aura'
     ];
 
     /**

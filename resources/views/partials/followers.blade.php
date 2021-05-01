@@ -11,7 +11,7 @@
                     @foreach ($followers as $follower)
                         <div class="profile-container d-flex justify-content-between mb-2">
                             <div class="d-flex">
-                                <img src="data:image;base64,{{base64_encode(stream_get_contents($follower->profile_image()))}}" class="flex-shrink-0 rounded-circle"
+                                <img src="{{ asset('storage/members/'.$follower->avatar_image) }}" class="flex-shrink-0 rounded-circle"
                                     style="width:50px;height:50px;" alt="">
                                 <div class="ms-2">
                                     <h1 class="h5 fw-normal">{{$follower->username}}</h1>

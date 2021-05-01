@@ -56,7 +56,7 @@
                             @else
                                 <div class="carousel-item">
                             @endif
-                                <img src="data:image;base64,{{stream_get_contents($post->images[$index]->file)}}" class="d-block w-100">
+                                <img src={{ asset('storage/posts/'.$post->id.'/'.$post->images[$index]['file']) }} class="d-block w-100">
                                 </div>
                         @endfor
                     </div>
@@ -104,26 +104,3 @@
 </section>
 @include('partials.footer')
 @endsection
-
-
-
-
-
-<!--
-    $comments=DB::select(DB::raw("
-    SELECT id, body, date_time, aura, id_owner, id_post
-    FROM comment
-    WHERE id_post = $id_post
-    AND id NOT IN (SELECT id_comment as id FROM reply WHERE id_post = $id_post)
-    );
--->
-
-<!--
-    $comments=DB::select(DB::raw("
-    SELECT id, body, date_time, aura, id_owner, id_post
-    FROM reply
-    INNER JOIN comment ON id_comment = id
-    WHERE id_parent = $id_comment
-    );
-
--->

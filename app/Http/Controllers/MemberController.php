@@ -12,6 +12,8 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -81,6 +83,47 @@ class MemberController extends Controller
         return view('pages.edit_profile', ['member' => $member]);
     }
 
+    private function create_banner_image($file, $member) {
+        
+        $path = 'public/members/'.$member->id;
+        $previous = 'public/members/';
+        
+        if (!File::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+        $previous = $previous.$member->banner_image;
+        
+
+        if ($member->banner_image !== "default_banner.jpg" ) {
+            File::delete($previous);
+        }
+
+        $file->store($path);
+        return $file->hashName();
+    }
+
+    
+    private function create_profile_image($file, $member)
+    {
+        $path = 'public/members/'.$member->id;
+        $previous = 'public/members/';
+        
+        if (!File::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+
+        $previous = $previous.$member->avatar_image;
+        
+        
+        echo $member->avatar_image;
+        if ($member->avatar_image !== "default_avatar.png" ) {
+            Storage::delete($previous);
+        }
+        $file->store($path);
+        return $file->hashName();
+    }
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -88,17 +131,6 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-
-    public function createImage(Request $request, $filename)
-    {
-        $file = $request->file($filename);
-        $fileContent = file_get_contents($file->path());
-        return MemberImage::create([
-            'file' => base64_encode($fileContent)
-        ]);
-    }
-
-
     public function update(Request $request, $username)
     {
         if (!Auth::check()) redirect('login');
@@ -110,22 +142,24 @@ class MemberController extends Controller
 
         $this->authorize('update', $member);
 
-        $id_profile = $member->id_profile_image;
-        $id_banner = $member->id_banner_image;
+        $profile = $member->avatar_image;
+        $banner = $member->banner_image;
+
 
         if ($request->hasFile("profile_photo")) {
-            $id_profile = $this->createImage($request, "profile_photo")->id;
+            $profile = $member->id.'/'.$this->create_profile_image($request->file("profile_photo"), $member);
         }
-
+        
+        
         if ($request->hasFile("banner_photo")) {
-            $id_banner = $this->createImage($request, "banner_photo")->id;
+            $banner = $member->id.'/'.$this->create_banner_image($request->file("banner_photo"), $member);
         }
 
         DB::table('member')->where('username', $member->username)
         ->update(["full_name" => $request->input("full_name"),
         'bio' => $request->input("bio"),
-        'id_profile_image' => $id_profile,
-        'id_banner_image' => $id_banner
+        'avatar_image' => $profile,
+        'banner_image' => $banner
         ]);
 
         return redirect(route('profile', $member->username));

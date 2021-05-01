@@ -15,8 +15,8 @@
     <section class="profile-widget bg-white rounded mb-3">
         <div class="row g-0">
             <div class="col-sm-12">
-                <div class="image-container bg2" style="background-image: url(data:image;base64,{{(stream_get_contents($member->banner_image()))}}); background-size: cover" >
-                    <img src="data:image;base64,{{(stream_get_contents($member->profile_image()))}}" class = "avatar">
+                <div class="image-container bg2" style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover" >
+                    <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class = "avatar">
                 </div>
                 <row class="d-flex justify-content-end col-12">
                     @auth

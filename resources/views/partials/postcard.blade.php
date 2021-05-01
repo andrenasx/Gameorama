@@ -33,7 +33,7 @@
         <a href="/post/{{$post->id}}" class="black-a">
             @if ($post->images->count () > 0)
             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
-                src="data:image;base64,{{stream_get_contents($post->images[0]->file)}}">
+                src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
             @endif
             <p class="card-text mt-3 truncate-multiple">{{$post->body}}</p>
         </a>
