@@ -1,4 +1,4 @@
-<div class="row p-3 g-0 mb-3 rounded border">
+<div class="row p-3 g-0 mb-3 rounded border bg-white">
     <header class="d-flex justify-content-between">
         <h5 class="font-weight-bold">on "<a href="/post/{{$comment->post->id}}">{{$comment->post->title}}</a>"</h5>
         <small style="color: darkgray;">{{$comment->date_time}}</small>
@@ -25,7 +25,7 @@
             @else
                 <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                     <span class="material-icons-outlined align-middle me-1">flag</span>
-                    <span class="d-none d-md-flex"> Report<span>
+                    <span class="d-none d-md-flex"> Report</span>
                 </div>
             @endif
         @endauth

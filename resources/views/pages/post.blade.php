@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', $post->title.' | ')
 @section('content')
 @auth
     @include('partials.navbar')
@@ -24,13 +25,13 @@
                 </ul>
             </div>
             <div class="post-header col me-2">
-                <h5 class="post-topics">Topics: 
+                <h5 class="post-topics">Topics:
                     @foreach ($post->topics as $topic)
-                        <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>; 
+                        <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>;
                     @endforeach
                 </h5>
                 <div class="d-inline">
-                    <small class="post-user">Posted by <a href="./profile.php">{{$post->owner->username}}</a></small>
+                    <small class="post-user">Posted by <a href="{{ route('profile', $post->owner->username) }}">{{$post->owner->username}}</a></small>
                     <small>{{$post->date_time}}</small>
                 </div>
                 <h1 class="post-title">{{$post->title}}</h1>
@@ -42,20 +43,20 @@
                     <div class="carousel-indicators">
                         @for($index = 0; $index < $post->images->count(); $index++)
                         @if ($index == 0)
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$index}}" class="active" aria-current="true" aria-label="Slide {{$index}}"></button>   
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$index}}" class="active" aria-current="true" aria-label="Slide {{$index}}"></button>
                         @else
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
-                        @endif        
+                        @endif
                         @endfor
                     </div>
                     <div class="carousel-inner">
                         @for($index = 0; $index < $post->images->count(); $index++)
                             @if ($index == 0)
-                                <div class="carousel-item active">   
+                                <div class="carousel-item active">
                             @else
                                 <div class="carousel-item">
                             @endif
-                                <img src="data:image;base64,{{stream_get_contents($post->images[$index]->file)}}" class="d-block w-100">
+                                <img src={{ asset('storage/posts/'.$post->id.'/'.$post->images[$index]['file']) }} class="d-block w-100">
                                 </div>
                         @endfor
                     </div>
@@ -82,11 +83,11 @@
             </div>
             <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                <span class="d-none d-md-flex"> Report<span>
+                <span class="d-none d-md-flex"> Report</span>
             </div>
         </div>
-    </section> <!-- /.news-card -->
-    
+    </section>
+
 
     <section class="comments p-2 px-sm-4 mt-3">
         <section class="row g-0 mb-4">
@@ -95,38 +96,11 @@
                 <button type="button" class="btn btn-primary mt-2 float-end">Add Comment</button>
             </div>
         </section>
-        
+
         @foreach ($post->parentComments() as $comment)
-        @include('partials.comment', [
-            'comment' => $comment,
-            'offset' => 0
-        ])
+        @include('partials.comment', ['comment' => $comment, 'offset' => 0])
         @endforeach
     </section>
 </section>
-<!--<script src="../js/voting.js"></script>-->
 @include('partials.footer')
 @endsection
-
-
-
-
-
-<!--
-    $comments=DB::select(DB::raw("  
-    SELECT id, body, date_time, aura, id_owner, id_post
-    FROM comment
-    WHERE id_post = $id_post 
-    AND id NOT IN (SELECT id_comment as id FROM reply WHERE id_post = $id_post)
-    );
--->
-
-<!--
-    $comments=DB::select(DB::raw("  
-    SELECT id, body, date_time, aura, id_owner, id_post
-    FROM reply
-    INNER JOIN comment ON id_comment = id
-    WHERE id_parent = $id_comment
-    ); 
-
--->

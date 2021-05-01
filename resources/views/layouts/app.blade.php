@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('page-title'){{ config('app.name', 'Laravel') }}</title>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -26,7 +26,10 @@
 
     <!-- CSS -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    
+
+    <!-- Scripts -->
+    @stack('scripts')
+
   </head>
   <body class="d-flex flex-column min-vh-100">
     @yield('content')

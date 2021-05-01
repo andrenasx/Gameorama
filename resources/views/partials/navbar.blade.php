@@ -22,7 +22,7 @@
           <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
               <a class="nav-link gx-0 mx-0 px-0" id="navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#modalNotifications" >
               <button type="button" class="navbar-icon grey-hover"  style="margin-top:2px"  ><span class="material-icons-round">notifications</span></button>
-                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                <span class="badge rounded-pill badge-notification bg-danger">0</span>
               </a>
               <a class="nav-link dropdown-toggle d-flex mt-1 grey-hover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" style="color:black" aria-expanded="false" >
               <span class="material-icons-round me-1">account_circle</span>
@@ -40,58 +40,14 @@
                 <button type="button" class="navbar-icon " >
                   <span class="material-icons-round">notifications</span>
                 </button>
-                <span class="badge rounded-pill badge-notification bg-danger mt-2">1</span>
+                <span class="badge rounded-pill badge-notification bg-danger mt-2">0</span>
                 <span class="">Notifications</span>
             </li>
             <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a></li>
-            <li><a class=" mt-2 grey-hover" href="accsettings.php" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">settings</span> Account Settings</a></li>
-            <li><a class=" mt-2 grey-hover" href="logout_mainpage.php"id= "colapsedHamburguer"><span class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span> Log out</a></li>
+            <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}/settings" id="colapsedHamburguer"><span class="material-icons-round" style="margin-right:10px">settings</span> Account Settings</a></li>
+            <li><a class=" mt-2 grey-hover" href="{{route('logout')}}"id= "colapsedHamburguer"><span class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span> Log out</a></li>
           </li>
         </ul>
-        </div>
-    </div>
-    <div class="modal fade" id="modalNotifications" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: rgb(251,116,45);">
-                    <h5 class="modal-title" style="color: white;" id="exampleModalLabel">Notifications</h5>
-                    <button class="close-notification-button" type="button" data-bs-dismiss="modal" aria-label="Close">
-                        <span class="material-icons-round">close</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="">
-                        <!--Follow-->
-                        <div class="card mb-3">
-                            <div class="card-header d-flex justify-content-end">
-                                <button  type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
-                                    <span class="material-icons-round">close</span></button>
-                            </div>
-                            <div class="card-body d-flex justify-content-between pb-0">
-                                <p class="card-text d-flex align-items-center">
-                                    <span class="material-icons-round me-2">person</span><span><a href="../pages/profile.php">kaka34</a> followed you!</span>
-                                </p>
-                                <small>1m ago</small>
-                            </div>
-                        </div>
-
-                        <!--Comment-->
-                        <div class="card mb-3">
-                            <div class="card-header d-flex justify-content-end">
-                                <button type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
-                                    <span class="material-icons-round">close</span>
-                                </button>
-                            </div>
-                            <div class="card-body d-flex justify-content-between pb-0">
-                                <p class="card-text d-flex align-items-center">
-                                    <span class="material-icons-round me-2">comment</span><span><a href="../pages/profile.php">BrotherSena</a> commented on your post</span>
-                                </p>
-                                <small>4h ago</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </nav>

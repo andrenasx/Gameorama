@@ -7,11 +7,11 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <img class="img-fluid" src={{asset('storage/assets/logo.png')}} alt=""
-                onclick="window.location.href='home'" style="cursor:pointer;">
+                onclick="window.location.href='/home'" style="cursor:pointer;">
             <h1 class="h2 mb-5 fw-normal">The Panorama of Gaming</h1>
             <h2 class="h3 mb-4 fw-bold">Login</h2>
             <div class="form-floating mb-5">
-                <input type="email" id="inputEmail" name = "email" class="form-control value="{{ old('email') }} mb-3" placeholder=" " required>
+                <input type="email" id="inputEmail" name = "email" class="form-control mb-3" value="{{ old('email') }}"  placeholder="" required>
                 <label for="inputEmail">Email address</label>
             </div>
             <div class="form-floating mb-0">

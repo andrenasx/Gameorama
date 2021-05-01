@@ -15,9 +15,9 @@
             </ul>
         </div>
         <div class="post-header col me-2">
-            <h6 class="post-topics">Topics: 
+            <h6 class="post-topics">Topics:
                 @foreach ($post->topics as $topic)
-                    <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>; 
+                    <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>;
                 @endforeach
             </h6>
             <div class="d-inline">
@@ -33,7 +33,7 @@
         <a href="/post/{{$post->id}}" class="black-a">
             @if ($post->images->count () > 0)
             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
-                src="data:image;base64,{{stream_get_contents($post->images[0]->file)}}">
+                src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
             @endif
             <p class="card-text mt-3 truncate-multiple">{{$post->body}}</p>
         </a>
@@ -59,15 +59,15 @@
             @else
                 <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                     <span class="material-icons-outlined align-middle me-1">flag</span>
-                    <span class="d-none d-md-flex"> Report<span>
+                    <span class="d-none d-md-flex"> Report</span>
                 </div>
             @endif
         @endauth
         @guest
             <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                <span class="d-none d-md-flex"> Report<span>
+                <span class="d-none d-md-flex"> Report</span>
             </div>
         @endguest
     </div>
-</div> <!-- /.news-card -->
+</div>
