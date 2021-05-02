@@ -1621,22 +1621,6 @@ components:
           type: integer
         id_owner:
           type: integer
-    Reply:
-      type: object
-      properties:
-        id:
-          type: integer
-        body:
-          type: string
-        date_time:
-          type: string
-          format: date-time
-        aura:
-          type: integer
-        id_owner:
-          type: integer
-        id_parent:
-          type: integer
     NewsPost:
       type: object
       properties:
