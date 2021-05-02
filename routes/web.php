@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function() {
+    Artisan::call('storage:link');
     return redirect('/home');
 });
 
