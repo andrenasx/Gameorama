@@ -1,487 +1,467 @@
-*{
-  font-family: 'Poppins', sans-serif;
-  --gameOrange: rgb(251,116,45);
-  --bsBlue: #0d6efd;
+* {
+    font-family: 'Poppins', sans-serif;
+    --gameOrange: rgb(251, 116, 45);
+    --bsBlue: #0d6efd;
 }
 
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 
 body {
-    background-color:rgb(218,224,230); 
-    
-
+    background-color: rgb(218, 224, 230);
 }
 
-@media (min-width: 768px){
-  .container{
-    max-width: 90%;
-  }
+@media (min-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
 }
 
-.badge-notification{
-    background:red;
-    position:relative;
+.badge-notification {
+    background: red;
+    position: relative;
     padding: .05em .25em;
     top: -10px;
     left: -12px;
 }
 
 .profile-widget {
-  position: relative;
+    position: relative;
 }
+
 .profile-widget .image-container {
-  background-size: cover;
-  background-position: center;
-  padding: 190px 0 10px;
+    background-size: cover;
+    background-position: center;
+    padding: 190px 0 10px;
 }
+
 .profile-widget .image-container .profile-background {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
+
 .profile-widget .image-container .avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin: 0 auto -60px;
-  display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto -60px;
+    display: block;
 }
+
 .profile-widget .details {
-  padding: 0px 15px;
-  text-align: center;
+    padding: 0px 15px;
+    text-align: center;
 }
 
 .panel-white {
-  background-color: white;
+    background-color: white;
 }
 
 
-.form-control{
-  width: 100%; 
-    width: 100%; 
-  width: 100%; 
+.form-control {
+    width: 100%;
+    width: 100%;
+    width: 100%;
 }
 
 .fa fa-search {
-  justify-content: right;
+    justify-content: right;
 }
 
-#hamburguerIcon{
-  
-min-width: 170px;
-
-
-
+#hamburguerIcon {
+    min-width: 170px;
 }
 
 
-#navbar{
-border-bottom: 2px solid rgba(0,0,0,0.1);
-
+#navbar {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-#search_bar_form.form-floating>.form-control:focus~label{
-  opacity:0  !important;
-
+#search_bar_form.form-floating > .form-control:focus ~ label {
+    opacity: 0 !important;
 }
 
-.navbar-icon{
-  transition: 0.15s all ease-in;
+.navbar-icon {
+    transition: 0.15s all ease-in;
 }
 
-.pop-up-instructions{
-  font-size:larger;
-  color: #383838;
-  font-weight: 500;
+.pop-up-instructions {
+    font-size: larger;
+    color: #383838;
+    font-weight: 500;
 }
-  
-img.img-logo{
-  width:auto;
-  height: 40px;
+
+img.img-logo {
+    width: auto;
+    height: 40px;
 }
 
 @media (min-width: 992px) {
-  div .col-lg-6{
-    margin: auto;
-  }
-  #hamburguerIcon{
-  
-    justify-content: flex-end  !important;
-    
-    
-  }
+    div .col-lg-6 {
+        margin: auto;
+    }
 
-  #colapsedHamburguer{
-    
-    display: none!important;
-  }
+    #hamburguerIcon {
+        justify-content: flex-end !important;
+    }
+
+    #colapsedHamburguer {
+        display: none !important;
+    }
 }
+
 @media (max-width: 992px) {
-  #navbar_search {
-    margin-left: 0 !important;
-    margin-top:1.5%;
-    margin-bottom:1%;
-  }
+    #navbar_search {
+        margin-left: 0 !important;
+        margin-top: 1.5%;
+        margin-bottom: 1%;
+    }
 
-  #hamburguerIcon{
-  
-    justify-content: flex-start !important;
-    display: none!important;
-    
-  }
-  #colapsedHamburguer{  
-    justify-content: flex-start !important;
-    display: flex;
-    padding: 0px 0px  !important;
-  }
+    #hamburguerIcon {
+        justify-content: flex-start !important;
+        display: none !important;
+    }
+
+    #colapsedHamburguer {
+        justify-content: flex-start !important;
+        display: flex;
+        padding: 0px 0px !important;
+    }
 
 
-  #Logo{
-    /*margin:auto  !important;*/
-    margin-left: 42%;
-    
-  }
+    #Logo {
+        /*margin:auto  !important;*/
+        margin-left: 42%;
+    }
 
 }
 
 @media (max-width: 700px) {
-
-  #navbar_search_icon{
-    width:90%
-  }
-
+    #navbar_search_icon {
+        width: 90%
+    }
 }
-
 
 
 @media (max-width: 550px) {
-  #Logo{
-    /*margin:auto  !important;*/
-    margin-left: 36%;
-    
-  }
-  #navbar_search_icon{
-    width:87%
-  }
+    #Logo {
+        /*margin:auto  !important;*/
+        margin-left: 36%;
+    }
 
+    #navbar_search_icon {
+        width: 87%
+    }
 }
-@media (max-width: 450px) {
-  #Logo{
-    /*margin:auto  !important;*/
-    margin-left: 30%;
-    
-  }
-  #navbar_search_icon{
-    width:85%
-  }
 
+@media (max-width: 450px) {
+    #Logo {
+        /*margin:auto  !important;*/
+        margin-left: 30%;
+    }
+
+    #navbar_search_icon {
+        width: 85%
+    }
 }
 
 
 @media (max-width: 400px) {
-  
-  #navbar_search_icon{
-    width:80%
-  }
+    #navbar_search_icon {
+        width: 80%
+    }
 }
 
 
 @media (max-width: 320px) {
-  #Logo{
-    /*margin:auto  !important;*/
-    margin-left: 20%;
-    
-  }
-  #navbar_search_icon{
-    width:78%
-  }
-}
-@media (max-width: 280px) {
-  #Logo{
-    /*margin:auto  !important;*/
-    margin:auto;
-    
-  }
+    #Logo {
+        /*margin:auto  !important;*/
+        margin-left: 20%;
+    }
 
+    #navbar_search_icon {
+        width: 78%
+    }
 }
+
+@media (max-width: 280px) {
+    #Logo {
+        /*margin:auto  !important;*/
+        margin: auto;
+    }
+}
+
 @media (min-width: 992px) {
-#create_post_btn{
-  max-width:230px !important;
-}
+    #create_post_btn {
+        max-width: 230px !important;
+    }
 }
 
 @media (max-width: 992px) {
-  #create_post_btn{
-    width:230px !important;
-    display: flex;
-    justify-content: left;
-    margin-left: 5px;
-  }
-
+    #create_post_btn {
+        width: 230px !important;
+        display: flex;
+        justify-content: left;
+        margin-left: 5px;
+    }
 }
 
 
 .btn-outline-red {
-  font-family: 'Material Icons Outlined';
-  color: black;
-  border:none;
-  transition: 0.15s all ease-in;
+    font-family: 'Material Icons Outlined';
+    color: black;
+    border: none;
+    transition: 0.15s all ease-in;
 }
-.btn-outline-red:hover{
-  font-family: 'Material Icons Round'!important;
-  color: red;
-  border:none;
-  cursor: pointer;
+
+.btn-outline-red:hover {
+    font-family: 'Material Icons Round' !important;
+    color: red;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-outline-red:hover :first-child {
-  font-family: 'Material Icons Round'!important;
-  color: red;
-  border:none;
-  cursor: pointer;
+    font-family: 'Material Icons Round' !important;
+    color: red;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-outline-blue {
-  font-family: 'Material Icons Outlined';
-  color: black;
-  border:none;
-  transition: 0.15s all ease-in;
-  
+    font-family: 'Material Icons Outlined';
+    color: black;
+    border: none;
+    transition: 0.15s all ease-in;
+
 }
 
 .btn-outline-blue:hover :first-child {
-  font-family: 'Material Icons Round'!important;
-  color: var(--bsBlue);
-  border:none;
-  cursor: pointer;
+    font-family: 'Material Icons Round' !important;
+    color: var(--bsBlue);
+    border: none;
+    cursor: pointer;
 
 }
+
 .btn-outline-blue:hover {
-  font-family: 'Material Icons Round'!important;
-  color: var(--bsBlue);
-  border:none;
-  cursor: pointer;
+    font-family: 'Material Icons Round' !important;
+    color: var(--bsBlue);
+    border: none;
+    cursor: pointer;
 }
 
 
-.delete-button{
-   background-color: red;
-   color: white;
-   border: 2px solid red;
+.delete-button {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
 }
 
-.delete-button:hover{
-  background-color: transparent;
-  border: 2px solid red;
-  color: red;
+.delete-button:hover {
+    background-color: transparent;
+    border: 2px solid red;
+    color: red;
 }
 
-.cancel-button{
-  background-color: grey;
-  color: white;
-  border: 2px solid grey;
+.cancel-button {
+    background-color: grey;
+    color: white;
+    border: 2px solid grey;
 }
 
-.cancel-button:hover{
- background-color: transparent;
- border: 2px solid grey;
- color: grey;
+.cancel-button:hover {
+    background-color: transparent;
+    border: 2px solid grey;
+    color: grey;
 }
 
 
+.grey-hover {
+    transition: 0.15s all ease-in;
+    color: black;
 
-.grey-hover{
-  transition: 0.15s all ease-in;
-  color:black;
-  
 }
 
 .grey-hover-notification :last-child {
-  transition: 0.15s all ease-in;
-  color:black;
+    transition: 0.15s all ease-in;
+    color: black;
 }
 
 
-.grey-hover:hover  {
-  color:grey;
-}
-.grey-hover:hover > *  {
-  color:grey;
+.grey-hover:hover {
+    color: grey;
 }
 
-.grey-hover-notification{
-  transition: 0.15s all ease-in;
-  color:black;
-  
+.grey-hover:hover > * {
+    color: grey;
 }
+
+.grey-hover-notification {
+    transition: 0.15s all ease-in;
+    color: black;
+
+}
+
 .grey-hover-notification:hover :first-child {
-  color:grey;
-}
-.grey-hover-notification:hover :last-child {
-  color:grey;
+    color: grey;
 }
 
+.grey-hover-notification:hover :last-child {
+    color: grey;
+}
 
 
 .nav-link.dropdown-toggle.d-flex.mt-1::after {
-  
-  margin-left: 5%;
-  margin-top: 9%;
+    margin-left: 5%;
+    margin-top: 9%;
 }
 
 /*Login and Signup*/
-.login-page, .signup-page{
-  height: 100%;
+.login-page, .signup-page {
+    height: 100%;
 }
 
 
-form h1{
-  color: white;
-  font-weight: bold;
-  font-style: italic;
-  text-shadow: 2px 2px black
+form h1 {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px black
 }
 
-form h2{
-  text-align: left;
+form h2 {
+    text-align: left;
 }
 
-form h2{
-  color: white;
-  text-shadow: 2px 2px black;
+form h2 {
+    color: white;
+    text-shadow: 2px 2px black;
 }
 
-#signUpLogin, #forgotPassword{
-  color: white;
-  text-shadow: 1px 1px black;
+#signUpLogin, #forgotPassword {
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
-#signUpLogin:hover, #forgotPassword:hover{
-  color: #0d6efd;
+#signUpLogin:hover, #forgotPassword:hover {
+    color: #0d6efd;
 }
 
 #forgotPassword {
-  float: right;
+    float: right;
 }
 
 .form-signup {
-  width: 100%;
-  max-width: 600px;
-  padding: 15px;
-  margin: auto;
-  z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    z-index: 1;
 }
 
-.signup-page .background-color,.login-page .background-color{
-  position: fixed;
-  background-color: var(--gameOrange);
-  height: 100%;
-  width: 100%;
-  z-index: -2;
+.signup-page .background-color, .login-page .background-color {
+    position: fixed;
+    background-color: var(--gameOrange);
+    height: 100%;
+    width: 100%;
+    z-index: -2;
 }
 
 .signup-page .background-image {
-  position: fixed;
-  z-index: -1;
-  display: block;
-  background-image: url("../storage/assets/signup.jpg");
+    position: fixed;
+    z-index: -1;
+    display: block;
+    background-image: url("/media/assets+signup.jpg");
 
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  filter: blur(3px);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(3px);
 }
 
 .error {
-  color: red;
-  text-shadow: 1px 1px darkgray;
+    color: red;
+    text-shadow: 1px 1px darkgray;
 }
 
 
+#signUpButton {
+    background-color: var(--gameOrange);
+    border-color: var(--gameOrange);
+    border-radius: 5px;
+    border-width: 2px;
+    transition: 0.15s all ease-in;
+    text-shadow: 1px 1px 1px black;
+    transition: 0.15s all ease-in;
 
- #signUpButton{
-  background-color: var(--gameOrange);
-  border-color: var(--gameOrange);
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.15s all ease-in;
-  text-shadow: 1px 1px 1px black;
-  transition: 0.15s all ease-in;
-  
 }
 
-#signUpButton:hover{
-  background: transparent;
-  color: var(--gameOrange);
-  border-color: var(--gameOrange);
+#signUpButton:hover {
+    background: transparent;
+    color: var(--gameOrange);
+    border-color: var(--gameOrange);
 }
 
 .form-control:focus {
-  border: none;
-  box-shadow: 0 0 0 0.15rem rgba(251,116,45,1);
+    border: none;
+    box-shadow: 0 0 0 0.15rem rgba(251, 116, 45, 1);
 }
 
 .login-page .form-signin {
-  width: 100%;
-  max-width: 600px;
-  padding: 15px;
-  margin: auto;
-  z-index:1;
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    z-index: 1;
 }
 
 .login-page .background-image {
-  position: fixed;
-  z-index: -1;
-  display: block;
-  background-image: url("../storage/assets/login.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  filter: blur(3px);
+    position: fixed;
+    z-index: -1;
+    display: block;
+    background-image: url("/media/assets+login.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(3px);
 }
 
-#loginButton{
-  background-color: var(--gameOrange);
-  border-color: var(--gameOrange);
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.15s all ease-in;
-  text-shadow: 1px 1px 1px black;
-  transition: 0.15s all ease-in;
+#loginButton {
+    background-color: var(--gameOrange);
+    border-color: var(--gameOrange);
+    border-radius: 5px;
+    border-width: 2px;
+    transition: 0.15s all ease-in;
+    text-shadow: 1px 1px 1px black;
+    transition: 0.15s all ease-in;
 }
 
-#loginButton:hover{
-  background: transparent;
-  color: var(--gameOrange);
-  border-color: var(--gameOrange);
+#loginButton:hover {
+    background: transparent;
+    color: var(--gameOrange);
+    border-color: var(--gameOrange);
 }
 
-#googleButton{
-  background-color: white;
-  border-color: white;
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.15s all ease-in!important;
+#googleButton {
+    background-color: white;
+    border-color: white;
+    border-radius: 5px;
+    border-width: 2px;
+    transition: 0.15s all ease-in !important;
 }
 
-#googleButton:hover{
-  border-color: rgb(66,133,244);
-  color: rgb(66,133,244);
-  background: transparent;
-
+#googleButton:hover {
+    border-color: rgb(66, 133, 244);
+    color: rgb(66, 133, 244);
+    background: transparent;
 }
-*/
-
-
-
 
 /*Post Page*/
-
-
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -489,460 +469,457 @@ form h2{
 
 /* Carousel base class */
 .carousel {
-  margin-bottom: 4rem;
+    margin-bottom: 4rem;
 }
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+    bottom: 3rem;
+    z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
+    height: 32rem;
 }
+
 .carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
 }
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
 @media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
+    .featurette-heading {
+        font-size: 50px;
+    }
 }
 
 @media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
+    .featurette-heading {
+        margin-top: 7rem;
+    }
 }
 
 
-.post-title{
-  font-weight: 600;
-  font-size: 2rem;
-  margin-top: 10px;
+.post-title {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 10px;
 }
 
-.post-title-smaller{
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 0;
-  margin-top: 10px;
+.post-title-smaller {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-top: 10px;
 }
 
-.post-topics{
-  margin-bottom: 0;
+.post-topics {
+    margin-bottom: 0;
 }
 
-.post-user{
-  color: var(--gameOrange);
+.post-user {
+    color: var(--gameOrange);
 }
 
-.pill-navigation li a{
-  color: darkgray;
+.pill-navigation li a {
+    color: darkgray;
 }
 
-.pill-navigation .nav-link.active{
-  background-color: transparent;
-  border-bottom: 3px solid var(--gameOrange);
-  color: black;
-  border-radius: 0%;
+.pill-navigation .nav-link.active {
+    background-color: transparent;
+    border-bottom: 3px solid var(--gameOrange);
+    color: black;
+    border-radius: 0%;
 }
 
 /*  Post page   */
-.post-voting .upvote, .post-voting .downvote{
-  transition: 0.15s all ease-in;
-  color: darkgray;
+.post-voting .upvote, .post-voting .downvote {
+    transition: 0.15s all ease-in;
+    color: darkgray;
 }
 
 
 .post-voting .upvote:hover {
-  cursor: pointer;
-  color: var(--gameOrange)
+    cursor: pointer;
+    color: var(--gameOrange)
 }
 
 .post-voting .downvote:hover {
-  cursor: pointer;
-  color: #353cee
+    cursor: pointer;
+    color: #353cee
 }
 
 /*Account Settings*/
 
-
 hr {
-  border-top: 5px solid var(--gameOrange);
-  opacity: 1; 
-  background-color: white;
+    border-top: 5px solid var(--gameOrange);
+    opacity: 1;
+    background-color: white;
 }
 
 .admin_hr {
-  border-top: 1px solid darkgray;
-  opacity: 1; 
+    border-top: 1px solid darkgray;
+    opacity: 1;
 }
 
-#field-container{
-  border: 2px solid lightgray;
+#field-container {
+    border: 2px solid lightgray;
 }
 
-#field-container h2{
-  color: grey;
+#field-container h2 {
+    color: grey;
 }
 
-#field-delete-container h2{
-  color: red;
-  opacity: 60%;
+#field-delete-container h2 {
+    color: red;
+    opacity: 60%;
 }
 
 #accept_button {
-  float: right;
-  background-color: var(--gameOrange);
-  border-color: var(--gameOrange);
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.15s all ease-in;
+    float: right;
+    background-color: var(--gameOrange);
+    border-color: var(--gameOrange);
+    border-radius: 5px;
+    border-width: 2px;
+    transition: 0.15s all ease-in;
 }
 
-#accept_button:hover{
-  background: transparent;
-  color: var(--gameOrange);
-  border-color: var(--gameOrange);
+#accept_button:hover {
+    background: transparent;
+    color: var(--gameOrange);
+    border-color: var(--gameOrange);
 }
 
-#field-delete-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10vh;
-  border-top: 2px solid lightgray;
+#field-delete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    border-top: 2px solid lightgray;
 
 }
 
-#field-container h2, #field-delete-container h2{
-  font-size: 1.5vh;
+#field-container h2, #field-delete-container h2 {
+    font-size: 1.5vh;
 }
 
 #accept-button {
-  float: right;
-} 
-
-#close-window-button{
-  padding: 0;
-  border: none;
-  background: none;
-  transition: 0.15s all ease-in;
+    float: right;
 }
 
-#close-window-button:hover{
-  color:red;
+#close-window-button {
+    padding: 0;
+    border: none;
+    background: none;
+    transition: 0.15s all ease-in;
+}
+
+#close-window-button:hover {
+    color: red;
 }
 
 #inputDeleteAccount:focus {
-  box-shadow: 0 0 0 0.15rem red;
+    box-shadow: 0 0 0 0.15rem red;
 }
 
-#staticBackdropLabelDelete{
-  color: red;
-}
-
-
-#staticBackdropLabelReport{
-  color: red;
+#staticBackdropLabelDelete {
+    color: red;
 }
 
 
-#staticBackdropLabelLogin{
-  color: #0d6efd;
+#staticBackdropLabelReport {
+    color: red;
+}
+
+
+#staticBackdropLabelLogin {
+    color: #0d6efd;
 }
 
 
 #add-comment-button {
-  float: right!important;
-  background-color: #4dc3ff!important;
-  border: none;
+    float: right !important;
+    background-color: #4dc3ff !important;
+    border: none;
 }
 
 .comment-icons span {
-  transition: 0.15s all ease-in;
+    transition: 0.15s all ease-in;
 }
 
-.comment-icons span:hover{
-  cursor:pointer;
-  color: #4dc3ff;
+.comment-icons span:hover {
+    cursor: pointer;
+    color: #4dc3ff;
 }
 
 span.report-button:hover {
-  color: var(--gameOrange)
+    color: var(--gameOrange)
 }
 
 hr {
-  border-top: 5px solid var(--gameOrange);
-  opacity: 1;
-  background-color: white;
-} 
+    border-top: 5px solid var(--gameOrange);
+    opacity: 1;
+    background-color: white;
+}
 
 
 /*Following/Follow Popups*/
-.following-button{
-  border-color: var(--gameOrange);
-  border-radius: 5px;
-  border-width: 2px;
-  color: var(--gameOrange);
-  transition: 0.15s all ease-in;
+.following-button {
+    border-color: var(--gameOrange);
+    border-radius: 5px;
+    border-width: 2px;
+    color: var(--gameOrange);
+    transition: 0.15s all ease-in;
 }
 
-.following-button:hover{
-  background-color: var(--gameOrange);
-  color: white;
-  border-color: var(--gameOrange);
+.following-button:hover {
+    background-color: var(--gameOrange);
+    color: white;
+    border-color: var(--gameOrange);
 }
 
-.following-button::after{
-  content: "Following";
+.following-button::after {
+    content: "Following";
 }
 
-.following-button:hover::after{
-  content: "Unfollow";
+.following-button:hover::after {
+    content: "Unfollow";
 }
 
-.follow-button{
-  border-color: var(--gameOrange);
-  color: white;
-  border-radius: 5px;
-  border-width: 2px;
-  background-color: var(--gameOrange);
-  transition: 0.15s all ease-in;
+.follow-button {
+    border-color: var(--gameOrange);
+    color: white;
+    border-radius: 5px;
+    border-width: 2px;
+    background-color: var(--gameOrange);
+    transition: 0.15s all ease-in;
 }
 
-.follow-button::after{
-  content: "Follow";
+.follow-button::after {
+    content: "Follow";
 }
 
-.follow-button:hover{
-  background-color: white;
-  color: var(--gameOrange);
-  border-color: var(--gameOrange);
+.follow-button:hover {
+    background-color: white;
+    color: var(--gameOrange);
+    border-color: var(--gameOrange);
 }
 
 /*   Create a Post  */
 
 .create_post_header {
-  border-bottom: 3px solid var(--gameOrange);
+    border-bottom: 3px solid var(--gameOrange);
 
 }
 
-#post_cancel_button  {
-  border: none;
-  transition: 0.15s all ease-in;
+#post_cancel_button {
+    border: none;
+    transition: 0.15s all ease-in;
 }
 
 #post_cancel_button:hover {
-  background-color: transparent;
-  border: 2px solid red;
-  color: red;
+    background-color: transparent;
+    border: 2px solid red;
+    color: red;
 }
 
 
 .create_post_buttons {
-  margin-top: 10%
+    margin-top: 10%
 }
-
 
 
 /*   Topic Page    */
 
 .color-orange {
-  color: var(--gameOrange)
+    color: var(--gameOrange)
 }
 
-.following-button{
-  border-color: var(--gameOrange);
-  border-radius: 5px;
-  border-width: 2px;
-  transition: 0.15s all ease-in;
+.following-button {
+    border-color: var(--gameOrange);
+    border-radius: 5px;
+    border-width: 2px;
+    transition: 0.15s all ease-in;
 }
 
-.following-button::after{
-  content: "Following";
+.following-button::after {
+    content: "Following";
 }
 
-.following-button:hover::after{
-  content: "Unfollow";
+.following-button:hover::after {
+    content: "Unfollow";
 }
 
-.text-button-profile{
-  padding: 0;
-  border: none;
-  background: none;
-  transition: 0.15s all ease-in;
+.text-button-profile {
+    padding: 0;
+    border: none;
+    background: none;
+    transition: 0.15s all ease-in;
 }
 
-.text-button-profile:hover{
-  color: #0d6efd;
+.text-button-profile:hover {
+    color: #0d6efd;
 }
 
 
 .aside-title {
-  color: var(--gameOrange);
+    color: var(--gameOrange);
 }
 
 .small-grey-text {
-  font-size:0.85em;
-  color: grey;
+    font-size: 0.85em;
+    color: grey;
 }
 
-.blue-hover, .red-hover{
-  transition: 0.15s all ease-in;
+.blue-hover, .red-hover {
+    transition: 0.15s all ease-in;
 }
 
 .blue-hover:hover {
-  color: #0d6efd;
-  cursor: pointer;
+    color: #0d6efd;
+    cursor: pointer;
 }
 
 .red-hover:hover {
-  color: red;
-  cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
-
-
-
-
-
-
 
 
 a {
-  color: inherit;
-  text-decoration: none;
-  transition: 0.15s all ease-in;
+    color: inherit;
+    text-decoration: none;
+    transition: 0.15s all ease-in;
 }
 
 a:hover {
-  color: #0d6efd;
+    color: #0d6efd;
 }
 
-a.black-a{
-  color: black;
+a.black-a {
+    color: black;
 }
 
 a.black-a:hover {
-  color: black;
+    color: black;
 }
 
-/* styles for '...' */ 
+/* styles for '...' */
 .truncate-multiple {
-  /* hide text if it more than N lines  */
-  overflow: hidden;
-  /* for set '...' in absolute position */
-  position: relative; 
-  /* use this value to count block height */
-  line-height: 1.5em;
-  /* max-height = line-height (1.2) * lines max number (3) */
-  max-height: 4.5em; 
-  /* fix problem when last visible word doesn't adjoin right side  */
-  text-align: justify;  
-  /* place for '...' */
-  margin-left: 0em;
-  margin-right: 0em;
-  padding-right: 1em;
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 1.5em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 4.5em;
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;
+    /* place for '...' */
+    margin-left: 0em;
+    margin-right: 0em;
+    padding-right: 1em;
 }
+
 /* create the ... */
 .truncate-multiple:before {
-  /* points in the end */
-  content: '...';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of block */
-  right: 0;
-  bottom: 0;
+    /* points in the end */
+    content: '...';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
 }
+
 /* hide ... if we have text, which is less than or equal to max lines */
 .truncate-multiple:after {
-  /* points in the end */
-  content: '';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of text */
-  right: 0;
-  /* set width and height */
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  /* bg color = bg color under block */
-  background: white;
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    background: white;
 }
 
 
-.navbar-icon{
-  padding: 0;
-  border: none;
-  background: none;
+.navbar-icon {
+    padding: 0;
+    border: none;
+    background: none;
 }
 
 
-.error-title{
-  font-size: 16vh;
-  color: var(--gameOrange);
- 
+.error-title {
+    font-size: 16vh;
+    color: var(--gameOrange);
+
 }
 
-.error-picture{
-  height: 30vh;
+.error-picture {
+    height: 30vh;
 }
 
 
-.close-notification-button{
-  padding: 0;
-  border: none;
-  background: none;
-  transition: 0.15s all ease-in;
+.close-notification-button {
+    padding: 0;
+    border: none;
+    background: none;
+    transition: 0.15s all ease-in;
 }
 
-.close-notification-button:hover{
-  color:white;
+.close-notification-button:hover {
+    color: white;
 }
+
 /*  Edit profile   */
 
-.edit_profile_username h2{
-  color: var(--gameOrange); 
-  text-shadow: none;
+.edit_profile_username h2 {
+    color: var(--gameOrange);
+    text-shadow: none;
 }
 
 .edit_banner_photo {
-  position: absolute;
-  top: 0;
-  right:0%;
+    position: absolute;
+    top: 0;
+    right: 0%;
 }
 
-.camera_icon span{
-  color: grey
+.camera_icon span {
+    color: grey
 }
 
 .edit_profile_photo {
-  margin-left: 54%
+    margin-left: 54%
 }
 
-@media (max-width: 768px){
-  .edit_profile_photo {
-    margin-left: 58%
-  }
+@media (max-width: 768px) {
+    .edit_profile_photo {
+        margin-left: 58%
+    }
 }
 
-.footer{
-  border-top: 2px solid rgba(0,0,0,0.1);
+.footer {
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
 }

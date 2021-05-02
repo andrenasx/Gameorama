@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
         <div class="col-1 ps-lg-2" id="Logo" onclick="window.location.href='/home'" style="cursor:pointer;">
-            <img src={{asset('storage/assets/logo.png')}} class="img-logo" alt="">
+            <img src={{asset('media/assets+logo.png')}} class="img-logo" alt="">
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
