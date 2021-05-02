@@ -83,27 +83,8 @@ class MemberController extends Controller
         return view('pages.edit_profile', ['member' => $member]);
     }
 
-    private function create_banner_image($file, $member) {
 
-        $path = 'public/members/'.$member->id;
-        $previous = 'public/members/';
-
-        if (!File::exists($path)) {
-            Storage::makeDirectory($path);
-        }
-        $previous = $previous.$member->banner_image;
-
-
-        if ($member->banner_image !== "default_banner.jpg" ) {
-            File::delete($previous);
-        }
-
-        $file->store($path);
-        return $file->hashName();
-    }
-
-
-    private function create_profile_image($file, $member)
+    private function create_avatar_image($file, $member)
     {
         $path = 'public/members/'.$member->id;
         $previous = 'public/members/';
@@ -113,12 +94,28 @@ class MemberController extends Controller
         }
 
         $previous = $previous.$member->avatar_image;
-
-
-        echo $member->avatar_image;
         if ($member->avatar_image !== "default_avatar.png" ) {
             Storage::delete($previous);
         }
+
+        $file->store($path);
+        return $file->hashName();
+    }
+
+    private function create_banner_image($file, $member) {
+
+        $path = 'public/members/'.$member->id;
+        $previous = 'public/members/';
+
+        if (!File::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+
+        $previous = $previous.$member->banner_image;
+        if ($member->banner_image !== "default_banner.jpg" ) {
+            Storage::delete($previous);
+        }
+
         $file->store($path);
         return $file->hashName();
     }
@@ -146,7 +143,7 @@ class MemberController extends Controller
         $member->bio = $request->input("bio");
 
         if ($request->hasFile("profile_photo")) {
-            $member->avatar_image = $member->id.'/'.$this->create_profile_image($request->file("profile_photo"), $member);
+            $member->avatar_image = $member->id.'/'.$this->create_avatar_image($request->file("profile_photo"), $member);
         }
 
         if ($request->hasFile("banner_photo")) {
