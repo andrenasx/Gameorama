@@ -54,7 +54,7 @@
                                 @else
                                 <div class="carousel-item">
                                 @endif
-                                    <img src="{{ asset('storage/posts/'.$post->id.'/'.$post->images[$index]['file']) }}" class="d-block w-100">
+                                    <img src="{{ asset('storage/posts/'.$post->id.'/'.$post->images[$index]['file']) }}" alt="Post Image" class="d-block w-100">
                                 </div>
                 @endfor
                         </div>
@@ -70,7 +70,7 @@
                         </button>
                     </div>
                     @endif
-                        <p class="card-text mt-3 px-lg-5">{{$post->body}}</p>
+                        <p class="card-text mt-3 px-lg-5">{!!$post->body!!}</p>
                     </div>
                     <div class="row mt-4 news-card-options">
                         <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">

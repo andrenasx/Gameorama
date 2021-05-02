@@ -4,7 +4,7 @@
         <small style="color: darkgray;">{{$comment->date_time}}</small>
     </header>
 
-    <p>{{$comment->body}}</p>
+    <p>{!!$comment->body!!}</p>
 
     <div class="d-flex justify-content-between mt-2">
         <div class="col-4 col-sm-2 d-flex justify-content-center post-voting">
@@ -32,7 +32,7 @@
         @guest
             <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
                 <span class="material-icons-outlined align-middle me-1">flag</span>
-                <span class="d-none d-md-flex"> Report<span>
+                <span class="d-none d-md-flex"> Report</span>
             </div>
         @endguest
     </div>

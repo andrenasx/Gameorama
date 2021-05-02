@@ -21,7 +21,7 @@
                 <small class="col text-end" style = "color: darkgray;">{{$comment->date_time}}</small>
             </div>
 
-            <p class="mb-2">{{$comment->body}}</p>
+            <p class="mb-2">{!!$comment->body!!}</p>
             <div class="row">
 
                 <div class = "col d-flex justify-content-center post-voting border-end border-2">
