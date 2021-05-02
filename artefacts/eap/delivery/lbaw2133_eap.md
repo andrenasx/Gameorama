@@ -1,4 +1,10 @@
-# A7: High-level architecture. Privileges. Web resources specification
+# EAP: Architecture Specification and Prototype
+
+Gameorama is a web application that provides a place for gamers to post, discuss and rate the latest news on their favorite videogames and topics.
+
+
+
+## A7: High-level architecture. Privileges. Web resources specification
 
 This artefact aims to describe the web application's architecture, used resources and their properties. It contains references to the graphical interfaces, the format of JSON responses and the list of needed requests. Finally, it describes data operations like creation, reading, update and deletion.
 
@@ -6,7 +12,7 @@ This specification adheres to the OpenAPI standard using YAML.
 
 
 
-## 1. Overview
+### 1. Overview
 
 An overview of the web application to implement is presented in this section, where the modules are identified and briefly described. The web resources associated with each module are detailed in the individual documentation of each module.
 
@@ -22,7 +28,7 @@ An overview of the web application to implement is presented in this section, wh
 
 
 
-## 2. Permissions
+### 2. Permissions
 
 This section defines the permissions used in the modules to establish the conditions of access to resources.
 
@@ -36,7 +42,7 @@ This section defines the permissions used in the modules to establish the condit
 
 
 
-## 3. OpenAPI Specification
+### 3. OpenAPI Specification
 
 OpenAPI specification in YAML format to describe the web application's web resources.
 
@@ -1762,11 +1768,100 @@ components:
             $ref: '#/components/schemas/ReplyNotification'
 
 ```
+
+<div style="page-break-after: always; break-after: page;"></div>
+
+
+## A8: Vertical prototype
+
+The Vertical Prototype includes the implementation of highly important user stories and aims to validate the architecture presented, while also serving to gain familiarity with the technologies used in the project.
+
+The implementation is based on the LBAW Framework and includes work on all layers of the architecture of the solution to implement: user interface, business logic and data access. The prototype includes the implementation of pages of visualization, insertion, edition and removal of information; the control of permissions in the access to the implemented pages; and a presentation of error and success messages.
+
+
+
+### 1. Implemented Features
+
+#### 1.1. Implemented User Stories
+
+The following table describes the user stories from previous artefacts that were implemented in the prototype.
+
+| User Story reference | Name                   | Priority                   | Description                   |
+| -------------------- | ---------------------- | -------------------------- | ----------------------------- |
+| US101                 | Main Page News         | High                       | As a User, I want to access the website's main page, so that I can see the latest news about gaming. |
+| US102                 | Profile Page           | High                       | As a User, I want to consult the profile of a Member, so that I can see their biography,  profile picture, reputation score, number of followers and posted news. |
+| US103  | View Member's Posted News Posts     | High     | As a User, I want to be able so see in a Member's profile page the news posts they've created so that I can easily access them. |
+| US104                 | View Member's Comments              | High     | As a User, I want to be able so see in a Member's profile page the comments they've  posted so that I can easily access them. |
+| US105                 | View Member's Followed Members              | High     | As a User, I want to be able so see a Member's followed members so that I can search for people to follow. |
+| US106                 | View Member's Followers              | High     | As a User, I want to be able so see a Member's followers so that I can search for people to follow. |
+| US107                 | View Member's Followed Topics              | High     | As a User, I want to be able so see a Member's followed topics so that I can search for topics to follow. |
+| US110                 | News Post Page         | High                       | As a User, I want to access the page of a specific news post so that I can see more details about that post and its comments. |
+| US111                 | Main Page Trending Topics         | Medium                     | As a User, I want to consult the top trending topics on the main page so that I can discover other gaming topics that are popular.|
+| US112                 | Main Page Hall of Fame         | Medium                       | As a User, I want to see the Members with the most Aura score, so that I can find interesting people to follow.|
+| US21                 | Sign Up                | High                       | As a Visitor, I want to register myself into the system, so that I can become a Member. |
+| US22                 | Log In                 | High                       | As a Visitor, I want to authenticate into the system, so that I can have Member privileges. |
+| US311                | Logout                 | High                       | As a Member, I want to logout from the system, so that other users are able to login in the same computer. |
+| US351                | View Bookmarked News Posts  | High                  | As a Member, I want to be able so see in my profile page the news posts I've bookmarked so that I can easily access them. |
+| US352 | Edit Profile Information | High | As a Member, I want to edit my own profile information (e.g. name, profile picture, biography), so that it can be up to date. |
+| US353                | Edit Account Settings  | High                       | As a Member, I want to edit my account settings (e.g. email, password), so that I can keep my account safe. |
+| US354                | Delete Account         | High                       | As a Member, I want to be able to delete my account, so that I can remove all information I posted on the website. |
+
+<div style="page-break-after: always; break-after: page;"></div>
+
+#### 1.2. Implemented Web Resources
+
+The following table documents the web resources from previous artefacts that were implemented in the prototype.
+
+##### Module M01: Authentication and Individual Profile
+
+| Web Resource Reference | URL                            |
+| ---------------------- | ------------------------------ |
+| R101: Login Form       | [/login](http://lbaw2133.lbaw-prod.fe.up.pt/login) |
+| R102: Login Action     | POST /login |
+| R103: Logout Action    | GET /logout |
+| R104: Register Form    | [/signup](http://lbaw2133.lbaw-prod.fe.up.pt/signup) |
+| R105: Register Action  | POST /signup |
+| R106: Members Profile  | [/member/{username}](http://lbaw2133.lbaw-prod.fe.up.pt/member/EW22Corgi) |
+| R107: Edit Profile Form  | [/member/{username}/edit](http://lbaw2133.lbaw-prod.fe.up.pt/member/EW22Corgi/edit) |
+| R108: Edit Profile Action  | PATCH /member/{username}/edit |
+| R109: Member account settings | [/member/{username}/settings](http://lbaw2133.lbaw-prod.fe.up.pt/member/EW22Corgi/settings) |
+| R110: Change members email | PATCH /api/change_email |
+| R111: Change members password | PATCH /api/change_password |
+| R112: Delete an account | DELETE /api/member/{username} |
+| R116: Member's posts | GET /api/member/{username}/posts/{page} |
+| R117: Member's comments | GET /api/member/{username}/comments/{page} |
+| R118: Member's bookmarked posts | GET /api/member/{username}/bookmarked/{page} |
+
+
+##### Module M02: Posts
+| Web Resource Reference | URL                            |
+| ---------------------- | ------------------------------ |
+| R201: Shows main page  | [/home](http://lbaw2133.lbaw-prod.fe.up.pt/home) |
+| R202: Main page feed posts | POST /api/home/feed/{page} |
+| R203: Main page trending posts | POST /api/home/trending/{page} |
+| R204: Main page latest posts | POST /api/home/latest/{page} |
+| R207: Shows a news post | [/post/{id_post}](http://lbaw2133.lbaw-prod.fe.up.pt/post/90) |
+
+
+
+### 2. Prototype
+
+The prototype is available at http://lbaw2133.lbaw-prod.fe.up.pt/
+
+**User Credentials:**
+- Email: ewyche13@google.co.uk
+- Password: #Password123
+
 ***
 
-# Revision history
+
+## Revision history
 
 Changes made to the first submission: N/A
 
 ***
-GROUP2133, 20/04/2021
+GROUP2133, 27/04/2021
+* André Nascimento, up201806461@fe.up.pt
+* Caio Nogueira, up201806218@fe.up.pt
+* Diogo Almeida (editor), up201806630@fe.up.pt
+* Gustavo Sena, up201806078@fe.up.pt
