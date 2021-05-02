@@ -84,15 +84,15 @@ class MemberController extends Controller
     }
 
     private function create_banner_image($file, $member) {
-        
+
         $path = 'public/members/'.$member->id;
         $previous = 'public/members/';
-        
+
         if (!File::exists($path)) {
             Storage::makeDirectory($path);
         }
         $previous = $previous.$member->banner_image;
-        
+
 
         if ($member->banner_image !== "default_banner.jpg" ) {
             File::delete($previous);
@@ -102,19 +102,19 @@ class MemberController extends Controller
         return $file->hashName();
     }
 
-    
+
     private function create_profile_image($file, $member)
     {
         $path = 'public/members/'.$member->id;
         $previous = 'public/members/';
-        
+
         if (!File::exists($path)) {
             Storage::makeDirectory($path);
         }
 
         $previous = $previous.$member->avatar_image;
-        
-        
+
+
         echo $member->avatar_image;
         if ($member->avatar_image !== "default_avatar.png" ) {
             Storage::delete($previous);
@@ -142,25 +142,18 @@ class MemberController extends Controller
 
         $this->authorize('update', $member);
 
-        $profile = $member->avatar_image;
-        $banner = $member->banner_image;
-
+        $member->full_name = $request->input("full_name");
+        $member->bio = $request->input("bio");
 
         if ($request->hasFile("profile_photo")) {
-            $profile = $member->id.'/'.$this->create_profile_image($request->file("profile_photo"), $member);
-        }
-        
-        
-        if ($request->hasFile("banner_photo")) {
-            $banner = $member->id.'/'.$this->create_banner_image($request->file("banner_photo"), $member);
+            $member->avatar_image = $member->id.'/'.$this->create_profile_image($request->file("profile_photo"), $member);
         }
 
-        DB::table('member')->where('username', $member->username)
-        ->update(["full_name" => $request->input("full_name"),
-        'bio' => $request->input("bio"),
-        'avatar_image' => $profile,
-        'banner_image' => $banner
-        ]);
+        if ($request->hasFile("banner_photo")) {
+            $member->banner_image = $member->id.'/'.$this->create_banner_image($request->file("banner_photo"), $member);
+        }
+
+        $member->save();
 
         return redirect(route('profile', $member->username));
     }
@@ -194,7 +187,7 @@ class MemberController extends Controller
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'unique:member'],
             'email_confirmation' => ['required', 'string', 'email', 'same:email'],
-            'password' => ['required', 'string', 'min:8']
+            'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$/']
         ]);
     }
 
@@ -225,8 +218,8 @@ class MemberController extends Controller
     {
         return Validator::make($data, [
             'old_password' => ['required', 'string'],
-            'new_password' => ['required', 'string', 'min:8', 'confirmed'],
-            'new_password_confirmation' => ['required', 'string', 'min:8', 'same:new_password']
+            'new_password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$/', 'confirmed'],
+            'new_password_confirmation' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$/', 'same:new_password']
         ]);
     }
 
