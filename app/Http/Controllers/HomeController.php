@@ -60,36 +60,13 @@ class HomeController extends Controller
     {
         $feed = [];
         $num_rows = $page * 15;
-       
-        /*$aux=DB::table("news_post")
-        ->join("member","news_post.id_owner","=","member.id")
-        ->whereIn("news_post.id",DB::select(
-            "news_post.id",
-            DB::table("news_post")
-                ->join("post_topic","news_post.id","=","post_topic.id_post")
-                ->join("topic","post_topic.id_topic","=","topic.id")
-                ->join("member_follow","member_follow.id_follower","=",Auth::user()->id)
-                ->whereIn("topic.name",
-                    DB::select(
-                        "name",
-                        DB::table("topic")
-                            ->join("topic_follow","topic.id","=","topic_follow.id_topic")
-                            ->where("topic_follow.id_member","=",Auth::user()->id)
-                            ->get(["name"])
-                    ))
-                ->orWhere("member_follow.id_followed","=","news_post.id_owner")
-                ->get(["id"])
-            )->distinct())
-        ->orderBy("date_time","desc")
-        ->forPage($page)
-        ->get(["id"]);*/
-        
+
         $aux= DB::select(DB::raw("SELECT news_post.id as id
         FROM news_post
         INNER JOIN member ON id_owner = member.id
         WHERE news_post.id IN
         (
-            SELECT DISTINCT news_post.id FROM news_post 
+            SELECT DISTINCT news_post.id FROM news_post
             INNER JOIN post_topic ON news_post.id = post_topic.id_post
             INNER JOIN topic ON post_topic.id_topic = topic.id
             INNER JOIN member_follow ON member_follow.id_follower = ".Auth::user()->id."
@@ -99,11 +76,12 @@ class HomeController extends Controller
                 INNER JOIN topic_follow ON topic.id = topic_follow.id_topic
                 WHERE topic_follow.id_member = ".Auth::user()->id."
             )
-            OR 
+            OR
             member_follow.id_followed = id_owner
         ) ORDER BY date_time DESC
         OFFSET ".intval($num_rows)."
         FETCH NEXT 15 ROWS ONLY"));
+
         foreach($aux as $auxIds ){
             array_push($feed,NewsPost::find($auxIds->id));
         }
@@ -115,12 +93,6 @@ class HomeController extends Controller
         $feed = [];
         $num_rows = ($page-1) * 15;
 
-        /*$aux =DB::table('news_post')
-            ->join("member","news_post.id_owner","=","member.id")
-            ->whereRaw("date_time >= (now() - interval '1 days')")
-            ->orderBy("news_post.aura","desc")
-            ->forPage($page)->get();*/
-        
         $aux= DB::select(DB::raw("SELECT news_post.id as id
             FROM news_post
             INNER JOIN member ON id_owner = member.id

@@ -93,7 +93,7 @@ class MemberController extends Controller
             Storage::makeDirectory($path);
         }
 
-        $previous = $previous.$member->avatar_image;
+        $previous = $previous.implode('/', explode('+', $member->avatar_image));
         if ($member->avatar_image !== "default_avatar.png" ) {
             Storage::delete($previous);
         }
@@ -111,7 +111,7 @@ class MemberController extends Controller
             Storage::makeDirectory($path);
         }
 
-        $previous = $previous.$member->banner_image;
+        $previous = $previous.implode('/', explode('+', $member->banner_image));
         if ($member->banner_image !== "default_banner.jpg" ) {
             Storage::delete($previous);
         }
@@ -143,11 +143,11 @@ class MemberController extends Controller
         $member->bio = $request->input("bio");
 
         if ($request->hasFile("profile_photo")) {
-            $member->avatar_image = $member->id.'/'.$this->create_avatar_image($request->file("profile_photo"), $member);
+            $member->avatar_image = $member->id.'+'.$this->create_avatar_image($request->file("profile_photo"), $member);
         }
 
         if ($request->hasFile("banner_photo")) {
-            $member->banner_image = $member->id.'/'.$this->create_banner_image($request->file("banner_photo"), $member);
+            $member->banner_image = $member->id.'+'.$this->create_banner_image($request->file("banner_photo"), $member);
         }
 
         $member->save();
