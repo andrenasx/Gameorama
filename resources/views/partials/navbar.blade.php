@@ -17,12 +17,12 @@
             <ul class="navbar-nav d-flex justify-content-end">
                 @guest
                     <li>
-                        <a class="d-flex mt-1 me-2" href="{{route('login')}}" onmouseover="this.style.color='var(--bsBlue)'">
+                        <a class="d-flex mt-1 me-2" href="{{route('login')}}">
                             <span class="material-icons-round me-2" style="font-weight: bold;">login</span> Log in
                         </a>
                     </li>
                     <li>
-                        <a class="d-flex mt-1 pe-lg-2" href="{{route('signup')}}" onmouseover="this.style.color='var(--bsBlue)'">
+                        <a class="d-flex mt-1 pe-lg-2" href="{{route('signup')}}">
                             <span class="material-icons-round me-2" style="font-weight: bold;">login</span> Sign Up
                         </a>
                     </li>

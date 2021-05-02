@@ -11,7 +11,7 @@
             <h1 class="h2 mb-5 fw-normal">The Panorama of Gaming</h1>
             <h2 class="h3 mb-4 fw-bold">Login</h2>
             <div class="form-floating mb-5">
-                <input type="email" id="inputEmail" name = "email" class="form-control mb-3" value="{{ old('email') }}"  placeholder="" required>
+                <input type="email" id="inputEmail" name = "email" class="form-control mb-3" value="{{ old('email') }}"  placeholder=" " required>
                 <label for="inputEmail">Email address</label>
             </div>
             <div class="form-floating mb-0">
@@ -46,37 +46,3 @@
     </main>
 </section>
 @endsection
-
-{{--@extends('layouts.app')
-
-@section('content')
-<form method="POST" action="{{ route('login') }}">
-    {{ csrf_field() }}
-
-    <label for="email">E-mail</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-    @if ($errors->has('email'))
-        <span class="error">
-          {{ $errors->first('email') }}
-        </span>
-    @endif
-
-    <label for="password" >Password</label>
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-        <span class="error">
-            {{ $errors->first('password') }}
-        </span>
-    @endif
-
-    <label>
-        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-    </label>
-
-    <button type="submit">
-        Login
-    </button>
-    <a class="button button-outline" href="{{ route('register') }}">Register</a>
-</form>
-@endsection
---}}
