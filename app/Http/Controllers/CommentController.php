@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NewsPost;
-use App\Models\Member;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
+use App\Models\NewsPost;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,9 +25,30 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($body, $id_post)
     {
-        //
+        return Comment::create([
+            'body' => $body,
+            'date_time' => now(),
+            'aura' => 0,
+            'id_owner' => Auth::user()->id,
+            'id_post' => $id_post 
+        ]);
+    }
+
+    public function comment($id_post, Request $request) 
+    {
+        $post = NewsPost::find($id_post);
+        if ($post == null) {
+            return response()->json('Post not found', 404);
+        }
+        
+        $comment = $this->create($request->input('comment'), $post->id);
+        $comment->save();
+        $comment = $comment->fresh(); //refresh model
+        $html = view('partials.comment', ['comment' => $comment, 'offset' => 0])->render();
+        return response()->json($html);
+
     }
 
     /**
@@ -45,35 +65,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\NewsPost  $newsPost
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_post)
+    public function show($id)
     {
-        $post = NewsPost::find($id_post);
-
-        if ($post != NULL){
-            return view('pages.post', ['post' => $post]);
-        }
-    }
-
-    public function vote($id_post, Request $request) 
-    {
-        Log::debug(Auth::user()->post_auras);
-        DB::table('post_aura')->insert([
-            'id_post' => $id_post,
-            'id_voter' => Auth::user()->id,
-            'upvote' => $request->input('vote')
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\NewsPost  $newsPost
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(NewsPost $newsPost)
+    public function edit($id)
     {
         //
     }
@@ -82,10 +88,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NewsPost  $newsPost
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NewsPost $newsPost)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -93,10 +99,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\NewsPost  $newsPost
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NewsPost $newsPost)
+    public function destroy($id)
     {
         //
     }

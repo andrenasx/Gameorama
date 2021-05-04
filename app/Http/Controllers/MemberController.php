@@ -169,7 +169,7 @@ class MemberController extends Controller
         }
 
         $this->authorize('update', $member);
-
+        
         return view('pages.settings', ['member' => $member]);
     }
 

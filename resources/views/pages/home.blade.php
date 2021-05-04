@@ -5,6 +5,7 @@
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/home.js') }}></script>
+        <script defer src={{ asset('js/voting.js') }}></script>
     @endpush
     <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
         <div class="row justify-content-evenly g-0">

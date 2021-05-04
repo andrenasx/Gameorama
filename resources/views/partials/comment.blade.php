@@ -29,7 +29,7 @@
                     <label class = "score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
                     <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                 </div>
-                <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
+                <div class="col d-flex justify-content-center btn-outline-blue border-end border-2" data-bs-toggle="modal" data-bs-target="#staticReplyModal">
                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                     <span class="d-none d-md-flex"> Reply</span>
                 </div>
@@ -54,3 +54,27 @@
 @foreach ($comment->replies as $reply)
     @include('partials.comment', ['comment' => $reply, 'offset' => $offset + 1])
 @endforeach
+
+
+<div class="modal fade" id="staticReplyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Reply to Comment</h5>
+                <button type="button" data-bs-dismiss="modal" id="close-window-button" aria-label="Close"><span
+                        class="material-icons-round">close</span></button>
+            </div>
+            <form id="reply-form" autocomplete="off">
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea type="text" id="inputOldPass" class="form-control" placeholder=" " rows="10" placeholder="Reply"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -2,19 +2,24 @@
 @section('page-title', $post->title.' | ')
 @section('content')
     @include('partials.navbar')
-    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7">
+    @push('scripts')
+        <script defer src = {{asset("js/ajax.js")}}></script>
+        <script defer src = {{asset("js/comments.js")}}></script>
+        <script defer src = {{asset("js/voting.js")}}></script>
+    @endpush
+    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}}>
         <section class="news-card mb-3 p-4">
             <header class="row news-card-header">
                 <div class="post-voting col-1 d-flex justify-content-center ">
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                            <span class="upvote material-icons-round d-flex justify-content-center" data-id = {{$post->id}}>north</span>
                         </li>
                         <li>
-                            <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
+                            <span class="score d-flex justify-content-center" id="score" data-id = {{$post->id}}>{{$post->aura}}</span>
                         </li>
                         <li>
-                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                            <span class="downvote material-icons-round d-flex justify-content-center" data-id = {{$post->id}}>south</span>
                         </li>
                     </ul>
                 </div>
@@ -86,22 +91,28 @@
                             <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-flex"> Report</span>
                         </div>
+                        @include('partials.report_post')
+
                     </div>
         </section>
 
 
         <section class="comments p-2 px-sm-4 mt-3">
-            <section class="row g-0 mb-4">
+            <section class="row g-0 mb-4" data-id = {{$post->id}} id = "new-comment-section">
                 <div class="md-form amber-textarea active-amber-textarea px-0 ">
-                    <textarea class="form-control" name="comment" rows="4" placeholder="Leave a comment"></textarea>
-                    <button type="button" class="btn btn-primary mt-2 float-end">Add Comment</button>
+                    <textarea class="form-control" id = "comment_content" name="comment" rows="4" placeholder="Leave a comment"></textarea>
+                    <button type="button" id = "make_comment_button" class="btn btn-primary mt-2 float-end">Add Comment</button>
                 </div>
             </section>
 
-            @foreach ($post->parentComments() as $comment)
-                @include('partials.comment', ['comment' => $comment, 'offset' => 0])
-            @endforeach
+            <section class = "comments-section">
+                @foreach ($post->parentComments() as $comment)
+                    @include('partials.comment', ['comment' => $comment, 'offset' => 0])
+                @endforeach
+            </section>
+
         </section>
     </section>
+    
     @include('partials.footer')
 @endsection
