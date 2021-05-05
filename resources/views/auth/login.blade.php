@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Log in | ')
 @section('content')
 <section class="login-page d-flex justify-content-center">
     <div class="background-color"></div>
