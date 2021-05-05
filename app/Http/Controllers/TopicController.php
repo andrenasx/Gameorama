@@ -124,11 +124,11 @@ class TopicController extends Controller
 
         $aux= DB::select(DB::raw("SELECT news_post.id as id
             FROM news_post
-            INNER JOIN post_topic ON news_post.id = id_post AND ".$id_topic." = id_topic
+            INNER JOIN post_topic ON news_post.id = id_post AND ? = id_topic
             WHERE date_time >= (now() - interval '14 days')
             ORDER BY news_post.aura DESC
-            OFFSET ".$num_rows." ROWS
-            FETCH NEXT 15 ROWS ONLY"));
+            OFFSET ? ROWS
+            FETCH NEXT 15 ROWS ONLY"), [$id_topic, $num_rows]);
 
         foreach($aux as $auxIds ){
             array_push($feed,NewsPost::find($auxIds->id));
