@@ -83,7 +83,3 @@ Route::fallback(function() {
 Route::get('/about', function () {
     return view('pages.about');
 })->name('About');
-
-
-// Storage files
-//Route::get('media/{path}', 'MediaController@retrieve');
