@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use App\Models\NewsPost;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class TopicController extends Controller
@@ -44,9 +46,14 @@ class TopicController extends Controller
      * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function show(Topic $topic)
+    public function show($name)
     {
-        //
+        $topic = Topic::firstWhere('name', $name);
+        if ($topic == null) {
+            return redirect(route('404'));
+        }
+
+        return view('pages.topic', ['topic' => $topic]);
     }
 
     /**
@@ -91,11 +98,9 @@ class TopicController extends Controller
         }
 
         $data = null;
-        $type = "";
         switch ($content) {
             case "trending":
-                //$data = $this->trending($page);
-                $data = $topic->posts()->orderBy('date_time', 'desc')->forPage($page)->get();
+                $data = $this->trending($topic->id, $page);
                 break;
             case "latest":
                 $data = $topic->posts()->orderBy('date_time', 'desc')->forPage($page)->get();
@@ -106,9 +111,28 @@ class TopicController extends Controller
 
         $html = [];
         foreach ($data as $element) {
-            array_push($html, view('partials.'.$type.'card', [$type => $element])->render());
+            array_push($html, view('partials.postcard', ['post' => $element])->render());
         }
 
         return response()->json($html);
+    }
+
+    private function trending($id_topic, $page)
+    {
+        $feed = [];
+        $num_rows = ($page-1) * 15;
+
+        $aux= DB::select(DB::raw("SELECT news_post.id as id
+            FROM news_post
+            INNER JOIN post_topic ON news_post.id = id_post AND ".$id_topic." = id_topic
+            WHERE date_time >= (now() - interval '14 days')
+            ORDER BY news_post.aura DESC
+            OFFSET ".$num_rows." ROWS
+            FETCH NEXT 15 ROWS ONLY"));
+
+        foreach($aux as $auxIds ){
+            array_push($feed,NewsPost::find($auxIds->id));
+        }
+        return $feed;
     }
 }

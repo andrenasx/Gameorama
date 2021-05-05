@@ -26,7 +26,7 @@
                 <div class="post-header col me-2">
                     <h5 class="post-topics">Topics:
                         @foreach ($post->topics as $topic)
-                            <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>;
+                            <a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a>;
                         @endforeach
                     </h5>
                     <div class="d-inline">
@@ -40,18 +40,20 @@
             <div class="news-card-body">
                 @if ($post->images->count() > 0)
                     <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            @for($index = 0; $index < $post->images->count(); $index++)
-                                @if ($index == 0)
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="{{$index}}" class="active" aria-current="true"
-                                            aria-label="Slide {{$index}}"></button>
-                                @else
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
-                                @endif
-                            @endfor
-                        </div>
+                        @if ($post->images->count() > 1)
+                            <div class="carousel-indicators">
+                                @for($index = 0; $index < $post->images->count(); $index++)
+                                    @if ($index == 0)
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="{{$index}}" class="active" aria-current="true"
+                                                aria-label="Slide {{$index}}"></button>
+                                    @else
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
+                                    @endif
+                                @endfor
+                            </div>
+                        @endif
                         <div class="carousel-inner">
                             @for($index = 0; $index < $post->images->count(); $index++)
                                 @if ($index == 0)
@@ -61,18 +63,20 @@
                                 @endif
                                     <img src="{{ asset('media/posts+'.$post->id.'+'.$post->images[$index]['file']) }}" alt="Post Image" class="d-block w-100">
                                 </div>
-                @endfor
+                            @endfor
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                                data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                                data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        @if ($post->images->count() > 1)
+                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        @endif
                     </div>
                     @endif
                         <p class="card-text mt-3 px-lg-5">{!!$post->body!!}</p>
@@ -92,7 +96,6 @@
                             <span class="d-none d-md-flex"> Report</span>
                         </div>
                         @include('partials.report_post')
-
                     </div>
         </section>
 
@@ -110,9 +113,8 @@
                     @include('partials.comment', ['comment' => $comment, 'offset' => 0])
                 @endforeach
             </section>
-
         </section>
     </section>
-    
+
     @include('partials.footer')
 @endsection

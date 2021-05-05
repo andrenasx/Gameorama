@@ -36,12 +36,12 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/api/home/{content}/{page}', 'HomeController@content');
 
+
 // Topic
-Route::get('/topic/{name}', function () {
-    return view('pages.topic');
-});
+Route::get('/topic/{name}', 'TopicController@show')->name('topic');
 
 Route::get('/api/topic/{name}/posts/{content}/{page}', 'TopicController@content');
+
 
 // Member
 Route::get('/member/{username}', 'MemberController@show')->name('profile');
@@ -59,9 +59,9 @@ Route::patch('/api/change_password', 'MemberController@change_password');
 
 Route::delete('/api/member/{username}', 'MemberController@destroy');
 
-Route::post('api/post/{id_post}/comment', 'CommentController@comment')->middleware('auth'); //(to be changed later) redirect to login page/modal 
+Route::post('api/post/{id_post}/comment', 'CommentController@comment')->middleware('auth'); //(to be changed later) redirect to login page/modal
 
-Route::post('api/post/{id_post}/vote', 'PostController@vote')->middleware('auth'); 
+Route::post('api/post/{id_post}/vote', 'PostController@vote')->middleware('auth');
 
 //  Member content
 Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content');

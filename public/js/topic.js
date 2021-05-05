@@ -1,3 +1,5 @@
+const topic_name = document.getElementById('topic_name').innerText;
+
 // Posts
 let more_trending = document.getElementById('more-trending');
 let more_latest = document.getElementById('more-latest');
@@ -11,11 +13,12 @@ window.onload = function () {
 
 function loadContent(content, button) {
     let page = button.dataset.page;
-    const route = '/api/topic/' + name + '/posts/' + content + '/' + page;
+    const route = '/api/topic/' + topic_name + '/posts/' + content + '/' + page;
     const data = {page: page};
 
     sendAjaxRequest('GET', route, data,
         (response) => {
+            console.log(response);
             const data = JSON.parse(response);
             if (data.length < 15) {
                 button.remove();

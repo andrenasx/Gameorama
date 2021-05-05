@@ -14,7 +14,7 @@
                                 <img src="{{ asset('media/assets+letters+'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" class="flex-shrink-0 rounded-circle"
                                     style="width:50px;height:50px;" alt="">
                                 <div class="ms-2">
-                                    <h1 class="h5 fw-normal">{{$topic->name}}</h1>
+                                    <h1 class="h5 fw-normal"><a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a></h1>
                                     <p class="h6 fw-normal">{{$topic->followers->count()}} Followers</p>
                                 </div>
                             </div>

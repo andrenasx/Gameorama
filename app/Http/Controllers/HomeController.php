@@ -93,9 +93,8 @@ class HomeController extends Controller
         $feed = [];
         $num_rows = ($page-1) * 15;
 
-        $aux= DB::select(DB::raw("SELECT news_post.id as id
+        $aux= DB::select(DB::raw("SELECT id
             FROM news_post
-            INNER JOIN member ON id_owner = member.id
             WHERE date_time >= (now() - interval '14 days')
             ORDER BY news_post.aura DESC
             OFFSET ".$num_rows." ROWS

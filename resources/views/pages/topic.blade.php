@@ -1,7 +1,11 @@
 @extends('layouts.app')
+@section('page-title', $topic->name.' | ')
 @section('content')
 @include('partials.navbar')
-
+@push('scripts')
+    <script defer src={{ asset('js/ajax.js') }}></script>
+    <script defer src={{ asset('js/topic.js') }}></script>
+@endpush
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
         <h3 class="mb-3 color-orange">Topic Page</h3>
@@ -10,8 +14,8 @@
                 <div class="row g-0">
                     <img src="../assets/L_icon.svg" class = "rounded-circle col-2 px-0" alt="" style = "max-width: 100px">
                     <div class="col-10 px-3 my-auto d-flex flex-column">
-                        <h3 class = "h2 fw-bold">{{$topic->name}}</h3>
-                        <h5>{{topic->followers->count()}}</h5>
+                        <h3 class="h2 fw-bold" id="topic_name">{{$topic->name}}</h3>
+                        <h5>{{$topic->followers->count()}} Followers</h5>
                     </div>
                 </div>
             </div>

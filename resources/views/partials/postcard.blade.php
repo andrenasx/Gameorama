@@ -17,7 +17,7 @@
         <div class="post-header col me-2">
             <h6 class="post-topics">Topics:
                 @foreach ($post->topics as $topic)
-                    <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>;
+                    <a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a>;
                 @endforeach
             </h6>
             <div class="d-inline">
