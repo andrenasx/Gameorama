@@ -376,7 +376,7 @@ form h2 {
     position: fixed;
     z-index: -1;
     display: block;
-    background-image: url("/media/assets+signup.jpg");
+    background-image: url("/storage/assets/signup.jpg");
 
     background-size: cover;
     width: 100%;
@@ -424,7 +424,7 @@ form h2 {
     position: fixed;
     z-index: -1;
     display: block;
-    background-image: url("/media/assets+login.jpg");
+    background-image: url("/storage/assets/login.jpg");
     background-size: cover;
     width: 100%;
     height: 100%;

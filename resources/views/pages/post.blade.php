@@ -61,7 +61,7 @@
                                 @else
                                 <div class="carousel-item">
                                 @endif
-                                    <img src="{{ asset('media/posts+'.$post->id.'+'.$post->images[$index]['file']) }}" alt="Post Image" class="d-block w-100">
+                                    <img src="{{ asset('storage/posts/'.$post->id.'/'.$post->images[$index]['file']) }}" alt="Post Image" class="d-block w-100">
                                 </div>
                             @endfor
                         </div>

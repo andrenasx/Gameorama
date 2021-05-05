@@ -86,4 +86,4 @@ Route::get('/about', function () {
 
 
 // Storage files
-Route::get('media/{path}', 'MediaController@retrieve');
+//Route::get('media/{path}', 'MediaController@retrieve');
