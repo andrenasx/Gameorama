@@ -37,7 +37,8 @@ CREATE TABLE member (
     bio text,
     avatar_image text NOT NULL DEFAULT 'default_avatar.png',
     banner_image text NOT NULL DEFAULT 'default_banner.jpg',
-    aura integer DEFAULT 0 NOT NULL
+    aura integer DEFAULT 0 NOT NULL,
+    search tsvector NOT NULL
 );
 
 CREATE TABLE administrator (
@@ -57,12 +58,14 @@ CREATE TABLE news_post (
     body text,
     date_time timestamp NOT NULL DEFAULT now(),
     aura integer DEFAULT 0 NOT NULL,
-    id_owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE
+    id_owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE,
+    search tsvector NOT NULL
 );
 
 CREATE TABLE topic (
     id serial PRIMARY KEY,
-    name text NOT NULL UNIQUE
+    name text NOT NULL UNIQUE,
+    search tsvector NOT NULL
 );
 
 CREATE TABLE topic_follow (
@@ -201,14 +204,14 @@ DROP INDEX IF EXISTS member_id_follower;
 CREATE INDEX member_id_follower ON member_follow USING hash (id_follower);
 
 
+DROP INDEX IF EXISTS search_member;
+CREATE INDEX IF NOT EXISTS member_username ON member USING gin (search);
+
 DROP INDEX IF EXISTS search_posts;
-CREATE INDEX search_posts ON news_post USING gist (to_tsvector('english', title));
+CREATE INDEX search_posts ON news_post USING gin (search);
 
-DROP INDEX IF EXISTS member_username;
-CREATE INDEX IF NOT EXISTS member_username ON member USING gist (to_tsvector('english', username));
-
-DROP INDEX IF EXISTS topic_name;
-CREATE INDEX topic_name ON topic USING gin (to_tsvector('english', name));
+DROP INDEX IF EXISTS search_topic;
+CREATE INDEX topic_name ON topic USING gin (search);
 
 
 DROP INDEX IF EXISTS unique_lowercase_username;
@@ -245,7 +248,6 @@ CREATE FUNCTION update_post_aura() RETURNS TRIGGER AS $$
       UPDATE member
         SET aura = aura + 2
         WHERE (SELECT id_owner FROM news_post WHERE NEW.id_post = news_post.id) = member.id;
-
     ELSIF NOT NEW.upvote AND OLD.upvote THEN
       UPDATE news_post
         SET aura = aura - 2
@@ -274,7 +276,6 @@ CREATE FUNCTION insert_post_aura() RETURNS TRIGGER AS $$
       UPDATE member
         SET aura = aura + 1
         WHERE (SELECT id_owner FROM news_post WHERE NEW.id_post = news_post.id) = member.id;
-
     ELSIF NOT NEW.upvote THEN
       UPDATE news_post
         SET aura = aura - 1
@@ -303,7 +304,6 @@ CREATE FUNCTION delete_post_aura() RETURNS TRIGGER AS $$
       UPDATE member
         SET aura = aura - 1
         WHERE (SELECT id_owner FROM news_post WHERE OLD.id_post = news_post.id) = member.id;
-
     ELSIF NOT OLD.upvote THEN
       UPDATE news_post
         SET aura = aura + 1
@@ -332,7 +332,6 @@ CREATE FUNCTION update_comment_aura() RETURNS TRIGGER AS $$
       UPDATE member
         SET aura = aura + 2
         WHERE (SELECT id_owner FROM comment WHERE NEW.id_comment = comment.id) = member.id;
-
     ELSIF NOT NEW.upvote AND OLD.upvote THEN
       UPDATE comment
         SET aura = aura - 2
@@ -361,7 +360,6 @@ CREATE FUNCTION insert_comment_aura() RETURNS TRIGGER AS $$
       UPDATE member
         SET aura = aura + 1
         WHERE (SELECT id_owner FROM comment WHERE NEW.id_comment = comment.id) = member.id;
-
     ELSIF NOT NEW.upvote THEN
       UPDATE comment
         SET aura = aura - 1
@@ -390,7 +388,6 @@ CREATE FUNCTION delete_comment_aura() RETURNS TRIGGER AS $$
       UPDATE member
         SET aura = aura - 1
         WHERE (SELECT id_owner FROM comment WHERE OLD.id_comment = comment.id) = member.id;
-
     ELSIF NOT OLD.upvote THEN
       UPDATE comment
         SET aura = aura + 1
@@ -518,6 +515,59 @@ CREATE TRIGGER auto_comment_upvote
   AFTER INSERT ON comment
   FOR EACH ROW EXECUTE PROCEDURE auto_comment_upvote();
 
+
+DROP FUNCTION IF EXISTS search_member CASCADE;
+CREATE FUNCTION search_member() RETURNS TRIGGER AS $$
+    BEGIN
+        IF (TG_OP = 'INSERT') THEN
+            NEW.search = (SELECT setweight(to_tsvector('english', NEW.username), 'A') || setweight(to_tsvector('english', NEW.full_name), 'B'));
+        ELSIF (TG_OP = 'UPDATE' AND NEW.username <> OLD.username) THEN
+            NEW.search = (SELECT setweight(to_tsvector('english', NEW.username), 'A') || setweight(to_tsvector('english', NEW.full_name), 'B'));
+        END IF;
+    RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS search_member ON member CASCADE;
+CREATE TRIGGER search_member
+    BEFORE INSERT OR UPDATE ON member
+    FOR EACH ROW EXECUTE PROCEDURE search_member();
+
+
+DROP FUNCTION IF EXISTS search_post CASCADE;
+CREATE FUNCTION search_post() RETURNS TRIGGER AS $$
+    BEGIN
+        IF (TG_OP = 'INSERT') THEN
+            NEW.search = (SELECT to_tsvector('english', NEW.title));
+        ELSIF (TG_OP = 'UPDATE' AND NEW.title <> OLD.title) THEN
+            NEW.search = (SELECT to_tsvector('english', NEW.title));
+    END IF;
+    RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS search_post ON news_post CASCADE;
+CREATE TRIGGER search_post
+    BEFORE INSERT OR UPDATE ON news_post
+     FOR EACH ROW EXECUTE PROCEDURE search_post();
+
+
+DROP FUNCTION IF EXISTS search_topic CASCADE;
+CREATE FUNCTION search_topic() RETURNS TRIGGER AS $$
+    BEGIN
+        IF (TG_OP = 'INSERT') THEN
+            NEW.search = (SELECT to_tsvector('english', NEW.name));
+        ELSIF (TG_OP = 'UPDATE' AND NEW.title <> OLD.title) THEN
+            NEW.search = (SELECT to_tsvector('english', NEW.name));
+    END IF;
+    RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS search_topic ON post CASCADE;
+CREATE TRIGGER search_topic
+    BEFORE INSERT OR UPDATE ON topic
+     FOR EACH ROW EXECUTE PROCEDURE search_topic();
 
 
 -----------------------------------------
@@ -24574,4 +24624,3 @@ insert into post_image(id, id_post, file) values (134, 99, 'post99_1.jpg');
 
 insert into post_image(id, id_post, file) values (135, 100, 'post100_1.jpg');
 insert into post_image(id, id_post, file) values (136, 100, 'post100_2.jpg');
-
