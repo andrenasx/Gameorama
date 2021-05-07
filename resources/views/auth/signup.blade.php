@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Sign up | ')
 @section('content')
     <section class="d-flex justify-content-center">
         <section class="signup-page d-flex justify-content-center">
