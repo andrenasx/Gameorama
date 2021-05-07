@@ -20,7 +20,7 @@
                             </div>
                             <div>
                                 <button type="button"
-                                    class="following-button btn btn-outline-primary col-12 mb-1"></button>
+                                    class="following-button btn btn-outline-primary col-12 mb-1"  data-id = {{$topic->id}} ></button>
                             </div>
                         </div>
                     @endforeach

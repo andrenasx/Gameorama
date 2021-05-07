@@ -10,7 +10,7 @@
     <?php $offset=5?>
 @endif
 
-<div class = "row g-0 offset-{{$offset}} border-start border-bottom border-3 mb-{{$mb}} mt-{{$mt}}" >
+<div class = "row g-0 offset-{{$offset}} border-start border-bottom border-3 mb-{{$mb}} mt-{{$mt}} comment-{{$comment->id}}" >
     <div class = "d-flex px-3 py-3 ">
         <img class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" src="{{ asset('storage/members/'.$comment->owner->avatar_image) }}" alt="">
         <div class = "ms-2 col-lg-11">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col d-flex justify-content-center btn-outline-blue border-end border-2" data-bs-toggle="modal" data-bs-target="#staticReplyModal">
                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
-                    <span class="d-none d-md-flex"> Reply</span>
+                    <span class="d-none d-md-flex reply-comment-button" data-id = {{$comment->id}} > Reply</span>
                 </div>
                 @if (Auth::check() && Auth::user()->id===$comment->id_owner)
                     <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
@@ -56,7 +56,7 @@
 @endforeach
 
 
-<div class="modal fade" id="staticReplyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade reply-fade" id="staticReplyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,15 +64,16 @@
                 <button type="button" data-bs-dismiss="modal" id="close-window-button" aria-label="Close"><span
                         class="material-icons-round">close</span></button>
             </div>
-            <form id="reply-form" autocomplete="off">
+            <form class="reply-form" autocomplete="off">
+                @csrf
                 <div class="modal-body">
-                    <div class="form-floating">
-                        <textarea type="text" id="inputOldPass" class="form-control" placeholder=" " rows="10" placeholder="Reply"></textarea>
+                    <div class="form-floating" data-id = {{$comment->post->id}}>
+                        <textarea type="text" class="form-control inputOldPass" data-id = {{$comment->id}} placeholder=" " rows="5" placeholder="Reply"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary reply-button" data-id = "{{$comment->id}}">Submit</button>
                 </div>
             </form>
         </div>

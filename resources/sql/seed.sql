@@ -312,7 +312,7 @@ CREATE FUNCTION delete_post_aura() RETURNS TRIGGER AS $$
         SET aura = aura + 1
         WHERE (SELECT id_owner FROM news_post WHERE OLD.id_post = news_post.id) = member.id;
     END IF;
-    RETURN NEW;
+    RETURN OLD;
   END;
   $$ LANGUAGE plpgsql;
 

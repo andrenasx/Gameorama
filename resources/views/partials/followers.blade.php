@@ -19,8 +19,19 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="button"
-                                    class="following-button btn btn-outline-primary col-12 mb-1"></button>
+                            @auth
+                                @if (!$follower->isMe(Auth::user()->id))
+                                    @if ((Auth::user()->isFollowing($follower->id)) != null)
+                                        <button type="button" data-id = {{$follower->username}}
+                                            class="following-button btn btn-outline-primary col-12 mb-1"> 
+                                        </button>
+                                    @else
+                                        <button type="button" data-id = {{$follower->username}}
+                                            class="follow-button btn btn-outline-primary col-12 mb-1">
+                                        </button>
+                                    @endif
+                                @endif
+                            @endauth
                             </div>
                         </div>
                     @endforeach

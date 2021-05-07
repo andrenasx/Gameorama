@@ -290,4 +290,27 @@ class MemberController extends Controller
 
         return response()->json($html);
     }
+
+    public function follow($username, Request $request) 
+    {
+        $id_member = (Member::firstWhere('username', '=', $username))->id;
+
+        $follow = Auth::user()->isFollowing($id_member);
+        Log::debug($request->all());
+
+        if ($follow === null) {
+            Log::debug("adding follow...");
+            DB::table('member_follow')->insert([
+                'id_followed' => $id_member,
+                'id_follower' => Auth::user()->id,
+            ]);
+        }
+        else {
+            DB::table('member_follow')
+            ->where('id_followed', '=', $id_member)
+            ->where('id_follower', '=', Auth::user()->id)
+            ->delete();
+        }
+    }
+
 }

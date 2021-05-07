@@ -5,6 +5,7 @@
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/profile.js') }}></script>
+        <script defer src={{ asset('js/follow.js') }}></script>
     @endpush
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
@@ -45,7 +46,15 @@
                         <h4 class="color-orange fst-italic" id="username">{{$member->username}}</h4>
                         <p>{{$member->aura}} Aura Score</p>
                         <p class="bio mb-4 px-3">{{$member->bio}}</p>
-                        <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3"></button>
+                        @auth
+                            @if (!$member->isMe(Auth::user()->id))
+                                @if ($member->isFollowed(Auth::user()->id))
+                                    <button type="button" class="following-button btn btn-outline-primary col-4 mb-3" data-id = {{$member->username}}></button>
+                                @else
+                                    <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3" data-id = {{$member->username}}></button>
+                                @endif
+                            @endif
+                        @endauth
                     </div>
                 </div>
                 <section class="follow_stats pb-3">

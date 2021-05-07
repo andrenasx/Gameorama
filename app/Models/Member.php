@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Member extends Authenticatable
@@ -119,5 +120,24 @@ class Member extends Authenticatable
         return $id === $this->id;
     }
 
-    
+    public function hasVotedPost($id_post) {
+        return DB::table('post_aura')->select('upvote')
+        ->where('id_voter','=', $this->id)
+        ->where('id_post', '=', $id_post)
+        ->first();
+    }
+
+    public function isFollowing($id_member) {
+        return DB::table('member_follow')->select('id_follower')
+        ->where('id_follower','=',$this->id)
+        ->where('id_followed','=',$id_member)
+        ->first();
+    }
+
+    public function isFollowed($id_member) {
+        return DB::table('member_follow')->select('id_follower')
+        ->where('id_follower','=',$id_member)
+        ->where('id_followed','=',$this->id)
+        ->first();
+    }
 }

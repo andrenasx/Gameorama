@@ -61,7 +61,12 @@ Route::delete('/api/member/{username}', 'MemberController@destroy');
 
 Route::post('api/post/{id_post}/comment', 'CommentController@comment')->middleware('auth'); //(to be changed later) redirect to login page/modal
 
+Route::post('api/post/{id_post}/comment/{id_comment}/reply', 'CommentController@reply')->middleware('auth');
+
 Route::post('api/post/{id_post}/vote', 'PostController@vote')->middleware('auth');
+
+//Member Follow
+Route::post('/api/member/{username}/follow', 'MemberController@follow')->middleware('auth');
 
 //  Member content
 Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content');

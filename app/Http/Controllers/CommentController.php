@@ -7,6 +7,7 @@ use App\Models\NewsPost;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
@@ -49,6 +50,27 @@ class CommentController extends Controller
         $html = view('partials.comment', ['comment' => $comment, 'offset' => 0])->render();
         return response()->json($html);
 
+    }
+
+    public function reply($id_post, $id_comment, Request $request) {
+        $parentComment = Comment::find($id_comment);
+        $post = NewsPost::find($id_post);
+        if ($post == null || $parentComment === null) {
+            return response()->json('Not found', 404);
+        }
+
+        $comment = $this->create($request->input('comment'), $post->id);
+
+        DB::table('reply')->insert([
+            'id_comment' => $comment->id,
+            'id_parent' => $parentComment->id
+        ]);
+
+        $comment->save();
+        $parentComment = $parentComment->fresh(); 
+
+        $html = view('partials.comment', ['comment' => $parentComment, 'offset' => 0])->render();
+        return response()->json(array('parent_comment_id' => $parentComment->id ,'html' => $html));
     }
 
     /**
