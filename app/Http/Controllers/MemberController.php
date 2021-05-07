@@ -290,4 +290,17 @@ class MemberController extends Controller
 
         return response()->json($html);
     }
+
+    public function search(Request $request) {
+        if ($request->has('query')) {
+            $query = $request->input('query');
+            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])->orderBy('aura', 'desc')->get();
+
+            $html = [];
+            foreach($members as $member){
+                array_push($html, view('partials.membercard', ['member' => $member])->render());
+            }
+            return response()->json($html);
+        }
+    }
 }

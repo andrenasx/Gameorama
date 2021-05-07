@@ -7,6 +7,10 @@ function encodeForAjax(data) {
 
 function sendAjaxRequest(method, url, data, successHandler, failHandler) {
     let request = new XMLHttpRequest();
+
+    if(method === "GET")
+        url = url + `?${encodeForAjax(data)}`
+
     request.open(method, url, true);
     request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -21,5 +25,9 @@ function sendAjaxRequest(method, url, data, successHandler, failHandler) {
             }
         }
     }
-    request.send(encodeForAjax(data));
+
+    if(method === "GET")
+        request.send()
+    else
+        request.send(encodeForAjax(data));
 }

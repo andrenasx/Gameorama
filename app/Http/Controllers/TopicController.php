@@ -135,4 +135,19 @@ class TopicController extends Controller
         }
         return $feed;
     }
+
+    public function search(Request $request) {
+        if ($request->has('query')) {
+            $query = $request->input('query');
+            $topics = Topic::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+                ->get();
+
+            $html = [];
+            foreach($topics as $topic){
+                array_push($html, view('partials.topiccard', ['topic' => $topic])->render());
+            }
+            return response()->json($html);
+        }
+    }
 }

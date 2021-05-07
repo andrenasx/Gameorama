@@ -57,7 +57,7 @@ class PostController extends Controller
         }
     }
 
-    public function vote($id_post, Request $request) 
+    public function vote($id_post, Request $request)
     {
         Log::debug(Auth::user()->post_auras);
         DB::table('post_aura')->insert([
@@ -99,5 +99,18 @@ class PostController extends Controller
     public function destroy(NewsPost $newsPost)
     {
         //
+    }
+
+    public function search(Request $request) {
+        if ($request->has('query')) {
+            $query = $request->input('query');
+            $posts = NewsPost::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])->orderBy('date_time', 'desc')->get();
+
+            $html = [];
+            foreach($posts as $post){
+                array_push($html, view('partials.postcard', ['post' => $post])->render());
+            }
+            return response()->json($html);
+        }
     }
 }
