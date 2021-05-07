@@ -60,17 +60,17 @@
                 <section class="follow_stats pb-3">
                     <div class="row g-0 d-flex justify-content-around">
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile" data-bs-toggle="modal"
+                            <button type="button" class="text-button-profile button-following" data-bs-toggle="modal" data-id = {{$member->username}}
                                     data-bs-target="#modalFollowing">{{$member->following->count()}} Following
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile" data-bs-toggle="modal"
+                            <button type="button" class="text-button-profile button-followers" data-bs-toggle="modal" data-id = {{$member->username}}
                                     data-bs-target="#modalFollowers">{{$member->followers->count()}} Followers
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile" data-bs-toggle="modal"
+                            <button type="button" class="text-button-profile button-topics" data-bs-toggle="modal" data-id = {{$member->username}}
                                     data-bs-target="#modalFollowedTopics">{{$member->topics->count()}} Followed Topics
                             </button>
                         </div>
