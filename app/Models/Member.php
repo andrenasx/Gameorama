@@ -118,6 +118,4 @@ class Member extends Authenticatable
     {
         return $id === $this->id;
     }
-
-    
 }

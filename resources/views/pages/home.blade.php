@@ -5,7 +5,6 @@
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/home.js') }}></script>
-        <script defer src={{ asset('js/voting.js') }}></script>
     @endpush
     <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
         <div class="row justify-content-evenly g-0">
@@ -70,7 +69,7 @@
                         @foreach ($hall_of_fame as $member)
                             <li class="mb-2">
                                 <p class="mb-0 blue-hover text-truncate"><a
-                                        href="{{ route('profile', ['username' => $member->username])}}">{{$member->username}}</a></p>
+                                        href="{{ route('profile', $member->username)}}">{{$member->username}}</a></p>
                                 <p class="mb-0 text-truncate small-grey-text">{{$member->aura}} Aura Score</p>
                             </li>
                         @endforeach
@@ -83,7 +82,7 @@
                         @foreach ($popular_topics as $poptopic)
                             <li class="mb-2">
                                 <p class="mb-0 blue-hover text-truncate"><a
-                                        href="{{ route('topic', ['name' => $poptopic->name]) }}">{{$poptopic->name}}</a></p>
+                                        href="/topic/{{$poptopic->name}}">{{$poptopic->name}}</a></p>
                                 <p class="mb-0 text-truncate small-grey-text">{{$poptopic->num_followers}} Followers</p>
                             </li>
                         @endforeach
