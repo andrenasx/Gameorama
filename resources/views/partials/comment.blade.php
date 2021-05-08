@@ -48,7 +48,7 @@
 
                 </div>
                 <div class="col d-flex justify-content-center btn-outline-blue border-end border-2 reply-comment-button" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#staticReplyModal">
-                    <span class="material-icons-outlined align-middle me-1">mode_comment</span>
+                    <span class="material-icons-outlined align-middle me-1 reply-comment-button" data-id = {{$comment->id}}>mode_comment</span>
                     <span class="d-none d-md-flex reply-comment-button" data-id = {{$comment->id}} > Reply</span>
                 </div>
                 @if (Auth::check() && Auth::user()->id===$comment->id_owner)

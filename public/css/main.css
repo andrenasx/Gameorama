@@ -557,12 +557,12 @@ form h2 {
 }
 
 
-.post-voting .upvote:hover {
+.post-voting .upvote:hover, .comment-voting .upvote:hover {
     cursor: pointer;
     color: var(--gameOrange)
 }
 
-.post-voting .downvote:hover {
+.post-voting .downvote:hover, .comment-voting .downvote:hover {
     cursor: pointer;
     color: #353cee
 }
