@@ -567,6 +567,15 @@ form h2 {
     color: #353cee
 }
 
+.post-voting .upvote.voted {
+    color : rgb(251,116,45);
+
+}
+
+.post-voting .downvote.voted {
+    color: #353cee;
+}
+
 /*Account Settings*/
 
 hr {

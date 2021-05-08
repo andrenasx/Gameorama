@@ -57,14 +57,43 @@ class PostController extends Controller
         }
     }
 
-    public function vote($id_post, Request $request)
-    {
-        Log::debug(Auth::user()->post_auras);
+
+    public function add_vote($vote, $id_post) {
         DB::table('post_aura')->insert([
             'id_post' => $id_post,
             'id_voter' => Auth::user()->id,
-            'upvote' => $request->input('vote')
+            'upvote' => $vote
         ]);
+    }
+
+    public function vote($id_post, Request $request) 
+    {
+        $vote = Auth::user()->hasVotedPost($id_post);
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+
+        if ($vote === null) {
+            $this->add_vote($request->input('vote'), $id_post);
+        }
+
+        
+        else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')){
+            DB::table('post_aura')
+            ->where('id_voter', '=', Auth::user()->id)
+            ->where('id_post', '=', $id_post)
+            ->delete();
+        }
+
+        else {
+            DB::table('post_aura')
+            ->where('id_voter', '=', Auth::user()->id)
+            ->where('id_post', '=', $id_post)
+            ->delete();
+            $this->add_vote($request->input('vote'), $id_post);
+        }
+
+        $post = NewsPost::find($id_post);
+
+        return response()->json(array('votes' => $post->aura));
     }
 
     /**

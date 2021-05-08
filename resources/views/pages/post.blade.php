@@ -10,19 +10,47 @@
     <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}}>
         <section class="news-card mb-3 p-4">
             <header class="row news-card-header">
-                <div class="post-voting col-1 d-flex justify-content-center ">
+                @guest
+                <div class="post-voting col-1 d-flex justify-content-center">
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <span class="upvote material-icons-round d-flex justify-content-center" data-id = {{$post->id}}>north</span>
+                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                         </li>
                         <li>
-                            <span class="score d-flex justify-content-center" id="score" data-id = {{$post->id}}>{{$post->aura}}</span>
+                            <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
                         </li>
                         <li>
-                            <span class="downvote material-icons-round d-flex justify-content-center" data-id = {{$post->id}}>south</span>
+                            <span
+                                class="downvote material-icons-round d-flex justify-content-center">south</span>
                         </li>
                     </ul>
                 </div>
+                @endguest
+        
+                @auth
+                <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            @if (Auth::user()->hasVotedPost($post->id) != null && Auth::user()->hasVotedPost($post->id)->upvote == 1)
+                                <span class="upvote voted material-icons-round d-flex justify-content-center">north</span>
+                            @else    
+                                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                            @endif
+                        </li>
+                        <li>
+                            <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
+                        </li>
+                        <li>
+                            @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id) == false)
+                                <span class="downvote voted material-icons-round d-flex justify-content-center">south</span>
+                            @else
+                                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                            @endif
+                            
+                        </li>
+                    </ul>
+                </div>
+                @endauth
                 <div class="post-header col me-2">
                     <h5 class="post-topics">Topics:
                         @foreach ($post->topics as $topic)
