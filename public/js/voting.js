@@ -3,7 +3,7 @@ voting.addEventListener("click", function(event){
     let post_voting = event.target.closest(".post-voting")
     const id_post = post_voting.getAttribute("data-id")
     const route = "/api/post/" + id_post + "/vote"
-    request = null
+    let request = null
 
     if (event.target.classList.contains("upvote")) {
         request = {vote: true}
