@@ -31,7 +31,7 @@
                     <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
                 </li>
                 <li>
-                    @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id) == false)
+                    @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id)->upvote == false)
                         <span class="downvote voted material-icons-round d-flex justify-content-center">south</span>
                     @else
                         <span class="downvote material-icons-round d-flex justify-content-center">south</span>
