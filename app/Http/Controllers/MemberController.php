@@ -291,6 +291,23 @@ class MemberController extends Controller
         return response()->json($html);
     }
 
+
+    public function search(Request $request) {
+        if ($request->has('query')) {
+            $query = $request->input('query');
+            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+                ->orderBy('aura', 'desc')
+                ->get();
+
+            $html = [];
+            foreach($members as $member){
+                array_push($html, view('partials.membercard', ['member' => $member])->render());
+            }
+            return response()->json($html);
+        }
+    }
+
     public function follow($username, Request $request) 
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
@@ -333,5 +350,4 @@ class MemberController extends Controller
 
         return response()->json(array('followers' => $pageMember->followers->count(), 'following' => $pageMember->following->count(), 'htmlFollowing' => $htmlFollowing, 'htmlFollowers' => $htmlFollowers));
     }
-
 }

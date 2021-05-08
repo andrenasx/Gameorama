@@ -36,6 +36,13 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/api/home/{content}/{page}', 'HomeController@content');
 
+// Search
+Route::get('/search', 'SearchController@show');
+
+Route::get('/api/posts', 'PostController@search');
+Route::get('/api/topics', 'TopicController@search');
+Route::get('/api/members', 'MemberController@search');
+
 
 // Topic
 Route::get('/topic/{name}', 'TopicController@show')->name('topic');
