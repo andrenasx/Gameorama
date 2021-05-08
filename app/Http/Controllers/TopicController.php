@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Topic;
 use App\Models\NewsPost;
+use App\Models\Member;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class TopicController extends Controller
 {
@@ -149,5 +152,44 @@ class TopicController extends Controller
             }
             return response()->json($html);
         }
+    }
+
+    public function follow($id_topic, Request $request){
+        Log::debug($id_topic);
+        Log::debug($request);
+    
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+
+        $topic = Topic::find($id_topic);
+
+        $follow = $topic->isFollowed(Auth::user()->id);
+        
+        if ($follow === null) {
+            DB::table('topic_follow')->insert([
+                'id_topic' => $id_topic,
+                'id_member' => Auth::user()->id,
+            ]);
+        }
+        else {
+            DB::table('topic_follow')
+            ->where('id_topic', '=', $id_topic)
+            ->where('id_member', '=', Auth::user()->id)
+            ->delete();
+        }
+
+        
+        $htmlFollowedTopics = [];
+        if ($request->input('userProfile') !== '-1'){
+            $pageMember = Member::find($request->input('userProfile'));
+            foreach ($pageMember->topics as $topic) {
+                array_push($htmlFollowedTopics, view('partials.topic_card', ['topic'=>$topic])->render());
+            }
+            return response()->json(array('followers' => $topic->followers->count(), 'htmlFollowedTopics' => $htmlFollowedTopics, 'followedTopics' => $pageMember->topics->count()));
+        }
+        
+    
+        return response()->json(array('followers' => $topic->followers->count(), 'htmlFollowedTopics' => $htmlFollowedTopics, ));
+    
+
     }
 }

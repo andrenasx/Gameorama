@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Topic extends Model
 {
@@ -42,5 +43,12 @@ class Topic extends Model
     public function posts()
     {
         return $this->belongsToMany(NewsPost::class, 'post_topic', 'id_topic', 'id_post');
+    }
+
+    public function isFollowed($id_member) {
+        return DB::table('topic_follow')->select('id_topic')
+        ->where('id_topic','=',$this->id)
+        ->where('id_member','=',$id_member)
+        ->first();
     }
 }

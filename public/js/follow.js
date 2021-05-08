@@ -1,20 +1,21 @@
-let follow_list = document.querySelectorAll(".follow-button, .following-button");
+let follow_list = document.querySelectorAll(".member-follow-button");
 console.log(follow_list)
 follow_list.forEach(follow => {
-    follow.addEventListener("click", handler);
+    follow.addEventListener("click", memberFollowHandler);
 });
 
 
-function handler() {
+function memberFollowHandler() {
     const username_follow_button = this.getAttribute("data-id");
     let follower_count = document.querySelector(".button-followers");
     let following_count = document.querySelector(".button-following");
 
     const route = "/api/member/" + username_follow_button + "/follow";
     let request = {};
-    console.log("HERE");
     request = { username: username_follow_button, userProfile: follower_count.getAttribute("data-id")};
 
+    console.log(request);
+    console.log(username_follow_button);
     sendAjaxRequest("POST", route, request, (response) => {
         const json_data = JSON.parse(response);
         const following = json_data['following'];
@@ -47,9 +48,10 @@ function handler() {
         
 
 
-        let follow_list = document.querySelectorAll(".follow-button, .following-button");
+        follow_list = document.querySelectorAll(".member-follow-button");
+        console.log(follow_list)
         follow_list.forEach(follow => {
-            follow.addEventListener("click", handler);
+            follow.addEventListener("click", memberFollowHandler);
         });
     }, loadError);
 }

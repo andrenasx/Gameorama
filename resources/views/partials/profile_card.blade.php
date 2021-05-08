@@ -12,11 +12,11 @@
         @if (!$member->isMe(Auth::user()->id))
             @if ((Auth::user()->isFollowing($member->id)) != null)
                 <button type="button" data-id = {{$member->username}}
-                    class="following-button btn btn-outline-primary col-12 mb-1"> 
+                    class="following-button btn btn-outline-primary col-12 mb-1 member-follow-button"> 
                 </button>
             @else
                 <button type="button" data-id = {{$member->username}}
-                    class="follow-button btn btn-outline-primary col-12 mb-1">
+                    class="follow-button btn btn-outline-primary col-12 mb-1 member-follow-button">
                 </button>
             @endif
         @endif

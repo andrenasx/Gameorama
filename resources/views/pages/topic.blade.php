@@ -5,6 +5,7 @@
 @push('scripts')
     <script defer src={{ asset('js/ajax.js') }}></script>
     <script defer src={{ asset('js/topic.js') }}></script>
+    <script defer src={{ asset('js/follow_topic.js') }}></script>
 @endpush
 <section class="container g-0 mx-auto my-4 col-lg-7">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
@@ -15,13 +16,17 @@
                     <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" class = "rounded-circle col-2 px-0" alt="" style = "max-width: 100px">
                     <div class="col-10 px-3 my-auto d-flex flex-column">
                         <h3 class="h2 fw-bold" id="topic_name">{{$topic->name}}</h3>
-                        <h5>{{$topic->followers->count()}} Followers</h5>
+                        <h5 id="topic_followers">{{$topic->followers->count()}} Followers</h5>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-2 col-4 d-flex justify-content-end">
-                <button type="button" class="following-button btn btn-outline-primary"></button>
+                @if (($topic->isFollowed(Auth::user()->id)) != null)
+                    <button type="button" class="following-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
+                @else
+                    <button type="button" class="follow-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
+                @endif
             </div>
         </section>
     </header>

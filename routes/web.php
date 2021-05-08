@@ -49,6 +49,10 @@ Route::get('/topic/{name}', 'TopicController@show')->name('topic');
 
 Route::get('/api/topic/{name}/posts/{content}/{page}', 'TopicController@content');
 
+//Topic Follow
+Route::post('/api/topic/{id_topic}/follow', 'TopicController@follow')->middleware('auth');
+
+
 
 // Member
 Route::get('/member/{username}', 'MemberController@show')->name('profile');
