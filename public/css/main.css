@@ -551,7 +551,7 @@ form h2 {
 }
 
 /*  Post page   */
-.post-voting .upvote, .post-voting .downvote {
+.post-voting .upvote, .post-voting .downvote, .comment-voting .upvote, .comment-voting .downvote {
     transition: 0.15s all ease-in;
     color: darkgray;
 }
@@ -567,12 +567,12 @@ form h2 {
     color: #353cee
 }
 
-.post-voting .upvote.voted {
+.post-voting .upvote.voted, .comment-voting .upvote.voted {
     color : rgb(251,116,45);
 
 }
 
-.post-voting .downvote.voted {
+.post-voting .downvote.voted, .comment-voting .downvote.voted {
     color: #353cee;
 }
 

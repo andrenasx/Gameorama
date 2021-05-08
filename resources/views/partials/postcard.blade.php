@@ -1,7 +1,7 @@
 <div class="news-card mb-3 p-4 rounded bg-white">
     <header class="row g-0 news-card-header">
         @guest
-        <div class="post-voting col-1 d-flex justify-content-center">
+        <div class="post-voting col-1 d-flex justify-content-center" >
             <ul class="list-unstyled mb-0">
                 <li>
                     <span class="upvote material-icons-round d-flex justify-content-center">north</span>
@@ -18,7 +18,7 @@
         @endguest
 
         @auth
-        <div class="post-voting col-1 d-flex justify-content-center">
+        <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
             <ul class="list-unstyled mb-0">
                 <li>
                     @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id)->upvote)

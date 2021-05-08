@@ -36,7 +36,7 @@
                         </li>
                     </ul>
 
-                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-content posts" id="pills-tabContent">
                         @auth
                             <div class="tab-pane fade active show" id="pills-feed" role="tabpanel"
                                  aria-labelledby="pills-feed-tab">

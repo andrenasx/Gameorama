@@ -67,10 +67,52 @@ class CommentController extends Controller
         ]);
 
         $comment->save();
-        $parentComment = $parentComment->fresh(); 
+        $post = $post->fresh();
+        $html = [];
 
-        $html = view('partials.comment', ['comment' => $parentComment, 'offset' => 0])->render();
+        foreach ($post->parentComments() as $parent) {
+            array_push($html, view('partials.comment', ['comment' => $parent, 'offset' => 0])->render());
+        }
+
         return response()->json(array('parent_comment_id' => $parentComment->id ,'html' => $html));
+    }
+
+    public function add_vote($vote, $id_comment) {
+        DB::table('comment_aura')->insert([
+            'id_comment' => $id_comment,
+            'id_voter' => Auth::user()->id,
+            'upvote' => $vote
+        ]);
+    }
+
+    public function vote($id_comment, Request $request) {
+        $vote = Auth::user()->hasVotedComment($id_comment);
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+
+        if ($vote === null) {
+            $this->add_vote($request->input('vote'), $id_comment);
+        }
+
+        
+        else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')){
+            DB::table('comment_aura')
+            ->where('id_voter', '=', Auth::user()->id)
+            ->where('id_comment', '=', $id_comment)
+            ->delete();
+        }
+
+        else {
+            DB::table('comment_aura')
+            ->where('id_voter', '=', Auth::user()->id)
+            ->where('id_comment', '=', $id_comment)
+            ->delete();
+            
+            $this->add_vote($request->input('vote'), $id_comment);
+        }
+
+        $comment = Comment::find($id_comment);
+
+        return response()->json(array('votes' => $comment->aura));
     }
 
     /**
