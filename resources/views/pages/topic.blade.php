@@ -5,6 +5,7 @@
 @push('scripts')
     <script defer src={{ asset('js/ajax.js') }}></script>
     <script defer src={{ asset('js/topic.js') }}></script>
+    <script defer src={{ asset('js/voting.js') }}></script>
     <script defer src={{ asset('js/follow_topic.js') }}></script>
 @endpush
 <section class="container g-0 mx-auto my-4 col-lg-7">
@@ -46,7 +47,7 @@
             </li>
         </ul>
 
-        <div class="tab-content " id="pills-tabContent">
+        <div class="tab-content posts" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
                 <section id="trending-posts"></section>
                 <div id="more-trending" data-page="1" class="d-flex justify-content-center mt-4">
