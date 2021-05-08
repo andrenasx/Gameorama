@@ -104,7 +104,10 @@ class PostController extends Controller
     public function search(Request $request) {
         if ($request->has('query')) {
             $query = $request->input('query');
-            $posts = NewsPost::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])->orderBy('date_time', 'desc')->get();
+            $posts = NewsPost::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+                ->orderBy('date_time', 'desc')
+                ->get();
 
             $html = [];
             foreach($posts as $post){

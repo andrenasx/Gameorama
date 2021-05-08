@@ -21,11 +21,11 @@
                 @endforeach
             </h6>
             <div class="d-inline">
-                <small class="post-user">Posted by <a href="/member/{{$post->owner->username}}">{{$post->owner->username}}</a></small>
+                <small class="post-user">Posted by <a href="{{ route('profile', ['username' => $post->owner->username]) }}">{{$post->owner->username}}</a></small>
                 <small>{{$post->date_time}}</small>
             </div>
             <h4 class="post-title-smaller">
-                <a href="/post/{{$post->id}}" class="black-a">{{$post->title}}</a>
+                <a href="/post/{{$post->id}}" class="post-title black-a">{{$post->title}}</a>
             </h4>
         </div>
     </header>
@@ -35,7 +35,7 @@
             <img class="rounded img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
                 src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
             @endif
-            <p class="card-text mt-3 truncate-multiple">{!!$post->body!!}</p>
+            <p class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</p>
         </a>
     </div>
     <div class="row g-0 mt-4 news-card-options">

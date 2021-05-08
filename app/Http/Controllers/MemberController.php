@@ -294,7 +294,10 @@ class MemberController extends Controller
     public function search(Request $request) {
         if ($request->has('query')) {
             $query = $request->input('query');
-            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])->orderBy('aura', 'desc')->get();
+            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+                ->orderBy('aura', 'desc')
+                ->get();
 
             $html = [];
             foreach($members as $member){

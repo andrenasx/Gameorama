@@ -521,7 +521,7 @@ CREATE FUNCTION search_member() RETURNS TRIGGER AS $$
     BEGIN
         IF (TG_OP = 'INSERT') THEN
             NEW.search = (SELECT setweight(to_tsvector('english', NEW.username), 'A') || setweight(to_tsvector('english', NEW.full_name), 'B'));
-        ELSIF (TG_OP = 'UPDATE' AND NEW.username <> OLD.username) THEN
+        ELSIF (TG_OP = 'UPDATE' AND (NEW.username <> OLD.username OR NEW.full_name <> OLD.full_name)) THEN
             NEW.search = (SELECT setweight(to_tsvector('english', NEW.username), 'A') || setweight(to_tsvector('english', NEW.full_name), 'B'));
         END IF;
     RETURN NEW;
@@ -538,9 +538,9 @@ DROP FUNCTION IF EXISTS search_post CASCADE;
 CREATE FUNCTION search_post() RETURNS TRIGGER AS $$
     BEGIN
         IF (TG_OP = 'INSERT') THEN
-            NEW.search = (SELECT to_tsvector('english', NEW.title));
-        ELSIF (TG_OP = 'UPDATE' AND NEW.title <> OLD.title) THEN
-            NEW.search = (SELECT to_tsvector('english', NEW.title));
+            NEW.search = (SELECT setweight(to_tsvector('english', NEW.title), 'A') || setweight(to_tsvector('english', coalesce(NEW.body, '')), 'B'));
+        ELSIF (TG_OP = 'UPDATE' AND (NEW.title <> OLD.title OR NEW.body <> OLD.body)) THEN
+            NEW.search = (SELECT setweight(to_tsvector('english', NEW.title), 'A') || setweight(to_tsvector('english', coalesce(NEW.body, '')), 'B'));
     END IF;
     RETURN NEW;
     END;
