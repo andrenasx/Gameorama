@@ -2,26 +2,31 @@
 @section('page-title', $post->title.' | ')
 @section('content')
     @include('partials.navbar')
-    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7">
+    @push('scripts')
+        <script defer src = {{asset("js/ajax.js")}}></script>
+        <script defer src = {{asset("js/comments.js")}}></script>
+        <script defer src = {{asset("js/voting.js")}}></script>
+    @endpush
+    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}}>
         <section class="news-card mb-3 p-4">
             <header class="row news-card-header">
                 <div class="post-voting col-1 d-flex justify-content-center ">
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                            <span class="upvote material-icons-round d-flex justify-content-center" data-id = {{$post->id}}>north</span>
                         </li>
                         <li>
-                            <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
+                            <span class="score d-flex justify-content-center" id="score" data-id = {{$post->id}}>{{$post->aura}}</span>
                         </li>
                         <li>
-                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                            <span class="downvote material-icons-round d-flex justify-content-center" data-id = {{$post->id}}>south</span>
                         </li>
                     </ul>
                 </div>
                 <div class="post-header col me-2">
                     <h5 class="post-topics">Topics:
                         @foreach ($post->topics as $topic)
-                            <a href="/topic/{{$topic->name}}">{{$topic->name}}</a>;
+                            <a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a>;
                         @endforeach
                     </h5>
                     <div class="d-inline">
@@ -35,18 +40,20 @@
             <div class="news-card-body">
                 @if ($post->images->count() > 0)
                     <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            @for($index = 0; $index < $post->images->count(); $index++)
-                                @if ($index == 0)
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="{{$index}}" class="active" aria-current="true"
-                                            aria-label="Slide {{$index}}"></button>
-                                @else
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
-                                @endif
-                            @endfor
-                        </div>
+                        @if ($post->images->count() > 1)
+                            <div class="carousel-indicators">
+                                @for($index = 0; $index < $post->images->count(); $index++)
+                                    @if ($index == 0)
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="{{$index}}" class="active" aria-current="true"
+                                                aria-label="Slide {{$index}}"></button>
+                                    @else
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
+                                    @endif
+                                @endfor
+                            </div>
+                        @endif
                         <div class="carousel-inner">
                             @for($index = 0; $index < $post->images->count(); $index++)
                                 @if ($index == 0)
@@ -54,20 +61,22 @@
                                 @else
                                 <div class="carousel-item">
                                 @endif
-                                    <img src="{{ asset('media/posts+'.$post->id.'+'.$post->images[$index]['file']) }}" alt="Post Image" class="d-block w-100">
+                                    <img src="{{ asset('storage/posts/'.$post->id.'/'.$post->images[$index]['file']) }}" alt="Post Image" class="d-block w-100">
                                 </div>
-                @endfor
+                            @endfor
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                                data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                                data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        @if ($post->images->count() > 1)
+                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        @endif
                     </div>
                     @endif
                         <p class="card-text mt-3 px-lg-5">{!!$post->body!!}</p>
@@ -86,22 +95,26 @@
                             <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-flex"> Report</span>
                         </div>
+                        @include('partials.report_post')
                     </div>
         </section>
 
 
         <section class="comments p-2 px-sm-4 mt-3">
-            <section class="row g-0 mb-4">
+            <section class="row g-0 mb-4" data-id = {{$post->id}} id = "new-comment-section">
                 <div class="md-form amber-textarea active-amber-textarea px-0 ">
-                    <textarea class="form-control" name="comment" rows="4" placeholder="Leave a comment"></textarea>
-                    <button type="button" class="btn btn-primary mt-2 float-end">Add Comment</button>
+                    <textarea class="form-control" id = "comment_content" name="comment" rows="4" placeholder="Leave a comment"></textarea>
+                    <button type="button" id = "make_comment_button" class="btn btn-primary mt-2 float-end">Add Comment</button>
                 </div>
             </section>
 
-            @foreach ($post->parentComments() as $comment)
-                @include('partials.comment', ['comment' => $comment, 'offset' => 0])
-            @endforeach
+            <section class = "comments-section">
+                @foreach ($post->parentComments() as $comment)
+                    @include('partials.comment', ['comment' => $comment, 'offset' => 0])
+                @endforeach
+            </section>
         </section>
     </section>
+
     @include('partials.footer')
 @endsection

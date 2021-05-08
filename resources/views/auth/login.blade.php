@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Log in | ')
 @section('content')
 <section class="login-page d-flex justify-content-center">
     <div class="background-color"></div>
@@ -6,7 +7,7 @@
     <main class="form-signin">
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <img class="img-fluid" src={{ URL::asset('media/assets+logo.png') }} alt=""
+            <img class="img-fluid" src={{ asset('storage/assets/logo.png') }} alt=""
                 onclick="window.location.href='/home'" style="cursor:pointer;">
             <h1 class="h2 mb-5 fw-normal">The Panorama of Gaming</h1>
             <h2 class="h3 mb-4 fw-bold">Login</h2>

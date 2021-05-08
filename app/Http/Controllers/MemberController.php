@@ -87,15 +87,12 @@ class MemberController extends Controller
     private function create_avatar_image($file, $member)
     {
         $path = 'public/members/'.$member->id;
-        $previous = 'public/members/';
-
         if (!File::exists($path)) {
             Storage::makeDirectory($path);
         }
 
-        $previous = $previous.implode('/', explode('+', $member->avatar_image));
         if ($member->avatar_image !== "default_avatar.png" ) {
-            Storage::delete($previous);
+            Storage::delete('public/members/'.$member->avatar_image);
         }
 
         $file->store($path);
@@ -103,17 +100,13 @@ class MemberController extends Controller
     }
 
     private function create_banner_image($file, $member) {
-
         $path = 'public/members/'.$member->id;
-        $previous = 'public/members/';
-
         if (!File::exists($path)) {
             Storage::makeDirectory($path);
         }
 
-        $previous = $previous.implode('/', explode('+', $member->banner_image));
         if ($member->banner_image !== "default_banner.jpg" ) {
-            Storage::delete($previous);
+            Storage::delete('public/members/'.$member->banner_image);
         }
 
         $file->store($path);
@@ -143,11 +136,11 @@ class MemberController extends Controller
         $member->bio = $request->input("bio");
 
         if ($request->hasFile("profile_photo")) {
-            $member->avatar_image = $member->id.'+'.$this->create_avatar_image($request->file("profile_photo"), $member);
+            $member->avatar_image = $member->id.'/'.$this->create_avatar_image($request->file("profile_photo"), $member);
         }
 
         if ($request->hasFile("banner_photo")) {
-            $member->banner_image = $member->id.'+'.$this->create_banner_image($request->file("banner_photo"), $member);
+            $member->banner_image = $member->id.'/'.$this->create_banner_image($request->file("banner_photo"), $member);
         }
 
         $member->save();
@@ -296,5 +289,21 @@ class MemberController extends Controller
         }
 
         return response()->json($html);
+    }
+
+    public function search(Request $request) {
+        if ($request->has('query')) {
+            $query = $request->input('query');
+            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+                ->orderBy('aura', 'desc')
+                ->get();
+
+            $html = [];
+            foreach($members as $member){
+                array_push($html, view('partials.membercard', ['member' => $member])->render());
+            }
+            return response()->json($html);
+        }
     }
 }

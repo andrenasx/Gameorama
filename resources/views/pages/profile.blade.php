@@ -11,8 +11,8 @@
             <div class="row g-0">
                 <div class="col-sm-12">
                     <div class="image-container bg2"
-                         style="background-image: url({{ asset('media/members+'.$member->banner_image) }}); background-size: cover">
-                        <img src="{{ asset('media/members+'.$member->avatar_image) }}" class="avatar">
+                         style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover">
+                        <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar">
                     </div>
                     <row class="d-flex justify-content-end col-12">
                         @auth

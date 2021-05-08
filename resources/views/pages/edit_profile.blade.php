@@ -12,8 +12,8 @@
                 <row class="mb-3">
                     <div class="col-12 justify-content-center">
                         <div class="image-container bg2" id="banner_photo_preview"
-                             style="background-image: url({{ asset('media/members+'.$member->banner_image) }}); background-size:cover">
-                            <img src="{{ asset('media/members+'.$member->avatar_image) }}" class="avatar"
+                             style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size:cover">
+                            <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar"
                                  id="profile_image">
                         </div>
                     </div>
