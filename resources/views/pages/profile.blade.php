@@ -6,6 +6,8 @@
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/profile.js') }}></script>
         <script defer src={{ asset('js/follow.js') }}></script>
+        <script defer src={{ asset('js/voting.js') }}></script>
+        <script defer src={{ asset('js/comments.js') }}></script>
     @endpush
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
@@ -110,14 +112,14 @@
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-posts" role="tabpanel"
+                <div class="tab-pane fade show active posts" id="pills-posts" role="tabpanel"
                      aria-labelledby="pills-posts-tab">
                     <section id="member-posts"></section>
                     <div id="more-posts" data-page="1" class="d-flex justify-content-center mt-4">
                         <button class="btn btn-light d-block">Load more</button>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
+                <div class="tab-pane fade comments-section" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
                     <section id="member-comments"></section>
                     <div id="more-comments" data-page="1" class="d-flex justify-content-center mt-4">
                         <button class="btn btn-light d-block">Load more</button>

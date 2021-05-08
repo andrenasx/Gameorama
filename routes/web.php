@@ -65,6 +65,8 @@ Route::post('api/post/{id_post}/comment/{id_comment}/reply', 'CommentController@
 
 Route::post('api/post/{id_post}/vote', 'PostController@vote')->middleware('auth');
 
+Route::post('/api/comment/{id_comment}/vote', 'CommentController@vote')->middleware('auth');
+
 //Member Follow
 Route::post('/api/member/{username}/follow', 'MemberController@follow')->middleware('auth');
 

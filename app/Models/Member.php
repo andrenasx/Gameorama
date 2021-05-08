@@ -127,6 +127,13 @@ class Member extends Authenticatable
         ->first();
     }
 
+    public function hasVotedComment($id_comment){
+        return DB::table('comment_aura')->select('upvote')
+        ->where('id_voter','=', $this->id)
+        ->where('id_comment', '=', $id_comment)
+        ->first();
+    }
+
     public function isFollowing($id_member) {
         return DB::table('member_follow')->select('id_follower')
         ->where('id_follower','=',$this->id)

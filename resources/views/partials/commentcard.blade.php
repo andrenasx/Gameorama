@@ -7,10 +7,27 @@
     <p>{!!$comment->body!!}</p>
 
     <div class="d-flex justify-content-between mt-2">
-        <div class="col-4 col-sm-2 d-flex justify-content-center post-voting">
-            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-            <label class="score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
-            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+        <div class="col-4 col-sm-2 d-flex justify-content-center comment-voting" data-id = {{$comment->id}}>
+            @guest
+                <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                <label class="score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
+                <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+            @endguest
+
+            @auth
+                @if (Auth::user()->hasVotedComment($comment->id) != null && Auth::user()->hasVotedComment($comment->id)->upvote == 1)
+                    <span class="upvote voted material-icons-round d-flex justify-content-center">north</span>
+                @else    
+                    <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                @endif
+                <span class="score d-flex justify-content-center" id="score">{{$comment->aura}}</span>
+                @if (Auth::user()->hasVotedComment($comment->id) !== null && Auth::user()->hasVotedComment($comment->id)->upvote == 0)
+                    <span class="downvote voted material-icons-round d-flex justify-content-center">south</span>
+                @else
+                    <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                @endif
+            @endauth
+
         </div>
 
         @auth

@@ -399,7 +399,7 @@ CREATE FUNCTION delete_comment_aura() RETURNS TRIGGER AS $$
         SET aura = aura + 1
         WHERE (SELECT id_owner FROM comment WHERE OLD.id_comment = comment.id) = member.id;
     END IF;
-    RETURN NEW;
+    RETURN OLD;
   END;
   $$ LANGUAGE plpgsql;
 

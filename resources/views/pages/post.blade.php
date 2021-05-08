@@ -4,14 +4,14 @@
     @include('partials.navbar')
     @push('scripts')
         <script defer src = {{asset("js/ajax.js")}}></script>
-        <script defer src = {{asset("js/comments.js")}}></script>
         <script defer src = {{asset("js/voting.js")}}></script>
+        <script defer src = {{asset("js/comments.js")}}></script>
     @endpush
     <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}}>
-        <section class="news-card mb-3 p-4">
+        <section class="news-card mb-3 p-4 posts">
             <header class="row news-card-header">
                 @guest
-                <div class="post-voting col-1 d-flex justify-content-center">
+                <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
                     <ul class="list-unstyled mb-0">
                         <li>
                             <span class="upvote material-icons-round d-flex justify-content-center">north</span>
@@ -41,7 +41,7 @@
                             <span class="score d-flex justify-content-center" id="score">{{$post->aura}}</span>
                         </li>
                         <li>
-                            @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id) == false)
+                            @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id)->upvote == false)
                                 <span class="downvote voted material-icons-round d-flex justify-content-center">south</span>
                             @else
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>

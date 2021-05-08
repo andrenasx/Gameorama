@@ -22,14 +22,32 @@
             </div>
 
             <p class="mb-2">{!!$comment->body!!}</p>
-            <div class="row">
+            <div class="row comment_options">
 
-                <div class = "col d-flex justify-content-center post-voting border-end border-2">
-                    <span class="upvote material-icons-round d-flex justify-content-center">north</span>
-                    <label class = "score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
-                    <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                <div class = "col d-flex justify-content-center comment-voting border-end border-2" data-id = {{$comment->id}}>
+                    @guest
+                        <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                        <label class = "score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
+                        <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                    @endguest
+
+                    @auth
+                        @if ((Auth::user()->hasVotedComment($comment->id) != null) && (Auth::user()->hasVotedComment($comment->id)->upvote == 1))
+                            <span class="upvote voted material-icons-round d-flex justify-content-center">north</span>
+                        @else    
+                            <span class="upvote material-icons-round d-flex justify-content-center">north</span>
+                        @endif
+                        <span class="score d-flex justify-content-center" id="score"> {{$comment->aura}} </span>
+
+                        @if (Auth::user()->hasVotedComment($comment->id) != null && Auth::user()->hasVotedComment($comment->id)->upvote == 0)
+                            <span class="downvote voted material-icons-round d-flex justify-content-center">south</span>
+                        @else
+                            <span class="downvote material-icons-round d-flex justify-content-center">south</span>
+                        @endif                       
+                    @endauth
+
                 </div>
-                <div class="col d-flex justify-content-center btn-outline-blue border-end border-2" data-bs-toggle="modal" data-bs-target="#staticReplyModal">
+                <div class="col d-flex justify-content-center btn-outline-blue border-end border-2 reply-comment-button" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#staticReplyModal">
                     <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                     <span class="d-none d-md-flex reply-comment-button" data-id = {{$comment->id}} > Reply</span>
                 </div>
@@ -72,7 +90,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary dismiss-modal" data-bs-dismiss="modal">Cancel</button>
                     <button class="btn btn-primary reply-button" data-id = "{{$comment->id}}">Submit</button>
                 </div>
             </form>
