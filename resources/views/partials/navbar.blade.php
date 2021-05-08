@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
         <div class="col-1 ps-lg-2" id="Logo" onclick="window.location.href='/home'" style="cursor:pointer;">
-            <img src={{asset('storage/assets/logo.png')}} class="img-logo" alt="">
+            <img src={{asset('media/assets+logo.png')}} class="img-logo" alt="">
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,9 +9,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="col-lg-6" id="navbar_search">
-                <form method="GET" action="/search" class="col-lg-6 d-flex " style="width:85%">
+                <form class="col-lg-6 d-flex " style="width:85%">
                     <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
-                    <input name="query" type="search" autocomplete="off" class="form-control" placeholder="Search" aria-label="Search"></input>
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"></input>
                 </form>
             </div>
             <ul class="navbar-nav d-flex justify-content-end">

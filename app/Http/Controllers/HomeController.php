@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use App\Models\NewsPost;
+use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -69,18 +69,18 @@ class HomeController extends Controller
             SELECT DISTINCT news_post.id FROM news_post
             INNER JOIN post_topic ON news_post.id = post_topic.id_post
             INNER JOIN topic ON post_topic.id_topic = topic.id
-            INNER JOIN member_follow ON member_follow.id_follower = ?
+            INNER JOIN member_follow ON member_follow.id_follower = ".Auth::user()->id."
             WHERE topic.name IN
             (
                 SELECT name FROM topic
                 INNER JOIN topic_follow ON topic.id = topic_follow.id_topic
-                WHERE topic_follow.id_member = ?
+                WHERE topic_follow.id_member = ".Auth::user()->id."
             )
             OR
             member_follow.id_followed = id_owner
         ) ORDER BY date_time DESC
-        OFFSET ? ROWS
-        FETCH NEXT 15 ROWS ONLY"), [Auth::user()->id, Auth::user()->id, $num_rows]);
+        OFFSET ".intval($num_rows)."
+        FETCH NEXT 15 ROWS ONLY"));
 
         foreach($aux as $auxIds ){
             array_push($feed,NewsPost::find($auxIds->id));
@@ -93,12 +93,13 @@ class HomeController extends Controller
         $feed = [];
         $num_rows = ($page-1) * 15;
 
-        $aux= DB::select(DB::raw("SELECT id
+        $aux= DB::select(DB::raw("SELECT news_post.id as id
             FROM news_post
+            INNER JOIN member ON id_owner = member.id
             WHERE date_time >= (now() - interval '14 days')
             ORDER BY news_post.aura DESC
-            OFFSET ? ROWS
-            FETCH NEXT 15 ROWS ONLY"), [$num_rows]);
+            OFFSET ".$num_rows." ROWS
+            FETCH NEXT 15 ROWS ONLY"));
 
         foreach($aux as $auxIds ){
             array_push($feed,NewsPost::find($auxIds->id));
