@@ -10,7 +10,6 @@ body {
     height: 100%;
 }
 
-
 body {
     background-color: rgb(218, 224, 230);
 }
@@ -19,6 +18,11 @@ body {
     .container {
         max-width: 90%;
     }
+}
+
+.highlight {
+    background-color: #fcc29a;
+    padding: 0 0.1em;
 }
 
 .badge-notification {
@@ -689,6 +693,7 @@ hr {
 /*Following/Follow Popups*/
 .following-button {
     border-color: var(--gameOrange);
+    width: 100px;
     border-radius: 5px;
     border-width: 2px;
     color: var(--gameOrange);
@@ -712,6 +717,7 @@ hr {
 .follow-button {
     border-color: var(--gameOrange);
     color: white;
+    width: 100px;
     border-radius: 5px;
     border-width: 2px;
     background-color: var(--gameOrange);

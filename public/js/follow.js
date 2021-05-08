@@ -1,45 +1,58 @@
-let follow_list = document.querySelectorAll(".follow-button");
-let following_list = document.querySelectorAll(".following-button");
+let follow_list = document.querySelectorAll(".follow-button, .following-button");
 console.log(follow_list)
-console.log(following_list)
 follow_list.forEach(follow => {
-    const username_follow_button = follow.getAttribute("data-id")
-    const route = "/api/member/" + username_follow_button + "/follow"
-    let request = {};
-    follow.addEventListener("click", function (event) {
-        event.preventDefault();
-        console.log("HERE")
-        request = {username: username_follow_button}
-
-        sendAjaxRequest("POST", route, request, ()=>{
-            if (follow.classList.contains("follow-button")) {
-                follow.classList.remove("follow-button");
-                follow.classList.add("following-button");
-                return
-            }
-        }, loadError)
-    })
+    follow.addEventListener("click", handler);
 });
 
-following_list.forEach(following => {
-    const username_following_button = following.getAttribute("data-id")
-    const route = "/api/member/" + username_following_button + "/follow"
+
+function handler() {
+    const username_follow_button = this.getAttribute("data-id");
+    let follower_count = document.querySelector(".button-followers");
+    let following_count = document.querySelector(".button-following");
+
+    const route = "/api/member/" + username_follow_button + "/follow";
     let request = {};
-    following.addEventListener("click", function (event) {
-        event.preventDefault();
+    console.log("HERE");
+    request = { username: username_follow_button, userProfile: follower_count.getAttribute("data-id")};
+
+    sendAjaxRequest("POST", route, request, (response) => {
+        const json_data = JSON.parse(response);
+        const following = json_data['following'];
+        const followers = json_data['followers'];
+        const htmlFollowing = json_data['htmlFollowing'];
+        const htmlFollowers = json_data['htmlFollowers'];
         
-        request = {username: username_following_button}
 
-        sendAjaxRequest("POST", route, request, ()=>{
-            if (following.classList.contains("following-button")) {
-                following.classList.remove("following-button");
-                following.classList.add("follow-button");
-                return
-            }
-        }, loadError)
-    })
-});
+        if (this.classList.contains("follow-button")) {
+            this.classList.remove("follow-button");
+            this.classList.add("following-button");
+        }
+        else {
+            this.classList.remove("following-button");
+            this.classList.add("follow-button");
+        }
 
+        let modal_follower = document.querySelector(".container-follower");
+        let modal_following = document.querySelector(".container-following");
+        following_count.innerHTML = following + " Following";
+        follower_count.innerHTML = followers + " Followers";
+        modal_follower.innerHTML = '';
+        modal_following.innerHTML = '';
+        htmlFollowing.forEach(element => {
+            modal_following.innerHTML += element;
+        });
+        htmlFollowers.forEach(element => {
+            modal_follower.innerHTML += element;
+        });
+        
+
+
+        let follow_list = document.querySelectorAll(".follow-button, .following-button");
+        follow_list.forEach(follow => {
+            follow.addEventListener("click", handler);
+        });
+    }, loadError);
+}
 
 function loadError(response) {
     console.error(response)

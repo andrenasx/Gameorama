@@ -9,9 +9,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="col-lg-6" id="navbar_search">
-                <form class="col-lg-6 d-flex " style="width:85%">
+                <form method="GET" action="/search" class="col-lg-6 d-flex " style="width:85%">
                     <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"></input>
+                    <input name="query" type="search" autocomplete="off" class="form-control" placeholder="Search" aria-label="Search"></input>
                 </form>
             </div>
             <ul class="navbar-nav d-flex justify-content-end">

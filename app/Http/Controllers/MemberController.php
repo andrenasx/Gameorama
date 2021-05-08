@@ -291,26 +291,63 @@ class MemberController extends Controller
         return response()->json($html);
     }
 
+
+    public function search(Request $request) {
+        if ($request->has('query')) {
+            $query = $request->input('query');
+            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+                ->orderBy('aura', 'desc')
+                ->get();
+
+            $html = [];
+            foreach($members as $member){
+                array_push($html, view('partials.membercard', ['member' => $member])->render());
+            }
+            return response()->json($html);
+        }
+    }
+
     public function follow($username, Request $request) 
     {
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $id_member = (Member::firstWhere('username', '=', $username))->id;
+        $id_page = (Member::firstWhere('username', '=', $request->input('userProfile')))->id;
+        $followingMember = Member::find(Auth::user()->id);
+        $followedMember = Member::find($id_member);
+        $pageMember = Member::find($id_page);
+        
 
-        $follow = Auth::user()->isFollowing($id_member);
-        Log::debug($request->all());
+        $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow === null) {
-            Log::debug("adding follow...");
             DB::table('member_follow')->insert([
                 'id_followed' => $id_member,
                 'id_follower' => Auth::user()->id,
             ]);
         }
         else {
+            DB::table('follow_notification')
+            ->where('id_notified', '=', $id_member)
+            ->where('id_follower', '=', Auth::user()->id)
+            ->delete();
+
             DB::table('member_follow')
             ->where('id_followed', '=', $id_member)
             ->where('id_follower', '=', Auth::user()->id)
             ->delete();
         }
-    }
 
+        $htmlFollowing = [];
+        foreach ($pageMember->following as $member) {
+            array_push($htmlFollowing, view('partials.profile_card', ['member'=>$member])->render());
+        }
+
+        $htmlFollowers = [];
+        foreach ($pageMember->followers as $member) {
+            array_push($htmlFollowers, view('partials.profile_card', ['member'=>$member])->render());
+        }
+
+        return response()->json(array('followers' => $pageMember->followers->count(), 'following' => $pageMember->following->count(), 'htmlFollowing' => $htmlFollowing, 'htmlFollowers' => $htmlFollowers));
+    }
 }
