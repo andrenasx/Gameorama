@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create_post');
     }
 
     /**
@@ -66,7 +66,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function vote($id_post, Request $request) 
+    public function vote($id_post, Request $request)
     {
         $vote = Auth::user()->hasVotedPost($id_post);
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
@@ -75,7 +75,7 @@ class PostController extends Controller
             $this->add_vote($request->input('vote'), $id_post);
         }
 
-        
+
         else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')){
             DB::table('post_aura')
             ->where('id_voter', '=', Auth::user()->id)
