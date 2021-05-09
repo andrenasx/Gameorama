@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\NewsPost;
 use App\Models\Member;
+use App\Models\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -28,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('pages.create_post');
+        $topics = Topic::orderBy('name', 'asc')->get();
+        return view('pages.create_post', ['topics' => $topics]);
     }
 
     /**
@@ -39,7 +42,42 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new NewsPost;
+
+        $post->id_owner = $request->input('id_owner');
+
+        $post->title = $request->input('title');
+
+        if ($request->has('body')) {
+            $post->body = $request->input('body');
+        }
+
+        $post->save();
+
+        $id_post = $post->id;
+
+        // Insert Post Topics
+        foreach ($request->input('topics') as $name) {
+            DB::table('topic')->insertOrIgnore([['name' => $name]]);
+
+            $id_topic = Topic::where('name', $name)->first()->id;
+            DB::table('post_topic')->insert(['id_post' => $id_post, 'id_topic' => $id_topic]);
+        }
+
+        // Insert Post Images
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+
+            $path = 'public/posts/'.$id_post;
+            Storage::makeDirectory($path);
+
+            foreach ($images as $image) {
+                $image->store('public/posts/'.$id_post);
+                DB::table('post_image')->insert(['id_post' => $id_post, 'file' => $image->hashName()]);
+            }
+        }
+
+        return redirect(route('post', ['id_post' =>  $id_post]));
     }
 
     /**
