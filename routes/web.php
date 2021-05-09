@@ -86,6 +86,8 @@ Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content'
 
 
 // Post
+Route::get('/post/create', 'PostController@create')->name('create');
+
 Route::get('/post/{id_post}', 'PostController@show')->name('post');
 
 

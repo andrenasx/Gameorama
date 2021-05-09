@@ -17,21 +17,22 @@
             <ul class="navbar-nav d-flex justify-content-end">
                 @guest
                     <li>
-                        <a class="d-flex mt-1 me-2" href="{{route('login')}}">
-                            <span class="material-icons-round me-2" style="font-weight: bold;">login</span> Log in
+                        <a class="d-flex mt-1 me-3" href="{{route('login')}}">
+                            <span class="material-icons-round me-1" style="font-weight: bold;">login</span> Log in
                         </a>
                     </li>
                     <li>
                         <a class="d-flex mt-1 pe-lg-2" href="{{route('signup')}}">
-                            <span class="material-icons-round me-2" style="font-weight: bold;">login</span> Sign Up
+                            <span class="material-icons-round me-1">app_registration</span> Sign Up
                         </a>
                     </li>
                 @endguest
                 @auth
                     <button class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn"
-                            onclick="window.location.href='create_post.php'">
+                             type="button" title="Create a Post"
+                            onclick="window.location.href='{{ route('create') }}'">
                         <row class="d-flex ">
-                            <span class="material-icons-round me-1">add</span> Create a News Post
+                            <span class="material-icons-round">post_add</span>
                         </row>
                     </button>
                     <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
@@ -65,14 +66,17 @@
                         <span class="badge rounded-pill badge-notification bg-danger mt-2">0</span>
                         <span class="">Notifications</span>
                     </li>
-                    <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}" id="colapsedHamburguer"><span
+                    <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}"
+                           id="colapsedHamburguer"><span
                                 class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a>
                     </li>
                     <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}/settings"
                            id="colapsedHamburguer"><span class="material-icons-round"
-                                                         style="margin-right:10px">settings</span> Account Settings</a></li>
+                                                         style="margin-right:10px">settings</span> Account Settings</a>
+                    </li>
                     <li><a class=" mt-2 grey-hover" href="{{route('logout')}}" id="colapsedHamburguer"><span
-                                class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span> Log
+                                class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span>
+                            Log
                             out</a></li>
                     </li>
                 @endauth
