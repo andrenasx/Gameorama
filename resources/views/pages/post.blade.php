@@ -118,12 +118,12 @@
                             <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
                             <span class="d-none d-md-flex"> Bookmark</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal"
+                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-id= {{$post->id}}
                              data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-flex"> Report</span>
                         </div>
-                        @include('partials.report_post')
+                        @include('partials.report_post',['post'=>$post])
                     </div>
         </section>
 

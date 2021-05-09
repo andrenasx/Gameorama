@@ -12,6 +12,7 @@ if (make_comment_button != null) {
     make_comment_button.addEventListener("click", function(event) {
         event.preventDefault()
         const content = {comment: comment.value}
+        if (comment.value == "") return
         const route = "/api/post/" + post_id + "/comment"
         sendAjaxRequest("POST", route, content, loadComment, loadError)
         
@@ -33,6 +34,7 @@ function loadError(response) {
 
 document.querySelector(".comments-section").addEventListener("click", function (event) {
     let classList = event.target.classList
+
     if (classList.contains("reply-comment-button")) {
         comment_id = event.target.getAttribute("data-id")
     }
@@ -61,11 +63,39 @@ document.querySelector(".comments-section").addEventListener("click", function (
     }
 
     else if (classList.contains("delete-comment")) {
-        console.log(event.target)
         let id_comment = event.target.closest(".comment_options").getAttribute("data-id")
-        console.log(id_comment)
         const route = "/api/comment/" + id_comment
         sendAjaxRequest("DELETE", route, null, loadReply, loadError)
+    }
+
+    else if (classList.contains("edit-comment")) {
+        let textarea = event.target.closest(".comment_box").querySelector(".edit-textarea")
+        event.target.closest(".comment_box").querySelector(".dropdown-menu").hidden = true
+        event.target.closest(".comment_box").querySelector(".edit_button").hidden = false
+        event.target.closest(".comment_box").querySelector(".cancel_button").hidden = false
+        textarea.hidden = false
+        textarea.focus()
+        event.target.closest(".comment_box").querySelector(".comment_body").hidden = true
+    }
+
+    else if (classList.contains("cancel_button")) {
+        let textarea = event.target.closest(".comment_box").querySelector(".edit-textarea")
+        event.target.closest(".comment_box").querySelector(".dropdown-menu").hidden = false
+        event.target.closest(".comment_box").querySelector(".edit_button").hidden = true
+        event.target.closest(".comment_box").querySelector(".cancel_button").hidden = true
+        textarea.hidden = true
+        event.target.closest(".comment_box").querySelector(".comment_body").hidden = false
+    }
+    
+    
+    else if (classList.contains("edit_button")) {
+        let textarea = event.target.closest(".comment_box").querySelector(".edit-textarea")
+        let id_comment = event.target.closest(".edit_button_div").getAttribute("data-id")
+        const route = "/api/comment/" + id_comment
+        // console.log(textarea.value)
+
+        sendAjaxRequest("PATCH", route, {body: textarea.value}, loadReply, loadError)
+        // console.log(id_comment)
     }
 })
 

@@ -52,6 +52,38 @@ class CommentController extends Controller
 
     }
 
+    public function reply_transaction(Request $request, $idParent, $id_post) {
+        DB::beginTransaction();
+        $comment = null;
+        try {
+            $comment = $this->create($request->input('comment'), $id_post);
+        
+        } catch (ValidationException $e) {
+            return back()->withError($e->getErrors());
+        } catch (\Exception $ex) {
+            DB::rollback();
+            throw $ex;
+        }
+        
+        try {
+            DB::table('reply')->insert([
+                'id_comment' => $comment->id,
+                'id_parent' => $idParent
+            ]);
+        
+        } catch (ValidationException $e) {
+            return back()->withError($e->getErrors()); 
+        } catch (\Exception $ex) {
+            DB::rollback();
+            throw $ex;
+        }
+
+        DB::commit();
+
+        return $comment;
+    }
+
+
     public function reply($id_post, $id_comment, Request $request) {
         $parentComment = Comment::find($id_comment);
         $post = NewsPost::find($id_post);
@@ -59,12 +91,7 @@ class CommentController extends Controller
             return response()->json('Not found', 404);
         }
 
-        $comment = $this->create($request->input('comment'), $post->id);
-
-        DB::table('reply')->insert([
-            'id_comment' => $comment->id,
-            'id_parent' => $parentComment->id
-        ]);
+        $comment = $this->reply_transaction($request, $parentComment->id, $post->id);
 
         $comment->save();
         $post = $post->fresh();
@@ -143,9 +170,24 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_comment, Request $request)
     {
         //
+        $comment = Comment::find($id_comment);
+
+        $this->authorize('update', $comment);
+        $comment->body = $request->input('body');
+        $comment->save();
+        $post = $comment->post;
+
+        $html = [];
+
+        foreach ($post->parentComments() as $parent) {
+            array_push($html, view('partials.comment', ['comment' => $parent, 'offset' => 0])->render());
+        }
+
+        return response()->json(array('html' => $html));
+
     }
 
     /**

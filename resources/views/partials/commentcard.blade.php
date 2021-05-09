@@ -4,6 +4,7 @@
         <small style="color: darkgray;">{{$comment->date_time}}</small>
     </header>
 
+    
     <p>{!!$comment->body!!}</p>
 
     <div class="d-flex justify-content-between mt-2">
@@ -34,22 +35,23 @@
                 <div class="d-flex btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                     <span class="material-icons-round">more_horiz</span>
                 </div>
-                <ul class="dropdown-menu more-horizontal col-1" aria-labelledby="more-horizontal" >
+                <ul class="dropdown-menu more-horizontal comment_options" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
                     <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
-                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                    <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span> Delete</span></a></li>
                 </ul>
             @else
-                <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportComment">
                     <span class="material-icons-outlined align-middle me-1">flag</span>
                     <span class="d-none d-md-flex"> Report</span>
                 </div>
             @endif
         @endauth
         @guest
-            <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+            <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportComment">
                 <span class="material-icons-outlined align-middle me-1">flag</span>
                 <span class="d-none d-md-flex"> Report</span>
             </div>
         @endguest
+        @include('partials.report_comment', ['comment' => $comment])
     </div>
 </div>

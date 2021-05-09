@@ -66,6 +66,7 @@ class PostController extends Controller
         ]);
     }
 
+
     public function vote($id_post, Request $request)
     {
         $vote = Auth::user()->hasVotedPost($id_post);
@@ -87,8 +88,7 @@ class PostController extends Controller
             DB::table('post_aura')
             ->where('id_voter', '=', Auth::user()->id)
             ->where('id_post', '=', $id_post)
-            ->delete();
-            $this->add_vote($request->input('vote'), $id_post);
+            ->update(['upvote' => $request->input('vote')]);
         }
 
         $post = NewsPost::find($id_post);

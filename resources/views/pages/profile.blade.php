@@ -112,8 +112,8 @@
                 @endauth
             </ul>
 
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active posts" id="pills-posts" role="tabpanel"
+            <div class="tab-content posts" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-posts" role="tabpanel"
                      aria-labelledby="pills-posts-tab">
                     <section id="member-posts"></section>
                     <div id="more-posts" data-page="1" class="d-flex justify-content-center mt-4">
@@ -128,7 +128,7 @@
                 </div>
                 @auth
                     @if ($member->isMe(Auth::user()->id))
-                        <div class="tab-pane fade" id="pills-bookmarked" role="tabpanel"
+                        <div class="tab-pane fade posts" id="pills-bookmarked" role="tabpanel"
                              aria-labelledby="pills-bookmarked-tab">
                             <section id="member-bookmarked"></section>
                             <div id="more-bookmarked" data-page="1" class="d-flex justify-content-center mt-4">
@@ -140,6 +140,6 @@
             </div>
         </section>
     </section>
-    @include('partials.report_profile')
+    @include('partials.report_profile',['member'=>$member])
     @include('partials.footer')
 @endsection

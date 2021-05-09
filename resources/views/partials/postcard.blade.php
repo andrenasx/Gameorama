@@ -85,17 +85,18 @@
                     <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
                 </ul>
             @else
-                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
                     <span class="material-icons-outlined align-middle me-1">flag</span>
                     <span class="d-none d-md-flex"> Report</span>
                 </div>
             @endif
         @endauth
         @guest
-            <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost">
+            <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
                 <span class="material-icons-outlined align-middle me-1">flag</span>
                 <span class="d-none d-md-flex"> Report</span>
             </div>
         @endguest
+        @include('partials.report_post',['post'=>$post])
     </div>
 </div>

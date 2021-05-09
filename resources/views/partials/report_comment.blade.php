@@ -1,12 +1,12 @@
 
-<div class="modal fade" id="reportPost"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="reportComment"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabelReport">Report Post</h5>
                 <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id="downvote">close</span></button>
             </div>
-            <div class="modal-body" >
+            <div class="modal-body">
                 <p class="game-quote mt-3">“The cake is a lie”</p>
                 <p class="game-quote-origin">– Portal </p> <!--Rotating Game Quotes-->
                 <div class="form-check" id="reportForm">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer" id="postReport" data-id = {{$post->id}}>
+            <div class="modal-footer" id="commentReport" data-id = {{$comment->id}}>
                 <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary delete-button">Report</button>
             </div>

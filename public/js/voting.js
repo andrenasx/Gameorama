@@ -4,6 +4,7 @@ voting.addEventListener("click", function(event){
     const id_post = post_voting.getAttribute("data-id")
     const route = "/api/post/" + id_post + "/vote"
     let request = null
+    console.log(event.target)
 
     if (event.target.classList.contains("upvote")) {
         request = {vote: true}
@@ -26,16 +27,13 @@ function upvoteResponse (response) {
 
     if (upvote.classList.contains("voted")) {
         upvote.classList.remove("voted");
-        upvote.style.color = "darkgray"
     }
 
     else {
         if (downvote.classList.contains("voted")) {
             downvote.classList.remove("voted");
-            downvote.style.color = "darkgray"
         }
 
-        upvote.style.color = "rgb(251,116,45)"
         upvote.classList.add("voted");
     }
     score.innerHTML = aura
@@ -51,15 +49,12 @@ function downvoteResponse(response) {
 
     if (downvote.classList.contains("voted")) {
         downvote.classList.remove("voted");
-        downvote.style.color = "darkgray"
     }
 
     else {
         if (upvote.classList.contains("voted")) {
             upvote.classList.remove("voted");
-            upvote.style.color = "darkgray"
         }
-        downvote.style.color = "#353cee"
         downvote.classList.add("voted");
     }
     score.innerHTML = aura

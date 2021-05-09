@@ -1,4 +1,4 @@
-<div class="modal fade" id="reportProfile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="reportProfile"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <p class="game-quote mt-3">“FINISH HIM!” </p>
                 <p class="game-quote-origin">– Mortal Kombat </p> <!--Rotating Game Quotes-->
-                <div class="form-check">
+                <div class="form-check" id="reportForm">
                     <div>
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
                         <label class="form-check-label" for="exampleRadios1">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="profileReport" data-id = {{$member->id}}>
                 <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary delete-button">Report</button>
             </div>

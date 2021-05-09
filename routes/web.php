@@ -80,6 +80,8 @@ Route::post('/api/comment/{id_comment}/vote', 'CommentController@vote')->middlew
 
 Route::delete('/api/comment/{id_comment}', 'CommentController@destroy')->middleware('auth');
 
+Route::patch('/api/comment/{id_comment}', 'CommentController@edit')->middleware('auth');
+
 //Member Follow
 Route::post('/api/member/{username}/follow', 'MemberController@follow')->middleware('auth');
 

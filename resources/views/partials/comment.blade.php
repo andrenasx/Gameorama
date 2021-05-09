@@ -13,18 +13,22 @@
 <div class = "row g-0 offset-{{$offset}} border-start border-bottom border-3 mb-{{$mb}} mt-{{$mt}} comment-{{$comment->id}}" >
     <div class = "d-flex px-3 py-3 ">
         <img class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" src="{{ asset('storage/members/'.$comment->owner->avatar_image) }}" alt="">
-        <div class = "ms-2 col-lg-11">
+        <div class = "ms-2 col-10 col-lg-11 comment_box">
             <div class = "row justify-content-between g-0">
 
                 <h5 class="col color-orange"><a href="/member/{{$comment->owner->username}}">{{$comment->owner->username}}</a></h5>
 
                 <small class="col text-end" style = "color: darkgray;">{{$comment->date_time}}</small>
             </div>
+            <textarea hidden autofocus class = "form-control edit-textarea mb-4" rows="3" >{!!$comment->body!!}</textarea> 
+            <p class="mb-2 comment_body">{!!$comment->body!!}</p>
+            <div class = "d-flex justify-content-end mb-3 edit_button_div" data-id = {{$comment->id}}>
+                <button type = "button" hidden class="col-4 col-md-3 btn btn-primary edit_button me-3 float-end">Edit</button>
+                <button type = "button" hidden class="col-4 col-md-3 btn btn-danger cancel_button float-end">Cancel</button>
+            </div>
+            <div class="row comment_options" data-id = {{$comment->id}}>
 
-            <p class="mb-2">{!!$comment->body!!}</p>
-            <div class="row comment_options">
-
-                <div class = "col d-flex justify-content-center comment-voting border-end border-2" data-id = {{$comment->id}}>
+                <div class = "col-4 d-flex justify-content-center comment-voting border-end border-2" data-id = {{$comment->id}}>
                     @guest
                         <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                         <label class = "score d-flex justify-content-center mx-2">{{$comment->aura}}</label>
@@ -47,24 +51,27 @@
                     @endauth
 
                 </div>
-                <div class="col d-flex justify-content-center btn-outline-blue border-end border-2 reply-comment-button" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#staticReplyModal">
+                <div class="col-4 d-flex justify-content-center btn-outline-blue border-end border-2 reply-comment-button comment_options" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#staticReplyModal">
                     <span class="material-icons-outlined align-middle me-1 reply-comment-button" data-id = {{$comment->id}}>mode_comment</span>
                     <span class="d-none d-md-flex reply-comment-button" data-id = {{$comment->id}} > Reply</span>
                 </div>
                 @if (Auth::check() && Auth::user()->id===$comment->id_owner)
-                    <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                    <div class="col d-flex justify-content-center btn-outline-blue dropdown" id="more-horizontal" role="button" data-bs-toggle="dropdown">
                         <span class="material-icons-round">more_horiz</span>
                     </div>
-                    <ul class="dropdown-menu more-horizontal comment_options" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
-                        <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                    
+                    <ul class="dropdown-menu col-1 more-horizontal comment_options" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
+                        <li><a class="dropdown-item btn-outline-blue edit-comment"><span class="material-icons-outlined align-middle edit-comment">edit</span> <span> Edit</span></a></li>
                         <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span> Delete</span></a></li>
                     </ul>
+                    
                 @else
-                    <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">
+                    <div class="col-4 d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportComment">
                         <span class="material-icons-outlined align-middle me-1">flag</span>
                         <span class="d-none d-md-flex"> Report</span>
                     </div>
                 @endif
+                @include('partials.report_comment', ['comment' => $comment])
             </div>
         </div>
     </div>
