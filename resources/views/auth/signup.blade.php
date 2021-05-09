@@ -9,7 +9,7 @@
                 <form method="post" action="{{ route('signup') }}">
                     @csrf
                     <img class="img-fluid" src={{asset('storage/assets/logo.png')}} alt=""
-                         onclick="window.location.href='/home'" style="cursor:pointer;">
+                         onclick="window.location.href='{{ route('home') }}'" style="cursor:pointer;">
                     <h1 class="h2 mb-5 fw-normal mx-auto">The Panorama of Gaming</h1>
                     <h2 class="h3 mb-4 fw-bold">Sign Up</h2>
                     <div class="form-floating mb-3">

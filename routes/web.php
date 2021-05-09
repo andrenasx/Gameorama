@@ -32,7 +32,7 @@ Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
 
 
 // Home
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/home/{content}/{page}', 'HomeController@content');
 
@@ -86,7 +86,9 @@ Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content'
 
 
 // Post
-Route::get('/post/create', 'PostController@create')->name('create');
+Route::get('/post/create', 'PostController@create')->name('create_post');
+
+Route::post('/post/create', 'PostController@store')->name('store_post');
 
 Route::get('/post/{id_post}', 'PostController@show')->name('post');
 
@@ -102,4 +104,4 @@ Route::fallback(function() {
 
 Route::get('/about', function () {
     return view('pages.about');
-})->name('About');
+})->name('about');
