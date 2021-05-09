@@ -59,6 +59,14 @@ document.querySelector(".comments-section").addEventListener("click", function (
 
         sendAjaxRequest("POST", route, {vote: false}, downvoteResponse.bind(event.target.closest(".comment-voting")), loadError)
     }
+
+    else if (classList.contains("delete-comment")) {
+        console.log(event.target)
+        let id_comment = event.target.closest(".comment_options").getAttribute("data-id")
+        console.log(id_comment)
+        const route = "/api/comment/" + id_comment
+        sendAjaxRequest("DELETE", route, null, loadReply, loadError)
+    }
 })
 
 

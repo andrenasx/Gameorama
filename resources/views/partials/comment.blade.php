@@ -55,9 +55,9 @@
                     <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                         <span class="material-icons-round">more_horiz</span>
                     </div>
-                    <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal" >
+                    <ul class="dropdown-menu more-horizontal comment_options" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
                         <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
-                        <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                        <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span> Delete</span></a></li>
                     </ul>
                 @else
                     <div class="col d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportPost">

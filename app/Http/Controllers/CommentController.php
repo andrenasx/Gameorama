@@ -166,8 +166,22 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_comment)
     {
-        //
+        $comment = Comment::find($id_comment);
+        if ($comment === null) {
+            return response()->json('Not found', 404);
+        }
+
+        $post = $comment->post;
+
+        $comment->delete();
+        $html = [];
+
+        foreach ($post->parentComments() as $parent) {
+            array_push($html, view('partials.comment', ['comment' => $parent, 'offset' => 0])->render());
+        }
+
+        return response()->json(array('html' => $html));
     }
 }
