@@ -101,7 +101,7 @@ body {
 
 img.img-logo {
     width: auto;
-    height: 40px;
+    height: 45px;
 }
 
 @media (min-width: 992px) {
@@ -385,7 +385,7 @@ form h2 {
     background-size: cover;
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+    filter: blur(4px);
 }
 
 .error {
@@ -432,7 +432,7 @@ form h2 {
     background-size: cover;
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+    filter: blur(4px);
 }
 
 #loginButton {

@@ -23,11 +23,13 @@
             </div>
 
             <div class="col-md-2 col-4 d-flex justify-content-end">
+                @auth
                 @if (($topic->isFollowed(Auth::user()->id)) != null)
                     <button type="button" class="following-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
                 @else
                     <button type="button" class="follow-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
                 @endif
+                @endauth
             </div>
         </section>
     </header>
