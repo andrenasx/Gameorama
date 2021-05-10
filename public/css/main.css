@@ -25,6 +25,15 @@ body {
     padding: 0 0.1em;
 }
 
+.ck-editor__editable {
+    min-height: 150px;
+    max-height: 150px;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: var(--bsBlue);
+}
+
 .badge-notification {
     background: red;
     position: relative;
@@ -390,7 +399,7 @@ form h2 {
 
 .error {
     color: red;
-    text-shadow: 1px 1px darkgray;
+    text-shadow: 1px 0px 2px darkgray;
 }
 
 
