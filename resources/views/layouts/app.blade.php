@@ -8,8 +8,10 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <!-- Page Title -->
         <title>@yield('page-title'){{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png.png') }}">
@@ -32,12 +34,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
 
-        <!-- CSS -->
-        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
         <!-- Scripts -->
         @stack('scripts')
 
+        <!-- CSS -->
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     </head>
     <body class="d-flex flex-column min-vh-100">
         @yield('content')

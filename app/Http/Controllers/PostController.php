@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -35,16 +36,38 @@ class PostController extends Controller
     }
 
     /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function post_validator(array $data)
+    {
+        return Validator::make($data, [
+            'title' => ['required', 'string', 'max:100'],
+            'body' => ['nullable', 'string', 'max:255'],
+            'topics' => ['required', 'array', 'between:1,10'],
+            'images' => ['array' ,'max:10'],
+            'images.*' => ['image']
+        ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
+        $validator = $this->post_validator($request->all());
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $post = new NewsPost;
 
-        $post->id_owner = $request->input('id_owner');
+        $post->id_owner = Auth::user()->id;
 
         $post->title = $request->input('title');
 
