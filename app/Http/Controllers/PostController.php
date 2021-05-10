@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NewsPost;
 use App\Models\Member;
 use App\Models\Topic;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,7 @@ class PostController extends Controller
             'title' => ['required', 'string', 'max:100'],
             'body' => ['nullable', 'string', 'max:255'],
             'topics' => ['required', 'array', 'between:1,10'],
+            'topics.*' => ['string'],
             'images' => ['array' ,'max:10'],
             'images.*' => ['image']
         ]);
@@ -65,26 +67,45 @@ class PostController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        $post = new NewsPost;
+        // Initiate new post store transaction
+        DB::beginTransaction();
 
-        $post->id_owner = Auth::user()->id;
+        // Create a NewsPost
+        try {
+            $post = new NewsPost;
 
-        $post->title = $request->input('title');
+            $post->id_owner = Auth::user()->id;
+            $post->title = $request->input('title');
+            if ($request->has('body')) {
+                $post->body = $request->input('body');
+            }
 
-        if ($request->has('body')) {
-            $post->body = $request->input('body');
+            $post->save();
+        } catch (ValidationException $e) {
+            DB::rollBack();
+            return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+        } catch (\Exception $e){
+            DB::rollBack();
+            throw $e;
         }
 
-        $post->save();
-
+        // Get post id after inserting
         $id_post = $post->id;
 
-        // Insert Post Topics
+        // Insert all Post Topics
         foreach ($request->input('topics') as $name) {
-            DB::table('topic')->insertOrIgnore([['name' => $name]]);
+            try {
+                DB::table('topic')->insertOrIgnore([['name' => $name]]);
 
-            $id_topic = Topic::where('name', $name)->first()->id;
-            DB::table('post_topic')->insert(['id_post' => $id_post, 'id_topic' => $id_topic]);
+                $id_topic = Topic::firstWhere('name', $name)->id;
+                DB::table('post_topic')->insert(['id_post' => $id_post, 'id_topic' => $id_topic]);
+            } catch (ValidationException $e) {
+                DB::rollBack();
+                return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+            } catch (\Exception $e){
+                DB::rollBack();
+                throw $e;
+            }
         }
 
         // Insert Post Images
@@ -95,10 +116,22 @@ class PostController extends Controller
             Storage::makeDirectory($path);
 
             foreach ($images as $image) {
-                $image->store('public/posts/'.$id_post);
-                DB::table('post_image')->insert(['id_post' => $id_post, 'file' => $image->hashName()]);
+                try {
+                    DB::table('post_image')->insert(['id_post' => $id_post, 'file' => $image->hashName()]);
+                    $image->store('public/posts/'.$id_post);
+                } catch (ValidationException $e) {
+                    DB::rollBack();
+                    Storage::deleteDirectory($path);
+                    return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+                } catch (\Exception $e){
+                    DB::rollBack();
+                    Storage::deleteDirectory($path);
+                    throw $e;
+                }
             }
         }
+
+        DB::commit();
 
         return redirect(route('post', ['id_post' =>  $id_post]));
     }
