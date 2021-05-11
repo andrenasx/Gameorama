@@ -92,6 +92,5 @@
             </aside>
         </div>
     </section>
-    @include('partials.report_post')
     @include('partials.footer')
 @endsection
