@@ -10,7 +10,7 @@
             <img class="error-picture" src={{asset('storage/assets/arcade-machine.svg')}} alt="">
         </div>
         <h5 class="text-center img-fluid img-responsive mt-5">Looks like it's game over for the page you were looking for!</h5>
-        <h5 class="text-center">You may start a new game at our <a href="/home" class="color-orange">Main Page</a></h5>
+        <h5 class="text-center">You may start a new game at our <a href="{{ route('home') }}" class="color-orange">Main Page</a></h5>
     </section>
 </div>
 @endsection

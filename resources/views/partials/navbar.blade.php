@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
-        <div class="col-1 ps-lg-2" id="Logo" onclick="window.location.href='/home'" style="cursor:pointer;">
+        <div class="col-1 ps-lg-2" id="Logo" onclick="window.location.href='{{ route('home') }}'" style="cursor:pointer;">
             <img src={{asset('storage/assets/logo.png')}} class="img-logo" alt="">
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -30,7 +30,7 @@
                 @auth
                     <button class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn"
                              type="button" title="Create a Post"
-                            onclick="window.location.href='{{ route('create') }}'">
+                            onclick="window.location.href='{{ route('create_post') }}'">
                         <row class="d-flex ">
                             <span class="material-icons-round">post_add</span>
                         </row>

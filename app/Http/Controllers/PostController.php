@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\NewsPost;
 use App\Models\Member;
+use App\Models\Topic;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -28,18 +32,108 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('pages.create_post');
+        $topics = Topic::orderBy('name', 'asc')->get();
+        return view('pages.create_post', ['topics' => $topics]);
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function post_validator(array $data)
+    {
+        return Validator::make($data, [
+            'title' => ['required', 'string', 'max:100'],
+            'body' => ['nullable', 'string', 'max:255'],
+            'topics' => ['required', 'array', 'between:1,10'],
+            'topics.*' => ['string'],
+            'images' => ['array' ,'max:10'],
+            'images.*' => ['image']
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $validator = $this->post_validator($request->all());
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        // Initiate new post store transaction
+        DB::beginTransaction();
+
+        // Create a NewsPost
+        try {
+            $post = new NewsPost;
+
+            $post->id_owner = Auth::user()->id;
+            $post->title = $request->input('title');
+            if ($request->has('body')) {
+                $post->body = $request->input('body');
+            }
+
+            $post->save();
+        } catch (ValidationException $e) {
+            DB::rollBack();
+            return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+        } catch (\Exception $e){
+            DB::rollBack();
+            throw $e;
+        }
+
+        // Get post id after inserting
+        $id_post = $post->id;
+
+        // Insert all Post Topics
+        foreach ($request->input('topics') as $name) {
+            try {
+                DB::table('topic')->insertOrIgnore([['name' => $name]]);
+
+                $id_topic = Topic::firstWhere('name', $name)->id;
+                DB::table('post_topic')->insert(['id_post' => $id_post, 'id_topic' => $id_topic]);
+            } catch (ValidationException $e) {
+                DB::rollBack();
+                return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+            } catch (\Exception $e){
+                DB::rollBack();
+                throw $e;
+            }
+        }
+
+        // Insert Post Images
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+
+            $path = 'public/posts/'.$id_post;
+            Storage::makeDirectory($path);
+
+            foreach ($images as $image) {
+                try {
+                    DB::table('post_image')->insert(['id_post' => $id_post, 'file' => $image->hashName()]);
+                    $image->store('public/posts/'.$id_post);
+                } catch (ValidationException $e) {
+                    DB::rollBack();
+                    Storage::deleteDirectory($path);
+                    return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+                } catch (\Exception $e){
+                    DB::rollBack();
+                    Storage::deleteDirectory($path);
+                    throw $e;
+                }
+            }
+        }
+
+        DB::commit();
+
+        return redirect(route('post', ['id_post' =>  $id_post]));
     }
 
     /**
