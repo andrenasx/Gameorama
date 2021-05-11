@@ -34,6 +34,8 @@ function loadError(response) {
 
 document.querySelector(".comments-section").addEventListener("click", function (event) {
     let classList = event.target.classList
+    let isPostPage = event.target.closest("div.post-comment")
+    // console.log(isPostPage)
 
     if (classList.contains("reply-comment-button")) {
         comment_id = event.target.getAttribute("data-id")
@@ -62,11 +64,15 @@ document.querySelector(".comments-section").addEventListener("click", function (
         sendAjaxRequest("POST", route, {vote: false}, downvoteResponse.bind(event.target.closest(".comment-voting")), loadError)
     }
 
+    else if (isPostPage === null) return
+
     else if (classList.contains("delete-comment")) {
         let id_comment = event.target.closest(".comment_options").getAttribute("data-id")
         const route = "/api/comment/" + id_comment
         sendAjaxRequest("DELETE", route, null, loadReply, loadError)
     }
+
+    // if (isPostPage === null) return
 
     else if (classList.contains("edit-comment")) {
         let textarea = event.target.closest(".comment_box").querySelector(".edit-textarea")

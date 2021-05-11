@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class Comment extends Model
 {
@@ -64,5 +65,10 @@ class Comment extends Model
     public function replies()
     {
         return $this->belongsToMany(Comment::class, 'reply', 'id_parent', 'id_comment')->orderBy('date_time', 'desc');
+    }
+
+    public function get_time() {
+        $time = Carbon::createFromFormat('Y-m-d H:i:s', $this->date_time);
+        return $time->diffForHumans();
     }
 }

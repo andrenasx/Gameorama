@@ -312,10 +312,9 @@ class MemberController extends Controller
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $id_member = (Member::firstWhere('username', '=', $username))->id;
-        $id_page = (Member::firstWhere('username', '=', $request->input('userProfile')))->id;
         $followingMember = Member::find(Auth::user()->id);
         $followedMember = Member::find($id_member);
-        $pageMember = Member::find($id_page);
+        
         
 
         $follow = $followedMember->isFollowed(Auth::user()->id);
@@ -338,16 +337,26 @@ class MemberController extends Controller
             ->delete();
         }
 
-        $htmlFollowing = [];
-        foreach ($pageMember->following as $member) {
-            array_push($htmlFollowing, view('partials.profile_card', ['member'=>$member])->render());
+        
+        if ($request->input('userProfile') !== '-1'){
+            $id_page = (Member::firstWhere('username', '=', $request->input('userProfile')))->id;
+            $pageMember = Member::find($id_page);
+
+            $htmlFollowing = [];
+            $htmlFollowers = [];
+            if ($pageMember !== null){
+                $pageMember = Member::find($id_page);
+            
+                foreach ($pageMember->following as $member) {
+                    array_push($htmlFollowing, view('partials.profile_card', ['member'=>$member])->render());
+                }
+                foreach ($pageMember->followers as $member) {
+                    array_push($htmlFollowers, view('partials.profile_card', ['member'=>$member])->render());
+                }
+            }
+            return response()->json(array('followers' => $pageMember->followers->count(), 'following' => $pageMember->following->count(), 'htmlFollowing' => $htmlFollowing, 'htmlFollowers' => $htmlFollowers));
         }
 
-        $htmlFollowers = [];
-        foreach ($pageMember->followers as $member) {
-            array_push($htmlFollowers, view('partials.profile_card', ['member'=>$member])->render());
-        }
-
-        return response()->json(array('followers' => $pageMember->followers->count(), 'following' => $pageMember->following->count(), 'htmlFollowing' => $htmlFollowing, 'htmlFollowers' => $htmlFollowers));
+        return response()->json(array('followers' => $followedMember->followers->count()));
     }
 }

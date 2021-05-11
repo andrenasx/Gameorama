@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class NewsPost extends Model
 {
@@ -102,5 +103,10 @@ class NewsPost extends Model
     public function bookmarkers()
     {
         return $this->belongsToMany(Member::class, 'post_bookmark', 'id_post', 'id_bookmarker');
+    }
+
+    public function get_time() {
+        $time = Carbon::createFromFormat('Y-m-d H:i:s', $this->date_time);
+        return $time->diffForHumans();
     }
 }

@@ -60,7 +60,7 @@
                     <div class="d-inline">
                         <small class="post-user">Posted by <a
                                 href="{{ route('profile', $post->owner->username) }}">{{$post->owner->username}}</a></small>
-                        <small>{{$post->date_time}}</small>
+                        <small>{{$post->get_time()}}</small>
                     </div>
                     <h1 class="post-title">{{$post->title}}</h1>
                 </div>

@@ -848,6 +848,12 @@ a.black-a:hover {
     color: black;
 }
 
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* styles for '...' */
 .truncate-multiple {
     /* hide text if it more than N lines  */

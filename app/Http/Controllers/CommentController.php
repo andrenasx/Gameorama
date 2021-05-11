@@ -186,7 +186,7 @@ class CommentController extends Controller
             array_push($html, view('partials.comment', ['comment' => $parent, 'offset' => 0])->render());
         }
 
-        return response()->json(array('html' => $html));
+        return response()->json(array('html' => $html, 'body' => $comment->body));
 
     }
 

@@ -11,18 +11,18 @@
 @endif
 
 <div class = "row g-0 offset-{{$offset}} border-start border-bottom border-3 mb-{{$mb}} mt-{{$mt}} comment-{{$comment->id}}" >
-    <div class = "d-flex px-3 py-3 ">
+    <div class = "d-flex px-3 py-3 post-comment">
         <img class = "flex-shrink-0 rounded-circle" style="width:60px;height:60px;" src="{{ asset('storage/members/'.$comment->owner->avatar_image) }}" alt="">
         <div class = "ms-2 col-10 col-lg-11 comment_box">
             <div class = "row justify-content-between g-0">
 
                 <h5 class="col color-orange"><a href="/member/{{$comment->owner->username}}">{{$comment->owner->username}}</a></h5>
 
-                <small class="col text-end" style = "color: darkgray;">{{$comment->date_time}}</small>
+                <small class="col text-end" style = "color: darkgray;">{{$comment->get_time()}}</small>
             </div>
-            <textarea hidden autofocus class = "form-control edit-textarea mb-4" rows="3" >{!!$comment->body!!}</textarea> 
+            <textarea hidden autofocus class = "form-control edit-textarea mb-4" rows="3" >{!!$comment->body!!}</textarea>
             <p class="mb-2 comment_body">{!!$comment->body!!}</p>
-            <div class = "d-flex justify-content-end mb-3 edit_button_div" data-id = {{$comment->id}}>
+            <div class = "d-flex justify-content-end mb-3 edit_button_div post" data-id = {{$comment->id}}>
                 <button type = "button" hidden class="col-4 col-md-3 btn btn-primary edit_button me-3 float-end">Edit</button>
                 <button type = "button" hidden class="col-4 col-md-3 btn btn-danger cancel_button float-end">Cancel</button>
             </div>
@@ -60,9 +60,9 @@
                         <span class="material-icons-round">more_horiz</span>
                     </div>
                     
-                    <ul class="dropdown-menu col-1 more-horizontal comment_options" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
-                        <li><a class="dropdown-item btn-outline-blue edit-comment"><span class="material-icons-outlined align-middle edit-comment">edit</span> <span> Edit</span></a></li>
-                        <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span> Delete</span></a></li>
+                    <ul class="dropdown-menu col-1 more-horizontal comment_options post" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
+                        <li><a class="dropdown-item btn-outline-blue edit-comment"><span class="material-icons-outlined align-middle edit-comment">edit</span> <span class = "edit-comment"> Edit</span></a></li>
+                        <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span class = "delete-comment"> Delete</span></a></li>
                     </ul>
                     
                 @else

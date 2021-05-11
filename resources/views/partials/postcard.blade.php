@@ -50,7 +50,7 @@
             </h6>
             <div class="d-inline">
                 <small class="post-user">Posted by <a href="{{ route('profile', ['username' => $post->owner->username]) }}">{{$post->owner->username}}</a></small>
-                <small>{{$post->date_time}}</small>
+                <small>{{$post->get_time()}}</small>
             </div>
             <h4 class="post-title-smaller">
                 <a href="/post/{{$post->id}}" class="post-title black-a">{{$post->title}}</a>
@@ -60,7 +60,7 @@
     <div class="news-card-body">
         <a href="/post/{{$post->id}}" class="black-a">
             @if ($post->images->count () > 0)
-            <img class="rounded img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
+            <img class="img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
                 src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
             @endif
             <p class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</p>

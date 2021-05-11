@@ -1,7 +1,9 @@
 let voting = document.querySelector(".posts");
 voting.addEventListener("click", function(event){
     let post_voting = event.target.closest(".post-voting")
-    const id_post = post_voting.getAttribute("data-id")
+    let id_post = null
+    if (post_voting === null) return
+    id_post = post_voting.getAttribute("data-id")
     const route = "/api/post/" + id_post + "/vote"
     let request = null
     console.log(event.target)
@@ -15,7 +17,6 @@ voting.addEventListener("click", function(event){
         request = {vote: false}
         sendAjaxRequest("POST", route, request, downvoteResponse.bind(post_voting), loadError)
     }
-
 });
 
 function upvoteResponse (response) {
