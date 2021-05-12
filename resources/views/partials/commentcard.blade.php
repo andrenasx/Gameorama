@@ -10,7 +10,7 @@
         <button type = "button" hidden class="col-4 col-md-3 btn btn-primary edit_button me-3 float-end">Edit</button>
         <button type = "button" hidden class="col-4 col-md-3 btn btn-danger cancel_button float-end">Cancel</button>
     </div>
-    <div class="d-flex justify-content-between mt-2">
+    <div class="d-flex justify-content-between mt-2 report-comment" data-id={{$comment->id}}>
         <div class="col-4 col-sm-2 d-flex justify-content-center comment-voting" data-id = {{$comment->id}}>
             @guest
                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
@@ -55,6 +55,5 @@
                 <span class="d-none d-md-flex"> Report</span>
             </div>
         @endguest
-        @include('partials.report_comment', ['comment' => $comment])
     </div>
 </div>

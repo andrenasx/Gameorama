@@ -6,7 +6,7 @@
         <script defer src={{ asset('js/search.js') }}></script>
         <script defer src={{ asset('js/search_follows.js') }}></script>
     @endpush
-<section class="container g-0 mx-auto my-4 col-lg-7">
+<section class="container g-0 mx-auto my-4 col-lg-7 reportable">
     <header class="p-4 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
         <h3 class="mb-3 color-orange">Results for</h3>
         <h2 id="query" class="fw-bold">{{$query}}</h2>
@@ -45,5 +45,6 @@
         </div>
     </section>
 </section>
+@include('partials.report_post')
 @include('partials.footer')
 @endsection

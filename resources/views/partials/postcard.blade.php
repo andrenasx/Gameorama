@@ -66,7 +66,7 @@
             <p class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</p>
         </a>
     </div>
-    <div class="row g-0 mt-4 news-card-options">
+    <div class="row g-0 mt-4 news-card-options report-post" data-id={{$post->id}}>
         <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
@@ -97,6 +97,6 @@
                 <span class="d-none d-md-flex"> Report</span>
             </div>
         @endguest
-        @include('partials.report_post',['post'=>$post])
+        
     </div>
 </div>

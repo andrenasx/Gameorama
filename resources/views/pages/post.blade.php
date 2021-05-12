@@ -65,7 +65,7 @@
                     <h1 class="post-title">{{$post->title}}</h1>
                 </div>
             </header>
-            <div class="news-card-body">
+            <div class="news-card-body report-post" data-id={{$post->id}}>
                 @if ($post->images->count() > 0)
                     <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
                         @if ($post->images->count() > 1)
@@ -123,7 +123,7 @@
                             <span class="material-icons-outlined align-middle me-1">flag</span>
                             <span class="d-none d-md-flex"> Report</span>
                         </div>
-                        @include('partials.report_post',['post'=>$post])
+                        
                     </div>
         </section>
 
@@ -143,6 +143,7 @@
             </section>
         </section>
     </section>
-
+    @include('partials.report_post')
+    @include('partials.report_comment')
     @include('partials.footer')
 @endsection

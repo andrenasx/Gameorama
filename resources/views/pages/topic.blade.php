@@ -8,7 +8,7 @@
     <script defer src={{ asset('js/voting.js') }}></script>
     <script defer src={{ asset('js/follow_topic.js') }}></script>
 @endpush
-<section class="container g-0 mx-auto my-4 col-lg-7">
+<section class="container g-0 mx-auto my-4 col-lg-7 reportable">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
         <h3 class="mb-3 color-orange">Topic Page</h3>
         <section class="row g-0 align-items-center">
@@ -22,13 +22,18 @@
                 </div>
             </div>
 
-            <div class="col-md-2 col-4 d-flex justify-content-end">
+            <div class="col-md-2 col-4 d-flex justify-content-end report-topic" data-id={{$topic->id}}>
                 @auth
                 @if (($topic->isFollowed(Auth::user()->id)) != null)
                     <button type="button" class="following-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
                 @else
                     <button type="button" class="follow-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
                 @endif
+                <button type="button" class="btn d-flex align-content-center mt-1 me-1"
+                        data-bs-toggle="modal"
+                        data-bs-target="#reportTopic">
+                    <span class="btn-outline-red" style="font-size: 200%;">flag</span>
+                </button>
                 @endauth
             </div>
         </section>
@@ -65,5 +70,6 @@
         </div>
     </section>
 </section>
+@include('partials.report_topic')
 @include('partials.footer')
 @endsection

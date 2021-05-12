@@ -5,31 +5,31 @@
                 <h5 class="modal-title" id="staticBackdropLabelReport">Report Profile</h5>
                 <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id="downvote">close</span></button>
             </div>
-            <form id="reportForm">
+            <form class="reportForm">
                 <div class="modal-body">
                     <p class="game-quote mt-3">“FINISH HIM!” </p>
                     <p class="game-quote-origin">– Mortal Kombat </p> <!--Rotating Game Quotes-->
                     <div class="form-check" >
                         <div>
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Inapropriate username" >
+                            <input class="form-check-input" type="radio" name="option" id="exampleRadios1" value="Inapropriate username" >
                             <label class="form-check-label" for="exampleRadios1">
                                 Inapropriate username
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Impersonating someone" >
+                            <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="Impersonating someone" >
                             <label class="form-check-label" for="exampleRadios2">
                                 Impersonating someone   
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Posts are offensive" >
+                            <input class="form-check-input" type="radio" name="option" id="exampleRadios3" value="Posts are offensive" >
                             <label class="form-check-label" for="exampleRadios3">
                                 Posts are offensive
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="Other issues" >
+                            <input class="form-check-input" type="radio" name="option" id="exampleRadios4" value="Other issues" >
                             <label class="form-check-label" for="exampleRadios4">
                                 Other issues
                             </label>

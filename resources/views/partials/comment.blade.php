@@ -26,7 +26,7 @@
                 <button type = "button" hidden class="col-4 col-md-3 btn btn-primary edit_button me-3 float-end">Edit</button>
                 <button type = "button" hidden class="col-4 col-md-3 btn btn-danger cancel_button float-end">Cancel</button>
             </div>
-            <div class="row comment_options" data-id = {{$comment->id}}>
+            <div class="row comment_options report-comment" data-id = {{$comment->id}}>
 
                 <div class = "col-4 d-flex justify-content-center comment-voting border-end border-2" data-id = {{$comment->id}}>
                     @guest
@@ -71,7 +71,6 @@
                         <span class="d-none d-md-flex"> Report</span>
                     </div>
                 @endif
-                @include('partials.report_comment', ['comment' => $comment])
             </div>
         </div>
     </div>

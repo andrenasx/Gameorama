@@ -10,7 +10,7 @@
         <script defer src={{ asset('js/voting.js') }}></script>
         <script defer src={{ asset('js/comments.js') }}></script>
     @endpush
-    <section class="container g-0 mx-auto my-4 col-lg-7">
+    <section class="container g-0 mx-auto my-4 col-lg-7 reportable">
         <section class="profile-widget bg-white rounded mb-3">
             <div class="row g-0">
                 <div class="col-sm-12">
@@ -18,7 +18,7 @@
                          style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover">
                         <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar">
                     </div>
-                    <row class="d-flex justify-content-end col-12">
+                    <row class="d-flex justify-content-end col-12 report-profile" data-id={{$member->id}}>
                         @auth
                             @if ($member->isMe(Auth::user()->id))
                                 <button type="button" class="btn d-flex align-content-center mt-1 me-1">
@@ -39,6 +39,7 @@
                                     data-bs-target="#reportProfile">
                                 <span class="btn-outline-red" style="font-size: 200%;">flag</span>
                             </button>
+                            
                         @endguest
                     </row>
                 </div>
@@ -140,6 +141,8 @@
             </div>
         </section>
     </section>
-    @include('partials.report_profile',['member'=>$member])
+    @include('partials.report_comment')
+    @include('partials.report_post')
+    @include('partials.report_profile')
     @include('partials.footer')
 @endsection
