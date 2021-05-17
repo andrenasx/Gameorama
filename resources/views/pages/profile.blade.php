@@ -9,8 +9,10 @@
         <script defer src={{ asset('js/follow_topic.js') }}></script>
         <script defer src={{ asset('js/voting.js') }}></script>
         <script defer src={{ asset('js/comments.js') }}></script>
+        <script defer src={{ asset('js/bookmark.js') }}></script>
+        <script defer src={{ asset('js/report.js') }}></script>
     @endpush
-    <section class="container g-0 mx-auto my-4 col-lg-7 reportable">
+    <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
             <div class="row g-0">
                 <div class="col-sm-12">
@@ -18,7 +20,7 @@
                          style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover">
                         <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar">
                     </div>
-                    <row class="d-flex justify-content-end col-12 report-profile" data-id={{$member->id}}>
+                    <row class="d-flex justify-content-end col-12 reportable"  >
                         @auth
                             @if ($member->isMe(Auth::user()->id))
                                 <button type="button" class="btn d-flex align-content-center mt-1 me-1">
@@ -26,18 +28,18 @@
                                           onclick="location.href = '/member/{{$member->username}}/edit'">create</span>
                                 </button>
                             @else
-                                <button type="button" class="btn d-flex align-content-center mt-1 me-1"
+                                <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}
                                         data-bs-toggle="modal"
                                         data-bs-target="#reportProfile">
-                                    <span class="btn-outline-red" style="font-size: 200%;">flag</span>
+                                    <span class="btn-outline-red report-b report-profile " data-id={{$member->id}} style="font-size: 200%;">flag</span>
                                 </button>
                             @endif
                         @endauth
                         @guest
-                            <button type="button" class="btn d-flex align-content-center mt-1 me-1"
+                            <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}
                                     data-bs-toggle="modal"
                                     data-bs-target="#reportProfile">
-                                <span class="btn-outline-red" style="font-size: 200%;">flag</span>
+                                <span class="btn-outline-red report-b report-profile " data-id={{$member->id}} style="font-size: 200%;">flag</span>
                             </button>
                             
                         @endguest
@@ -116,15 +118,15 @@
             <div class="tab-content posts" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-posts" role="tabpanel"
                      aria-labelledby="pills-posts-tab">
-                    <section id="member-posts"></section>
+                    <section id="member-posts reportable"></section>
                     <div id="more-posts" data-page="1" class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-light d-block">Load more</button>
+                        <button class="btn btn-light d-block load-btn">Load more</button>
                     </div>
                 </div>
                 <div class="tab-pane fade comments-section" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                    <section id="member-comments"></section>
+                    <section id="member-comments reportable"></section>
                     <div id="more-comments" data-page="1" class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-light d-block">Load more</button>
+                        <button class="btn btn-light d-block load-btn">Load more</button>
                     </div>
                 </div>
                 @auth
@@ -133,13 +135,14 @@
                              aria-labelledby="pills-bookmarked-tab">
                             <section id="member-bookmarked"></section>
                             <div id="more-bookmarked" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block">Load more</button>
+                                <button class="btn btn-light d-block load-btn">Load more</button>
                             </div>
                         </div>
                     @endif
                 @endauth
             </div>
         </section>
+        
     </section>
     @include('partials.report_comment')
     @include('partials.report_post')

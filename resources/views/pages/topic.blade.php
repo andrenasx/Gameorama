@@ -7,8 +7,9 @@
     <script defer src={{ asset('js/topic.js') }}></script>
     <script defer src={{ asset('js/voting.js') }}></script>
     <script defer src={{ asset('js/follow_topic.js') }}></script>
+    <script defer src={{ asset('js/bookmark.js') }}></script>
 @endpush
-<section class="container g-0 mx-auto my-4 col-lg-7 reportable">
+<section class="container g-0 mx-auto my-4 col-lg-7 ">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
         <h3 class="mb-3 color-orange">Topic Page</h3>
         <section class="row g-0 align-items-center">
@@ -22,17 +23,17 @@
                 </div>
             </div>
 
-            <div class="col-md-2 col-4 d-flex justify-content-end report-topic" data-id={{$topic->id}}>
+            <div class="col-md-2 col-4 d-flex justify-content-end reportable" data-id={{$topic->id}} >
                 @auth
                 @if (($topic->isFollowed(Auth::user()->id)) != null)
                     <button type="button" class="following-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
                 @else
                     <button type="button" class="follow-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
                 @endif
-                <button type="button" class="btn d-flex align-content-center mt-1 me-1"
+                <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-topic" data-id={{$topic->id}}
                         data-bs-toggle="modal"
                         data-bs-target="#reportTopic">
-                    <span class="btn-outline-red" style="font-size: 200%;">flag</span>
+                    <span class="btn-outline-red report-b report-topic" style="font-size: 200%;" data-id={{$topic->id}}>flag</span>
                 </button>
                 @endauth
             </div>
@@ -54,21 +55,22 @@
             </li>
         </ul>
 
-        <div class="tab-content posts" id="pills-tabContent">
+        <div class="tab-content posts reportable" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
                 <section id="trending-posts"></section>
                 <div id="more-trending" data-page="1" class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-light d-block">Load more</button>
+                    <button class="btn btn-light d-block load-btn">Load more</button>
                 </div>
             </div>
             <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
                 <section id="latest-posts"></section>
                 <div id="more-latest" data-page="1" class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-light d-block">Load more</button>
+                    <button class="btn btn-light d-block load-btn">Load more</button>
                 </div>
             </div>
         </div>
     </section>
+    
 </section>
 @include('partials.report_topic')
 @include('partials.footer')

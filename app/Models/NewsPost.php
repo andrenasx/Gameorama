@@ -109,4 +109,12 @@ class NewsPost extends Model
         $time = Carbon::createFromFormat('Y-m-d H:i:s', $this->date_time);
         return $time->diffForHumans();
     }
+
+    public function isBookmarked($id_member){
+        return DB::table('post_bookmark')->select('id_bookmarker')
+        ->where('id_bookmarker','=',$id_member)
+        ->where('id_post','=',$this->id)
+        ->first();
+
+    }
 }

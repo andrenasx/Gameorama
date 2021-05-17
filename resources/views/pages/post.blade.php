@@ -6,9 +6,10 @@
         <script defer src = {{asset("js/ajax.js")}}></script>
         <script defer src = {{asset("js/voting.js")}}></script>
         <script defer src = {{asset("js/comments.js")}}></script>
+        <script defer src={{ asset('js/bookmark.js') }}></script>
     @endpush
-    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}}>
-        <section class="news-card mb-3 p-4 posts">
+    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}} > 
+        <section class="news-card mb-3 p-4 posts"> 
             <header class="row news-card-header">
                 @guest
                 <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
@@ -65,7 +66,7 @@
                     <h1 class="post-title">{{$post->title}}</h1>
                 </div>
             </header>
-            <div class="news-card-body report-post" data-id={{$post->id}}>
+            <div class="news-card-body " >
                 @if ($post->images->count() > 0)
                     <div id="myCarousel" class="offset-lg-1 mb-5 col-lg-10 carousel slide" data-bs-ride="carousel">
                         @if ($post->images->count() > 1)
@@ -109,26 +110,36 @@
                     @endif
                         <p class="card-text mt-3 px-lg-5">{!!$post->body!!}</p>
                     </div>
-                    <div class="row mt-4 news-card-options">
+                    <div class="row mt-4 news-card-options  reportable" >
                         <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
                         </div>
-                        <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
-                            <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-                            <span class="d-none d-md-flex"> Bookmark</span>
-                        </div>
-                        <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-id= {{$post->id}}
-                             data-bs-target="#reportPost">
-                            <span class="material-icons-outlined align-middle me-1">flag</span>
-                            <span class="d-none d-md-flex"> Report</span>
-                        </div>
+                        @auth
+                            @if ($post->isBookmarked(Auth::user()->id) === null)
+                                <div class="col d-flex justify-content-center border-end border-2 bookmark bookmark-btn" data-id = {{$post->id}}>
+                                    <span class="material-icons-outlined align-middle me-1 bookmark-btn">bookmark_add</span>
+                                    <span class="d-none d-md-flex bookmark-btn">Bookmark</span>
+                                </div>
+                            @else
+                                <div class="col d-flex justify-content-center bookmarked border-end border-2 bookmarked bookmarked-btn" data-id = {{$post->id}}>
+                                    <span class="material-icons-outlined align-middle me-1 bookmarked-btn">bookmark_remove</span>
+                                    <span class="d-none d-md-flex bookmarked-btn">Remove Bookmark</span>
+                                </div>
+                            @endif
+                        @endauth
                         
+                        <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-id={{$post->id}}
+                            data-bs-target="#reportPost">
+                            <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id={{$post->id}}>flag</span>
+                            <span class="d-none d-md-flex report-b report-post" data-id={{$post->id}}> Report</span>
+                        </div>
+                        @include('partials.report_post')
                     </div>
         </section>
 
 
-        <section class="comments p-2 px-sm-4 mt-3">
+        <section class="comments p-2 px-sm-4 mt-3 ">
             <section class="row g-0 mb-4" data-id = {{$post->id}} id = "new-comment-section">
                 <div class="md-form amber-textarea active-amber-textarea px-0 ">
                     <textarea class="form-control" id = "comment_content" name="comment" rows="4" placeholder="Leave a comment"></textarea>
@@ -136,14 +147,15 @@
                 </div>
             </section>
 
-            <section class = "comments-section">
+            <section class = "comments-section reportable">
                 @foreach ($post->parentComments() as $comment)
                     @include('partials.comment', ['comment' => $comment, 'offset' => 0])
                 @endforeach
             </section>
         </section>
+        
+        
     </section>
-    @include('partials.report_post')
     @include('partials.report_comment')
     @include('partials.footer')
 @endsection

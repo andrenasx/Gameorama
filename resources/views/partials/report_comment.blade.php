@@ -39,7 +39,7 @@
                 </div>
                 <div class="modal-footer" id="commentReport" >
                     <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary delete-button" data-bs-dismiss="modal">Report</button>
+                    <button type="button" class="btn btn-primary delete-button report-submit" data-bs-dismiss="modal">Report</button>
                 </div>
             </form>
         </div>

@@ -66,16 +66,24 @@
             <p class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</p>
         </a>
     </div>
-    <div class="row g-0 mt-4 news-card-options report-post" data-id={{$post->id}}>
+    <div class="row g-0 mt-4 news-card-options" data-id={{$post->id}} >
         <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
         </div>
-        <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
-            <span class="material-icons-outlined align-middle me-1">bookmark_add</span>
-            <span class="d-none d-md-flex"> Bookmark</span>
-        </div>
         @auth
+            @if ($post->isBookmarked(Auth::user()->id) === null)
+                <div class="col d-flex justify-content-center border-end border-2 bookmark bookmark-btn" data-id = {{$post->id}} >
+                    <span class="material-icons-outlined align-middle me-1 bookmark-btn">bookmark_add</span>
+                    <span class="d-none d-md-flex bookmark-btn">Bookmark</span>
+                </div>
+            @else
+                <div class="col d-flex justify-content-center border-end border-2 bookmarked bookmarked-btn" data-id = {{$post->id}}>
+                    <span class="material-icons-outlined align-middle me-1 bookmarked-btn">bookmark_remove</span>
+                    <span class="d-none d-md-flex bookmarked-btn">Remove Bookmark</span>
+                </div>
+            @endif
+        
             @if ($post->owner->isMe(Auth::user()->id))
                 <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                     <span class="material-icons-round">more_horiz</span>
@@ -92,9 +100,9 @@
             @endif
         @endauth
         @guest
-            <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
-                <span class="material-icons-outlined align-middle me-1">flag</span>
-                <span class="d-none d-md-flex"> Report</span>
+            <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
+                <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id= {{$post->id}}>flag</span>
+                <span class="d-none d-md-flex report-b report-post" data-id= {{$post->id}}> Report</span>
             </div>
         @endguest
         

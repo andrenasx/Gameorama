@@ -10,7 +10,7 @@
         <button type = "button" hidden class="col-4 col-md-3 btn btn-primary edit_button me-3 float-end">Edit</button>
         <button type = "button" hidden class="col-4 col-md-3 btn btn-danger cancel_button float-end">Cancel</button>
     </div>
-    <div class="d-flex justify-content-between mt-2 report-comment" data-id={{$comment->id}}>
+    <div class="d-flex justify-content-between mt-2">
         <div class="col-4 col-sm-2 d-flex justify-content-center comment-voting" data-id = {{$comment->id}}>
             @guest
                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
@@ -43,16 +43,16 @@
                     <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span class = "delete-comment"> Delete</span></a></li>
                 </ul>
             @else
-                <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportComment">
-                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                    <span class="d-none d-md-flex"> Report</span>
+                <div class="d-flex btn-outline-red report-b report-comment" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#reportComment">
+                    <span class="material-icons-outlined align-middle me-1 report-b report-comment" data-id = {{$comment->id}}>flag</span>
+                    <span class="d-none d-md-flex report-b report-comment" data-id = {{$comment->id}}> Report</span>
                 </div>
             @endif
         @endauth
         @guest
-            <div class="d-flex btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportComment">
-                <span class="material-icons-outlined align-middle me-1">flag</span>
-                <span class="d-none d-md-flex"> Report</span>
+            <div class="d-flex btn-outline-red report-b report-comment" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#reportComment">
+                <span class="material-icons-outlined align-middle me-1 report-b report-comment" data-id = {{$comment->id}}>flag</span>
+                <span class="d-none d-md-flex report-b report-comment" data-id = {{$comment->id}}> Report</span>
             </div>
         @endguest
     </div>

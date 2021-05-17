@@ -192,4 +192,12 @@ class TopicController extends Controller
     
 
     }
+
+
+    public function report($id_topic, Request $request){
+
+    }
+
+
+
 }

@@ -226,4 +226,10 @@ class CommentController extends Controller
 
         return response()->json(array('html' => $html));
     }
+
+    public function report($id_comment, Request $request){
+        
+    }
+
+
 }

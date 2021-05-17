@@ -6,8 +6,9 @@
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/home.js') }}></script>
         <script defer src={{ asset('js/voting.js') }}></script>
+        <script defer src={{ asset('js/bookmark.js') }}></script>
     @endpush
-    <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
+    <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4 reportable">
         <div class="row justify-content-evenly g-0">
             <section class="all-news-cards col-md-8">
                 <section class="pill-navigation">
@@ -42,7 +43,7 @@
                                  aria-labelledby="pills-feed-tab">
                                 <section id="feed-posts"></section>
                                 <div id="more-feed" data-page="1" class="d-flex justify-content-center mt-4">
-                                    <button class="btn btn-light d-block">Load more</button>
+                                    <button class="btn btn-light d-block load-btn">Load more</button>
                                 </div>
                             </div>
                         @endauth
@@ -50,13 +51,13 @@
                              aria-labelledby="pills-trending-tab">
                             <section id="trending-posts"></section>
                             <div id="more-trending" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block">Load more</button>
+                                <button class="btn btn-light d-block load-btn">Load more</button>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
                             <section id="latest-posts"></section>
                             <div id="more-latest" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block">Load more</button>
+                                <button class="btn btn-light d-block load-btn">Load more</button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +92,7 @@
                 </section>
             </aside>
         </div>
+        @include('partials.report_post')
     </section>
-    @include('partials.report_post')
     @include('partials.footer')
 @endsection

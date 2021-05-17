@@ -26,7 +26,7 @@
                 <button type = "button" hidden class="col-4 col-md-3 btn btn-primary edit_button me-3 float-end">Edit</button>
                 <button type = "button" hidden class="col-4 col-md-3 btn btn-danger cancel_button float-end">Cancel</button>
             </div>
-            <div class="row comment_options report-comment" data-id = {{$comment->id}}>
+            <div class="row comment_options" data-id = {{$comment->id}}>
 
                 <div class = "col-4 d-flex justify-content-center comment-voting border-end border-2" data-id = {{$comment->id}}>
                     @guest
@@ -66,9 +66,9 @@
                     </ul>
                     
                 @else
-                    <div class="col-4 d-flex justify-content-center btn-outline-red" data-bs-toggle="modal" data-bs-target="#reportComment">
-                        <span class="material-icons-outlined align-middle me-1">flag</span>
-                        <span class="d-none d-md-flex"> Report</span>
+                    <div class="col-4 d-flex justify-content-center btn-outline-red report-b report-comment" data-bs-toggle="modal" data-bs-target="#reportComment" data-id={{$comment->id}}>
+                        <span class="material-icons-outlined align-middle me-1 report-b report-comment" data-id={{$comment->id}}>flag</span>
+                        <span class="d-none d-md-flex report-b report-comment" data-id={{$comment->id}}> Report</span>
                     </div>
                 @endif
             </div>

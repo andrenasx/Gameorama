@@ -359,4 +359,10 @@ class MemberController extends Controller
 
         return response()->json(array('followers' => $followedMember->followers->count()));
     }
+
+
+    public function report($id_member, Request $request){
+
+    }
+
 }

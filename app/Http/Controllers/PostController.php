@@ -239,4 +239,41 @@ class PostController extends Controller
             return response()->json($html);
         }
     }
+
+    public function bookmark($id_post, Request $request){
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        $member = Member::find(Auth::user()->id);
+        $post = NewsPost::find($id_post);
+
+
+        $bookmark = $post->isBookmarked($member->id);
+
+        if ($bookmark === null){
+            DB::table('post_bookmark')->insert([
+                'id_bookmarker' => Auth::user()->id,
+                'id_post' => $id_post,
+            ]);
+        }
+    }
+
+    public function removeBookmark($id_post, Request $request){
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        $member = Member::find(Auth::user()->id);
+        $post = NewsPost::find($id_post);
+
+
+        $bookmark = $post->isBookmarked($member->id);
+
+        if ($bookmark !== null){
+            DB::table('post_bookmark')
+            ->where('id_bookmarker', '=', Auth::user()->id)
+            ->where('id_post', '=',$id_post)
+            ->delete();
+        }
+    }
+
+    
+    public function report($id_post, Request $request){
+
+    }
 }
