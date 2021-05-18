@@ -12,26 +12,26 @@
                     <p class="game-quote-origin">– Portal </p> <!--Rotating Game Quotes-->
                     <div class="form-check" >
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios1" value="This is spam" >
-                            <label class="form-check-label" for="exampleRadios1">
+                            <input class="form-check-input" type="radio" name="option" id="commentRadios1" value="This is spam" >
+                            <label class="form-check-label" for="commentRadios1">
                                 This is spam
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="This is misinformation" >
-                            <label class="form-check-label" for="exampleRadios2">
+                            <input class="form-check-input" type="radio" name="option" id="commentRadios2" value="This is misinformation" >
+                            <label class="form-check-label" for="commentRadios2">
                                 This is misinformation
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios3" value="This is abusive or harassing" >
-                            <label class="form-check-label" for="exampleRadios3">
+                            <input class="form-check-input" type="radio" name="option" id="commentRadios3" value="This is abusive or harassing" >
+                            <label class="form-check-label" for="commentRadios3">
                                 This is abusive or harassing
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios4" value="Other issues" >
-                            <label class="form-check-label" for="exampleRadios4">
+                            <input class="form-check-input" type="radio" name="option" id="commentRadios4" value="Other issues" >
+                            <label class="form-check-label" for="commentRadios4">
                                 Other issues
                             </label>
                         </div>

@@ -79,8 +79,8 @@
                 </div>
             @else
                 <div class="col d-flex justify-content-center border-end border-2 bookmarked bookmarked-btn" data-id = {{$post->id}}>
-                    <span class="material-icons-outlined align-middle me-1 bookmarked-btn">bookmark_remove</span>
-                    <span class="d-none d-md-flex bookmarked-btn">Remove Bookmark</span>
+                    <span class="material-icons-round align-middle me-1 bookmarked-btn">bookmark_added</span>
+                    <span class="d-none d-md-flex bookmarked-btn">Bookmarked</span>
                 </div>
             @endif
         
@@ -93,9 +93,9 @@
                     <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
                 </ul>
             @else
-                <div class="col d-flex justify-content-center btn-outline-red " data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
-                    <span class="material-icons-outlined align-middle me-1">flag</span>
-                    <span class="d-none d-md-flex"> Report</span>
+                <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
+                    <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id= {{$post->id}}>flag</span>
+                    <span class="d-none d-md-flex report-b report-post" data-id= {{$post->id}}> Report</span>
                 </div>
             @endif
         @endauth

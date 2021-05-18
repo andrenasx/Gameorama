@@ -11,33 +11,33 @@
                     <p class="game-quote-origin">– Mortal Kombat </p> <!--Rotating Game Quotes-->
                     <div class="form-check" >
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios1" value="Inapropriate username" >
-                            <label class="form-check-label" for="exampleRadios1">
+                            <input class="form-check-input" type="radio" name="option" id="profileRadios1" value="Inapropriate username" >
+                            <label class="form-check-label" for="profileRadios1">
                                 Inapropriate username
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="Impersonating someone" >
-                            <label class="form-check-label" for="exampleRadios2">
+                            <input class="form-check-input" type="radio" name="option" id="profileRadios2" value="Impersonating someone" >
+                            <label class="form-check-label" for="profileRadios2">
                                 Impersonating someone   
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios3" value="Posts are offensive" >
-                            <label class="form-check-label" for="exampleRadios3">
+                            <input class="form-check-input" type="radio" name="option" id="profileRadios3" value="Posts are offensive" >
+                            <label class="form-check-label" for="profileRadios3">
                                 Posts are offensive
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios4" value="Other issues" >
-                            <label class="form-check-label" for="exampleRadios4">
+                            <input class="form-check-input" type="radio" name="option" id="profileRadios4" value="Other issues" >
+                            <label class="form-check-label" for="profileRadios4">
                                 Other issues
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer " id="profileReport">
-                    <button type="button" class="btn btn-secondary cancel-button " data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-primary delete-button report-submit" data-bs-dismiss="modal">Report</button>
                 </div>
             </form>

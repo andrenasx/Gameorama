@@ -9,7 +9,7 @@
         <script defer src = {{ asset('js/bookmark.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
     @endpush
-    <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4 reportable">
+    <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
         <div class="row justify-content-evenly g-0">
             <section class="all-news-cards col-md-8">
                 <section class="pill-navigation">
@@ -37,32 +37,14 @@
                             </button>
                         </li>
                     </ul>
-
-                    <div class="tab-content posts" id="pills-tabContent">
-                        @auth
-                            <div class="tab-pane fade active show" id="pills-feed" role="tabpanel"
-                                 aria-labelledby="pills-feed-tab">
-                                <section id="feed-posts"></section>
-                                <div id="more-feed" data-page="1" class="d-flex justify-content-center mt-4">
-                                    <button class="btn btn-light d-block load-btn">Load more</button>
-                                </div>
-                            </div>
-                        @endauth
-                        <div class="tab-pane fade @guest active show @endguest" id="pills-trending" role="tabpanel"
-                             aria-labelledby="pills-trending-tab">
-                            <section id="trending-posts"></section>
-                            <div id="more-trending" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block load-btn">Load more</button>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
-                            <section id="latest-posts"></section>
-                            <div id="more-latest" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block load-btn">Load more</button>
-                            </div>
-                        </div>
-                    </div>
                 </section>
+
+                <section id="content" class="posts reportable"></section>
+                <div id="spinner" class="d-flex justify-content-center mt-5">
+                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
             </section>
 
             <aside class="col-md-3 d-none d-md-block">
@@ -93,7 +75,8 @@
                 </section>
             </aside>
         </div>
-        @include('partials.report_post')
+        
     </section>
+    @include('partials.report_post')
     @include('partials.footer')
 @endsection

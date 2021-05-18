@@ -8,7 +8,6 @@
         <script defer src={{ asset('js/follow.js') }}></script>
         <script defer src={{ asset('js/follow_topic.js') }}></script>
         <script defer src={{ asset('js/voting.js') }}></script>
-        <script defer src={{ asset('js/comments.js') }}></script>
         <script defer src={{ asset('js/bookmark.js') }}></script>
         <script defer src={{ asset('js/report.js') }}></script>
     @endpush
@@ -31,7 +30,7 @@
                                 <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}
                                         data-bs-toggle="modal"
                                         data-bs-target="#reportProfile">
-                                    <span class="btn-outline-red report-b report-profile " data-id={{$member->id}} style="font-size: 200%;">flag</span>
+                                    <span class="btn-outline-red report-b report-profile" data-id={{$member->id}} style="font-size: 200%;">flag</span>
                                 </button>
                             @endif
                         @endauth
@@ -39,9 +38,8 @@
                             <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}
                                     data-bs-toggle="modal"
                                     data-bs-target="#reportProfile">
-                                <span class="btn-outline-red report-b report-profile " data-id={{$member->id}} style="font-size: 200%;">flag</span>
+                                <span class="btn-outline-red report-b report-profile" data-id={{$member->id}} style="font-size: 200%;">flag</span>
                             </button>
-                            
                         @endguest
                     </row>
                 </div>
@@ -114,35 +112,13 @@
                     @endif
                 @endauth
             </ul>
-
-            <div class="tab-content posts" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-posts" role="tabpanel"
-                     aria-labelledby="pills-posts-tab">
-                    <section id="member-posts reportable"></section>
-                    <div id="more-posts" data-page="1" class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-light d-block load-btn">Load more</button>
-                    </div>
-                </div>
-                <div class="tab-pane fade comments-section" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                    <section id="member-comments reportable"></section>
-                    <div id="more-comments" data-page="1" class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-light d-block load-btn">Load more</button>
-                    </div>
-                </div>
-                @auth
-                    @if ($member->isMe(Auth::user()->id))
-                        <div class="tab-pane fade posts" id="pills-bookmarked" role="tabpanel"
-                             aria-labelledby="pills-bookmarked-tab">
-                            <section id="member-bookmarked"></section>
-                            <div id="more-bookmarked" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block load-btn">Load more</button>
-                            </div>
-                        </div>
-                    @endif
-                @endauth
-            </div>
         </section>
-        
+        <section id="content" class="posts comments-section reportable"></section>
+        <div id="spinner" class="d-flex justify-content-center mt-5">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     </section>
     @include('partials.report_comment')
     @include('partials.report_post')

@@ -32,19 +32,13 @@
                     aria-selected="false">Members</button>
             </li>
         </ul>
-
-        <div class="tab-content " id="pills-tabContent">
-            <div class="tab-pane fade show active reportable" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
-                <section id="posts"></section>
-            </div>
-            <div class="tab-pane fade" id="pills-topics" role="tabpanel" aria-labelledby="pills-topics-tab">
-                <section id="topics"></section>
-            </div>
-            <div class="tab-pane fade" id="pills-members" role="tabpanel" aria-labelledby="pills-members-tab">
-                <section id="members"></section>
-            </div>
-        </div>
     </section>
+    <section id="content" class="posts reportable"></section>
+    <div id="spinner" class="d-flex justify-content-center mt-5">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     
 </section>
 @include('partials.report_post')

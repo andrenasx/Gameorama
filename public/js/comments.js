@@ -35,17 +35,13 @@ function loadError(response) {
 document.querySelector(".comments-section").addEventListener("click", function (event) {
     let classList = event.target.classList
     let isPostPage = event.target.closest("div.post-comment")
-    // console.log(isPostPage)
 
-    if (classList.contains("reply-comment-button")) {
-        comment_id = event.target.getAttribute("data-id")
-    }
-
-    else if (classList.contains("reply-button")) {
+    if (classList.contains("reply-button")) {
         event.preventDefault()
-        let form = event.target.closest("form")
-        const reply_content = form.querySelector(".inputOldPass").value
-        document.querySelector(".dismiss-modal").click()
+        let reply_section = event.target.closest(".reply-comment")
+        comment_id = reply_section.getAttribute("data-id")
+        const reply_content = reply_section.querySelector(".content").value
+        document.querySelector(".cancel_reply").click()
         const route = "/api/post/" + post_id + "/comment/" + comment_id + "/reply"
         sendAjaxRequest("POST", route , {comment: reply_content}, loadReply, loadError)
     }

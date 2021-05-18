@@ -14,6 +14,44 @@ posts.addEventListener("click", function(event){
     }
 })
 
+posts.addEventListener("mouseover", function(event){
+    let bookmarkHoverClassList = event.target.classList
+    if (bookmarkHoverClassList.contains("bookmarked-btn")) {
+        console.log("HOVER")
+        let bookmark_hover_button = event.target.closest(".bookmarked");
+        let hover_count = 0;
+        bookmark_hover_button.querySelectorAll(".bookmarked-btn").forEach(element => {
+            if (hover_count == 0){
+                element.innerHTML = "bookmark_remove";
+            }
+            
+            if (hover_count == 1){
+                element.innerHTML = "Remove Bookmark";
+            }
+            hover_count++;
+        });
+    }
+})
+
+posts.addEventListener("mouseout", function(event){
+    let bookmarkHoverClassList = event.target.classList
+    if (bookmarkHoverClassList.contains("bookmarked-btn")) {
+        console.log("HOVER")
+        let bookmark_hover_button = event.target.closest(".bookmarked");
+        let hover_count = 0;
+        bookmark_hover_button.querySelectorAll(".bookmarked-btn").forEach(element => {
+            if (hover_count == 0){
+                element.innerHTML = "bookmark_added";
+            }
+            
+            if (hover_count == 1){
+                element.innerHTML = "Bookmarked";
+            }
+            hover_count++;
+        });
+    }
+})
+
 
 
 function bookmarkButtonHandler(button) {
@@ -29,11 +67,13 @@ function bookmarkButtonHandler(button) {
             element.classList.remove("bookmark-btn");
             element.classList.add("bookmarked-btn");
             if (count == 0){
-                element.innerHTML = "bookmark_remove";
+                element.innerHTML = "bookmark_added";
+                element.classList.remove("material-icons-outlined");
+                element.classList.add("material-icons-round")
             }
             
             if (count == 1){
-                element.innerHTML = "Remove Bookmark";
+                element.innerHTML = "Bookmarked";
             }
             count++;
 
@@ -62,6 +102,8 @@ function bookmarkedButtonHandler(button){
             element.classList.add("bookmark-btn");
             if (count == 0){
                 element.innerHTML = "bookmark_add";
+                element.classList.remove("material-icons-round");
+                element.classList.add("material-icons-outlined");
             }
             
             if (count == 1){

@@ -55,23 +55,15 @@
                     aria-selected="false">Latest</button>
             </li>
         </ul>
-
-        <div class="tab-content posts reportable" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
-                <section id="trending-posts"></section>
-                <div id="more-trending" data-page="1" class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-light d-block load-btn">Load more</button>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
-                <section id="latest-posts"></section>
-                <div id="more-latest" data-page="1" class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-light d-block load-btn">Load more</button>
-                </div>
-            </div>
-        </div>
     </section>
-    
+
+    <section id="content" class="posts reportable"></section>
+    <div id="spinner" class="d-flex justify-content-center mt-5">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
 </section>
 @include('partials.report_topic')
 @include('partials.footer')

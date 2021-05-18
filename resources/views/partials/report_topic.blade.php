@@ -11,26 +11,26 @@
                     <p class="game-quote-origin">– Mortal Kombat </p> <!--Rotating Game Quotes-->
                     <div class="form-check" >
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios1" value="Inapropriate topic name" >
-                            <label class="form-check-label" for="exampleRadios1">
+                            <input class="form-check-input" type="radio" name="option" id="topicRadios1" value="Inapropriate topic name" >
+                            <label class="form-check-label" for="topicRadios1">
                                 Inapropriate topic name
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="Not gaming related" >
-                            <label class="form-check-label" for="exampleRadios2">
+                            <input class="form-check-input" type="radio" name="option" id="topicRadios2" value="Not gaming related" >
+                            <label class="form-check-label" for="topicRadios2">
                                 Not gaming related  
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios3" value="Typo in name" >
-                            <label class="form-check-label" for="exampleRadios3">
+                            <input class="form-check-input" type="radio" name="option" id="topicRadios3" value="Typo in name" >
+                            <label class="form-check-label" for="topicRadios3">
                                 Typo in name
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="radio" name="option" id="exampleRadios4" value="Other issues" >
-                            <label class="form-check-label" for="exampleRadios4">
+                            <input class="form-check-input" type="radio" name="option" id="topicRadios4" value="Other issues" >
+                            <label class="form-check-label" for="topicRadios4">
                                 Other issues
                             </label>
                         </div>

@@ -8,7 +8,7 @@ let commentId;
 
 reports.forEach(report => {
     report.addEventListener("click", function(event){
-        
+        console.log("Ola")
         let report_b = event.target.closest(".report-b");
         if (report_b!=null){
             let profile_report = event.target.closest(".report-profile");
@@ -70,7 +70,9 @@ report_submits.forEach(report_submit =>{
         let post_report = event.target.closest("#postReport");
 
         if(post_report != null){
+            console.log(post_report.parentNode)
             reportPost(post_report);
+            
             return;
         }
     })
@@ -96,7 +98,10 @@ function selectComment(comment){
 function reportProfile(profile_report){
     const report_form = profile_report.closest(".reportForm");
     const route = "/api/member/" + member_id + "/report";
+    let option = report_form.querySelector('input[name="option"]:checked');
     let content = report_form.querySelector('input[name="option"]:checked').value;
+    profile_report.closest(".modal").modal('toggle');
+    option.checked=false;
     const data = {report: content}
 
     sendAjaxRequest("POST", route, data, function(){}, loadError)
@@ -104,24 +109,36 @@ function reportProfile(profile_report){
 function reportTopic(topic_report){
     const report_form = topic_report.closest(".reportForm");
     const route = "/api/topic/" + topic_id + "/report";
+    let option = report_form.querySelector('input[name="option"]:checked');
     let content = report_form.querySelector('input[name="option"]:checked').value;
+    topic_report.closest(".modal").modal('toggle');
+    option.checked=false;
     const data = {report: content}
     sendAjaxRequest("POST", route, data, function(){}, loadError)
 }
 function reportComment(comment_report){
     const report_form = comment_report.closest(".reportForm");
     const route = "/api/comment/" + comment_id + "/report";
+    let option = report_form.querySelector('input[name="option"]:checked');
     let content = report_form.querySelector('input[name="option"]:checked').value;
+    comment_report.closest(".modal").modal('toggle');
+    option.checked=false;
     const data = {report: content}
     sendAjaxRequest("POST", route, data, function(){}, loadError)
 }
 function reportPost(post_report){
     const report_form = post_report.closest(".reportForm");
     const route = "/api/post/" + post_id + "/report"
+    let option = report_form.querySelector('input[name="option"]:checked');
     let content = report_form.querySelector('input[name="option"]:checked').value;
+    post_report.closest(".modal").modal('toggle');
+    option.checked=false;
     const data = {report: content}
     sendAjaxRequest("POST", route, data, function(){}, loadError)
 }
+
+
+
 
 
 function loadError(response) {

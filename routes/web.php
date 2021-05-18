@@ -49,7 +49,7 @@ Route::get('/topic/{name}', 'TopicController@show')->name('topic');
 
 Route::get('/api/topic/{name}/posts/{content}/{page}', 'TopicController@content');
 
-Route::post('/api/post/{id_post}/report', 'PostController@report')->middleware('auth');
+Route::post('/api/topic/{id_topic}/report', 'TopicController@report')->middleware('auth');
 
 //Topic Follow
 Route::post('/api/topic/{id_topic}/follow', 'TopicController@follow')->middleware('auth');
