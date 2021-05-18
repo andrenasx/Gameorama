@@ -362,7 +362,12 @@ class MemberController extends Controller
 
 
     public function report($id_member, Request $request){
-
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        DB::table('member_report')->insert([
+            'id_reporter' => Auth::user()->id,
+            'id_reported' => $id_member,
+            'body' => $request->input('report')
+        ]);
     }
 
 }

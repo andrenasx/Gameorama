@@ -3,10 +3,11 @@
 @section('content')
     @include('partials.navbar')
     @push('scripts')
-        <script defer src={{ asset('js/ajax.js') }}></script>
-        <script defer src={{ asset('js/home.js') }}></script>
-        <script defer src={{ asset('js/voting.js') }}></script>
-        <script defer src={{ asset('js/bookmark.js') }}></script>
+        <script defer src = {{ asset('js/ajax.js') }}></script>
+        <script defer src = {{ asset('js/home.js') }}></script>
+        <script defer src = {{ asset('js/voting.js') }}></script>
+        <script defer src = {{ asset('js/bookmark.js') }}></script>
+        <script defer src = {{ asset('js/report.js') }}></script>
     @endpush
     <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4 reportable">
         <div class="row justify-content-evenly g-0">

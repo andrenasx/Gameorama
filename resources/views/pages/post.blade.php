@@ -6,7 +6,8 @@
         <script defer src = {{asset("js/ajax.js")}}></script>
         <script defer src = {{asset("js/voting.js")}}></script>
         <script defer src = {{asset("js/comments.js")}}></script>
-        <script defer src={{ asset('js/bookmark.js') }}></script>
+        <script defer src = {{ asset('js/bookmark.js') }}></script>
+        <script defer src = {{ asset('js/report.js') }}></script>
     @endpush
     <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}} > 
         <section class="news-card mb-3 p-4 posts"> 

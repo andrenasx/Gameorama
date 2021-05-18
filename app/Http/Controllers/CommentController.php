@@ -228,7 +228,12 @@ class CommentController extends Controller
     }
 
     public function report($id_comment, Request $request){
-        
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        DB::table('comment_report')->insert([
+            'id_reporter' => Auth::user()->id,
+            'id_comment' => $id_comment,
+            'body' => $request->input('report')
+        ]);
     }
 
 

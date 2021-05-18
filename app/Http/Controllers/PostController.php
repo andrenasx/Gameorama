@@ -274,6 +274,11 @@ class PostController extends Controller
 
     
     public function report($id_post, Request $request){
-
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        DB::table('post_report')->insert([
+            'id_reporter' => Auth::user()->id,
+            'id_post' => $id_post,
+            'body' => $request->input('report')
+        ]);
     }
 }

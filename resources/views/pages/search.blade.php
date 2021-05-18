@@ -2,9 +2,10 @@
 @section('content')
     @include('partials.navbar')
     @push('scripts')
-        <script defer src={{ asset('js/ajax.js') }}></script>
-        <script defer src={{ asset('js/search.js') }}></script>
-        <script defer src={{ asset('js/search_follows.js') }}></script>
+        <script defer src = {{ asset('js/ajax.js') }}></script>
+        <script defer src = {{ asset('js/search.js') }}></script>
+        <script defer src = {{ asset('js/search_follows.js') }}></script>
+        <script defer src = {{ asset('js/report.js') }}></script>
     @endpush
 <section class="container g-0 mx-auto my-4 col-lg-7 ">
     <header class="p-4 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">

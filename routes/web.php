@@ -49,7 +49,7 @@ Route::get('/topic/{name}', 'TopicController@show')->name('topic');
 
 Route::get('/api/topic/{name}/posts/{content}/{page}', 'TopicController@content');
 
-Route::post('api/post/{id_post}/report', 'PostController@report')->middleware('auth');
+Route::post('/api/post/{id_post}/report', 'PostController@report')->middleware('auth');
 
 //Topic Follow
 Route::post('/api/topic/{id_topic}/follow', 'TopicController@follow')->middleware('auth');
@@ -94,7 +94,7 @@ Route::delete('/api/member/{username}/follow', 'MemberController@unfollow')->mid
 //  Member content
 Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content');
 
-Route::post('api/member/{id_member}/report', 'MemberController@report')->middleware('auth');
+Route::post('/api/member/{id_member}/report', 'MemberController@report')->middleware('auth');
 
 
 // Post
@@ -104,7 +104,7 @@ Route::post('/post/create', 'PostController@store')->name('store_post');
 
 Route::get('/post/{id_post}', 'PostController@show')->name('post');
 
-Route::post('api/post/{id_post}/report', 'PostController@report')->middleware('auth');
+Route::post('/api/post/{id_post}/report', 'PostController@report')->middleware('auth');
 
 //Post Bookmark
 Route::post('/api/post/{id_post}/bookmark', 'PostController@bookmark')->middleware('auth');
@@ -114,7 +114,7 @@ Route::delete('/api/post/{id_post}/bookmark', 'PostController@removeBookmark')->
 
 //Comment
 
-Route::post('api/comment/{id_comment}/report', 'CommentController@report')->middleware('auth');
+Route::post('/api/comment/{id_comment}/report', 'CommentController@report')->middleware('auth');
 
 // Static
 Route::get('/404', function () {

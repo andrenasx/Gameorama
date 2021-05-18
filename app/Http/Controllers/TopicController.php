@@ -195,7 +195,12 @@ class TopicController extends Controller
 
 
     public function report($id_topic, Request $request){
-
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        DB::table('topic_report')->insert([
+            'id_reporter' => Auth::user()->id,
+            'id_topic' => $id_topic,
+            'body' => $request->input('report')
+        ]);
     }
 
 
