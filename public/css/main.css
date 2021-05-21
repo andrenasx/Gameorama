@@ -276,7 +276,7 @@ img.img-logo {
 }
 
 .bookmark{
-    font-family: 'Material Icons Outlined'!important;; 
+    font-family: 'Material Icons Outlined'!important;;
     color: black;
     border: none;
     transition: 0.15s all ease-in;
@@ -295,7 +295,7 @@ img.img-logo {
 
 .bookmarked{
     font-family: 'Material Icons Round'!important;;
-    color: black;
+    color: var(--bsBlue);
     border: none;
     cursor: pointer;
 }

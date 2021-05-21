@@ -80,7 +80,7 @@ start();
 window.addEventListener('scroll', () => {
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
 
-    if ((scrollTop + clientHeight >= scrollHeight - 600) && querying) {
+    if ((scrollTop + clientHeight >= scrollHeight - 800) && querying) {
         loadContent();
     }
 }, {
@@ -93,7 +93,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
     let classList = event.target.classList
     let profile_comment = event.target.closest("div.profile-comment")
     console.log(profile_comment)
-    
+
     if (classList.contains("upvote")) {
         let id_comment = event.target.closest(".comment-voting").getAttribute("data-id")
         const route = "/api/comment/" + id_comment + "/vote"

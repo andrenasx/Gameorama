@@ -9,8 +9,8 @@
         <script defer src = {{ asset('js/bookmark.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
     @endpush
-    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}} > 
-        <section class="news-card mb-3 p-4 posts"> 
+    <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}} >
+        <section class="news-card mb-3 p-4 posts">
             <header class="row news-card-header">
                 @guest
                 <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
@@ -28,14 +28,14 @@
                     </ul>
                 </div>
                 @endguest
-        
+
                 @auth
                 <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
                     <ul class="list-unstyled mb-0">
                         <li>
                             @if (Auth::user()->hasVotedPost($post->id) != null && Auth::user()->hasVotedPost($post->id)->upvote == 1)
                                 <span class="upvote voted material-icons-round d-flex justify-content-center">north</span>
-                            @else    
+                            @else
                                 <span class="upvote material-icons-round d-flex justify-content-center">north</span>
                             @endif
                         </li>
@@ -48,7 +48,7 @@
                             @else
                                 <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                             @endif
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -112,10 +112,10 @@
                         <p class="card-text mt-3 px-lg-5">{!!$post->body!!}</p>
                     </div>
                     <div class="row mt-4 news-card-options  reportable" >
-                        <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
+                        <a href="#comments" class="col d-flex justify-content-center btn-outline-blue border-end border-2">
                             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
                             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
-                        </div>
+                        </a>
                         @auth
                             @if ($post->isBookmarked(Auth::user()->id) === null)
                                 <div class="col d-flex justify-content-center border-end border-2 bookmark bookmark-btn" data-id = {{$post->id}}>
@@ -129,7 +129,7 @@
                                 </div>
                             @endif
                         @endauth
-                        
+
                         <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-id={{$post->id}}
                             data-bs-target="#reportPost">
                             <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id={{$post->id}}>flag</span>
@@ -140,8 +140,8 @@
         </section>
 
 
-        <section class="comments p-2 px-sm-4 mt-3 ">
-            <section class="row g-0 mb-4" data-id = {{$post->id}} id = "new-comment-section">
+        <section id="comments" class="comments p-2 px-sm-4 mt-3 ">
+            <section class="row g-0 mb-4" data-id="{{$post->id}}" id="new-comment-section">
                 <div class="md-form amber-textarea active-amber-textarea px-0 ">
                     <textarea class="form-control" id = "comment_content" name="comment" rows="4" placeholder="Leave a comment"></textarea>
                     <button type="button" id = "make_comment_button" class="btn btn-primary mt-2 float-end">Add Comment</button>
@@ -154,8 +154,8 @@
                 @endforeach
             </section>
         </section>
-        
-        
+
+
     </section>
     @include('partials.report_comment')
     @include('partials.footer')

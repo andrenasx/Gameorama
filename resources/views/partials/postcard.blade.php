@@ -36,12 +36,12 @@
                     @else
                         <span class="downvote material-icons-round d-flex justify-content-center">south</span>
                     @endif
-                    
+
                 </li>
             </ul>
         </div>
         @endauth
-        
+
         <div class="post-header col me-2">
             <h6 class="post-topics">Topics:
                 @foreach ($post->topics as $topic)
@@ -53,12 +53,12 @@
                 <small>{{$post->get_time()}}</small>
             </div>
             <h4 class="post-title-smaller">
-                <a href="/post/{{$post->id}}" class="post-title black-a">{{$post->title}}</a>
+                <a href="{{ route('post', ['id_post' => $post->id]) }}" class="post-title black-a">{{$post->title}}</a>
             </h4>
         </div>
     </header>
     <div class="news-card-body">
-        <a href="/post/{{$post->id}}" class="black-a">
+        <a href="{{ route('post', ['id_post' => $post->id]) }}" class="black-a">
             @if ($post->images->count () > 0)
             <img class="img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
                 src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
@@ -67,10 +67,10 @@
         </a>
     </div>
     <div class="row g-0 mt-4 news-card-options" data-id={{$post->id}} >
-        <div class="col d-flex justify-content-center btn-outline-blue border-end border-2">
+        <a href="{{ route('post', ['id_post' => $post->id]).'#comments' }}" class="col d-flex justify-content-center btn-outline-blue border-end border-2">
             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
-        </div>
+        </a>
         @auth
             @if ($post->isBookmarked(Auth::user()->id) === null)
                 <div class="col d-flex justify-content-center border-end border-2 bookmark bookmark-btn" data-id = {{$post->id}} >
@@ -83,7 +83,7 @@
                     <span class="d-none d-md-flex bookmarked-btn">Bookmarked</span>
                 </div>
             @endif
-        
+
             @if ($post->owner->isMe(Auth::user()->id))
                 <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                     <span class="material-icons-round">more_horiz</span>
@@ -105,6 +105,5 @@
                 <span class="d-none d-md-flex report-b report-post" data-id= {{$post->id}}> Report</span>
             </div>
         @endguest
-        
     </div>
 </div>

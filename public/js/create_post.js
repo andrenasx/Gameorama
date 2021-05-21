@@ -6,31 +6,45 @@ $('#select2-topics').select2({
     width: '100%'
 });
 
-//CKEDITOR.replace( 'editor-body', { customConfig: '/js/ckeditor4config.js' });
 
-/*ClassicEditor
-    .create( document.querySelector( '#editor-body' ), {
-        placeholder: 'Type here your text',
-        toolbar: {
-            items: [
-                'heading', '|',
-                'bold', 'italic', 'underline', 'strikethrough', 'link', '|',
-                'bulletedList', 'numberedList', '|',
-                'blockQuote'
-            ]
-        },
-        heading: {
-            options: [
-                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h4', title: 'Heading 1', class: 'ck-heading_heading2' },
-                { model: 'heading2', view: 'h5', title: 'Heading 2', class: 'ck-heading_heading3' }
-            ]
-        }
-    })
-    .then( editor => {
-        console.log( Array.from( editor.ui.componentFactory.names() ) );
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );*/
+/*Dropzone.autoDiscover = false;
+var myDropzone = new Dropzone("div#myDropzone", {
+    url: '/post/create',
+    autoProcessQueue: false,
+    uploadMultiple: true,
+    parallelUploads: 10,
+    maxFiles: 10,
+    maxFilesize: 50,
+    acceptedFiles: 'image/*',
+    addRemoveLinks: true,
+    init: function() {
+        dzClosure = this; // Makes sure that 'this' is understood inside the functions below.
+
+        console.log('here')
+        // for Dropzone to process the queue (instead of default form behavior):
+        document.getElementById("submit-all").addEventListener("click", function(e) {
+            // Make sure that the form isn't actually being sent.
+            e.preventDefault();
+            e.stopPropagation();
+            dzClosure.processQueue();
+        });
+
+        //send all the form data along with the files:
+        this.on("sendingmultiple", function(data, xhr, formData) {
+            console.log(formData)
+        });
+    }
+});*/
+
+/* html
+<section id="images">
+    <div id="myDropzone" class="dz-default dz-message myDropzone">
+        <div class="fallback">
+            <input name="file" type="file" multiple />
+        </div>
+    </div>
+    @foreach($errors->get('images') as $error)
+        <li class="error">{{$error}}</li>
+    @endforeach
+</section>
+*/

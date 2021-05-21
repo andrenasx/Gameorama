@@ -76,7 +76,7 @@ start();
 window.addEventListener('scroll', () => {
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
 
-    if ((scrollTop + clientHeight >= scrollHeight - 600) && querying) {
+    if ((scrollTop + clientHeight >= scrollHeight - 800) && querying) {
         loadContent();
     }
 }, {

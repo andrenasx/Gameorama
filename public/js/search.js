@@ -48,7 +48,7 @@ function loadContent() {
 
             if (data.length < 15) {
                 removeSpinner();
-            }   
+            }
 
             let new_div = document.createElement('div');
             new_div.innerHTML = data.join('');
@@ -81,7 +81,7 @@ start();
 window.addEventListener('scroll', () => {
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
 
-    if ((scrollTop + clientHeight >= scrollHeight - 600) && querying) {
+    if ((scrollTop + clientHeight >= scrollHeight - 800) && querying) {
         loadContent();
     }
 }, {
