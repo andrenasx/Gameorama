@@ -102,7 +102,13 @@ Route::get('/post/create', 'PostController@create')->name('create_post');
 
 Route::post('/post/create', 'PostController@store')->name('store_post');
 
+Route::get('/post/{id_post}/edit', 'PostController@edit')->name('edit_post');
+
+Route::patch('/post/{id_post}/edit', 'PostController@update')->name('update_post');
+
 Route::get('/post/{id_post}', 'PostController@show')->name('post');
+
+Route::delete('/api/post/{id_post}', 'PostController@destroy')->name('delete_post');
 
 Route::post('/api/post/{id_post}/report', 'PostController@report')->middleware('auth');
 

@@ -56,7 +56,7 @@ CREATE TABLE news_post (
     id serial PRIMARY KEY,
     title text NOT NULL,
     body text,
-    date_time timestamp NOT NULL DEFAULT now(),
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0),
     aura integer DEFAULT 0 NOT NULL,
     id_owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE,
     search tsvector NOT NULL
@@ -83,7 +83,7 @@ CREATE TABLE post_topic (
 CREATE TABLE comment (
     id serial PRIMARY KEY,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now(),
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0),
     aura integer DEFAULT 0 NOT NULL,
     id_owner integer NOT NULL REFERENCES member(id) ON DELETE CASCADE,
     id_post integer NOT NULL REFERENCES news_post(id) ON DELETE CASCADE
@@ -124,7 +124,7 @@ CREATE TABLE post_bookmark (
 CREATE TABLE follow_notification (
     id_notified integer REFERENCES member(id) ON DELETE CASCADE,
     id_follower integer REFERENCES member(id) ON DELETE CASCADE,
-    date_time timestamp NOT NULL DEFAULT now(),
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0),
     PRIMARY KEY(id_notified, id_follower),
     CONSTRAINT follow_notification_ids CHECK (id_follower <> id_notified)
 );
@@ -132,14 +132,14 @@ CREATE TABLE follow_notification (
 CREATE TABLE comment_notification (
     id_notified integer REFERENCES member(id) ON DELETE CASCADE,
     id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
-    date_time timestamp NOT NULL DEFAULT now(),
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0),
     PRIMARY KEY(id_notified, id_comment)
 );
 
 CREATE TABLE reply_notification (
     id_notified integer REFERENCES member(id) ON DELETE CASCADE,
     id_reply integer REFERENCES reply(id_comment) ON DELETE CASCADE,
-    date_time timestamp NOT NULL DEFAULT now(),
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0),
     PRIMARY KEY(id_notified, id_reply)
 );
 
@@ -148,7 +148,7 @@ CREATE TABLE post_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now()
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0)
 );
 
 CREATE TABLE comment_report (
@@ -156,7 +156,7 @@ CREATE TABLE comment_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_comment integer REFERENCES comment(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now()
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0)
 );
 
 CREATE TABLE topic_report (
@@ -164,7 +164,7 @@ CREATE TABLE topic_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_topic integer REFERENCES topic(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now()
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0)
 );
 
 CREATE TABLE member_report (
@@ -172,7 +172,7 @@ CREATE TABLE member_report (
     id_reporter integer REFERENCES member(id) ON DELETE SET NULL,
     id_reported integer REFERENCES member(id) ON DELETE CASCADE,
     body text NOT NULL,
-    date_time timestamp NOT NULL DEFAULT now(),
+    date_time timestamp NOT NULL DEFAULT now()::timestamp(0),
     CONSTRAINT member_report_ids CHECK (id_reporter <> id_reported)
 );
 
