@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
     @include('partials.navbar')
+    @push('scripts')
+    <script defer src = {{ asset('js/footer.js') }}></script>
+    @endpush
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <header class="p-3 p-lg-5 mb-3 bg-white rounded">
             <h2 class="h2 fw-bold">Administration Area</h2>

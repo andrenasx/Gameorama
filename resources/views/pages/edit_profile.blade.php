@@ -2,13 +2,17 @@
 @section('page-title', 'Edit '.$member->username.'\'s profile | ')
 @section('content')
     @include('partials.navbar')
+    @push('scripts')
+    <script defer src = {{ asset('js/footer.js') }}></script>
+
+    @endpush
     <script defer src="{{ asset('js/edit_profile.js') }}"></script>
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
             <form method="POST" action="{{ route('edit_profile', $member->username) }}" enctype="multipart/form-data"
                   id="edit_form">
                 @csrf
-                {!! method_field('patch') !!}
+                @method('PATCH')
                 <row class="mb-3">
                     <div class="col-12 justify-content-center">
                         <div class="image-container bg2" id="banner_photo_preview"

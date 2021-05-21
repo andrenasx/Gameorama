@@ -243,7 +243,7 @@ class MemberController extends Controller
 
         $member = Member::firstWhere('username', $username);
         if ($member == null) {
-            return view('pages.404');
+            return response()->json('Not found', 404);
         }
 
         if ($request->has('password')) {
@@ -308,14 +308,14 @@ class MemberController extends Controller
         }
     }
 
-    public function follow($username, Request $request) 
+    public function follow($username, Request $request)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $id_member = (Member::firstWhere('username', '=', $username))->id;
         $followingMember = Member::find(Auth::user()->id);
         $followedMember = Member::find($id_member);
-        
-        
+
+
 
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
@@ -337,7 +337,7 @@ class MemberController extends Controller
             ->delete();
         }
 
-        
+
         if ($request->input('userProfile') !== '-1'){
             $id_page = (Member::firstWhere('username', '=', $request->input('userProfile')))->id;
             $pageMember = Member::find($id_page);
@@ -346,7 +346,7 @@ class MemberController extends Controller
             $htmlFollowers = [];
             if ($pageMember !== null){
                 $pageMember = Member::find($id_page);
-            
+
                 foreach ($pageMember->following as $member) {
                     array_push($htmlFollowing, view('partials.profile_card', ['member'=>$member])->render());
                 }

@@ -16,6 +16,7 @@
         <script src="{{ asset('assets/dropzone-5.7.0/dist/dropzone.js') }}"></script>
 
         <script defer src={{ asset('js/create_post.js') }}></script>
+        <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
         <h2 class="h2 fw-bold">Create a Post</h2>

@@ -10,6 +10,7 @@
         <script defer src={{ asset('js/voting.js') }}></script>
         <script defer src={{ asset('js/bookmark.js') }}></script>
         <script defer src={{ asset('js/report.js') }}></script>
+        <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">

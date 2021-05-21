@@ -9,6 +9,7 @@
     <script defer src = {{ asset('js/follow_topic.js') }}></script>
     <script defer src = {{ asset('js/bookmark.js') }}></script>
     <script defer src = {{ asset('js/report.js') }}></script>
+    <script defer src = {{ asset('js/footer.js') }}></script>
 @endpush
 <section class="container g-0 mx-auto my-4 col-lg-7 ">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">

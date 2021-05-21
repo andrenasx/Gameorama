@@ -997,3 +997,61 @@ a.black-a:hover {
 .footer {
     border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+.footer-wrapper {
+    transition: transform 0.4s;
+}  
+.scroll-down .footer-wrapper {
+    transform: translate3d(0, 100%, 0);
+}
+
+.scroll-up .footer-wrapper {
+    transform: none;
+}
+
+
+.scroll-up  .footer-wrapper {
+    background: white;
+    
+  }
+
+
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    padding: 1.1%;
+
+    background: white;
+    transition: transform 0.4s;
+  }
+
+@media (min-width: 992px) {
+    .footer-wrapper {
+        padding: 0.7%;
+      }
+}
+
+@media (max-width: 768px) {
+    .copyright{
+        font-size: 14px;
+
+    }
+}
+
+
+@media (max-width: 574px) {
+    .post-title{
+        font-size: 26px;
+    }
+
+    .copyright{
+        font-size: small;
+
+    }
+}

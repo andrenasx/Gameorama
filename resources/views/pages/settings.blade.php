@@ -5,6 +5,7 @@
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/settings.js') }}></script>
+        <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
 
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">

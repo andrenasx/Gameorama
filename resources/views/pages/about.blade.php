@@ -2,6 +2,9 @@
 @section('page-title', 'About us | ')
 @section('content')
     @include('partials.navbar')
+    @push('scripts')
+    <script defer src = {{ asset('js/footer.js') }}></script>
+    @endpush
     <section class="p-3 p-lg-5 my-4 col-lg-7 bg-white container rounded">
         <h2 class="h2 fw-bold ">About Us</h2>
         <hr class="rounded">

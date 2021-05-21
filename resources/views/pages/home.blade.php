@@ -8,6 +8,8 @@
         <script defer src = {{ asset('js/voting.js') }}></script>
         <script defer src = {{ asset('js/bookmark.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
+        <script defer src = {{ asset('js/footer.js') }}></script>
+        
     @endpush
     <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
         <div class="row justify-content-evenly g-0">
