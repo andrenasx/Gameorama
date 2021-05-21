@@ -20,14 +20,13 @@ body {
     }
 }
 
+textarea {
+    resize: none;
+}
+
 .highlight {
     background-color: #fcc29a;
     padding: 0 0.1em;
-}
-
-.ck-editor__editable {
-    min-height: 150px;
-    max-height: 150px;
 }
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
