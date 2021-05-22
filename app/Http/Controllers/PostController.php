@@ -245,7 +245,6 @@ class PostController extends Controller
             throw $e;
         }
 
-
         // Insert all new Post Topics
         foreach ($request->input('topics') as $name) {
             if (!$post->topics->containsStrict('name', $name)) {
@@ -254,6 +253,25 @@ class PostController extends Controller
 
                     $id_topic = Topic::firstWhere('name', $name)->id;
                     DB::table('post_topic')->insert(['id_post' => $post->id, 'id_topic' => $id_topic]);
+                } catch (ValidationException $e) {
+                    DB::rollBack();
+                    return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+                } catch (\Exception $e) {
+                    DB::rollBack();
+                    throw $e;
+                }
+            }
+        }
+
+        foreach ($post->topics as $topic) {
+            if(!in_array($topic->name, $request->input('topics'))) {
+                try {
+                    DB::table('post_topic')->where(['id_post' => $post->id, 'id_topic' => $topic->id])->delete();
+
+                    // TODO Delete topic if no posts?
+                    /*if ($topic->posts->count() === 0) {
+                        $topic->delete();
+                    }*/
                 } catch (ValidationException $e) {
                     DB::rollBack();
                     return back()->withErrors(['dberror' => $e->getMessage()])->withInput();

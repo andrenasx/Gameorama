@@ -110,7 +110,7 @@
                         @endif
                     </div>
                     @endif
-                        <p class="card-text mt-3 px-lg-5">{!!$post->body!!}</p>
+                        <div class="card-text mt-3 px-lg-4">{!!$post->body!!}</div>
                     </div>
                     <div class="row mt-4 news-card-options  reportable" >
                         <a href="#comments" class="col d-flex justify-content-center btn-outline-blue border-end border-2">

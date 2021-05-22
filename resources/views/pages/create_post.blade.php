@@ -10,13 +10,15 @@
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+        <!-- TinyMCE -->
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
         <!-- Dropzone -->
         <link href="{{ asset('assets/dropzone-5.7.0/dist/min/dropzone.min.css') }}" rel="stylesheet"/>
         <script src="{{ asset('assets/dropzone-5.7.0/dist/dropzone.js') }}"></script>
 
-        <script defer src={{ asset('js/create_post.js') }}></script>
-        <script defer src = {{ asset('js/footer.js') }}></script>
+        <script type="text/javascript" defer src={{ asset('js/create_post.js') }}></script>
+        <script type="text/javascript" defer src={{ asset('js/footer.js') }}></script>
     @endpush
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
         <h2 class="h2 fw-bold">Create a Post</h2>
@@ -35,7 +37,7 @@
 
                 <section id="body" class="mb-5">
                     <label for="editor-body" class="h5 form-label">Body</label><span> (optional)</span>
-                    <textarea class="form-control" id="editor-body" name="body" rows="5">{{ old('body') }}</textarea>
+                    <textarea class="form-control" id="editor-body" name="body">{{ old('body') }}</textarea>
                     @foreach($errors->get('body') as $error)
                         <li class="error">{{$error}}</li>
                     @endforeach
