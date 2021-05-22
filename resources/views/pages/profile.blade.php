@@ -20,7 +20,7 @@
                          style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover">
                         <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar">
                     </div>
-                    <row class="d-flex justify-content-end col-12 reportable"  >
+                    <row class="d-flex justify-content-end col-12 reportable">
                         @auth
                             @if ($member->isMe(Auth::user()->id))
                                 <button type="button" class="btn d-flex align-content-center mt-1 me-1">
@@ -65,12 +65,12 @@
                 <section class="follow_stats pb-3">
                     <div class="row g-0 d-flex justify-content-around">
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile button-following" data-bs-toggle="modal" data-id = {{$member->username}}
+                            <button type="button" class="text-button-profile button-following" data-bs-toggle="modal" data-id = {{$member->id}}
                                     data-bs-target="#modalFollowing">{{$member->following->count()}} Following
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile button-followers" data-bs-toggle="modal" data-id = {{$member->username}}
+                            <button type="button" class="text-button-profile button-followers" data-bs-toggle="modal" data-id = {{$member->id}}
                                     data-bs-target="#modalFollowers">{{$member->followers->count()}} Followers
                             </button>
                         </div>

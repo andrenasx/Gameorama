@@ -155,12 +155,11 @@ class TopicController extends Controller
     }
 
     public function follow($id_topic, Request $request){
-        Log::debug($id_topic);
-        Log::debug($request);
-    
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
         $topic = Topic::find($id_topic);
+
+        $member = Member::find($request->userProfile);
 
         $follow = $topic->isFollowed(Auth::user()->id);
         
@@ -170,27 +169,27 @@ class TopicController extends Controller
                 'id_member' => Auth::user()->id,
             ]);
         }
-        else {
+
+        return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => $member->topics->count()));
+    }
+
+    public function unfollow($id_topic, Request $request){
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+
+        $topic = Topic::find($id_topic);
+
+        $member = Member::find($request->userProfile);
+
+        $follow = $topic->isFollowed(Auth::user()->id);
+        
+        if ($follow !== null) {
             DB::table('topic_follow')
             ->where('id_topic', '=', $id_topic)
             ->where('id_member', '=', Auth::user()->id)
             ->delete();
         }
 
-        
-        $htmlFollowedTopics = [];
-        if ($request->input('userProfile') !== '-1'){
-            $pageMember = Member::find($request->input('userProfile'));
-            foreach ($pageMember->topics as $topic) {
-                array_push($htmlFollowedTopics, view('partials.topic_card', ['topic'=>$topic])->render());
-            }
-            return response()->json(array('followers' => $topic->followers->count(), 'htmlFollowedTopics' => $htmlFollowedTopics, 'followedTopics' => $pageMember->topics->count()));
-        }
-        
-    
-        return response()->json(array('followers' => $topic->followers->count(), 'htmlFollowedTopics' => $htmlFollowedTopics, ));
-    
-
+        return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => $member->topics->count()));
     }
 
 

@@ -11,7 +11,7 @@
         <div class="row g-0 d-flex justify-content-end">
             @auth
                 @if (($topic->isFollowed(Auth::user()->id)) != null)
-                    <button type="button" class="following-button btn btn-outline-primary col-12 mb-1 topic-follow-button"  data-id = {{$topic->id}} ></button>
+                    <button type="button" class="following-button btn btn-outline-primary col-12 mb-1 topic-following-button"  data-id = {{$topic->id}} ></button>
                 @else
                     <button type="button" class="follow-button btn btn-outline-primary col-12 mb-1 topic-follow-button"  data-id = {{$topic->id}} ></button>
                 @endif

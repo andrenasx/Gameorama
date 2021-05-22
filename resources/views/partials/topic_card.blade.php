@@ -4,7 +4,7 @@
             style="width:50px;height:50px;" alt="">
         <div class="ms-2">
             <h1 class="h5 fw-normal"><a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a></h1>
-            <p class="h6 fw-normal">{{$topic->followers->count()}} Followers</p>
+            <p class="h6 fw-normal" id="topic_followers" data_id={{$topic->id}}>{{$topic->followers->count()}} Followers</p>
         </div>
     </div>
     <div>

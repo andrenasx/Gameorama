@@ -96,6 +96,10 @@ Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content'
 
 Route::post('/api/member/{id_member}/report', 'MemberController@report')->middleware('auth');
 
+//Member modals
+Route::post('/api/member/{id_member}/following', 'MemberController@getFollowingModal')->middleware('auth');
+Route::post('/api/member/{id_member}/followers', 'MemberController@getFollowersModal')->middleware('auth');
+Route::post('/api/member/{id_member}/followedTopics', 'MemberController@getFollowedTopicsModal')->middleware('auth');
 
 // Post
 Route::get('/post/create', 'PostController@create')->name('create_post');

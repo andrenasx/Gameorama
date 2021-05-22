@@ -14,13 +14,13 @@
 <section class="container g-0 mx-auto my-4 col-lg-7 ">
     <header class="p-3 p-lg-5 mb-3 bg-white rounded" style="height:fit-content">
         <h3 class="mb-3 color-orange">Topic Page</h3>
-        <section class="row g-0 align-items-center">
+        <section class="row g-0 align-items-center" id="topic-info">
             <div class="col-md-10 col-8">
                 <div class="row g-0">
                     <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" class = "rounded-circle col-2 px-0" alt="" style = "max-width: 100px">
                     <div class="col-10 px-3 my-auto d-flex flex-column">
                         <h3 class="h2 fw-bold" id="topic_name">{{$topic->name}}</h3>
-                        <h5 id="topic_followers">{{$topic->followers->count()}} Followers</h5>
+                        <h5 id="topic_followers" data_id={{$topic->id}}>{{$topic->followers->count()}} Followers</h5>
                     </div>
                 </div>
             </div>

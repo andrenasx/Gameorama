@@ -7,7 +7,7 @@
                         class="material-icons-round">close</span></button>
             </div>
             <div class="modal-body">
-                <div class="profiles-container container-following">
+                <div class="profiles-container container-member container-following">
                     @foreach ($following as $member)
                         @include('partials.profile_card',['member'=>$member])
                     @endforeach
