@@ -63,7 +63,7 @@
             <img class="img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
                 src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
             @endif
-            <p class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</p>
+            <div class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</div>
         </a>
     </div>
     <div class="row g-0 mt-4 news-card-options" data-id={{$post->id}} >

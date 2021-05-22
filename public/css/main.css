@@ -76,8 +76,6 @@ textarea {
 
 .form-control {
     width: 100%;
-    width: 100%;
-    width: 100%;
 }
 
 .fa fa-search {
@@ -89,8 +87,29 @@ textarea {
 }
 
 
+.navbar-placeholder{
+    background: transparent;
+    margin-bottom: 63px;
+    width: 100%;
+    display: flex;
+    
+}
+@media (max-width: 992px) {
+    .navbar-placeholder{
+        margin-bottom: 52px;
+    }
+}
+@media (max-width: 576px) {
+    .navbar-placeholder{
+        margin-bottom: 45px;
+    }
+}
+
 #navbar {
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index:2;
 }
 
 #search_bar_form.form-floating > .form-control:focus ~ label {
@@ -994,11 +1013,6 @@ a.black-a:hover {
     }
 }
 
-.footer {
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-
 
 
 .footer-wrapper {
@@ -1031,16 +1045,22 @@ a.black-a:hover {
     transition: transform 0.4s;
   }
 
+.footer-placeholder {
+    display: flex;
+    padding: 1.1%;
+    background: transparent;
+    border-color: transparent;
+}
+
 @media (min-width: 992px) {
     .footer-wrapper {
         padding: 0.7%;
-      }
+    }
 }
 
 @media (max-width: 768px) {
     .copyright{
         font-size: 14px;
-
     }
 }
 
@@ -1052,6 +1072,5 @@ a.black-a:hover {
 
     .copyright{
         font-size: small;
-
     }
 }
