@@ -1,3 +1,6 @@
+<nav class= "navbar-placeholder row g-0">
+    <div class="col-12"></div>
+</nav>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
         <div class="col-1 ps-lg-2" id="Logo" onclick="window.location.href='{{ route('home') }}'" style="cursor:pointer;">
