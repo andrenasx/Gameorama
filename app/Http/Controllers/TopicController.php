@@ -159,8 +159,6 @@ class TopicController extends Controller
 
         $topic = Topic::find($id_topic);
 
-        $member = Member::find($request->userProfile);
-
         $follow = $topic->isFollowed(Auth::user()->id);
         
         if ($follow === null) {
@@ -169,16 +167,23 @@ class TopicController extends Controller
                 'id_member' => Auth::user()->id,
             ]);
         }
+        
+        Log::debug($request);
 
-        return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => $member->topics->count()));
+        if ($request->input('userProfile') !== 'null'){
+            $member = Member::find($request->input('userProfile'));
+            return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => $member->topics->count()));
+        }
+        else{
+            return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => null));
+        }
+        
     }
 
     public function unfollow($id_topic, Request $request){
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
         $topic = Topic::find($id_topic);
-
-        $member = Member::find($request->userProfile);
 
         $follow = $topic->isFollowed(Auth::user()->id);
         
@@ -189,7 +194,15 @@ class TopicController extends Controller
             ->delete();
         }
 
-        return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => $member->topics->count()));
+        Log::debug($request);
+
+        if ($request->input('userProfile') !== 'null'){
+            $member = Member::find($request->input('userProfile'));
+            return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => $member->topics->count()));
+        }
+        else{
+            return response()->json(array('followers' => $topic->followers->count(), 'followedTopics' => null));
+        }
     }
 
 
