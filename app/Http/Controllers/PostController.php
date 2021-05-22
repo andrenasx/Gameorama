@@ -325,6 +325,8 @@ class PostController extends Controller
             return response()->json('Not found', 404);
         }
 
+        Storage::makeDirectory('public/posts/' . $id_post);
+
         $post->delete();
     }
 

@@ -254,6 +254,8 @@ class MemberController extends Controller
             Auth::logout();
         }
 
+        Storage::deleteDirectory('public/members/'.$member->id);
+
         $member->delete();
     }
 
