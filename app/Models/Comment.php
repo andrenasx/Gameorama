@@ -71,4 +71,14 @@ class Comment extends Model
         $time = Carbon::createFromFormat('Y-m-d H:i:s', $this->date_time);
         return $time->diffForHumans();
     }
+
+        /**
+     * Get all of the comments for the NewsPost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reports()
+    {
+        return $this->hasMany(CommentReport::class, 'id_comment');
+    }
 }

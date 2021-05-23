@@ -416,4 +416,13 @@ class MemberController extends Controller
         ]);
     }
 
+    public function dismiss($username)
+    {
+        $id_member = Member::firstWhere('username', $username)->id;
+        
+        DB::table('member_report')->where('id_reported', '=', $id_member)
+        ->delete();
+    }
+
+
 }

@@ -5,11 +5,18 @@
     @push('scripts')
         <script defer src = {{ asset('js/ajax.js') }}></script>
         <script defer src = {{ asset('js/home.js') }}></script>
+        @auth
         <script defer src = {{ asset('js/voting.js') }}></script>
         <script defer src = {{ asset('js/bookmark.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
-        <script defer src = {{ asset('js/footer.js') }}></script>
+        @endauth
         
+        @guest
+        <script defer src = {{ asset('js/login_required.js') }}></script>
+        @endguest
+
+        <script defer src = {{ asset('js/footer.js') }}></script>
+
     @endpush
     <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
         <div class="row justify-content-evenly g-0">
@@ -79,6 +86,9 @@
         </div>
         
     </section>
-    @include('partials.report_post')
+    @auth
+        @include('partials.report_post')
+    @endauth
     @include('partials.footer')
+    @include('partials.login_required')
 @endsection

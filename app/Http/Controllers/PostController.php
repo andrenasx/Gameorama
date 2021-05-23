@@ -391,4 +391,10 @@ class PostController extends Controller
             'body' => $request->input('report')
         ]);
     }
+
+    public function dismiss($id_post)
+    {
+        DB::table('post_report')->where('id_post', '=', $id_post)
+        ->delete();
+    }
 }

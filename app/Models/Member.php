@@ -147,4 +147,9 @@ class Member extends Authenticatable
         ->where('id_followed','=',$this->id)
         ->first();
     }
+
+    public function reports()
+    {
+        return $this->hasMany(MemberReport::class, 'id_reported');
+    }
 }

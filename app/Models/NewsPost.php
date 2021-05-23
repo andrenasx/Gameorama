@@ -71,6 +71,16 @@ class NewsPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function reports()
+    {
+        return $this->hasMany(PostReport::class, 'id_post');
+    }
+
+    /**
+     * Get all of the comments for the NewsPost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function parentComments()
     {
         $parentComments = [];
@@ -115,6 +125,7 @@ class NewsPost extends Model
         ->where('id_bookmarker','=',$id_member)
         ->where('id_post','=',$this->id)
         ->first();
-
     }
+
+
 }

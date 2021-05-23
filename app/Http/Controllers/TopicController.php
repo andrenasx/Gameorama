@@ -88,9 +88,12 @@ class TopicController extends Controller
      * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Topic $topic)
+    public function destroy($id_topic)
     {
         //
+        $topic = Topic::find($id_topic);
+        $topic->delete();
+
     }
 
     public function content($name, $content, $page)
@@ -215,6 +218,10 @@ class TopicController extends Controller
         ]);
     }
 
-
+    public function dismiss($id_topic)
+    {
+        DB::table('topic_report')->where('id_topic', '=', $id_topic)
+        ->delete();
+    }
 
 }

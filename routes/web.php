@@ -126,6 +126,8 @@ Route::delete('/api/post/{id_post}/bookmark', 'PostController@removeBookmark')->
 
 Route::post('/api/comment/{id_comment}/report', 'CommentController@report')->middleware('auth');
 
+Route::delete("/api/topic/{id_topic}", "TopidController@destroy");
+
 // Static
 Route::get('/404', function () {
     return view('pages.404');
@@ -138,3 +140,15 @@ Route::fallback(function() {
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
+
+
+//  Administration Area
+Route::get('/admin', 'AdminController@show');
+
+Route::delete('/api/post/{id_post}/dismiss', 'PostController@dismiss');
+
+Route::delete('/api/comment/{id_comment}/dismiss', 'CommentController@dismiss');
+
+Route::delete('/api/topic/{id_topic}/dismiss', 'TopicController@dismiss');
+
+Route::delete('/api/member/{username}/dismiss', 'MemberController@dismiss');

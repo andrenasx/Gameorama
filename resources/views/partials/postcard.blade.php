@@ -100,6 +100,10 @@
             @endif
         @endauth
         @guest
+            <div class="col d-flex justify-content-center border-end border-2 bookmark bookmark-btn" data-id = {{$post->id}} >
+                <span class="material-icons-outlined align-middle me-1 bookmark-btn">bookmark_add</span>
+                <span class="d-none d-md-flex bookmark-btn">Bookmark</span>
+            </div>
             <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
                 <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id= {{$post->id}}>flag</span>
                 <span class="d-none d-md-flex report-b report-post" data-id= {{$post->id}}> Report</span>

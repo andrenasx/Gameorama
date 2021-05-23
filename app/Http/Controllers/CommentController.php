@@ -236,5 +236,10 @@ class CommentController extends Controller
         ]);
     }
 
+    public function dismiss($id_comment)
+    {
+        DB::table('comment_report')->where('id_comment', '=', $id_comment)
+        ->delete();
+    }
 
 }

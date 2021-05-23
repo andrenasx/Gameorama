@@ -51,4 +51,14 @@ class Topic extends Model
         ->where('id_member','=',$id_member)
         ->first();
     }
+
+        /**
+     * Get all of the comments for the NewsPost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reports()
+    {
+        return $this->hasMany(TopicReport::class, 'id_topic');
+    }
 }

@@ -125,17 +125,39 @@
                                 </div>
                             @else
                                 <div class="col d-flex justify-content-center bookmarked border-end border-2 bookmarked bookmarked-btn" data-id = {{$post->id}}>
-                                    <span class="material-icons-outlined align-middle me-1 bookmarked-btn">bookmark_remove</span>
-                                    <span class="d-none d-md-flex bookmarked-btn">Remove Bookmark</span>
+                                    <span class="material-icons-round align-middle me-1 bookmarked-btn">bookmark_remove</span>
+                                    <span class="d-none d-md-flex bookmarked-btn">Bookmarked</span>
+                                </div>
+                            @endif
+
+                            @if ($post->owner->isMe(Auth::user()->id))
+                                <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
+                                    <span class="material-icons-round">more_horiz</span>
+                                </div>
+                                <ul class="dropdown-menu more-horizontal col-1" aria-labelledby="more-horizontal" >
+                                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                                </ul>
+                            @else
+                                <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
+                                    <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id= {{$post->id}}>flag</span>
+                                    <span class="d-none d-md-flex report-b report-post" data-id= {{$post->id}}> Report</span>
                                 </div>
                             @endif
                         @endauth
 
-                        <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-id={{$post->id}}
-                            data-bs-target="#reportPost">
-                            <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id={{$post->id}}>flag</span>
-                            <span class="d-none d-md-flex report-b report-post" data-id={{$post->id}}> Report</span>
-                        </div>
+                        @guest
+                            <div class="col d-flex justify-content-center border-end border-2 bookmark bookmark-btn" data-id = {{$post->id}}>
+                                <span class="material-icons-outlined align-middle me-1 bookmark-btn">bookmark_add</span>
+                                <span class="d-none d-md-flex bookmark-btn">Bookmark</span>
+                            </div>
+                            <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-id={{$post->id}}
+                                data-bs-target="#reportPost">
+                                <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id={{$post->id}}>flag</span>
+                                <span class="d-none d-md-flex report-b report-post" data-id={{$post->id}}> Report</span>
+                            </div>
+                        @endguest
+
                         @include('partials.report_post')
                     </div>
         </section>
