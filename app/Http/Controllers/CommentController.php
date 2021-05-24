@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\CommentNotification;
+use App\Notifications\ReplyNotification;
 use Illuminate\Http\Request;
 use App\Models\NewsPost;
 use App\Models\Comment;
@@ -33,21 +35,22 @@ class CommentController extends Controller
             'date_time' => now(),
             'aura' => 0,
             'id_owner' => Auth::user()->id,
-            'id_post' => $id_post 
+            'id_post' => $id_post
         ]);
     }
 
-    public function comment($id_post, Request $request) 
+    public function comment($id_post, Request $request)
     {
         $post = NewsPost::find($id_post);
         if ($post == null) {
             return response()->json('Post not found', 404);
         }
-        
+
         $comment = $this->create($request->input('comment'), $post->id);
         $comment->save();
         $comment = $comment->fresh(); //refresh model
         $html = view('partials.comment', ['comment' => $comment, 'offset' => 0])->render();
+        $post->owner->notify(new CommentNotification($comment));
         return response()->json($html);
 
     }
@@ -57,27 +60,28 @@ class CommentController extends Controller
         $comment = null;
         try {
             $comment = $this->create($request->input('comment'), $id_post);
-        
+
         } catch (ValidationException $e) {
             return back()->withError($e->getErrors());
         } catch (\Exception $ex) {
             DB::rollback();
             throw $ex;
         }
-        
+
         try {
             DB::table('reply')->insert([
                 'id_comment' => $comment->id,
                 'id_parent' => $idParent
             ]);
-        
+
         } catch (ValidationException $e) {
-            return back()->withError($e->getErrors()); 
+            return back()->withError($e->getErrors());
         } catch (\Exception $ex) {
             DB::rollback();
             throw $ex;
         }
-
+        $parent_comment = Comment::find($idParent);
+        $parent_comment->owner->notify(new ReplyNotification($comment));
         DB::commit();
 
         return $comment;
@@ -120,7 +124,7 @@ class CommentController extends Controller
             $this->add_vote($request->input('vote'), $id_comment);
         }
 
-        
+
         else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')){
             DB::table('comment_aura')
             ->where('id_voter', '=', Auth::user()->id)
@@ -133,7 +137,7 @@ class CommentController extends Controller
             ->where('id_voter', '=', Auth::user()->id)
             ->where('id_comment', '=', $id_comment)
             ->delete();
-            
+
             $this->add_vote($request->input('vote'), $id_comment);
         }
 

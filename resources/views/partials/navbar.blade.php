@@ -43,7 +43,7 @@
                            data-bs-toggle="modal" data-bs-target="#modalNotifications">
                             <button type="button" class="navbar-icon grey-hover" style="margin-top:2px"><span
                                     class="material-icons-round">notifications</span></button>
-                            <span class="badge rounded-pill badge-notification bg-danger">0</span>
+                            <span class="badge rounded-pill badge-notification bg-danger">{{Auth::user()->notifications->count()}}</span>
                         </a>
                         <a class="nav-link dropdown-toggle d-flex mt-1 grey-hover" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" style="color:black" aria-expanded="false">
@@ -66,7 +66,7 @@
                         <button type="button" class="navbar-icon ">
                             <span class="material-icons-round">notifications</span>
                         </button>
-                        <span class="badge rounded-pill badge-notification bg-danger mt-2">0</span>
+                        <span class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->notifications->count()}}</span>
                         <span class="">Notifications</span>
                     </li>
                     <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}"
@@ -87,3 +87,73 @@
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="modalNotifications" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(251,116,45);">
+                <h5 class="modal-title" style="color: white;" id="exampleModalLabel">Notifications</h5>
+                <button class="close-notification-button" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @auth
+                    @if(Auth::user()->notifications->count() == 0)
+                        <div class="text-center">Looks like there's nothing new yet!
+                        </div>
+                    @else
+                        @foreach((Auth::user()->notifications) as $notification)
+                            @if($notification->read_at !== null)
+                                <div class="card mb-3">
+                                    <div class="card-header d-flex justify-content-end">
+                            @else
+                                <div class="card mb-3 unread">
+                                    <div class="card-header d-flex justify-content-end unread-header">
+                            @endif
+                            @if($notification->type === "App\Notifications\FollowNotification")
+                                <!--Follow-->
+                                    <button  type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
+                                        <span class="material-icons-round">close</span></button>
+                                </div>
+                                <div class="card-body d-flex justify-content-between pb-0">
+                                    <p class="card-text d-flex align-items-center">
+                                        <span class="material-icons-round me-2">person</span><span><a href="{{route('profile', ['username' => $notification->data['follower']])}}">{{$notification->data['follower']}} followed you!</a> </span>
+                                    </p>
+                                    <small>{{$notification->get_date()}}</small>
+                                </div>
+                            </div>
+                            @elseif($notification->type === "App\Notifications\CommentNotification")
+                                <!--Comment-->
+                                    <button type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
+                                        <span class="material-icons-round">close</span>
+                                    </button>
+                                </div>
+                                <div class="card-body d-flex justify-content-between pb-0">
+                                    <p class="card-text d-flex align-items-center col-10">
+                                        <span class="material-icons-round me-2">comment</span><span><a href="{{ route('post', ['id_post' => $notification->data['id_post']]) }}">{{$notification->data['owner']}} commented on your post: "{{$notification->data['comment']}}"</a></span>
+                                    </p>
+                                    <small>{{$notification->get_date()}}</small>
+                                </div>
+                            </div>
+                            @else($notification->type === "App\Notifications\ReplyNotification")
+                                <!--Reply-->
+                                    <button type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
+                                        <span class="material-icons-round">close</span>
+                                    </button>
+                                </div>
+                                <div class="card-body d-flex justify-content-between pb-0">
+                                    <p class="card-text d-flex align-items-center col-10">
+                                        <span class="material-icons-round me-2">comment</span><span><a href="{{ route('post', ['id_post' => $notification->data['id_post']]) }}">{{$notification->data['owner']}} replied to your comment: "{{$notification->data['reply']}}"</a></span>
+                                    </p>
+                                    <small>{{$notification->get_date()}}</small>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                    @endif
+                @endauth
+            </div>
+        </div>
+    </div>
+</div>

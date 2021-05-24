@@ -15,6 +15,7 @@ DROP TABLE IF EXISTS post_image CASCADE;
 DROP TABLE IF EXISTS post_aura CASCADE;
 DROP TABLE IF EXISTS comment_aura CASCADE;
 DROP TABLE IF EXISTS post_bookmark CASCADE;
+DROP TABLE IF EXISTS notifications CASCADE;
 DROP TABLE IF EXISTS follow_notification CASCADE;
 DROP TABLE IF EXISTS comment_notification CASCADE;
 DROP TABLE IF EXISTS reply_notification CASCADE;
@@ -119,6 +120,18 @@ CREATE TABLE post_bookmark (
     id_post integer REFERENCES news_post(id) ON DELETE CASCADE,
     id_bookmarker integer REFERENCES member(id) ON DELETE CASCADE,
     PRIMARY KEY(id_post, id_bookmarker)
+);
+
+
+CREATE TABLE notifications(
+    id uuid PRIMARY KEY,
+    type VARCHAR(255) NOT NULL,
+    notifiable_type VARCHAR(255) NOT NULL,
+    notifiable_id INTEGER NOT NULL,
+    data TEXT NOT NULL,
+    read_at TIMESTAMP,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
 );
 
 CREATE TABLE follow_notification (
@@ -447,7 +460,7 @@ CREATE TRIGGER check_date_comment
   FOR EACH ROW
   EXECUTE PROCEDURE check_date_comment();
 
-
+/*
 DROP FUNCTION IF EXISTS create_follow_notification CASCADE;
 CREATE FUNCTION create_follow_notification() RETURNS TRIGGER AS $$
   BEGIN
@@ -488,7 +501,7 @@ DROP TRIGGER IF EXISTS create_reply_notification ON reply CASCADE;
 CREATE TRIGGER create_reply_notification
   AFTER INSERT ON reply
   FOR EACH ROW EXECUTE PROCEDURE create_reply_notification();
-
+*/
 DROP FUNCTION IF EXISTS auto_post_upvote CASCADE;
 CREATE FUNCTION auto_post_upvote() RETURNS TRIGGER AS $$
   BEGIN

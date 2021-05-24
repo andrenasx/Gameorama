@@ -41,6 +41,17 @@ textarea {
     left: -12px;
 }
 
+.unread {
+    border: var(--gameOrange) 2px solid;
+}
+
+.unread-header {
+}
+
+.notification-circle{
+    background-color: var(--gameOrange);
+}
+
 .profile-widget {
     position: relative;
 }
@@ -92,7 +103,7 @@ textarea {
     margin-bottom: 63px;
     width: 100%;
     display: flex;
-    
+
 }
 @media (max-width: 992px) {
     .navbar-placeholder{
@@ -1017,7 +1028,7 @@ a.black-a:hover {
 
 .footer-wrapper {
     transition: transform 0.4s;
-}  
+}
 .scroll-down .footer-wrapper {
     transform: translate3d(0, 100%, 0);
 }
@@ -1029,7 +1040,7 @@ a.black-a:hover {
 
 .scroll-up  .footer-wrapper {
     background: white;
-    
+
   }
 
 

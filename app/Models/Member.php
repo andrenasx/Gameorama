@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Member extends Authenticatable
 {
     use HasFactory;
+    use Notifiable;
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
-use App\Models\MemberImage;
+use App\Notifications\FollowNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
@@ -326,6 +326,7 @@ class MemberController extends Controller
                 'id_followed' => $id_member,
                 'id_follower' => Auth::user()->id,
             ]);
+            $followedMember->notify(new FollowNotification($followingMember->username));
         }
 
         if ($request->input('userProfile') !== null){
@@ -348,10 +349,12 @@ class MemberController extends Controller
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow !== null) {
+            /*
             DB::table('follow_notification')
             ->where('id_notified', '=', $id_member)
             ->where('id_follower', '=', Auth::user()->id)
             ->delete();
+            */
 
             DB::table('member_follow')
             ->where('id_followed', '=', $id_member)
@@ -419,7 +422,7 @@ class MemberController extends Controller
     public function dismiss($username)
     {
         $id_member = Member::firstWhere('username', $username)->id;
-        
+
         DB::table('member_report')->where('id_reported', '=', $id_member)
         ->delete();
     }
