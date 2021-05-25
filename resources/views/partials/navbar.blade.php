@@ -69,15 +69,15 @@
                         <span class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->notifications->count()}}</span>
                         <span class="">Notifications</span>
                     </li>
-                    <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}"
+                    <li><a class="mt-2 grey-hover" href="/member/{{Auth::user()->username}}"
                            id="colapsedHamburguer"><span
-                                class="material-icons-round" style="margin-right:10px">account_circle</span> My Profile</a>
+                                class="material-icons-round" style="margin-right:10px">account_circle</span>{{Auth::user()->username}}</a>
                     </li>
-                    <li><a class=" mt-2 grey-hover" href="/member/{{Auth::user()->username}}/settings"
+                    <li><a class="mt-2 grey-hover" href="/member/{{Auth::user()->username}}/settings"
                            id="colapsedHamburguer"><span class="material-icons-round"
                                                          style="margin-right:10px">settings</span> Account Settings</a>
                     </li>
-                    <li><a class=" mt-2 grey-hover" href="{{route('logout')}}" id="colapsedHamburguer"><span
+                    <li><a class="mt-2 grey-hover" href="{{route('logout')}}" id="colapsedHamburguer"><span
                                 class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span>
                             Log
                             out</a></li>

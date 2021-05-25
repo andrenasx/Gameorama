@@ -245,10 +245,10 @@ img.img-logo {
 
 @media (max-width: 992px) {
     #create_post_btn {
-        width: 230px !important;
+        max-width: 50px !important;
         display: flex;
         justify-content: left;
-        margin-left: 5px;
+        margin-left: 2px;
     }
 }
 
