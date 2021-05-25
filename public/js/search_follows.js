@@ -1,6 +1,5 @@
 document.querySelector("#content").addEventListener("click", function(event) {
     let classList = event.target.classList
-    console.log(classList)
     if (classList.contains("member-follow-button")) {
         memberSearchFollowHandler(event.target)
     }
@@ -14,7 +13,6 @@ document.querySelector("#content").addEventListener("click", function(event) {
     }
 
     if (classList.contains("topic-following-button")) {
-        console.log("AQUIII")
         topicSearchUnfollowHandler(event.target)
     }
 })
@@ -22,7 +20,6 @@ document.querySelector("#content").addEventListener("click", function(event) {
 
 
 function topicSearchFollowHandler(button) {
-    console.log(button)
     const topic_follow_button = button.getAttribute("data-id");
     const route = '/api/topic/' + topic_follow_button + '/follow';
     let request = {};
@@ -51,7 +48,6 @@ function topicSearchFollowHandler(button) {
 }
 
 function topicSearchUnfollowHandler(button) {
-    console.log(button)
     const topic_follow_button = button.getAttribute("data-id");
     const route = '/api/topic/' + topic_follow_button + '/follow';
     let request = {};

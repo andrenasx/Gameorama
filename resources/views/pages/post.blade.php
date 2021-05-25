@@ -4,10 +4,15 @@
     @include('partials.navbar')
     @push('scripts')
         <script defer src = {{asset("js/ajax.js")}}></script>
-        <script defer src = {{asset("js/voting.js")}}></script>
+        @auth
         <script defer src = {{asset("js/comments.js")}}></script>
+        <script defer src = {{asset("js/voting.js")}}></script>
         <script defer src = {{ asset('js/bookmark.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
+        @endauth
+        @guest
+        <script defer src = {{ asset('js/login_required.js') }}></script>
+        @endguest
         <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
     <section class="container bg-white rounded g-0 mx-auto my-4 col-lg-7"  data-id = {{$post->id}} >
@@ -151,14 +156,11 @@
                                 <span class="material-icons-outlined align-middle me-1 bookmark-btn">bookmark_add</span>
                                 <span class="d-none d-md-flex bookmark-btn">Bookmark</span>
                             </div>
-                            <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-id={{$post->id}}
-                                data-bs-target="#reportPost">
+                            <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-id={{$post->id}}>
                                 <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id={{$post->id}}>flag</span>
                                 <span class="d-none d-md-flex report-b report-post" data-id={{$post->id}}> Report</span>
                             </div>
                         @endguest
-
-                        @include('partials.report_post')
                     </div>
         </section>
 
@@ -180,6 +182,12 @@
 
 
     </section>
-    @include('partials.report_comment')
+@auth
+@include('partials.report_post')
+@include('partials.report_comment')
+@endauth
+@guest
+@include('partials.login_required')
+@endguest
     @include('partials.footer')
 @endsection

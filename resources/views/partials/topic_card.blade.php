@@ -15,5 +15,8 @@
             <button type="button" class="follow-button btn btn-outline-primary col-12 mb-1 topic-follow-button"  data-id = {{$topic->id}} ></button>
         @endif
         @endauth
+        @guest
+        <button type="button" class="follow-button btn btn-outline-primary col-12 mb-1 topic-follow-button"  data-id = {{$topic->id}} ></button>
+        @endguest
     </div>
 </div>

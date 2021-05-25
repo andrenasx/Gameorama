@@ -50,8 +50,6 @@ function loadContent() {
                 removeSpinner();
             }
 
-            console.log(data.join(''))
-
             let new_div = document.createElement('div');
             new_div.innerHTML = data.join('');
             while (new_div.firstChild) {

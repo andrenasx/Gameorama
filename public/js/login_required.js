@@ -4,22 +4,20 @@ const bodyL = document.body;
 bodyL.addEventListener("click", (event)=>{
 
 
-    const post_voting=event.target.closest(".post-voting");
-    if(post_voting!=null){
+    const upvoting=event.target.closest(".upvote");
+    if(upvoting!=null){
+        loginModal()
+        return
+    }
+    const downvoting=event.target.closest(".downvote");
+    if(downvoting!=null){
         loginModal()
         return
     }
 
-    const report = event.target.closest(".reportable");
+    const report = event.target.closest(".report-b");
 
     if(report!=null){
-        loginModal()
-        return
-    }
-
-    const comment_voting = event.target.closest(".comment-voting");
-
-    if(comment_voting!=null){
         loginModal()
         return
     }
@@ -30,6 +28,30 @@ bodyL.addEventListener("click", (event)=>{
         loginModal()
         return
     }
+
+    const follow_member = event.target.closest(".member-follow-button");
+
+    if(follow_member!=null){
+        loginModal()
+        return
+    }
+
+    const followTopic = event.target.closest(".topic-follow-button");
+
+    if(followTopic!=null){
+        loginModal()
+        return
+    }
+
+
+    const replyComment = event.target.closest(".reply-comment-button");
+
+    if(replyComment!=null){
+        loginModal()
+        return
+    }
+
+    
 
 })
 

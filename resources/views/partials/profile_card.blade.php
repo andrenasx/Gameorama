@@ -21,6 +21,11 @@
             @endif
         @endif
     @endauth
+    @guest
+    <button type="button" data-id = {{$member->username}}
+        class="follow-button btn btn-outline-primary col-12 mb-1 member-follow-button">
+    </button>
+    @endguest
     
     </div>
 </div>

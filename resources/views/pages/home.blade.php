@@ -90,5 +90,7 @@
         @include('partials.report_post')
     @endauth
     @include('partials.footer')
+    @guest
     @include('partials.login_required')
+    @endguest
 @endsection

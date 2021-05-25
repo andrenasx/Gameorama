@@ -52,6 +52,7 @@
                         @endauth
     
                     </div>
+                    @auth
                     <div class="col-4 d-flex justify-content-center btn-outline-blue border-end border-2 reply-comment-button comment_options" data-id = {{$comment->id}} data-bs-toggle="collapse" href="#comment_{{$comment->id}}" role = "button" aria-controls = "comment_{{$comment->id}}">
                         <span class="material-icons-outlined align-middle me-1 reply-comment-button" data-id = {{$comment->id}}>mode_comment</span>
                         <span class="d-none d-md-flex reply-comment-button" data-id = {{$comment->id}}  > Reply</span>
@@ -72,11 +73,22 @@
                             <span class="d-none d-md-flex report-b report-comment" data-id={{$comment->id}}> Report</span>
                         </div>
                     @endif
+                    @endauth
+                    @guest
+                    <div class="col-4 d-flex justify-content-center btn-outline-blue border-end border-2 reply-comment-button comment_options" data-id = {{$comment->id}}  role = "button" >
+                        <span class="material-icons-outlined align-middle me-1 reply-comment-button" data-id = {{$comment->id}}>mode_comment</span>
+                        <span class="d-none d-md-flex reply-comment-button" data-id = {{$comment->id}}  > Reply</span>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center btn-outline-red report-b report-comment" data-id={{$comment->id}}>
+                        <span class="material-icons-outlined align-middle me-1 report-b report-comment" data-id={{$comment->id}}>flag</span>
+                        <span class="d-none d-md-flex report-b report-comment" data-id={{$comment->id}}> Report</span>
+                    </div>
+                    @endguest
                 </div>
             </div>
         </div>
     </div>
-    <section class = "reply-comment col-10 offset-1 mb-2 collapse" id = "comment_{{$comment->id}}" data-id = "{{$comment->id}}" >
+    <section class = "reply-comment col-{{12-$offset-1}} offset-{{min($offset+1, 5)}} mb-2 collapse" id = "comment_{{$comment->id}}" data-id = "{{$comment->id}}" >
             
             <textarea type="text" class="form-control inputOldPass content" data-id = {{$comment->id}} placeholder="Leave your reply" rows="4" placeholder="Reply"></textarea>
 
@@ -90,28 +102,6 @@
     @endforeach
     
     
-    <div class="modal fade reply-fade" id="staticReplyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Reply to Comment</h5>
-                    <button type="button" data-bs-dismiss="modal" id="close-window-button" aria-label="Close"><span
-                            class="material-icons-round">close</span></button>
-                </div>
-                <form class="reply-form" autocomplete="off">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-floating" data-id = {{$comment->post->id}}>
-                            <textarea type="text" class="form-control inputOldPass" data-id = {{$comment->id}} placeholder=" " rows="5" placeholder="Reply"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary dismiss-modal" data-bs-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary reply-button" data-id = "{{$comment->id}}">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
     
 </div>

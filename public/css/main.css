@@ -24,6 +24,18 @@ textarea {
     resize: none;
 }
 
+.btn:focus{
+    box-shadow: none !important;
+}
+
+.form-select:focus{
+    box-shadow: none !important;
+}
+
+.form-select:hover{
+    cursor: pointer;
+}
+
 .highlight {
     background-color: #fcc29a;
     padding: 0 0.1em;

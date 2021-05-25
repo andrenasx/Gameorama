@@ -5,10 +5,17 @@
 @push('scripts')
     <script defer src = {{ asset('js/ajax.js') }}></script>
     <script defer src = {{ asset('js/topic.js') }}></script>
+    @auth
     <script defer src = {{ asset('js/voting.js') }}></script>
     <script defer src = {{ asset('js/follow_topic.js') }}></script>
     <script defer src = {{ asset('js/bookmark.js') }}></script>
     <script defer src = {{ asset('js/report.js') }}></script>
+    @endauth
+
+    @guest
+    <script defer src = {{ asset('js/login_required.js') }}></script>
+    @endguest
+
     <script defer src = {{ asset('js/footer.js') }}></script>
 @endpush
 <section class="container g-0 mx-auto my-4 col-lg-7 ">
@@ -38,6 +45,12 @@
                     <span class="btn-outline-red report-b report-topic" style="font-size: 200%;" data-id={{$topic->id}}>flag</span>
                 </button>
                 @endauth
+                @guest
+                <button type="button" class="follow-button btn btn-outline-primary topic-follow-button" data-id ={{$topic->id}}></button>
+                <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-topic" data-id={{$topic->id}}>
+                <span class="btn-outline-red report-b report-topic" style="font-size: 200%;" data-id={{$topic->id}}>flag</span>
+                </button>
+                @endguest
             </div>
         </section>
     </header>
@@ -66,6 +79,11 @@
     </div>
 
 </section>
+@auth
 @include('partials.report_topic')
+@endauth
+@guest
+@include('partials.login_required')
+@endguest
 @include('partials.footer')
 @endsection

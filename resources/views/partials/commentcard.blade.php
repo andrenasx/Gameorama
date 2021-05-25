@@ -50,7 +50,7 @@
             @endif
         @endauth
         @guest
-            <div class="d-flex btn-outline-red report-b report-comment" data-id = {{$comment->id}} data-bs-toggle="modal" data-bs-target="#reportComment">
+            <div class="d-flex btn-outline-red report-b report-comment" data-id = {{$comment->id}}>
                 <span class="material-icons-outlined align-middle me-1 report-b report-comment" data-id = {{$comment->id}}>flag</span>
                 <span class="d-none d-md-flex report-b report-comment" data-id = {{$comment->id}}> Report</span>
             </div>

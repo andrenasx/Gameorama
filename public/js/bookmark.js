@@ -1,15 +1,11 @@
 let posts = document.querySelector(".posts");
-console.log(posts);
 posts.addEventListener("click", function(event){
     let bookmarkClassList = event.target.classList
     if (bookmarkClassList.contains("bookmark-btn")) {
-        console.log("BOOKMARK")
         bookmarkButtonHandler(event.target)
-        
     }
 
     if (bookmarkClassList.contains("bookmarked-btn")) {
-        console.log("BOOKMARKED")
         bookmarkedButtonHandler(event.target)
     }
 })
@@ -17,14 +13,13 @@ posts.addEventListener("click", function(event){
 posts.addEventListener("mouseover", function(event){
     let bookmarkHoverClassList = event.target.classList
     if (bookmarkHoverClassList.contains("bookmarked-btn")) {
-        console.log("HOVER")
         let bookmark_hover_button = event.target.closest(".bookmarked");
         let hover_count = 0;
         bookmark_hover_button.querySelectorAll(".bookmarked-btn").forEach(element => {
             if (hover_count == 0){
                 element.innerHTML = "bookmark_remove";
             }
-            
+
             if (hover_count == 1){
                 element.innerHTML = "Remove Bookmark";
             }
@@ -36,14 +31,13 @@ posts.addEventListener("mouseover", function(event){
 posts.addEventListener("mouseout", function(event){
     let bookmarkHoverClassList = event.target.classList
     if (bookmarkHoverClassList.contains("bookmarked-btn")) {
-        console.log("HOVER")
         let bookmark_hover_button = event.target.closest(".bookmarked");
         let hover_count = 0;
         bookmark_hover_button.querySelectorAll(".bookmarked-btn").forEach(element => {
             if (hover_count == 0){
                 element.innerHTML = "bookmark_added";
             }
-            
+
             if (hover_count == 1){
                 element.innerHTML = "Bookmarked";
             }
@@ -59,8 +53,8 @@ function bookmarkButtonHandler(button) {
     let bookmark_id_post = bookmark_button.getAttribute("data-id");
     const route = '/api/post/' + bookmark_id_post + '/bookmark';
     let request = {};
-    
-    
+
+
     sendAjaxRequest("POST", route, request, (response) => {
         let count = 0
         bookmark_button.querySelectorAll(".bookmark-btn").forEach(element => {
@@ -71,7 +65,7 @@ function bookmarkButtonHandler(button) {
                 element.classList.remove("material-icons-outlined");
                 element.classList.add("material-icons-round")
             }
-            
+
             if (count == 1){
                 element.innerHTML = "Bookmarked";
             }
@@ -82,10 +76,8 @@ function bookmarkButtonHandler(button) {
         bookmark_button.classList.add("bookmarked-btn");
         bookmark_button.classList.remove("bookmark");
         bookmark_button.classList.add("bookmarked");
-        
+
     }, loadError)
-    
-    console.log(bookmark_id_post)
 }
 
 
@@ -105,7 +97,7 @@ function bookmarkedButtonHandler(button){
                 element.classList.remove("material-icons-round");
                 element.classList.add("material-icons-outlined");
             }
-            
+
             if (count == 1){
                 element.innerHTML = "Bookmark";
             }
@@ -116,7 +108,7 @@ function bookmarkedButtonHandler(button){
         bookmark_button.classList.add("bookmark-btn");
         bookmark_button.classList.remove("bookmarked");
         bookmark_button.classList.add("bookmark");
-        
+
     }, loadError)
 }
 

@@ -8,7 +8,7 @@ let commentId;
 
 reports.forEach(report => {
     report.addEventListener("click", function(event){
-        console.log("Ola")
+      
         let report_b = event.target.closest(".report-b");
         if (report_b!=null){
             let profile_report = event.target.closest(".report-profile");
@@ -70,7 +70,7 @@ report_submits.forEach(report_submit =>{
         let post_report = event.target.closest("#postReport");
 
         if(post_report != null){
-            console.log(post_report.parentNode)
+          
             reportPost(post_report);
             
             return;

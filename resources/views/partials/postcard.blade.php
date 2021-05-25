@@ -20,6 +20,7 @@
         @auth
         <div class="post-voting col-1 d-flex justify-content-center" data-id = {{$post->id}}>
             <ul class="list-unstyled mb-0">
+                @auth
                 <li>
                     @if (Auth::user()->hasVotedPost($post->id) !== null && Auth::user()->hasVotedPost($post->id)->upvote)
                         <span class="upvote voted material-icons-round d-flex justify-content-center">north</span>
@@ -38,6 +39,7 @@
                     @endif
 
                 </li>
+                @endauth
             </ul>
         </div>
         @endauth
@@ -66,7 +68,7 @@
             <div class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</div>
         </a>
     </div>
-    <div class="row g-0 mt-4 news-card-options" data-id={{$post->id}} >
+    <div class="row g-0 mt-4 news-card-options" data-id={{$post->id}}>
         <a href="{{ route('post', ['id_post' => $post->id]).'#comments' }}" class="col d-flex justify-content-center btn-outline-blue border-end border-2">
             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
@@ -88,7 +90,7 @@
                 <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                     <span class="material-icons-round">more_horiz</span>
                 </div>
-                <ul class="dropdown-menu more-horizontal col-1" aria-labelledby="more-horizontal" >
+                <ul class="dropdown-menu more-horizontal col-1 dropdown-menu-lg-end" aria-labelledby="more-horizontal">
                     <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
                     <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
                 </ul>
@@ -104,7 +106,7 @@
                 <span class="material-icons-outlined align-middle me-1 bookmark-btn">bookmark_add</span>
                 <span class="d-none d-md-flex bookmark-btn">Bookmark</span>
             </div>
-            <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>
+            <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-id= {{$post->id}}>
                 <span class="material-icons-outlined align-middle me-1 report-b report-post" data-id= {{$post->id}}>flag</span>
                 <span class="d-none d-md-flex report-b report-post" data-id= {{$post->id}}> Report</span>
             </div>

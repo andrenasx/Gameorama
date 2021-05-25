@@ -31,11 +31,15 @@ function removeSpinner() {
 
 function loadContent() {
     querying = false;
+    const current_content = content;
     const route = '/api/home/' + content + '/' + page;
     const data = {page: page};
 
     sendAjaxRequest('GET', route, data,
         (response) => {
+            if (content !== current_content)
+                return;
+
             const data = JSON.parse(response);
 
             if (page === 1 && data.length === 0) {

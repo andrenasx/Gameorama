@@ -4,8 +4,16 @@
     @push('scripts')
         <script defer src = {{ asset('js/ajax.js') }}></script>
         <script defer src = {{ asset('js/search.js') }}></script>
+        
+        @auth
         <script defer src = {{ asset('js/search_follows.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
+        @endauth
+
+        @guest
+        <script defer src = {{ asset('js/login_required.js') }}></script>
+        @endguest
+
         <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
 <section class="container g-0 mx-auto my-4 col-lg-7 ">
@@ -40,8 +48,13 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    
+
 </section>
+@auth
 @include('partials.report_post')
+@endauth
+@guest
+@include('partials.login_required')
+@endguest
 @include('partials.footer')
 @endsection

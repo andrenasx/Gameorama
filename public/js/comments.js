@@ -94,18 +94,18 @@ document.querySelector(".comments-section").addEventListener("click", function (
         let textarea = event.target.closest(".comment_box").querySelector(".edit-textarea")
         let id_comment = event.target.closest(".edit_button_div").getAttribute("data-id")
         const route = "/api/comment/" + id_comment
-        // console.log(textarea.value)
-
         sendAjaxRequest("PATCH", route, {body: textarea.value}, loadReply, loadError)
-        // console.log(id_comment)
     }
 })
+
+function deleteComment(response) {
+
+}
 
 
 function loadReply(response) {
     const data = JSON.parse(response)
     const html_comment = data['html']
-    //console.log(html_comment)
     let comment_element = document.querySelector(".comments-section")
     comment_element.innerHTML = ""
     for (let i = 0; i < html_comment.length; i++)
