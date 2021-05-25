@@ -13,6 +13,7 @@ window.addEventListener("scroll", () => {
     return;
   }
   if(currentScroll>=scrollMaxY){
+    body.classList.remove(scrollDown);
     body.classList.add(scrollUp);
     return;
   }
