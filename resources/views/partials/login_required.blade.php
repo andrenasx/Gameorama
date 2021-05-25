@@ -12,7 +12,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id= "save-button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" id= "delete-button" class="btn btn-primary">Go to Login Page</button>
+                <button type="button" id= "delete-button" onclick="window.location.href='{{ route('login') }}'" class="btn btn-primary">Go to Login Page</button>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@ bodyL.addEventListener("click", (event)=>{
         loginModal()
         return
     }
-    
+
     const bookmark = event.target.closest(".bookmark-btn");
 
     if(bookmark!=null){
@@ -36,7 +36,7 @@ bodyL.addEventListener("click", (event)=>{
 
 
 function loginModal(){
-    const login=document.querySelector("#loginRequired")
-    bootstrap.Modal.getInstance(login).show()
-    console.log("Hello")
+    const login=document.getElementById("loginRequired")
+    const modal=new bootstrap.Modal(login)
+    modal.show()
 }
