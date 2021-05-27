@@ -31,3 +31,50 @@ function sendAjaxRequest(method, url, data, successHandler, failHandler) {
     else
         request.send(encodeForAjax(data));
 }
+
+
+function createToast(text, success, element) {
+    console.log("Creating toast")
+
+
+    let toast =  document.createElement("div")
+    
+    toast.setAttribute("class", "toast show")
+    toast.setAttribute("aria-live", "assertive")
+    toast.setAttribute("role", "alert")
+    toast.setAttribute("aria-atomic", "true")
+
+    let toastHeader = document.createElement("div")
+    toastHeader.className = "toast-header"
+    let toastBody = document.createElement("div")
+
+    let header = document.createElement("strong")
+    header.setAttribute("class", "text-muted")
+    header.innerText = success ? "Success" : "Error"
+
+    let closeButton = document.createElement("button")
+    closeButton.setAttribute("class", "btn-close")
+    closeButton.setAttribute("type", "button")
+    closeButton.setAttribute("data-bs-dismiss", "toast")
+    closeButton.setAttribute("aria-label", "Close")
+
+    toastHeader.appendChild(header)
+    toastHeader.appendChild(closeButton)
+
+    toast.appendChild(toastHeader)
+
+    toastBody.className = "toast-body"
+    toastText = document.createElement("p")
+    toastText.innerText = text
+
+    toastBody.appendChild(toastText)
+
+    toast.appendChild(toastBody)
+
+    // toastContainer.appendChild(toast)
+
+    // console.log(toastContainer)
+    element.appendChild(toast)
+
+}
+

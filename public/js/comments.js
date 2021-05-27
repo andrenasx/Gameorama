@@ -42,6 +42,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
         comment_id = reply_section.getAttribute("data-id")
         const reply_content = reply_section.querySelector(".content").value
         document.querySelector(".cancel_reply").click()
+        if (reply_content.value == "") return
         const route = "/api/post/" + post_id + "/comment/" + comment_id + "/reply"
         sendAjaxRequest("POST", route , {comment: reply_content}, loadReply, loadError)
     }

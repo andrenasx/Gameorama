@@ -39,7 +39,7 @@ Route::get('/api/home/{content}/{page}', 'HomeController@content');
 // Search
 Route::get('/search', 'SearchController@show');
 
-Route::get('/api/posts', 'PostController@search');
+Route::get('/api/posts', 'NewsPostController@search');
 Route::get('/api/topics', 'TopicController@search');
 Route::get('/api/members', 'MemberController@search');
 
@@ -49,12 +49,12 @@ Route::get('/topic/{name}', 'TopicController@show')->name('topic');
 
 Route::get('/api/topic/{name}/posts/{content}/{page}', 'TopicController@content');
 
-Route::post('/api/topic/{id_topic}/report', 'TopicController@report')->middleware('auth');
+Route::post('/api/topic/{id_topic}/report', 'TopicController@report');
 
 //Topic Follow
-Route::post('/api/topic/{id_topic}/follow', 'TopicController@follow')->middleware('auth');
+Route::post('/api/topic/{id_topic}/follow', 'TopicController@follow');
 
-Route::delete('/api/topic/{id_topic}/follow', 'TopicController@unfollow')->middleware('auth');
+Route::delete('/api/topic/{id_topic}/follow', 'TopicController@unfollow');
 
 
 
@@ -74,52 +74,54 @@ Route::patch('/api/change_password', 'MemberController@change_password');
 
 Route::delete('/api/member/{username}', 'MemberController@destroy');
 
-Route::post('api/post/{id_post}/comment', 'CommentController@comment')->middleware('auth'); //(to be changed later) redirect to login page/modal
 
-Route::post('api/post/{id_post}/comment/{id_comment}/reply', 'CommentController@reply')->middleware('auth');
 
-Route::post('api/post/{id_post}/vote', 'PostController@vote')->middleware('auth');
 
-Route::post('/api/comment/{id_comment}/vote', 'CommentController@vote')->middleware('auth');
+Route::post('api/post/{id_post}/comment', 'CommentController@comment');
+Route::patch('/api/comment/{id_comment}', 'CommentController@update');
+Route::delete('/api/comment/{id_comment}', 'CommentController@destroy');
 
-Route::delete('/api/comment/{id_comment}', 'CommentController@destroy')->middleware('auth');
+Route::post('api/post/{id_post}/comment/{id_comment}/reply', 'CommentController@reply');
 
-Route::patch('/api/comment/{id_comment}', 'CommentController@edit')->middleware('auth');
+Route::post('api/post/{id_post}/vote', 'NewsPostController@vote');
+
+Route::post('/api/comment/{id_comment}/vote', 'CommentController@vote');
+
 
 //Member Follow
-Route::post('/api/member/{username}/follow', 'MemberController@follow')->middleware('auth');
+Route::post('/api/member/{username}/follow', 'MemberController@follow');
 
-Route::delete('/api/member/{username}/follow', 'MemberController@unfollow')->middleware('auth');
+Route::delete('/api/member/{username}/follow', 'MemberController@unfollow');
 
 //  Member content
 Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content');
 
-Route::post('/api/member/{id_member}/report', 'MemberController@report')->middleware('auth');
+Route::post('/api/member/{id_member}/report', 'MemberController@report');
 
 //Member modals
-Route::post('/api/member/{id_member}/following', 'MemberController@getFollowingModal')->middleware('auth');
-Route::post('/api/member/{id_member}/followers', 'MemberController@getFollowersModal')->middleware('auth');
-Route::post('/api/member/{id_member}/followedTopics', 'MemberController@getFollowedTopicsModal')->middleware('auth');
+Route::post('/api/member/{id_member}/following', 'MemberController@getFollowingModal');
+Route::post('/api/member/{id_member}/followers', 'MemberController@getFollowersModal');
+Route::post('/api/member/{id_member}/followedTopics', 'MemberController@getFollowedTopicsModal');
 
 // Post
-Route::get('/post/create', 'PostController@create')->name('create_post');
+Route::get('/post/create', 'NewsPostController@create')->name('create_post');
 
-Route::post('/post/create', 'PostController@store')->name('store_post');
+Route::post('/post/create', 'NewsPostController@store')->name('store_post');
 
-Route::get('/post/{id_post}/edit', 'PostController@edit')->name('edit_post');
+Route::get('/post/{id_post}/edit', 'NewsPostController@edit')->name('edit_post');
 
-Route::patch('/post/{id_post}/edit', 'PostController@update')->name('update_post');
+Route::patch('/post/{id_post}/edit', 'NewsPostController@update')->name('update_post');
 
-Route::get('/post/{id_post}', 'PostController@show')->name('post');
+Route::get('/post/{id_post}', 'NewsPostController@show')->name('post');
 
-Route::delete('/api/post/{id_post}', 'PostController@destroy')->name('delete_post');
+Route::delete('/api/post/{id_post}', 'NewsPostController@destroy')->name('delete_post');
 
-Route::post('/api/post/{id_post}/report', 'PostController@report')->middleware('auth');
+Route::post('/api/post/{id_post}/report', 'NewsPostController@report');
 
 //Post Bookmark
-Route::post('/api/post/{id_post}/bookmark', 'PostController@bookmark')->middleware('auth');
+Route::post('/api/post/{id_post}/bookmark', 'NewsPostController@bookmark');
 
-Route::delete('/api/post/{id_post}/bookmark', 'PostController@removeBookmark')->middleware('auth');
+Route::delete('/api/post/{id_post}/bookmark', 'NewsPostController@removeBookmark');
 
 
 //Comment
@@ -127,6 +129,11 @@ Route::delete('/api/post/{id_post}/bookmark', 'PostController@removeBookmark')->
 Route::post('/api/comment/{id_comment}/report', 'CommentController@report')->middleware('auth');
 
 Route::delete("/api/topic/{id_topic}", "TopidController@destroy");
+
+
+//Notifications
+Route::get('/api/notifications', 'NotificationController@getNotificationsModal')->middleware('auth');
+
 
 // Static
 Route::get('/404', function () {
@@ -145,7 +152,7 @@ Route::get('/about', function () {
 //  Administration Area
 Route::get('/admin', 'AdminController@show');
 
-Route::delete('/api/post/{id_post}/dismiss', 'PostController@dismiss');
+Route::delete('/api/post/{id_post}/dismiss', 'NewsPostController@dismiss');
 
 Route::delete('/api/comment/{id_comment}/dismiss', 'CommentController@dismiss');
 

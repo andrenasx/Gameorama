@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class PostController extends Controller
+class NewsPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,6 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
+        if (!Auth::check()) return redirect('login');
+
         $topics = Topic::orderBy('name', 'asc')->get();
         return view('pages.create_post', ['topics' => $topics]);
     }
@@ -62,6 +64,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::check()) return redirect('login');
+
         $validator = $this->post_validator($request->all());
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -166,9 +170,9 @@ class PostController extends Controller
 
     public function vote($id_post, Request $request)
     {
-        $vote = Auth::user()->hasVotedPost($id_post);
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
+        $vote = Auth::user()->hasVotedPost($id_post);
         if ($vote === null) {
             $this->add_vote($request->input('vote'), $id_post);
         } else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')) {
@@ -196,6 +200,9 @@ class PostController extends Controller
      */
     public function edit($id_post)
     {
+        if (!Auth::check()) return redirect('login');
+        $this->authorize('owner', $id_post);
+
         $post = NewsPost::find($id_post);
 
         if ($post == NULL) {

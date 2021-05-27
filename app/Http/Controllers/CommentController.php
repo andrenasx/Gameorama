@@ -41,6 +41,8 @@ class CommentController extends Controller
 
     public function comment($id_post, Request $request)
     {
+        if (!Auth::check()) return redirect('login');
+
         $post = NewsPost::find($id_post);
         if ($post == null) {
             return response()->json('Post not found', 404);
@@ -117,9 +119,9 @@ class CommentController extends Controller
     }
 
     public function vote($id_comment, Request $request) {
-        $vote = Auth::user()->hasVotedComment($id_comment);
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
+        $vote = Auth::user()->hasVotedComment($id_comment);
         if ($vote === null) {
             $this->add_vote($request->input('vote'), $id_comment);
         }
@@ -171,15 +173,26 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request)
+    {
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_comment, Request $request)
+    public function update(Request $request, $id_comment)
     {
-        //
         $comment = Comment::find($id_comment);
 
-        $this->authorize('update', $comment);
+        $this->authorize('owner', $comment);
         $comment->body = $request->input('body');
         $comment->save();
         $post = $comment->post;
@@ -191,19 +204,6 @@ class CommentController extends Controller
         }
 
         return response()->json(array('html' => $html, 'body' => $comment->body));
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
@@ -219,8 +219,9 @@ class CommentController extends Controller
             return response()->json('Not found', 404);
         }
 
-        $post = $comment->post;
+        $this->authorize('delete', $comment);
 
+        $post = $comment->post;
         $comment->delete();
         $html = [];
 
@@ -245,5 +246,4 @@ class CommentController extends Controller
         DB::table('comment_report')->where('id_comment', '=', $id_comment)
         ->delete();
     }
-
 }

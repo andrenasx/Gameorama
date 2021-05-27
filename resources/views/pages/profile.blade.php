@@ -5,7 +5,7 @@
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/profile.js') }}></script>
-        
+
         @auth
         <script defer src={{ asset('js/follow.js') }}></script>
         <script defer src={{ asset('js/follow_topic.js') }}></script>
@@ -16,6 +16,8 @@
         @endauth
         @guest
         <script defer src = {{ asset('js/login_required.js') }}></script>
+        <script defer src={{ asset('js/follow.js') }}></script>
+        <script defer src={{ asset('js/follow_topic.js') }}></script>
         @endguest
         <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
@@ -38,13 +40,13 @@
                                 <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}
                                         data-bs-toggle="modal"
                                         data-bs-target="#reportProfile">
-                                    <span class="btn-outline-red report-b report-profile" data-id={{$member->id}} style="font-size: 200%;">flag</span>
+                                    <span class="btn-outline-red report-b report-profile" data-id="{{$member->id}}" style="font-size: 200%;">flag</span>
                                 </button>
                             @endif
                         @endauth
                         @guest
                             <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}>
-                                <span class="btn-outline-red report-b report-profile" data-id={{$member->id}} style="font-size: 200%;">flag</span>
+                                <span class="btn-outline-red report-b report-profile" data-id="{{$member->id}}" style="font-size: 200%;">flag</span>
                             </button>
                         @endguest
                     </row>

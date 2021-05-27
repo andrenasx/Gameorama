@@ -26,7 +26,7 @@ class PostReport extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function owner(): BelongsTo
+    public function owner()
     {
         return $this->belongsTo(Member::class, 'id_reporter');
     }

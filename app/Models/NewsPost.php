@@ -23,7 +23,7 @@ class NewsPost extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'body', 'date_time', 'aura', 'id_owner'
+        'title', 'body', 'date_time', 'aura', 'id_owner', 'search'
     ];
 
     /**
@@ -86,7 +86,7 @@ class NewsPost extends Model
         $parentComments = [];
         $aux= DB::select(DB::raw("SELECT comment.id
         FROM comment
-        WHERE id_post = ".$this->id." 
+        WHERE id_post = ".$this->id."
         AND id NOT IN (SELECT id_comment as id FROM reply WHERE id_post = ".$this->id.")
         ORDER BY date_time DESC"));
         foreach($aux as $auxIds ){

@@ -10,26 +10,26 @@ class MemberPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can update the model.
+     * Determine whether the user is the owner.
      *
      * @param  \App\Models\Member  $account
      * @param  \App\Models\Member  $member
      * @return mixed
      */
-    public function update(Member $account, Member $member)
+    public function owner(Member $account, Member $member)
     {
-        return $account->id == $member->id;
+        return $account->id === $member->id;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Member  $account
      * @param  \App\Models\Member  $member
      * @return mixed
      */
     public function delete(Member $account, Member $member)
     {
-        return $account->id == $member->id;
+        return $account->id === $member->id;
     }
 }

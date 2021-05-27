@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Notifications\FollowNotification;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
 {
@@ -71,14 +68,14 @@ class MemberController extends Controller
      */
     public function edit($username)
     {
-        if (!Auth::check()) redirect('login');
+        if (!Auth::check()) return redirect('login');
 
         $member = Member::firstWhere('username', $username);
         if ($member == null) {
             return redirect(route('404'));
         }
 
-        $this->authorize('update', $member);
+        $this->authorize('owner', $member);
 
         return view('pages.edit_profile', ['member' => $member]);
     }
@@ -123,14 +120,14 @@ class MemberController extends Controller
      */
     public function update(Request $request, $username)
     {
-        if (!Auth::check()) redirect('login');
+        if (!Auth::check()) return redirect('login');
 
         $member = Member::firstWhere('username', $username);
         if ($member == null) {
             return redirect(route('404'));
         }
 
-        $this->authorize('update', $member);
+        $this->authorize('owner', $member);
 
         $member->full_name = $request->input("full_name");
         $member->bio = $request->input("bio");
@@ -154,14 +151,14 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function settings($username) {
-        if (!Auth::check()) redirect('login');
+        if (!Auth::check()) return redirect('login');
 
         $member = Member::firstWhere('username', $username);
         if ($member == null) {
             return redirect(route('404'));
         }
 
-        $this->authorize('update', $member);
+        $this->authorize('owner', $member);
 
         return view('pages.settings', ['member' => $member]);
     }
@@ -246,6 +243,8 @@ class MemberController extends Controller
             return response()->json('Not found', 404);
         }
 
+        $this->authorize('delete', $member);
+
         if ($request->has('password')) {
             if (!Hash::check($request->input('password'), $member->password)) {
                 return response()->json('Incorrect Password', 400);
@@ -278,6 +277,7 @@ class MemberController extends Controller
                 $type = 'comment';
                 break;
             case "bookmarked":
+                $this->authorize('owner', $member);
                 $data = $member->bookmarks()->orderBy('date_time', 'desc')->forPage($page)->get();
                 $type = 'post';
                 break;
@@ -345,17 +345,9 @@ class MemberController extends Controller
         $followedMember = Member::find($id_member);
 
 
-
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow !== null) {
-            /*
-            DB::table('follow_notification')
-            ->where('id_notified', '=', $id_member)
-            ->where('id_follower', '=', Auth::user()->id)
-            ->delete();
-            */
-
             DB::table('member_follow')
             ->where('id_followed', '=', $id_member)
             ->where('id_follower', '=', Auth::user()->id)
@@ -371,7 +363,6 @@ class MemberController extends Controller
 
     public function getFollowingModal($id_member, Request $request)
     {
-        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $pageMember = Member::find($id_member);
         $htmlFollowing = [];
         if ($pageMember !== null){
@@ -384,7 +375,6 @@ class MemberController extends Controller
 
     public function getFollowersModal($id_member, Request $request)
     {
-        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $pageMember = Member::find($id_member);
         $htmlFollowers = [];
         if ($pageMember !== null){
@@ -397,7 +387,6 @@ class MemberController extends Controller
 
     public function getFollowedTopicsModal($id_member, Request $request)
     {
-        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $pageMember = Member::find($id_member);
         $htmlFollowedTopics = [];
         if ($pageMember !== null){
