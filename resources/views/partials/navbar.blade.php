@@ -41,29 +41,36 @@
                     <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
                         <a class="nav-link gx-0 mx-0 px-0" id="navbarDropdown" role="button" aria-expanded="false"
                            data-bs-toggle="modal" data-bs-target="#modalNotifications">
-                            <button type="button" class="navbar-icon grey-hover" style="margin-top:2px"><span
+                            <button type="button" id="notifications-button" class="navbar-icon grey-hover" style="margin-top:2px"><span
                                     class="material-icons-round">notifications</span></button>
                             <span class="badge rounded-pill badge-notification bg-danger">{{Auth::user()->notifications->count()}}</span>
                         </a>
                         <a class="nav-link dropdown-toggle d-flex mt-1 grey-hover" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" style="color:black" aria-expanded="false">
-                            <span class="material-icons-round me-1">account_circle</span>
+                            <span class="material-icons-round me-1">
+                                @if (Auth::user()->admin)
+                                    shield
+                                @else
+                                    account_circle
+                                @endif
+                            </span>
                             {{Auth::user()->username}}
                         </a>
                         <ul class="dropdown-menu" id="hamburguerMenu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/member/{{Auth::user()->username}}">My Profile</a></li>
                             <li><a class="dropdown-item" href="/member/{{Auth::user()->username}}/settings  ">Account
                                     Settings</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
+                            @if (Auth::user()->admin)
+                            <li><a class="dropdown-item" href="/admin">Administration Area</a></li>
+                            @endif
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{route('logout')}}">Log out</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-flex align-items-start mt-2" id="colapsedHamburguer">
                     <li class="nav-link grey-hover-notification d-flex align-items-start" data-bs-toggle="modal"
                         id="colapsedHamburguer" data-bs-target="#modalNotifications" role="button">
-                        <button type="button" class="navbar-icon ">
+                        <button type="button" id="notifications-button" class="navbar-icon ">
                             <span class="material-icons-round">notifications</span>
                         </button>
                         <span class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->notifications->count()}}</span>
@@ -77,10 +84,15 @@
                            id="colapsedHamburguer"><span class="material-icons-round"
                                                          style="margin-right:10px">settings</span> Account Settings</a>
                     </li>
+                    @if (Auth::user()->admin)
+                    <li><a class="mt-2 grey-hover" href="/admin"
+                           id="colapsedHamburguer"><span class="material-icons-round"
+                                                         style="margin-right:10px">shield</span> Administration Area</a>
+                    </li>
+                    @endif
                     <li><a class="mt-2 grey-hover" href="{{route('logout')}}" id="colapsedHamburguer"><span
                                 class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span>
-                            Log
-                            out</a></li>
+                            Log out</a></li>
                     </li>
                 @endauth
             </ul>
@@ -97,58 +109,35 @@
                     <span class="material-icons-round">close</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body notifications-body">
                 @auth
                     @if(Auth::user()->notifications->count() == 0)
                         <div class="text-center">Looks like there's nothing new yet!
                         </div>
                     @else
                         @foreach((Auth::user()->notifications) as $notification)
-                            @if($notification->read_at !== null)
-                                <div class="card mb-3">
-                                    <div class="card-header d-flex justify-content-end">
-                            @else
-                                <div class="card mb-3 unread">
-                                    <div class="card-header d-flex justify-content-end unread-header">
-                            @endif
                             @if($notification->type === "App\Notifications\FollowNotification")
                                 <!--Follow-->
-                                    <button  type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
-                                        <span class="material-icons-round">close</span></button>
-                                </div>
-                                <div class="card-body d-flex justify-content-between pb-0">
-                                    <p class="card-text d-flex align-items-center">
-                                        <span class="material-icons-round me-2">person</span><span><a href="{{route('profile', ['username' => $notification->data['follower']])}}">{{$notification->data['follower']}} followed you!</a> </span>
-                                    </p>
-                                    <small>{{$notification->get_date()}}</small>
-                                </div>
-                            </div>
+                                @if($notification->read_at !== null)
+                                    @include('partials.follow_notification_card',['notification'=>$notification])
+                                @else
+                                    @include('partials.follow_notification_unread_card',['notification'=>$notification])
+                                @endif
+
                             @elseif($notification->type === "App\Notifications\CommentNotification")
                                 <!--Comment-->
-                                    <button type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
-                                        <span class="material-icons-round">close</span>
-                                    </button>
-                                </div>
-                                <div class="card-body d-flex justify-content-between pb-0">
-                                    <p class="card-text d-flex align-items-center col-10">
-                                        <span class="material-icons-round me-2">comment</span><span><a href="{{ route('post', ['id_post' => $notification->data['id_post']]) }}">{{$notification->data['owner']}} commented on your post: "{{$notification->data['comment']}}"</a></span>
-                                    </p>
-                                    <small>{{$notification->get_date()}}</small>
-                                </div>
-                            </div>
+                                @if($notification->read_at !== null)
+                                    @include('partials.comment_notification_card',['notification'=>$notification])
+                                @else
+                                    @include('partials.comment_notification_unread_card',['notification'=>$notification])
+                                @endif
                             @else($notification->type === "App\Notifications\ReplyNotification")
                                 <!--Reply-->
-                                    <button type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
-                                        <span class="material-icons-round">close</span>
-                                    </button>
-                                </div>
-                                <div class="card-body d-flex justify-content-between pb-0">
-                                    <p class="card-text d-flex align-items-center col-10">
-                                        <span class="material-icons-round me-2">comment</span><span><a href="{{ route('post', ['id_post' => $notification->data['id_post']]) }}">{{$notification->data['owner']}} replied to your comment: "{{$notification->data['reply']}}"</a></span>
-                                    </p>
-                                    <small>{{$notification->get_date()}}</small>
-                                </div>
-                            </div>
+                                @if($notification->read_at !== null)
+                                    @include('partials.reply_notification_card',['notification'=>$notification])
+                                @else
+                                    @include('partials.reply_notification_unread_card',['notification'=>$notification])
+                                @endif
                             @endif
                         @endforeach
                     @endif

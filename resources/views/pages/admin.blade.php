@@ -94,5 +94,7 @@
         </section>
     </section>
 
+    
+
     @include('partials.footer')
 @endsection

@@ -4,7 +4,6 @@
 
 DROP TABLE IF EXISTS member CASCADE;
 DROP TABLE IF EXISTS member_follow CASCADE;
-DROP TABLE IF EXISTS administrator CASCADE;
 DROP TABLE IF EXISTS news_post CASCADE;
 DROP TABLE IF EXISTS topic CASCADE;
 DROP TABLE IF EXISTS topic_follow CASCADE;
@@ -39,11 +38,8 @@ CREATE TABLE member (
     avatar_image text NOT NULL DEFAULT 'default_avatar.png',
     banner_image text NOT NULL DEFAULT 'default_banner.jpg',
     aura integer DEFAULT 0 NOT NULL,
+    admin boolean NOT NULL DEFAULT FALSE,
     search tsvector NOT NULL
-);
-
-CREATE TABLE administrator (
-    id integer PRIMARY KEY REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE member_follow (
@@ -587,10 +583,10 @@ CREATE TRIGGER search_topic
 -- Populate the database
 -----------------------------------------
 
-insert into member (username, full_name, email, password, bio) values ('BrotherSena', 'Gustavo Sena', 'up201806078@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Virei Monge!');
-insert into member (username, full_name, email, password, bio) values ('El_biden', 'Andre Nascimento', 'up201806461@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Da-me tu sardita :P');
-insert into member (username, full_name, email, password, bio) values ('kaka34', 'Caio Nogueira', 'up201806218@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Nao mandas em mim nao es minha mae');
-insert into member (username, full_name, email, password, bio) values ('WanWan', 'Diogo Almeida', 'up201806630@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Ta mal, ta errado');
+insert into member (username, full_name, email, password, bio, admin) values ('BrotherSena', 'Gustavo Sena', 'up201806078@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Virei Monge!', TRUE);
+insert into member (username, full_name, email, password, bio, admin) values ('El_biden', 'Andre Nascimento', 'up201806461@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Da-me tu sardita :P', TRUE);
+insert into member (username, full_name, email, password, bio, admin) values ('kaka34', 'Caio Nogueira', 'up201806218@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Nao mandas em mim nao es minha mae', TRUE);
+insert into member (username, full_name, email, password, bio, admin) values ('WanWan', 'Diogo Almeida', 'up201806630@fe.up.pt', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Ta mal, ta errado', TRUE);
 insert into member (username, full_name, email, password, bio) values ('TMC_OG', 'Thalia Mc Dermid', 'tmc0@arizona.edu', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Stand-alone 4th generation moratorium');
 insert into member (username, full_name, email, password, bio) values ('sionnisian1', 'Shayna Ionnisian', 'sionnisian1@noaa.gov', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Customer-focused neutral info-mediaries');
 insert into member (username, full_name, email, password, bio) values ('BlarkBy2', 'Bradley Larkby', 'blarkby2@people.com.cn', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Self-enabling responsive website');
@@ -657,14 +653,6 @@ insert into member (username, full_name, email, password, bio) values ('TimidEGi
 insert into member (username, full_name, email, password, bio) values ('MafiaBoss99', 'Maris Meddings', 'mmeddingsd@barnesandnoble.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Polarised human-resource conglomeration');
 insert into member (username, full_name, email, password, bio) values ('MordeLayzer', 'Estel Mordy', 'emordye@elpais.com', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Function-based user-facing adapter');
 insert into member (username, full_name, email, password, bio) values ('VodkaMyLove', 'Gonzales Polland', 'gpollandf@tuttocitta.it', '$2y$10$0i2o3agkmWj1YerMJ0dE3OO1N7/Gp4eW1nxkO9UuI.bVcAT5tjGN.', 'Fundamental systemic hub');
-
-
-
-insert into administrator (id) values (1);
-insert into administrator (id) values (2);
-insert into administrator (id) values (3);
-insert into administrator (id) values (4);
-
 
 
 insert into member_follow (id_followed, id_follower) values (1, 10);
