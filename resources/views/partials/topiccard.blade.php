@@ -4,7 +4,7 @@
     </div>
     <div class="col-6 col-xl-9">
         <div class="row g-0">
-            <h3 class="h3 truncate"><a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a></h3>
+            <h3 class="h3 truncate"><a href="{{ route('topic', ['topic' => $topic->name]) }}">{{$topic->name}}</a></h3>
         </div>
     </div>
     <div class="col-4 col-xl-2">

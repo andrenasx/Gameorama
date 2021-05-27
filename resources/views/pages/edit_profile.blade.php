@@ -9,7 +9,7 @@
     <script defer src="{{ asset('js/edit_profile.js') }}"></script>
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
-            <form method="POST" action="{{ route('edit_profile', $member->username) }}" enctype="multipart/form-data"
+            <form method="POST" action="{{ route('edit_profile', ['member' => $member->username]) }}" enctype="multipart/form-data"
                   id="edit_form">
                 @csrf
                 @method('PATCH')

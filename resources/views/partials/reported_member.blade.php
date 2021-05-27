@@ -4,7 +4,7 @@
              style="width:90px;height:auto;">
         <div class="col justify-content-between">
             <div>
-                <h4><a href="{{ route('profile', ['username' => $post->owner->username]) }}">{{$member->username}}</a></h4>
+                <h4><a href="{{ route('profile', ['member' => $post->owner->username]) }}">{{$member->username}}</a></h4>
                 <div class="row">
                     <h6 class="col-12 col-sm-6">{{$member->followers->count()}} Followers</h6>
                     <h6 class="col-12 col-sm-6 text-end">{{$member->aura}} Aura Score</h6>
@@ -54,7 +54,7 @@
                             <p class="h6 fw-normal text-center">{{$report->body}}</p>
                         </div>
                     </div>
-                    
+
                     @endforeach
                 </div>
             </div>

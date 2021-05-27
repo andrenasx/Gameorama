@@ -19,131 +19,135 @@ Route::get('/', function() {
 Route::get('/login', function() {
     return view('auth.login');
 });
-
 Route::post('/login', 'Auth\LoginController@login')->name('login');
-
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-
 Route::get('/signup', function() {
     return view('auth.signup');
 });
-
 Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
 
 
 // Home
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/api/home/{content}/{page}', 'HomeController@content');
 
 // Search
 Route::get('/search', 'SearchController@show');
 
-Route::get('/api/posts', 'NewsPostController@search');
-Route::get('/api/topics', 'TopicController@search');
-Route::get('/api/members', 'MemberController@search');
-
 
 // Topic
-Route::get('/topic/{name}', 'TopicController@show')->name('topic');
+Route::get('/topic/{topic:name}', 'TopicController@show')->name('topic');
 
-Route::get('/api/topic/{name}/posts/{content}/{page}', 'TopicController@content');
 
-Route::post('/api/topic/{id_topic}/report', 'TopicController@report');
+// Post
+Route::prefix('post/')->group(function(){
+    Route::get('create', 'NewsPostController@create')->name('create_post');
+    Route::post('create', 'NewsPostController@store')->name('store_post');
 
-//Topic Follow
-Route::post('/api/topic/{id_topic}/follow', 'TopicController@follow');
+    Route::get('{newspost:id}/edit', 'NewsPostController@edit')->name('edit_post');
+    Route::patch('{newspost:id}/edit', 'NewsPostController@update')->name('update_post');
 
-Route::delete('/api/topic/{id_topic}/follow', 'TopicController@unfollow');
-
+    Route::get('{newspost:id}', 'NewsPostController@show')->name('post');
+});
 
 
 // Member
-Route::get('/member/{username}', 'MemberController@show')->name('profile');
+Route::prefix('member/')->group(function(){
+    Route::get('{member:username}', 'MemberController@show')->name('profile');
 
-//  Member Settings
-Route::get('/member/{username}/edit', 'MemberController@edit')->name('edit_profile');
+    // Settings
+    Route::get('{member:username}/edit', 'MemberController@edit')->name('edit_profile');
+    Route::patch('{member:username}/edit', 'MemberController@update');
 
-Route::patch('/member/{username}/edit', 'MemberController@update');
-
-Route::get('/member/{username}/settings', 'MemberController@settings');
-
-Route::patch('/api/change_email', 'MemberController@change_email');
-
-Route::patch('/api/change_password', 'MemberController@change_password');
-
-Route::delete('/api/member/{username}', 'MemberController@destroy');
+    Route::get('{member:username}/settings', 'MemberController@settings');
+});
+Route::patch('change_email', 'MemberController@change_email');
+Route::patch('change_password', 'MemberController@change_password');
 
 
+// Notifications
+Route::get('/api/notifications', 'NotificationController@getNotificationsModal');
 
 
-Route::post('api/post/{id_post}/comment', 'CommentController@comment');
-Route::patch('/api/comment/{id_comment}', 'CommentController@update');
-Route::delete('/api/comment/{id_comment}', 'CommentController@destroy');
+// API
+Route::prefix('api/')->group(function(){
+    Route::get('posts', 'NewsPostController@search');
+    Route::get('topics', 'TopicController@search');
+    Route::get('members', 'MemberController@search');
+    Route::get('home/{content}/{page}', 'HomeController@content');
 
-Route::post('api/post/{id_post}/comment/{id_comment}/reply', 'CommentController@reply');
+    // Member
+    Route::prefix('member/')->group(function(){
+        Route::delete('{member:username}', 'MemberController@destroy');
 
-Route::post('api/post/{id_post}/vote', 'NewsPostController@vote');
+        // Content
+        Route::get('{member:username}/{content}/{page}', 'MemberController@content');
 
-Route::post('/api/comment/{id_comment}/vote', 'CommentController@vote');
+        // Follow
+        Route::post('{member:username}/follow', 'MemberController@follow');
+        Route::delete('{member:username}/follow', 'MemberController@unfollow');
 
+        // Modals
+        Route::post('{member:id}/following', 'MemberController@getFollowingModal');
+        Route::post('{member:id}/followers', 'MemberController@getFollowersModal');
+        Route::post('{member:id}/followedTopics', 'MemberController@getFollowedTopicsModal');
 
-//Member Follow
-Route::post('/api/member/{username}/follow', 'MemberController@follow');
+        // Report
+        Route::post('{member:id}/report', 'MemberController@report');
+        Route::delete('{member:username}/dismiss', 'MemberController@dismiss');
+    });
 
-Route::delete('/api/member/{username}/follow', 'MemberController@unfollow');
+    // Post
+    Route::prefix('post/')->group(function(){
+        Route::delete('{newspost:id}', 'NewsPostController@destroy')->name('delete_post');
 
-//  Member content
-Route::get('/api/member/{username}/{content}/{page}', 'MemberController@content');
+        // Comment
+        Route::post('{newspost:id}/comment', 'CommentController@comment');
+        Route::post('{newspost:id}/comment/{comment:id}/reply', 'CommentController@reply');
 
-Route::post('/api/member/{id_member}/report', 'MemberController@report');
+        // Vote
+        Route::post('{newspost:id}/vote', 'NewsPostController@vote');
 
-//Member modals
-Route::post('/api/member/{id_member}/following', 'MemberController@getFollowingModal');
-Route::post('/api/member/{id_member}/followers', 'MemberController@getFollowersModal');
-Route::post('/api/member/{id_member}/followedTopics', 'MemberController@getFollowedTopicsModal');
+        // Bookmark
+        Route::post('{newspost:id}/bookmark', 'NewsPostController@bookmark');
+        Route::delete('{newspost:id}/bookmark', 'NewsPostController@removeBookmark');
 
-// Post
-Route::get('/post/create', 'NewsPostController@create')->name('create_post');
+        // Report
+        Route::post('{newspost:id}/report', 'NewsPostController@report');
+        Route::delete('{newspost:id}/dismiss', 'NewsPostController@dismiss');
+    });
 
-Route::post('/post/create', 'NewsPostController@store')->name('store_post');
+    Route::prefix('comment/')->group(function(){
+        // Edit
+        Route::patch('{comment:id}', 'CommentController@update');
+        Route::delete('{comment:id}', 'CommentController@destroy');
 
-Route::get('/post/{id_post}/edit', 'NewsPostController@edit')->name('edit_post');
+        // Vote
+        Route::post('{comment:id}/vote', 'CommentController@vote');
 
-Route::patch('/post/{id_post}/edit', 'NewsPostController@update')->name('update_post');
+        // Report
+        Route::post('{comment:id}/report', 'CommentController@report');
+        Route::delete('{comment:id}/dismiss', 'CommentController@dismiss');
+    });
 
-Route::get('/post/{id_post}', 'NewsPostController@show')->name('post');
+    Route::prefix('topic/')->group(function(){
+        // Content
+        Route::get('{topic:name}/posts/{content}/{page}', 'TopicController@content');
 
-Route::delete('/api/post/{id_post}', 'NewsPostController@destroy')->name('delete_post');
+        // Follow
+        Route::post('{topic:id}/follow', 'TopicController@follow');
+        Route::delete('{topic:id}/follow', 'TopicController@unfollow');
 
-Route::post('/api/post/{id_post}/report', 'NewsPostController@report');
+        // Report
+        Route::post('{topic:id}/report', 'TopicController@report');
+        Route::delete('{topic:id}/dismiss', 'TopicController@dismiss');
 
-//Post Bookmark
-Route::post('/api/post/{id_post}/bookmark', 'NewsPostController@bookmark');
-
-Route::delete('/api/post/{id_post}/bookmark', 'NewsPostController@removeBookmark');
-
-
-//Comment
-
-Route::post('/api/comment/{id_comment}/report', 'CommentController@report')->middleware('auth');
-
-Route::delete("/api/topic/{id_topic}", "TopidController@destroy");
-
-
-//Notifications
-Route::get('/api/notifications', 'NotificationController@getNotificationsModal')->middleware('auth');
+        Route::delete("{topic:id}", "TopidController@destroy");
+    });
+});
 
 
 // Static
-Route::get('/404', function () {
-    return view('pages.404');
-})->name('404');
-
-Route::fallback(function() {
-    return view('pages.404');
-});
-
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
@@ -151,11 +155,3 @@ Route::get('/about', function () {
 
 //  Administration Area
 Route::get('/admin', 'AdminController@show');
-
-Route::delete('/api/post/{id_post}/dismiss', 'NewsPostController@dismiss');
-
-Route::delete('/api/comment/{id_comment}/dismiss', 'CommentController@dismiss');
-
-Route::delete('/api/topic/{id_topic}/dismiss', 'TopicController@dismiss');
-
-Route::delete('/api/member/{username}/dismiss', 'MemberController@dismiss');

@@ -1,5 +1,5 @@
 -----------------------------------------
--- Drop old schmema
+-- Drop old schema
 -----------------------------------------
 
 DROP TABLE IF EXISTS member CASCADE;
@@ -24420,7 +24420,7 @@ insert into post_image (id_post, file) values (8, 'post8_3.jpg');
 insert into post_image (id_post, file) values (10, 'post10_1.png');
 insert into post_image (id_post, file) values (10, 'post10_2.png');
 
-insert into post_image (id_post, file) values (11, 'post2_1.jpg');
+insert into post_image (id_post, file) values (11, 'post11_1.png');
 
 insert into post_image (id_post, file) values (12, 'post12_1.jpg');
 insert into post_image (id_post, file) values (12, 'post12_2.png');

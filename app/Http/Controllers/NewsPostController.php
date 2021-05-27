@@ -76,15 +76,15 @@ class NewsPostController extends Controller
 
         // Create a NewsPost
         try {
-            $post = new NewsPost;
+            $newspost = new NewsPost;
 
-            $post->id_owner = Auth::user()->id;
-            $post->title = $request->input('title');
+            $newspost->id_owner = Auth::user()->id;
+            $newspost->title = $request->input('title');
             if ($request->has('body')) {
-                $post->body = $request->input('body');
+                $newspost->body = $request->input('body');
             }
 
-            $post->save();
+            $newspost->save();
         } catch (ValidationException $e) {
             DB::rollBack();
             return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
@@ -94,7 +94,7 @@ class NewsPostController extends Controller
         }
 
         // Get post id after inserting
-        $id_post = $post->id;
+        $id_post = $newspost->id;
 
         // Insert all Post Topics
         foreach ($request->input('topics') as $name) {
@@ -137,7 +137,7 @@ class NewsPostController extends Controller
 
         DB::commit();
 
-        return redirect(route('post', ['id_post' => $id_post]));
+        return redirect(route('post', ['newspost' => $id_post]));
     }
 
     /**
@@ -146,15 +146,9 @@ class NewsPostController extends Controller
      * @param \App\Models\NewsPost $newsPost
      * @return \Illuminate\Http\Response
      */
-    public function show($id_post)
+    public function show(NewsPost $newspost)
     {
-        $post = NewsPost::find($id_post);
-
-        if ($post == NULL) {
-            return redirect(route('404'));
-        }
-
-        return view('pages.post', ['post' => $post]);
+        return view('pages.post', ['post' => $newspost]);
     }
 
 
@@ -168,28 +162,27 @@ class NewsPostController extends Controller
     }
 
 
-    public function vote($id_post, Request $request)
+    public function vote(Request $request, NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
-        $vote = Auth::user()->hasVotedPost($id_post);
+        $vote = Auth::user()->hasVotedPost($newspost->id);
         if ($vote === null) {
-            $this->add_vote($request->input('vote'), $id_post);
+            $this->add_vote($request->input('vote'), $newspost->id);
         } else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')) {
             DB::table('post_aura')
                 ->where('id_voter', '=', Auth::user()->id)
-                ->where('id_post', '=', $id_post)
+                ->where('id_post', '=', $newspost->id)
                 ->delete();
         } else {
             DB::table('post_aura')
                 ->where('id_voter', '=', Auth::user()->id)
-                ->where('id_post', '=', $id_post)
+                ->where('id_post', '=', $newspost->id)
                 ->update(['upvote' => $request->input('vote')]);
         }
 
-        $post = NewsPost::find($id_post);
-
-        return response()->json(array('votes' => $post->aura));
+        $newspost->refresh();
+        return response()->json(array('votes' => $newspost->aura));
     }
 
     /**
@@ -198,19 +191,13 @@ class NewsPostController extends Controller
      * @param \App\Models\NewsPost $newsPost
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_post)
+    public function edit(NewsPost $newspost)
     {
         if (!Auth::check()) return redirect('login');
-        $this->authorize('owner', $id_post);
-
-        $post = NewsPost::find($id_post);
-
-        if ($post == NULL) {
-            return redirect(route('404'));
-        }
+        $this->authorize('owner', $newspost);
 
         $topics = Topic::orderBy('name', 'asc')->get();
-        return view('pages.edit_post', ['post' => $post, 'topics' => $topics]);
+        return view('pages.edit_post', ['post' => $newspost, 'topics' => $topics]);
     }
 
     /**
@@ -220,14 +207,8 @@ class NewsPostController extends Controller
      * @param \App\Models\NewsPost $newsPost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_post)
+    public function update(Request $request, NewsPost $newspost)
     {
-        $post = NewsPost::find($id_post);
-
-        if ($post == NULL) {
-            return redirect(route('404'));
-        }
-
         $validator = $this->post_validator($request->all());
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -238,12 +219,12 @@ class NewsPostController extends Controller
 
         // Update info
         try {
-            $post->title = $request->input('title');
+            $newspost->title = $request->input('title');
             if ($request->has('body')) {
-                $post->body = $request->input('body');
+                $newspost->body = $request->input('body');
             }
 
-            $post->save();
+            $newspost->save();
         } catch (ValidationException $e) {
             DB::rollBack();
             return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
@@ -254,12 +235,12 @@ class NewsPostController extends Controller
 
         // Insert all new Post Topics
         foreach ($request->input('topics') as $name) {
-            if (!$post->topics->containsStrict('name', $name)) {
+            if (!$newspost->topics->containsStrict('name', $name)) {
                 try {
                     DB::table('topic')->insertOrIgnore([['name' => $name]]);
 
                     $id_topic = Topic::firstWhere('name', $name)->id;
-                    DB::table('post_topic')->insert(['id_post' => $post->id, 'id_topic' => $id_topic]);
+                    DB::table('post_topic')->insert(['id_post' => $newspost->id, 'id_topic' => $id_topic]);
                 } catch (ValidationException $e) {
                     DB::rollBack();
                     return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
@@ -270,10 +251,10 @@ class NewsPostController extends Controller
             }
         }
 
-        foreach ($post->topics as $topic) {
-            if(!in_array($topic->name, $request->input('topics'))) {
+        foreach ($newspost->topics as $topic) {
+            if (!in_array($topic->name, $request->input('topics'))) {
                 try {
-                    DB::table('post_topic')->where(['id_post' => $post->id, 'id_topic' => $topic->id])->delete();
+                    DB::table('post_topic')->where(['id_post' => $newspost->id, 'id_topic' => $topic->id])->delete();
 
                     // TODO Delete topic if no posts?
                     /*if ($topic->posts->count() === 0) {
@@ -314,7 +295,7 @@ class NewsPostController extends Controller
 
         DB::commit();
 
-        return redirect(route('post', ['id_post' => $id_post]));
+        return redirect(route('post', ['newspost' => $newspost->id]));
     }
 
     /**
@@ -323,18 +304,13 @@ class NewsPostController extends Controller
      * @param \App\Models\NewsPost $newsPost
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_post)
+    public function destroy(NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json('Forbidden Access', 403);
 
-        $post = NewsPost::find($id_post);
-        if ($post == NULL) {
-            return response()->json('Not found', 404);
-        }
+        Storage::makeDirectory('public/posts/' . $newspost->id);
 
-        Storage::makeDirectory('public/posts/' . $id_post);
-
-        $post->delete();
+        $newspost->delete();
     }
 
     public function search(Request $request)
@@ -354,54 +330,49 @@ class NewsPostController extends Controller
         }
     }
 
-    public function bookmark($id_post, Request $request)
+    public function bookmark(Request $request, NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        $member = Member::find(Auth::user()->id);
-        $post = NewsPost::find($id_post);
 
-
-        $bookmark = $post->isBookmarked($member->id);
+        $bookmark = $newspost->isBookmarked(Auth::user()->id);
 
         if ($bookmark === null) {
             DB::table('post_bookmark')->insert([
                 'id_bookmarker' => Auth::user()->id,
-                'id_post' => $id_post,
+                'id_post' => $newspost->id,
             ]);
         }
     }
 
-    public function removeBookmark($id_post, Request $request)
+    public function removeBookmark(Request $request, NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        $member = Member::find(Auth::user()->id);
-        $post = NewsPost::find($id_post);
 
-
-        $bookmark = $post->isBookmarked($member->id);
+        $bookmark = $newspost->isBookmarked(Auth::user()->id);
 
         if ($bookmark !== null) {
             DB::table('post_bookmark')
                 ->where('id_bookmarker', '=', Auth::user()->id)
-                ->where('id_post', '=', $id_post)
+                ->where('id_post', '=', $newspost->id)
                 ->delete();
         }
     }
 
 
-    public function report($id_post, Request $request)
+    public function report(Request $request, NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+
         DB::table('post_report')->insert([
             'id_reporter' => Auth::user()->id,
-            'id_post' => $id_post,
+            'id_post' => $newspost->id,
             'body' => $request->input('report')
         ]);
     }
 
-    public function dismiss($id_post)
+    public function dismiss(NewsPost $newspost)
     {
-        DB::table('post_report')->where('id_post', '=', $id_post)
-        ->delete();
+        DB::table('post_report')->where('id_post', '=', $newspost->id)
+            ->delete();
     }
 }

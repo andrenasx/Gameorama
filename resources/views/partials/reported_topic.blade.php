@@ -4,7 +4,7 @@
              style="width:90px;height:auto;">
         <div class="col-md-10 col-8 d-flex">
             <div>
-                <h4><a href="{{ route('topic', ['name' => $topic->name]) }}"">{{$topic->name}}</a></h4>
+                <h4><a href="{{ route('topic', ['topic' => $topic->name]) }}">{{$topic->name}}</a></h4>
                 <p class="h6 fw-normal">{{$topic->followers->count()}} Followers</p>
             </div>
         </div>
@@ -51,7 +51,7 @@
                             <p class="h6 fw-normal text-center">{{$report->body}}</p>
                         </div>
                     </div>
-                    
+
                     @endforeach
                 </div>
             </div>

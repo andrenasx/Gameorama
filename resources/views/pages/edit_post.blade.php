@@ -25,7 +25,7 @@
         <hr class="rounded">
 
         <section class="container w-100 mt-4 form-group">
-            <form method="POST" action="{{ route('update_post', ['id_post' => $post->id]) }}" enctype="multipart/form-data" autocomplete="off">
+            <form method="POST" action="{{ route('update_post', ['newspost' => $post->id]) }}" enctype="multipart/form-data" autocomplete="off">
                 @csrf
                 @method('PATCH')
                 <section id="title" class="mb-5">
