@@ -30,6 +30,6 @@ class MemberPolicy
      */
     public function delete(Member $account, Member $member)
     {
-        return $account->id === $member->id;
+        return $account->id === $member->id || $account->admin;
     }
 }

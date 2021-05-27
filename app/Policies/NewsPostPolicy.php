@@ -31,6 +31,6 @@ class NewsPostPolicy
      */
     public function delete(Member $account, NewsPost $newsPost)
     {
-        return $account->id === $newsPost->id_owner;
+        return $account->id === $newsPost->id_owner || $account->admin;
     }
 }

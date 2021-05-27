@@ -47,20 +47,20 @@
         <div class="post-header col me-2">
             <h6 class="post-topics">Topics:
                 @foreach ($post->topics as $topic)
-                    <a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a>;
+                    <a href="{{ route('topic', ['topic' => $topic->name]) }}">{{$topic->name}}</a>;
                 @endforeach
             </h6>
             <div class="d-inline">
-                <small class="post-user">Posted by <a href="{{ route('profile', ['username' => $post->owner->username]) }}">{{$post->owner->username}}</a></small>
+                <small class="post-user">Posted by <a href="{{ route('profile', ['member' => $post->owner->username]) }}">{{$post->owner->username}}</a></small>
                 <small>{{$post->get_time()}}</small>
             </div>
             <h4 class="post-title-smaller">
-                <a href="{{ route('post', ['id_post' => $post->id]) }}" class="post-title black-a">{{$post->title}}</a>
+                <a href="{{ route('post', ['newspost' => $post->id]) }}" class="post-title black-a">{{$post->title}}</a>
             </h4>
         </div>
     </header>
     <div class="news-card-body">
-        <a href="{{ route('post', ['id_post' => $post->id]) }}" class="black-a">
+        <a href="{{ route('post', ['newspost' => $post->id]) }}" class="black-a">
             @if ($post->images->count () > 0)
             <img class="img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
                 src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
@@ -69,7 +69,7 @@
         </a>
     </div>
     <div class="row g-0 mt-4 news-card-options" data-id={{$post->id}}>
-        <a href="{{ route('post', ['id_post' => $post->id]).'#comments' }}" class="col d-flex justify-content-center btn-outline-blue border-end border-2">
+        <a href="{{ route('post', ['newspost' => $post->id]).'#comments' }}" class="col d-flex justify-content-center btn-outline-blue border-end border-2">
             <span class="material-icons-outlined align-middle me-1">mode_comment</span>
             <span class="d-none d-md-flex"> {{$post->comments->count()}}</span>
         </a>

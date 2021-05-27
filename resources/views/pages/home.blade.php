@@ -11,7 +11,7 @@
         <script defer src = {{ asset('js/report.js') }}></script>
         <script defer src = {{ asset('js/notifications.js') }}></script>
         @endauth
-        
+
         @guest
         <script defer src = {{ asset('js/login_required.js') }}></script>
         @endguest
@@ -64,7 +64,7 @@
                         @foreach ($hall_of_fame as $member)
                             <li class="mb-2">
                                 <p class="mb-0 blue-hover text-truncate"><a
-                                        href="{{ route('profile', ['username' => $member->username])}}">{{$member->username}}</a></p>
+                                        href="{{ route('profile', ['member' => $member->username])}}">{{$member->username}}</a></p>
                                 <p class="mb-0 text-truncate small-grey-text">{{$member->aura}} Aura Score</p>
                             </li>
                         @endforeach
@@ -77,7 +77,7 @@
                         @foreach ($popular_topics as $poptopic)
                             <li class="mb-2">
                                 <p class="mb-0 blue-hover text-truncate"><a
-                                        href="{{ route('topic', ['name' => $poptopic->name]) }}">{{$poptopic->name}}</a></p>
+                                        href="{{ route('topic', ['topic' => $poptopic->name]) }}">{{$poptopic->name}}</a></p>
                                 <p class="mb-0 text-truncate small-grey-text">{{$poptopic->num_followers}} Followers</p>
                             </li>
                         @endforeach
@@ -85,7 +85,7 @@
                 </section>
             </aside>
         </div>
-        
+
     </section>
     @auth
         @include('partials.report_post')

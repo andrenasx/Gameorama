@@ -6,7 +6,7 @@
         </div>
         <div class="card-body d-flex justify-content-between pb-0">
         <p class="card-text d-flex align-items-center col-10">
-            <span class="material-icons-round me-2">comment</span><span><a href="{{ route('post', ['id_post' => $notification->data['id_post']]) }}">{{$notification->data['owner']}} replied to your comment: "{{$notification->data['reply']}}"</a></span>
+            <span class="material-icons-round me-2">comment</span><span><a href="{{ route('post', ['newspost' => $notification->data['id_post']]) }}">{{$notification->data['owner']}} replied to your comment: "{{$notification->data['reply']}}"</a></span>
         </p>
         <small>{{$notification->get_date()}}</small>
     </div>

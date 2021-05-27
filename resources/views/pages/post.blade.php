@@ -62,12 +62,12 @@
                 <div class="post-header col me-2">
                     <h5 class="post-topics">Topics:
                         @foreach ($post->topics as $topic)
-                            <a href="{{ route('topic', ['name' => $topic->name]) }}">{{$topic->name}}</a>;
+                            <a href="{{ route('topic', ['topic' => $topic->name]) }}">{{$topic->name}}</a>;
                         @endforeach
                     </h5>
                     <div class="d-inline">
                         <small class="post-user">Posted by <a
-                                href="{{ route('profile', $post->owner->username) }}">{{$post->owner->username}}</a></small>
+                                href="{{ route('profile', ['member' => $post->owner->username]) }}">{{$post->owner->username}}</a></small>
                         <small>{{$post->get_time()}}</small>
                     </div>
                     <h1 class="post-title">{{$post->title}}</h1>

@@ -5,7 +5,7 @@
         </div>
         <div class="card-body d-flex justify-content-between pb-0">
         <p class="card-text d-flex align-items-center">
-            <span class="material-icons-round me-2">person</span><span><a href="{{route('profile', ['username' => $notification->data['follower']])}}">{{$notification->data['follower']}} followed you!</a> </span>
+            <span class="material-icons-round me-2">person</span><span><a href="{{route('profile', ['member' => $notification->data['follower']])}}">{{$notification->data['follower']}} followed you!</a> </span>
         </p>
         <small>{{$notification->get_date()}}</small>
     </div>

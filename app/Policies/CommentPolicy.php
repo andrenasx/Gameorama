@@ -31,6 +31,6 @@ class CommentPolicy
      */
     public function delete(Member $account, Comment $comment)
     {
-        return $account->id === $comment->id_owner;
+        return $account->id === $comment->id_owner || $account->admin;
     }
 }

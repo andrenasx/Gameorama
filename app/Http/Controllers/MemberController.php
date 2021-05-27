@@ -51,13 +51,8 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function show($username)
+    public function show(Member $member)
     {
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
         return view('pages.profile', ['member' => $member]);
     }
 
@@ -66,15 +61,9 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($username)
+    public function edit(Member $member)
     {
         if (!Auth::check()) return redirect('login');
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
         $this->authorize('owner', $member);
 
         return view('pages.edit_profile', ['member' => $member]);
@@ -118,15 +107,9 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $username)
+    public function update(Request $request, Member $member)
     {
         if (!Auth::check()) return redirect('login');
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
         $this->authorize('owner', $member);
 
         $member->full_name = $request->input("full_name");
@@ -142,7 +125,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        return redirect(route('profile', $member->username));
+        return redirect(route('profile', ['member' => $member->username]));
     }
 
     /**
@@ -150,14 +133,8 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function settings($username) {
+    public function settings(Member $member) {
         if (!Auth::check()) return redirect('login');
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
         $this->authorize('owner', $member);
 
         return view('pages.settings', ['member' => $member]);
@@ -234,15 +211,9 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $username)
+    public function destroy(Request $request, Member $member)
     {
         if (!Auth::check()) return response()->json('Forbidden Access', 403);
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return response()->json('Not found', 404);
-        }
-
         $this->authorize('delete', $member);
 
         if ($request->has('password')) {
@@ -258,13 +229,8 @@ class MemberController extends Controller
         $member->delete();
     }
 
-    public function content($username, $content, $page)
+    public function content(Member $member, $content, $page)
     {
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return response()->json('Member not found', 404);
-        }
-
         $data = null;
         $type = "";
         switch ($content) {
@@ -310,20 +276,17 @@ class MemberController extends Controller
         }
     }
 
-    public function follow($username, Request $request)
+    public function follow(Request $request, Member $member)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        $id_member = (Member::firstWhere('username', '=', $username))->id;
         $followingMember = Member::find(Auth::user()->id);
-        $followedMember = Member::find($id_member);
-
-
+        $followedMember = Member::find($member->id);
 
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow === null) {
             DB::table('member_follow')->insert([
-                'id_followed' => $id_member,
+                'id_followed' => $member->id,
                 'id_follower' => Auth::user()->id,
             ]);
             $followedMember->notify(new FollowNotification($followingMember->username));
@@ -337,19 +300,17 @@ class MemberController extends Controller
     }
 
 
-    public function unfollow($username, Request $request)
+    public function unfollow(Request $request, Member $member)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        $id_member = (Member::firstWhere('username', '=', $username))->id;
         $followingMember = Member::find(Auth::user()->id);
-        $followedMember = Member::find($id_member);
-
+        $followedMember = Member::find($member->id);
 
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow !== null) {
             DB::table('member_follow')
-            ->where('id_followed', '=', $id_member)
+            ->where('id_followed', '=', $member->id)
             ->where('id_follower', '=', Auth::user()->id)
             ->delete();
         }
@@ -361,60 +322,46 @@ class MemberController extends Controller
         }
     }
 
-    public function getFollowingModal($id_member, Request $request)
+    public function getFollowingModal(Request $request, Member $member)
     {
-        $pageMember = Member::find($id_member);
         $htmlFollowing = [];
-        if ($pageMember !== null){
-            foreach ($pageMember->following as $member) {
-                array_push($htmlFollowing, view('partials.profile_card', ['member'=>$member])->render());
-            }
+        foreach ($member->following as $follow) {
+            array_push($htmlFollowing, view('partials.profile_card', ['member' => $follow])->render());
         }
         return response()->json($htmlFollowing);
     }
 
-    public function getFollowersModal($id_member, Request $request)
+    public function getFollowersModal(Request $request, Member $member)
     {
-        $pageMember = Member::find($id_member);
         $htmlFollowers = [];
-        if ($pageMember !== null){
-            foreach ($pageMember->followers as $member) {
-                array_push($htmlFollowers, view('partials.profile_card', ['member'=>$member])->render());
-            }
+        foreach ($member->followers as $follower) {
+            array_push($htmlFollowers, view('partials.profile_card', ['member' => $follower])->render());
         }
         return response()->json($htmlFollowers);
     }
 
-    public function getFollowedTopicsModal($id_member, Request $request)
+    public function getFollowedTopicsModal(Request $request, Member $member)
     {
-        $pageMember = Member::find($id_member);
         $htmlFollowedTopics = [];
-        if ($pageMember !== null){
-            foreach ($pageMember->topics as $topic) {
-                array_push($htmlFollowedTopics, view('partials.topic_card', ['topic'=>$topic])->render());
-            }
+        foreach ($member->topics as $topic) {
+            array_push($htmlFollowedTopics, view('partials.topic_card', ['topic' => $topic])->render());
         }
         return response()->json($htmlFollowedTopics);
     }
 
 
-
-    public function report($id_member, Request $request){
+    public function report(Request $request, Member $member){
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
         DB::table('member_report')->insert([
             'id_reporter' => Auth::user()->id,
-            'id_reported' => $id_member,
+            'id_reported' => $member->id,
             'body' => $request->input('report')
         ]);
     }
 
-    public function dismiss($username)
+    public function dismiss(Member $member)
     {
-        $id_member = Member::firstWhere('username', $username)->id;
-
-        DB::table('member_report')->where('id_reported', '=', $id_member)
+        DB::table('member_report')->where('id_reported', '=', $member->id)
         ->delete();
     }
-
-
 }
