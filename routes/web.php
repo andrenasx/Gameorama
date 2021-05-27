@@ -134,6 +134,10 @@ Route::delete("/api/topic/{id_topic}", "TopidController@destroy");
 //Notifications
 Route::get('/api/notifications', 'NotificationController@getNotificationsModal')->middleware('auth');
 
+Route::patch('/api/notifications/read', 'NotificationController@readUnreadNotifications')->middleware('auth');
+
+Route::delete('/api/notification/{id_notification}/delete', 'NotificationController@delete')->middleware('auth');
+
 
 // Static
 Route::get('/404', function () {

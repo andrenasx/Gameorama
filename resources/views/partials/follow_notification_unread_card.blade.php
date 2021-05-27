@@ -1,7 +1,7 @@
 <div class="card mb-3 unread">
     <div class="card-header d-flex justify-content-end unread-header">
-        <button  type="button" data-bs-dismiss="modal" aria-label="Close" id="close-window-button">
-            <span class="material-icons-round">close</span></button>
+        <button  type="button" id="close-window-button">
+            <span class="material-icons-round delete-notification-button" data-id={{$notification->id}}>close</span></button>
         </div>
         <div class="card-body d-flex justify-content-between pb-0">
         <p class="card-text d-flex align-items-center">

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Notification;
 use App\Notifications\FollowNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,21 +24,52 @@ class NotificationController extends Controller
         if ($member !== null){
             foreach ($member->notifications as $notification) {
                 if ($notification->type === "App\Notifications\FollowNotification"){
-                    array_push($htmlNotifications, view('partials.follow_notification_card', ['notification'=>$notification])->render());
+                    if($notification->read_at !== null)
+                        array_push($htmlNotifications, view('partials.follow_notification_card', ['notification'=>$notification])->render());
+                    else
+                        array_push($htmlNotifications, view('partials.follow_notification_unread_card', ['notification'=>$notification])->render());
                 }
                 else if ($notification->type === "App\Notifications\CommentNotification"){
-                    array_push($htmlNotifications, view('partials.comment_notification_card', ['notification'=>$notification])->render());
+                    if($notification->read_at !== null)
+                        array_push($htmlNotifications, view('partials.comment_notification_card', ['notification'=>$notification])->render());
+                    else
+                        array_push($htmlNotifications, view('partials.comment_notification_unread_card', ['notification'=>$notification])->render());
                 }
                 else if ($notification->type === "App\Notifications\ReplyNotification"){
-                    array_push($htmlNotifications, view('partials.reply_notification_card', ['notification'=>$notification])->render());
+                    if($notification->read_at !== null)
+                        array_push($htmlNotifications, view('partials.reply_notification_card', ['notification'=>$notification])->render());
+                    else
+                        array_push($htmlNotifications, view('partials.reply_notification_unread_card', ['notification'=>$notification])->render());
+
                 }
-                
+
             }
-
-            //dd($htmlNotifications);
-
-            return response()->json(array('html' => $htmlNotifications));
+            return response()->json($htmlNotifications);
         }
-        
+
+    }
+
+    public function readUnreadNotifications(Request $request){
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        $member = Member::find(Auth::user()->id);
+        if ($member !== null){
+            foreach ($member->notifications as $notification) {
+                if($notification->read_at === null){
+                    $notification->markAsRead();
+                }
+            }
+            return response()->json(0);
+        }
+    }
+
+    public function delete($id_notification, Request $request){
+        $notification = Notification::find($id_notification);
+        Log::debug("HEREHEREHERE");
+        if ($notification !== null){
+            DB::table('notifications')
+                ->where('id', '=', $id_notification)
+                ->delete();
+        }
+        return response()->json($id_notification);
     }
 }

@@ -39,11 +39,11 @@
                         </row>
                     </button>
                     <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
-                        <a class="nav-link gx-0 mx-0 px-0" id="navbarDropdown" role="button" aria-expanded="false"
+                        <a class="nav-link gx-0 mx-0 px-0 modal-notifications" id="navbarDropdown" role="button" aria-expanded="false"
                            data-bs-toggle="modal" data-bs-target="#modalNotifications">
                             <button type="button" id="notifications-button" class="navbar-icon grey-hover" style="margin-top:2px"><span
                                     class="material-icons-round">notifications</span></button>
-                            <span class="badge rounded-pill badge-notification bg-danger">{{Auth::user()->notifications->count()}}</span>
+                            <span class="badge rounded-pill badge-notification bg-danger">{{Auth::user()->unreadNotifications->count()}}</span>
                         </a>
                         <a class="nav-link dropdown-toggle d-flex mt-1 grey-hover" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" style="color:black" aria-expanded="false">
@@ -73,7 +73,7 @@
                         <button type="button" id="notifications-button" class="navbar-icon ">
                             <span class="material-icons-round">notifications</span>
                         </button>
-                        <span class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->notifications->count()}}</span>
+                        <span class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->unreadNotifications->count()}}</span>
                         <span class="">Notifications</span>
                     </li>
                     <li><a class="mt-2 grey-hover" href="/member/{{Auth::user()->username}}"
@@ -112,8 +112,7 @@
             <div class="modal-body notifications-body">
                 @auth
                     @if(Auth::user()->notifications->count() == 0)
-                        <div class="text-center">Looks like there's nothing new yet!
-                        </div>
+                        <div class="text-center">Looks like there's nothing new yet!</div>
                     @else
                         @foreach((Auth::user()->notifications) as $notification)
                             @if($notification->type === "App\Notifications\FollowNotification")
