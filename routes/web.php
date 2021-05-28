@@ -68,6 +68,20 @@ Route::patch('change_password', 'MemberController@change_password');
 // Notifications
 Route::get('/api/notifications', 'NotificationController@getNotificationsModal');
 
+Route::patch('/api/notifications/read', 'NotificationController@readUnreadNotifications')->middleware('auth');
+
+Route::delete('/api/notification/{id_notification}/delete', 'NotificationController@delete')->middleware('auth');
+
+Route::post('/pusher/auth', function (Illuminate\Http\Request $request){
+    $key = '72f9eeafe04d407d19cf';
+    $secret = '52db04fd2d70f723152a';
+    $channel_name = $request->channel_name;
+    $socket_id = $request->socket_id;
+    $string_to_sign = $socket_id.':'.$channel_name;
+    $signature = hash_hmac('sha256', $string_to_sign, $secret);
+    return response()->json(['auth' => $key.':'.$signature]);
+});
+
 
 // API
 Route::prefix('api/')->group(function(){
@@ -142,13 +156,9 @@ Route::prefix('api/')->group(function(){
         Route::post('{topic:id}/report', 'TopicController@report');
         Route::delete('{topic:id}/dismiss', 'TopicController@dismiss');
 
-        Route::delete("{topic:id}", "TopidController@destroy");
+        Route::delete("{topic:id}", "TopicController@destroy");
     });
 });
-
-Route::patch('/api/notifications/read', 'NotificationController@readUnreadNotifications')->middleware('auth');
-
-Route::delete('/api/notification/{id_notification}/delete', 'NotificationController@delete')->middleware('auth');
 
 
 // Static

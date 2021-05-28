@@ -1,3 +1,26 @@
+//Pusher
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+
+if (window.User.id != null){
+    var pusher = new Pusher('72f9eeafe04d407d19cf', {
+        authEndpoint: "/pusher/auth",
+        cluster: 'eu',
+        encrypted: true,
+        auth: {
+            headers: { "X-CSRF-Token": document.querySelector("#csrf-token").getAttribute("content") },
+        },
+    });
+
+    var channel = pusher.subscribe('private-App.Models.Member.' + window.User.id);
+    channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
+        handleNewNotification();
+    });
+}
+
+
+
+//For Navbar
 document.querySelector(".modal-notifications").addEventListener("click", function(event) {
     handleNotificationsClick();
 });
@@ -27,6 +50,25 @@ function handleNotificationsClick(){
             readUnreadNotifications();
         }
 
+    }, loadError);
+}
+
+
+function handleNewNotification(){
+    let number = document.querySelector(".badge-notification");
+    number.innerHTML = parseInt(number.innerHTML) + 1;
+    const route = "/api/notifications";
+    let request = {};
+    sendAjaxRequest("GET", route, request, (response) => {
+        const json_data = JSON.parse(response);
+        let modal_notifications = document.querySelector(".notifications-body");
+        modal_notifications.innerHTML = "";
+        json_data.forEach((element) => {
+            modal_notifications.innerHTML += element;
+        })
+        if (modal_notifications.innerHTML.trim() === ""){
+            modal_notifications.innerHTML = "<div class=\"text-center\">Looks like there's nothing new yet!</div>";
+        }
     }, loadError);
 }
 

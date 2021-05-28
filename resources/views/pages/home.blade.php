@@ -9,7 +9,6 @@
         <script defer src = {{ asset('js/voting.js') }}></script>
         <script defer src = {{ asset('js/bookmark.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>
-        <script defer src = {{ asset('js/notifications.js') }}></script>
         @endauth
 
         @guest
