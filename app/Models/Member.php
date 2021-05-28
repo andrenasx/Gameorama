@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -153,5 +154,21 @@ class Member extends Authenticatable
     public function reports()
     {
         return $this->hasMany(MemberReport::class, 'id_reported');
+    }
+
+    public function follow_member($id_member) 
+    {
+        DB::table('member_follow')->insert([
+            'id_followed' => $id_member,
+            'id_follower' => Auth::user()->id,
+        ]);
+    }
+
+    public function unfollow_member($id_member)
+    {
+        DB::table('member_follow')
+            ->where('id_followed', '=', $id_member)
+            ->where('id_follower', '=', Auth::user()->id)
+            ->delete();
     }
 }

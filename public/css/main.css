@@ -380,6 +380,14 @@ img.img-logo {
 
 }
 
+.toast-header-true {
+    color: green
+}
+
+.toast-header-false {
+    color: red
+}
+
 .grey-hover-notification :last-child {
     transition: 0.15s all ease-in;
     color: black;

@@ -121,6 +121,7 @@ function reportComment(comment_report){
     const route = "/api/comment/" + comment_id + "/report";
     let option = report_form.querySelector('input[name="option"]:checked');
     let content = report_form.querySelector('input[name="option"]:checked').value;
+    console.log(comment_report)
     comment_report.closest(".modal").modal('toggle');
     option.checked=false;
     const data = {report: content}

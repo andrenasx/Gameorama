@@ -202,9 +202,8 @@ class TopicController extends Controller
         ]);
     }
 
-    public function dismiss($id_topic)
+    public function dismiss(Topic $topic)
     {
-        DB::table('topic_report')->where('id_topic', '=', $id_topic)
-            ->delete();
+        $topic->dismiss_report();
     }
 }

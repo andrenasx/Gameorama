@@ -51,43 +51,10 @@ class CommentController extends Controller
         return response()->json($html);
     }
 
-    public function reply_transaction(Request $request, $idParent, $id_post)
-    {
-        DB::beginTransaction();
-        $comment = null;
-        try {
-            $comment = $this->create($request->input('comment'), $id_post);
-
-        } catch (ValidationException $e) {
-            return back()->withError($e->getErrors());
-        } catch (\Exception $ex) {
-            DB::rollback();
-            throw $ex;
-        }
-
-        try {
-            DB::table('reply')->insert([
-                'id_comment' => $comment->id,
-                'id_parent' => $idParent
-            ]);
-
-        } catch (ValidationException $e) {
-            return back()->withError($e->getErrors());
-        } catch (\Exception $ex) {
-            DB::rollback();
-            throw $ex;
-        }
-        $parent_comment = Comment::find($idParent);
-        $parent_comment->owner->notify(new ReplyNotification($comment));
-        DB::commit();
-
-        return $comment;
-    }
-
 
     public function reply(Request $request, NewsPost $newspost, Comment $comment)
     {
-        $reply = $this->reply_transaction($request, $comment->id, $newspost->id);
+        $reply = $comment->reply_transaction($request->input('comment'), $comment->id, $newspost->id);
         $reply->save();
 
         $newspost = $newspost->refresh();
@@ -100,34 +67,21 @@ class CommentController extends Controller
         return response()->json(array('parent_comment_id' => $comment->id, 'html' => $html));
     }
 
-    public function add_vote($vote, $id_comment)
-    {
-        DB::table('comment_aura')->insert([
-            'id_comment' => $id_comment,
-            'id_voter' => Auth::user()->id,
-            'upvote' => $vote
-        ]);
-    }
-
     public function vote(Request $request, Comment $comment)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
         $vote = Auth::user()->hasVotedComment($comment->id);
         if ($vote === null) {
-            $this->add_vote($request->input('vote'), $comment->id);
-        } else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')) {
-            DB::table('comment_aura')
-                ->where('id_voter', '=', Auth::user()->id)
-                ->where('id_comment', '=', $comment->id)
-                ->delete();
-        } else {
-            DB::table('comment_aura')
-                ->where('id_voter', '=', Auth::user()->id)
-                ->where('id_comment', '=', $comment->id)
-                ->delete();
+            $comment->add_vote($request->input('vote'));
 
-            $this->add_vote($request->input('vote'), $comment->id);
+        } else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')) {
+            $comment->delete_vote();
+        } 
+        else {
+
+            $comment->delete_vote();
+            $comment->add_vote($request->input('vote'));
         }
 
         $comment->refresh();
@@ -214,7 +168,8 @@ class CommentController extends Controller
     public function report(Request $request, Comment $comment)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        DB::table('comment_report')->insert([
+        
+        return CommentReport::create([
             'id_reporter' => Auth::user()->id,
             'id_comment' => $comment->id,
             'body' => $request->input('report')
@@ -223,7 +178,6 @@ class CommentController extends Controller
 
     public function dismiss(Comment $comment)
     {
-        DB::table('comment_report')->where('id_comment', '=', $comment->id)
-            ->delete();
+        $comment->dismiss_report();
     }
 }

@@ -64,12 +64,7 @@ class NotificationController extends Controller
 
     public function delete($id_notification, Request $request){
         $notification = Notification::find($id_notification);
-        Log::debug("HEREHEREHERE");
-        if ($notification !== null){
-            DB::table('notifications')
-                ->where('id', '=', $id_notification)
-                ->delete();
-        }
+        $notification->delete();
         return response()->json($id_notification);
     }
 }

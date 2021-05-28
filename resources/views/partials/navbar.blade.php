@@ -100,6 +100,11 @@
     </div>
 </nav>
 
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container position-fixed bottom-1 end-0 p-3" style = "z-index: 10"></div>
+
+</div>
+
 <div class="modal fade" id="modalNotifications" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
         <div class="modal-content">

@@ -61,4 +61,10 @@ class Topic extends Model
     {
         return $this->hasMany(TopicReport::class, 'id_topic');
     }
+
+    public function dismiss_report()
+     {
+        DB::table('topic_report')->where('id_topic', '=', $this->id)
+        ->delete();
+     }
 }

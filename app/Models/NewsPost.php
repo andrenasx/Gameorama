@@ -127,5 +127,30 @@ class NewsPost extends Model
         ->first();
     }
 
+    public function get_feed($num_rows)
+    {
+        return DB::select(DB::raw("SELECT news_post.id as id
+        FROM news_post
+        INNER JOIN member ON id_owner = member.id
+        WHERE news_post.id IN
+        (
+            SELECT DISTINCT news_post.id FROM news_post
+            INNER JOIN post_topic ON news_post.id = post_topic.id_post
+            INNER JOIN topic ON post_topic.id_topic = topic.id
+            INNER JOIN member_follow ON member_follow.id_follower = ?
+            WHERE topic.name IN
+            (
+                SELECT name FROM topic
+                INNER JOIN topic_follow ON topic.id = topic_follow.id_topic
+                WHERE topic_follow.id_member = ?
+            )
+            OR
+            member_follow.id_followed = id_owner
+        ) ORDER BY date_time DESC
+        OFFSET ? ROWS
+        FETCH NEXT 15 ROWS ONLY"), [Auth::user()->id, Auth::user()->id, $num_rows]);
+
+    }
+
 
 }

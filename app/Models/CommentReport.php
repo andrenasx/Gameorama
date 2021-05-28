@@ -12,7 +12,7 @@ class CommentReport extends Model
     protected $table = 'comment_report';
 
     protected $fillable = [
-        'body', 'date_time'
+        'id_reporter', 'id_comment', 'body'
     ];
 
     /**
@@ -34,4 +34,6 @@ class CommentReport extends Model
     {
         return $this->belongsTo(Member::class, 'id_reporter');
     }
+
+
 }

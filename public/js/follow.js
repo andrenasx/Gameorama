@@ -56,7 +56,7 @@ function memberFollowHandler(button) {
         const json_data = JSON.parse(response);
         const following = json_data['following'];
         const followers = json_data['followers'];
-        
+        createToast("Successfully followed " + username_follow_button, true)
 
         if (button.classList.contains("follow-button")) {
             button.classList.remove("follow-button");
@@ -139,5 +139,6 @@ function handleFollowedTopicsClick(button){
 
 
 function loadError(response) {
+    createToast("Internal error", false)
     console.error(response)
 }

@@ -34,31 +34,44 @@ function sendAjaxRequest(method, url, data, successHandler, failHandler) {
 
 
 function createToast(text, success, element) {
-    console.log("Creating toast")
-
-
+    
+    let textClass = success ? "text-success" : "text-danger"
     let toast =  document.createElement("div")
     
-    toast.setAttribute("class", "toast show")
+    toast.setAttribute("class", "toast bg-white")
     toast.setAttribute("aria-live", "assertive")
     toast.setAttribute("role", "alert")
     toast.setAttribute("aria-atomic", "true")
+    toast.setAttribute("data-bs-animation", "true")
+    toast.setAttribute("data-bs-autohide", "true")
+    toast.setAttribute("data-bs-delay", "5000")
 
     let toastHeader = document.createElement("div")
-    toastHeader.className = "toast-header"
+    toastHeader.className = "toast-header d-flex justify-content-between"
     let toastBody = document.createElement("div")
 
-    let header = document.createElement("strong")
-    header.setAttribute("class", "text-muted")
-    header.innerText = success ? "Success" : "Error"
+    let header_div = document.createElement("div")
+    let header_span = document.createElement("span")
+    header_span.className = "material-icons-round me-2"
 
+    header_span.innerHTML = success ? "check_circle" : "error"
+    
+    let header = document.createElement("strong")
+    header.setAttribute("class", textClass)
+    header.innerText = success ? "Success" : "Error"
+    header_div.appendChild(header_span)
+    header_div.appendChild(header)
+
+
+    header_div.className = "d-flex align-items-center toast-header-" + success
+    
     let closeButton = document.createElement("button")
     closeButton.setAttribute("class", "btn-close")
     closeButton.setAttribute("type", "button")
     closeButton.setAttribute("data-bs-dismiss", "toast")
     closeButton.setAttribute("aria-label", "Close")
 
-    toastHeader.appendChild(header)
+    toastHeader.appendChild(header_div)
     toastHeader.appendChild(closeButton)
 
     toast.appendChild(toastHeader)
@@ -70,11 +83,14 @@ function createToast(text, success, element) {
     toastBody.appendChild(toastText)
 
     toast.appendChild(toastBody)
-
-    // toastContainer.appendChild(toast)
-
-    // console.log(toastContainer)
+    
+    element = document.querySelector(".toast-container")
+    
     element.appendChild(toast)
+
+    toast = new bootstrap.Toast(toast)
+    toast.show()
+
 
 }
 

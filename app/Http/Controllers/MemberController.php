@@ -285,10 +285,7 @@ class MemberController extends Controller
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow === null) {
-            DB::table('member_follow')->insert([
-                'id_followed' => $member->id,
-                'id_follower' => Auth::user()->id,
-            ]);
+            Auth::user()->follow_member($member->id);
             $followedMember->notify(new FollowNotification($followingMember->username));
         }
 
@@ -309,10 +306,7 @@ class MemberController extends Controller
         $follow = $followedMember->isFollowed(Auth::user()->id);
 
         if ($follow !== null) {
-            DB::table('member_follow')
-            ->where('id_followed', '=', $member->id)
-            ->where('id_follower', '=', Auth::user()->id)
-            ->delete();
+            Auth::user()->unfollow_member($member->id);
         }
 
         if ($request->input('userProfile') !== null){
