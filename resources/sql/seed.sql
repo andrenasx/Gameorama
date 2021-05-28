@@ -42,6 +42,12 @@ CREATE TABLE member (
     search tsvector NOT NULL
 );
 
+CREATE TABLE password_resets (
+    email      VARCHAR NOT NULL,
+    token      VARCHAR NOT NULL,
+    created_at timestamp NOT NULL DEFAULT now()::timestamp(0)
+);
+
 CREATE TABLE member_follow (
     id_followed integer REFERENCES member(id) ON DELETE CASCADE,
     id_follower integer REFERENCES member(id) ON DELETE CASCADE,
@@ -117,7 +123,6 @@ CREATE TABLE post_bookmark (
     id_bookmarker integer REFERENCES member(id) ON DELETE CASCADE,
     PRIMARY KEY(id_post, id_bookmarker)
 );
-
 
 CREATE TABLE notifications(
     id uuid PRIMARY KEY,

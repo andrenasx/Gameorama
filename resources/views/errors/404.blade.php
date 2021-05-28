@@ -5,7 +5,7 @@
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
         <h5 class="text-center">"Mission failed! We'll get them next time"</h5>
         <h6 class="text-center text-muted">- Call of Duty Modern Warfare 3</h6>
-        <h1 class="text-center h1 fw-bold color-orange" style="font-size: 100px">404</h1>
+        <h1 class="text-center h1 fw-bold color-orange">Page not found</h1>
         <div class="row g-0 text-center">
             <img class="error-picture" src={{asset('storage/assets/arcade-machine.svg')}} alt="">
         </div>
