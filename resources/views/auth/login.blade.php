@@ -12,9 +12,9 @@
                 <h1 class="h2 mb-5 fw-normal">The Panorama of Gaming</h1>
                 <h2 class="h3 mb-4 fw-bold">Login</h2>
                 <div class="form-floating mb-5">
-                    <input type="email" id="inputEmail" name="email" class="form-control mb-3"
-                           value="{{ old('email') }}" placeholder=" " required>
-                    <label for="inputEmail">Email address</label>
+                    <input type="text" id="inputLogin" name="login" class="form-control mb-3"
+                           value="{{ old('login') }}" placeholder=" " required>
+                    <label for="inputLogin">Username or Email address</label>
                 </div>
                 <div class="form-floating mb-0">
                     <input type="password" id="inputPassword" name="password" class="form-control mb-3" value=""
@@ -25,7 +25,7 @@
                     <a class="blue-hover" id="forgotPassword" href="{{ route('password.request') }}">Forgot your
                         password?</a>
                 </div>
-                @error('email')
+                @error('login')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 <div class="col-12 mt-5 mb-3 d-flex justify-content-center">

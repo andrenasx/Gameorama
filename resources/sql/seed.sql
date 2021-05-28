@@ -3,6 +3,7 @@
 -----------------------------------------
 
 DROP TABLE IF EXISTS member CASCADE;
+DROP TABLE IF EXISTS password_resets CASCADE;
 DROP TABLE IF EXISTS member_follow CASCADE;
 DROP TABLE IF EXISTS news_post CASCADE;
 DROP TABLE IF EXISTS topic CASCADE;
