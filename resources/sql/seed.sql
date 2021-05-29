@@ -239,6 +239,13 @@ DROP INDEX IF EXISTS unique_lowercase_topic;
 CREATE INDEX unique_lowercase_topic ON topic (lower(name));
 
 
+DROP INDEX IF EXISTS password_resets_email_index;
+CREATE INDEX password_resets_email_index ON password_resets (email);
+
+
+DROP INDEX IF EXISTS password_resets_token_index;
+create index password_resets_token_index ON password_resets (token);
+
 
 -- Trigger Indexes
 DROP INDEX IF EXISTS post_aura_id_post;
