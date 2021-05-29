@@ -11,20 +11,20 @@
 |
 */
 
-Route::get('/', function() {
+Route::get('/', function () {
     return redirect('/home');
 });
 
 // Authentication
-Route::get('/login', function() {
+Route::get('/login', function () {
     return view('auth.login');
-});
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+})->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('sub.login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('/signup', function() {
+Route::get('/signup', function () {
     return view('auth.signup');
-});
-Route::post('/signup', 'Auth\RegisterController@register')->name('signup');
+})->name('signup');
+Route::post('/signup', 'Auth\RegisterController@register')->name('sub.signup');
 
 
 // Home
@@ -40,7 +40,7 @@ Route::get('/topic/{topic:name}', 'TopicController@show')->name('topic');
 
 
 // Post
-Route::prefix('post/')->group(function(){
+Route::prefix('post/')->group(function () {
     Route::get('create', 'NewsPostController@create')->name('create_post');
     Route::post('create', 'NewsPostController@store')->name('store_post');
 
@@ -52,7 +52,7 @@ Route::prefix('post/')->group(function(){
 
 
 // Member
-Route::prefix('member/')->group(function(){
+Route::prefix('member/')->group(function () {
     Route::get('{member:username}', 'MemberController@show')->name('profile');
 
     // Settings
@@ -84,14 +84,14 @@ Route::post('/pusher/auth', function (Illuminate\Http\Request $request){
 
 
 // API
-Route::prefix('api/')->group(function(){
+Route::prefix('api/')->group(function () {
     Route::get('posts', 'NewsPostController@search');
     Route::get('topics', 'TopicController@search');
     Route::get('members', 'MemberController@search');
     Route::get('home/{content}/{page}', 'HomeController@content');
 
     // Member
-    Route::prefix('member/')->group(function(){
+    Route::prefix('member/')->group(function () {
         Route::delete('{member:username}', 'MemberController@destroy');
 
         // Content
@@ -112,7 +112,7 @@ Route::prefix('api/')->group(function(){
     });
 
     // Post
-    Route::prefix('post/')->group(function(){
+    Route::prefix('post/')->group(function () {
         Route::delete('{newspost:id}', 'NewsPostController@destroy')->name('delete_post');
 
         // Comment
@@ -131,7 +131,7 @@ Route::prefix('api/')->group(function(){
         Route::delete('{newspost:id}/dismiss', 'NewsPostController@dismiss');
     });
 
-    Route::prefix('comment/')->group(function(){
+    Route::prefix('comment/')->group(function () {
         // Edit
         Route::patch('{comment:id}', 'CommentController@update');
         Route::delete('{comment:id}', 'CommentController@destroy');
@@ -144,7 +144,7 @@ Route::prefix('api/')->group(function(){
         Route::delete('{comment:id}/dismiss', 'CommentController@dismiss');
     });
 
-    Route::prefix('topic/')->group(function(){
+    Route::prefix('topic/')->group(function () {
         // Content
         Route::get('{topic:name}/posts/{content}/{page}', 'TopicController@content');
 
@@ -169,3 +169,9 @@ Route::get('/about', function () {
 
 //  Administration Area
 Route::get('/admin', 'AdminController@show');
+
+// Reset Password
+Route::get('/forgot-password', 'Auth\ForgotPasswordController@show')->name('password.request');
+Route::post('/forgot-password', 'Auth\ForgotPasswordController@sendMail')->name('password.email');
+Route::get('/reset-password/{token}', 'Auth\ResetPasswordController@show')->name('password.reset');
+Route::post('/reset-password', 'Auth\ResetPasswordController@update')->name('password.update');

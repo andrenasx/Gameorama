@@ -3,6 +3,7 @@
 -----------------------------------------
 
 DROP TABLE IF EXISTS member CASCADE;
+DROP TABLE IF EXISTS password_resets CASCADE;
 DROP TABLE IF EXISTS member_follow CASCADE;
 DROP TABLE IF EXISTS news_post CASCADE;
 DROP TABLE IF EXISTS topic CASCADE;
@@ -40,6 +41,12 @@ CREATE TABLE member (
     aura integer DEFAULT 0 NOT NULL,
     admin boolean NOT NULL DEFAULT FALSE,
     search tsvector NOT NULL
+);
+
+CREATE TABLE password_resets (
+    email      VARCHAR NOT NULL,
+    token      VARCHAR NOT NULL,
+    created_at timestamp NOT NULL DEFAULT now()::timestamp(0)
 );
 
 CREATE TABLE member_follow (
@@ -117,7 +124,6 @@ CREATE TABLE post_bookmark (
     id_bookmarker integer REFERENCES member(id) ON DELETE CASCADE,
     PRIMARY KEY(id_post, id_bookmarker)
 );
-
 
 CREATE TABLE notifications(
     id uuid PRIMARY KEY,
@@ -232,6 +238,13 @@ CREATE INDEX unique_lowercase_email ON member (lower(email));
 DROP INDEX IF EXISTS unique_lowercase_topic;
 CREATE INDEX unique_lowercase_topic ON topic (lower(name));
 
+
+DROP INDEX IF EXISTS password_resets_email_index;
+CREATE INDEX password_resets_email_index ON password_resets (email);
+
+
+DROP INDEX IF EXISTS password_resets_token_index;
+create index password_resets_token_index ON password_resets (token);
 
 
 -- Trigger Indexes

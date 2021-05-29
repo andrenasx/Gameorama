@@ -45,18 +45,23 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function authenticate(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        if($request->has(['login', 'password'])) {
+            $login = request()->input('login');
+            $password = request()->input('password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+            $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-            return redirect()->intended('dashboard');
+            if (\Auth::attempt([$fieldType => $login, 'password' => $password])) {
+                $request->session()->regenerate();
+
+                return redirect(route('home'));
+            }
         }
-        
+
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'login' => 'The provided credentials do not match our records.',
         ]);
     }
 
@@ -64,8 +69,8 @@ class LoginController extends Controller
 
         $this->guard()->logout();
         $request->session()->flush();
-        $request->session()->regenerate(); 
-     
+        $request->session()->regenerate();
+
         return redirect($this->redirectTo);
     }
 }
