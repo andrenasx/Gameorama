@@ -72,15 +72,7 @@ Route::patch('/api/notifications/read', 'NotificationController@readUnreadNotifi
 
 Route::delete('/api/notification/{id_notification}/delete', 'NotificationController@delete')->middleware('auth');
 
-Route::post('/pusher/auth', function (Illuminate\Http\Request $request){
-    $key = '72f9eeafe04d407d19cf';
-    $secret = '52db04fd2d70f723152a';
-    $channel_name = $request->channel_name;
-    $socket_id = $request->socket_id;
-    $string_to_sign = $socket_id.':'.$channel_name;
-    $signature = hash_hmac('sha256', $string_to_sign, $secret);
-    return response()->json(['auth' => $key.':'.$signature]);
-});
+Route::post('/pusher/auth', 'Auth\PusherController@pusherAuth')->middleware('auth');
 
 
 // API

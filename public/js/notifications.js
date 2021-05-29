@@ -2,7 +2,7 @@
 // Enable pusher logging - don't include this in production
 Pusher.logToConsole = true;
 
-if (window.User.id != null){
+if (window.User != null){
     var pusher = new Pusher('72f9eeafe04d407d19cf', {
         authEndpoint: "/pusher/auth",
         cluster: 'eu',
@@ -21,16 +21,22 @@ if (window.User.id != null){
 
 
 //For Navbar
-document.querySelector(".modal-notifications").addEventListener("click", function(event) {
-    handleNotificationsClick();
-});
+let notificationBell = document.querySelector(".modal-notifications")
+if (notificationBell != null){
+    notificationBell.addEventListener("click", function(event) {
+        handleNotificationsClick();
+    });
+}
 
-document.querySelector(".notifications-body").addEventListener("click", function(event) {
+let notificationBody = document.querySelector(".notifications-body")
+if (notificationBody != null){
+    notificationBody.addEventListener("click", function(event) {
         let classList = event.target.classList
         if (classList.contains("delete-notification-button")) {
             deleteNotification(event.target)
         }
-});
+    });
+}
 
 
 function handleNotificationsClick(){
