@@ -45,6 +45,7 @@
 
                 <section id="topics" class="mb-5">
                     <label for="select2-topics" class="h5 form-label">Topics</label>
+                    <span type="button" class="material-icons-round me-1" data-bs-toggle="popover" title="Tooltip" data-bs-content="Topics are used to associate a post with a certain subject like a game, genre, etc. News posts with misleading topics are subject to removal from Gameorama." style="font-size:20px">help_outline</span>
                     <select id="select2-topics" class="form-control" multiple="multiple" name="topics[]" required>
                         @foreach($topics as $topic)
                             <option value="{{ $topic->name }}">{{ $topic->name }}</option>
