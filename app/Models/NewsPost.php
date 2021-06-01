@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class NewsPost extends Model
 {
@@ -127,7 +128,7 @@ class NewsPost extends Model
         ->first();
     }
 
-    public function get_feed($num_rows)
+    public static function feed($num_rows)
     {
         return DB::select(DB::raw("SELECT news_post.id as id
         FROM news_post
@@ -152,5 +153,30 @@ class NewsPost extends Model
 
     }
 
+    public static function trending_posts($num_rows)
+    {
+        return DB::select(DB::raw("SELECT id
+            FROM news_post
+            WHERE date_time >= (now() - interval '14 days')
+            ORDER BY news_post.aura DESC
+            OFFSET ? ROWS
+            FETCH NEXT 15 ROWS ONLY"), [$num_rows]);
+
+    }
+
+
+    public function dismiss_post_report() 
+    {
+        DB::table('post_report')->where('id_post', '=', $this->id)
+            ->delete();
+    }
+
+    public static function search_posts($query)
+    {
+        return NewsPost::whereRaw('search @@ plainto_tsquery(\'english\', ?)', [$query])
+        ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+        ->orderBy('date_time', 'desc')
+        ->get();
+    }
 
 }

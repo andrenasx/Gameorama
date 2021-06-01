@@ -118,13 +118,7 @@ class TopicController extends Controller
         $feed = [];
         $num_rows = ($page - 1) * 15;
 
-        $aux = DB::select(DB::raw("SELECT news_post.id as id
-            FROM news_post
-            INNER JOIN post_topic ON news_post.id = id_post AND ? = id_topic
-            WHERE date_time >= (now() - interval '14 days')
-            ORDER BY news_post.aura DESC
-            OFFSET ? ROWS
-            FETCH NEXT 15 ROWS ONLY"), [$id_topic, $num_rows]);
+        $aux = Topic::topic_trending_posts($id_topic, $num_rows);
 
         foreach ($aux as $auxIds) {
             array_push($feed, NewsPost::find($auxIds->id));
@@ -136,10 +130,7 @@ class TopicController extends Controller
     {
         if ($request->has('query')) {
             $query = $request->input('query');
-            $topics = Topic::whereRaw('search @@ plainto_tsquery(\'english\', ?)', [$query])
-                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
-                ->get();
-
+            $topics = Topic::search_topics($query);
             $html = [];
             foreach ($topics as $topic) {
                 array_push($html, view('partials.topiccard', ['topic' => $topic])->render());
@@ -155,10 +146,7 @@ class TopicController extends Controller
         $follow = $topic->isFollowed(Auth::user()->id);
 
         if ($follow === null) {
-            DB::table('topic_follow')->insert([
-                'id_topic' => $topic->id,
-                'id_member' => Auth::user()->id,
-            ]);
+            Auth::user()->follow_topic($topic->id);
         }
 
         if ($request->input('userProfile') !== 'null') {
@@ -177,10 +165,7 @@ class TopicController extends Controller
         $follow = $topic->isFollowed(Auth::user()->id);
 
         if ($follow !== null) {
-            DB::table('topic_follow')
-                ->where('id_topic', '=', $topic->id)
-                ->where('id_member', '=', Auth::user()->id)
-                ->delete();
+            Auth::user()->unfollow_topic($topic->id);
         }
 
         if ($request->input('userProfile') !== 'null') {
@@ -195,11 +180,7 @@ class TopicController extends Controller
     public function report(Request $request, Topic $topic)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        DB::table('topic_report')->insert([
-            'id_reporter' => Auth::user()->id,
-            'id_topic' => $topic->id,
-            'body' => $request->input('report')
-        ]);
+        Auth::user()->report_topic($topic->id, $request->input('body'));
     }
 
     public function dismiss(Topic $topic)

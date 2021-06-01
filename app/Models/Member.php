@@ -160,7 +160,7 @@ class Member extends Authenticatable
     {
         DB::table('member_follow')->insert([
             'id_followed' => $id_member,
-            'id_follower' => Auth::user()->id,
+            'id_follower' => $this->id,
         ]);
     }
 
@@ -168,7 +168,106 @@ class Member extends Authenticatable
     {
         DB::table('member_follow')
             ->where('id_followed', '=', $id_member)
-            ->where('id_follower', '=', Auth::user()->id)
+            ->where('id_follower', '=', $this->id)
             ->delete();
     }
+
+    public function follow_topic($id_topic) 
+    {
+        DB::table('topic_follow')->insert([
+            'id_topic' => $id_topic,
+            'id_member' => $this->id,
+        ]);
+    }
+
+    public function unfollow_topic($id_topic)
+    {
+        DB::table('topic_follow')
+        ->where('id_topic', '=', $id_topic)
+        ->where('id_member', '=', $this->id)
+        ->delete();
+    }
+
+    public function report_topic($id_topic, $report_body)
+    {
+        DB::table('topic_report')->insert([
+            'id_reporter' => $this->id,
+            'id_topic' => $id_topic,
+            'body' => $report_body
+        ]);
+    }
+
+    public function add_post_vote($vote, $id_post)
+    {
+        DB::table('post_aura')->insert([
+            'id_post' => $id_post,
+            'id_voter' => $this->id,
+            'upvote' => $vote
+        ]);
+    }
+
+    public function remove_post_vote($id_post)
+    {
+        DB::table('post_aura')
+        ->where('id_voter', '=', $this->id)
+        ->where('id_post', '=', $id_post)
+        ->delete();
+    }
+
+    public function update_post_vote($id_post, $vote)
+    {
+        DB::table('post_aura')
+            ->where('id_voter', '=', Auth::user()->id)
+            ->where('id_post', '=', $id_post)
+            ->update(['upvote' => $vote]);
+    }
+
+    public function bookmark_post($id_post)
+    {
+        DB::table('post_bookmark')->insert([
+            'id_bookmarker' => $this->id,
+            'id_post' => $id_post,
+        ]);
+    }
+
+    public function remove_post_bookmark($id_post)
+    {
+        DB::table('post_bookmark')
+            ->where('id_bookmarker', '=', $this->id)
+            ->where('id_post', '=', $id_post)
+            ->delete();
+    }
+
+    public function add_post_report($id_post, $report_body)
+    {
+        DB::table('post_report')->insert([
+            'id_reporter' => $this->id,
+            'id_post' => $id_post,
+            'body' => $report_body
+        ]);
+    }
+
+    public function add_member_report($id_member, $report_body)
+    {
+        DB::table('member_report')->insert([
+            'id_reporter' => $this->id,
+            'id_reported' => $id_member,
+            'body' => $report_body
+        ]);
+    }
+
+    public function dismiss_member_report()
+    {
+        DB::table('member_report')->where('id_reported', '=', $this->id)
+        ->delete();
+    }
+
+    public static function search_members($query)
+    {
+        return Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
+        ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+        ->orderBy('aura', 'desc')
+        ->get();
+    }
+
 }

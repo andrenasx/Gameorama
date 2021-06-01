@@ -263,10 +263,7 @@ class MemberController extends Controller
     public function search(Request $request) {
         if ($request->has('query')) {
             $query = $request->input('query');
-            $members = Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
-                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
-                ->orderBy('aura', 'desc')
-                ->get();
+            $members = Member::search_members($query);
 
             $html = [];
             foreach($members as $member){
@@ -344,18 +341,14 @@ class MemberController extends Controller
     }
 
 
-    public function report(Request $request, Member $member){
+    public function report(Request $request, Member $member)
+    {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        DB::table('member_report')->insert([
-            'id_reporter' => Auth::user()->id,
-            'id_reported' => $member->id,
-            'body' => $request->input('report')
-        ]);
+        Auth::user()->add_member_report($member->id, $request->input('report'));
     }
 
     public function dismiss(Member $member)
     {
-        DB::table('member_report')->where('id_reported', '=', $member->id)
-        ->delete();
+        $member->dismiss_member_report();
     }
 }

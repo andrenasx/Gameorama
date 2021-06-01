@@ -152,15 +152,6 @@ class NewsPostController extends Controller
     }
 
 
-    public function add_vote($vote, $id_post)
-    {
-        DB::table('post_aura')->insert([
-            'id_post' => $id_post,
-            'id_voter' => Auth::user()->id,
-            'upvote' => $vote
-        ]);
-    }
-
 
     public function vote(Request $request, NewsPost $newspost)
     {
@@ -168,17 +159,12 @@ class NewsPostController extends Controller
 
         $vote = Auth::user()->hasVotedPost($newspost->id);
         if ($vote === null) {
-            $this->add_vote($request->input('vote'), $newspost->id);
+            Auth::user()->add_post_vote($request->input('vote'), $newspost->id);
         } else if (($vote->upvote == 1 && $request->input('vote') === 'true') || ($vote->upvote == 0 && $request->input('vote') === 'false')) {
-            DB::table('post_aura')
-                ->where('id_voter', '=', Auth::user()->id)
-                ->where('id_post', '=', $newspost->id)
-                ->delete();
+            Auth::user()->remove_post_vote($newspost->id);
         } else {
-            DB::table('post_aura')
-                ->where('id_voter', '=', Auth::user()->id)
-                ->where('id_post', '=', $newspost->id)
-                ->update(['upvote' => $request->input('vote')]);
+            Auth::user()->update_post_vote($newspost->id, $request->input('vote'));
+
         }
 
         $newspost->refresh();
@@ -317,10 +303,7 @@ class NewsPostController extends Controller
     {
         if ($request->has('query')) {
             $query = $request->input('query');
-            $posts = NewsPost::whereRaw('search @@ plainto_tsquery(\'english\', ?)', [$query])
-                ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
-                ->orderBy('date_time', 'desc')
-                ->get();
+            $posts = NewsPost::search_posts($query);
 
             $html = [];
             foreach ($posts as $post) {
@@ -337,10 +320,7 @@ class NewsPostController extends Controller
         $bookmark = $newspost->isBookmarked(Auth::user()->id);
 
         if ($bookmark === null) {
-            DB::table('post_bookmark')->insert([
-                'id_bookmarker' => Auth::user()->id,
-                'id_post' => $newspost->id,
-            ]);
+            Auth::user()->bookmark_post($newspost->id);
         }
     }
 
@@ -351,10 +331,7 @@ class NewsPostController extends Controller
         $bookmark = $newspost->isBookmarked(Auth::user()->id);
 
         if ($bookmark !== null) {
-            DB::table('post_bookmark')
-                ->where('id_bookmarker', '=', Auth::user()->id)
-                ->where('id_post', '=', $newspost->id)
-                ->delete();
+            Auth::user()->remove_post_bookmark($newspost->id);
         }
     }
 
@@ -363,16 +340,13 @@ class NewsPostController extends Controller
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
-        DB::table('post_report')->insert([
-            'id_reporter' => Auth::user()->id,
-            'id_post' => $newspost->id,
-            'body' => $request->input('report')
-        ]);
+        Auth::user()->add_post_report($newspost->id, $request->input('report'));
     }
 
-    public function dismiss(NewsPost $newspost)
+    public function dismiss(NewsPost $newsPost)
     {
-        DB::table('post_report')->where('id_post', '=', $newspost->id)
-            ->delete();
+        $newsPost->dismiss_post_report();
     }
+
+    
 }

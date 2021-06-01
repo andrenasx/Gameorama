@@ -66,7 +66,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
     else if (classList.contains("delete-comment")) {
         let id_comment = event.target.closest(".comment_options").getAttribute("data-id")
         const route = "/api/comment/" + id_comment
-        sendAjaxRequest("DELETE", route, null, loadReply, loadError)
+        sendAjaxRequest("DELETE", route, null, deleteComment.bind(event.target.closest(".post-comment")), loadError)
     }
 
     // if (isPostPage === null) return
@@ -76,6 +76,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
         event.target.closest(".comment_box").querySelector(".dropdown-menu").hidden = true
         event.target.closest(".comment_box").querySelector(".edit_button").hidden = false
         event.target.closest(".comment_box").querySelector(".cancel_button").hidden = false
+        event.target.closest(".comment_box").querySelector(".comment_options").hidden = true
         textarea.hidden = false
         textarea.focus()
         event.target.closest(".comment_box").querySelector(".comment_body").hidden = true
@@ -88,6 +89,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
         event.target.closest(".comment_box").querySelector(".cancel_button").hidden = true
         textarea.hidden = true
         event.target.closest(".comment_box").querySelector(".comment_body").hidden = false
+        event.target.closest(".comment_box").querySelector(".comment_options").hidden = false
     }
     
     
@@ -100,7 +102,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
 })
 
 function deleteComment(response) {
-
+    this.remove()
 }
 
 
