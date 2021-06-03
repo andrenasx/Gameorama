@@ -229,10 +229,13 @@ class MemberController extends Controller
         $member->delete();
     }
 
-    public function content(Member $member, $content, $page)
+    public function content(Request $request, Member $member, $content)
     {
-        $data = null;
-        $type = "";
+        if (!$request->has('page')) {
+            return response()->json('No page provided', 400);
+        }
+        $page = $request->input('page');
+
         switch ($content) {
             case "posts":
                 $data = $member->posts()->orderBy('date_time', 'desc')->forPage($page)->get();

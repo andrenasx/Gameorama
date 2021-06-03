@@ -7,7 +7,6 @@ let bookmarkedsTab = document.getElementById('pills-bookmarked-tab');
 let contentSection = document.getElementById('content');
 let spinner = document.getElementById('spinner');
 
-
 let content = 'posts';
 let page = 1;
 let querying = false;
@@ -16,15 +15,16 @@ let querying = false;
 function start() {
     spinner.classList.remove('d-none');
     spinner.classList.add('d-flex');
-    loadContent();
+    loadContent.call(this);
 }
 
 function reset(c) {
+    this.disabled = true;
     content = c;
     page = 1;
     querying = true;
     contentSection.innerHTML = "";
-    start(contentSection)
+    start.call(this)
 }
 
 function removeSpinner() {
@@ -34,16 +34,23 @@ function removeSpinner() {
 
 function loadContent() {
     querying = false;
-    const route = '/api/member/' + username + '/' + content + '/' + page;
-    const data = {username: username, page: page};
+    const current_content = content;
+    const route = '/api/member/' + username + '/' + content;
+    const data = {page: page};
 
     sendAjaxRequest('GET', route, data,
         (response) => {
+            if (content !== current_content) {
+                this.disabled = false;
+                return;
+            }
+
             const data = JSON.parse(response);
 
             if (page === 1 && data.length === 0) {
                 removeSpinner();
                 contentSection.innerHTML = "No content to show";
+                this.disabled = false;
                 return;
             }
 
@@ -51,14 +58,11 @@ function loadContent() {
                 removeSpinner();
             }
 
-            let new_div = document.createElement('div');
-            new_div.innerHTML = data.join('');
-            while (new_div.firstChild) {
-                contentSection.appendChild(new_div.firstChild)
-            }
+            contentSection.innerHTML += data.join('');
 
             page += 1;
             querying = true;
+            this.disabled = false;
         },
         (response) => {
             console.error(response)
@@ -67,13 +71,13 @@ function loadContent() {
 }
 
 
-postsTab.addEventListener('click', reset.bind(null, 'posts'));
-commentsTab.addEventListener('click', reset.bind(null, 'comments'));
+postsTab.addEventListener('click', reset.bind(postsTab, 'posts'));
+commentsTab.addEventListener('click', reset.bind(commentsTab, 'comments'));
 if (bookmarkedsTab != null) {
-    bookmarkedsTab.addEventListener('click', reset.bind(null, 'bookmarked'));
+    bookmarkedsTab.addEventListener('click', reset.bind(bookmarkedsTab, 'bookmarked'));
 }
 
-start();
+start.call(postsTab);
 
 window.addEventListener('scroll', () => {
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement;

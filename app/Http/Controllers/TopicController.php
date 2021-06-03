@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Topic;
-use App\Models\NewsPost;
 use App\Models\Member;
-use Illuminate\Support\Facades\DB;
+use App\Models\NewsPost;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class TopicController extends Controller
 {
@@ -91,9 +89,13 @@ class TopicController extends Controller
 
     }
 
-    public function content(Topic $topic, $content, $page)
+    public function content(Request $request, Topic $topic, $content)
     {
-        $data = null;
+        if (!$request->has('page')) {
+            return response()->json('No page provided', 400);
+        }
+        $page = $request->input('page');
+
         switch ($content) {
             case "trending":
                 $data = $this->trending($topic->id, $page);

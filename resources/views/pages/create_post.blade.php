@@ -11,8 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
         <!-- TinyMCE -->
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+        <script src="https://cdn.tiny.cloud/1/08t5y62wss6y2fzascz2trysrq487403jdb54o0kzk3nu9zq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <!-- Dropzone -->
         <link href="{{ asset('assets/dropzone-5.7.0/dist/min/dropzone.min.css') }}" rel="stylesheet"/>
         <script src="{{ asset('assets/dropzone-5.7.0/dist/dropzone.js') }}"></script>

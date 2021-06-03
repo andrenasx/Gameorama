@@ -24,7 +24,7 @@
         <section class="row g-0 align-items-center" id="topic-info">
             <div class="col-md-10 col-8">
                 <div class="row g-0">
-                    <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" class = "rounded-circle col-2 px-0" alt="" style = "max-width: 100px">
+                    <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" class = "rounded-circle col-2 d-none d-sm-block px-0" alt="Topic image" style = "max-width: 100px">
                     <div class="col-10 px-3 my-auto d-flex flex-column">
                         <h3 class="h2 fw-bold" id="topic_name">{{$topic->name}}</h3>
                         <h5 id="topic_followers" data_id={{$topic->id}}>{{$topic->followers->count()}} Followers</h5>

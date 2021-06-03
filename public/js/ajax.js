@@ -1,6 +1,6 @@
 function encodeForAjax(data) {
     if (data == null) return null;
-    return Object.keys(data).map(function(k){
+    return Object.keys(data).map(function (k) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&')
 }
@@ -8,7 +8,7 @@ function encodeForAjax(data) {
 function sendAjaxRequest(method, url, data, successHandler, failHandler) {
     let request = new XMLHttpRequest();
 
-    if(method === "GET")
+    if (method === "GET")
         url = url + `?${encodeForAjax(data)}`
 
     request.open(method, url, true);
@@ -26,7 +26,7 @@ function sendAjaxRequest(method, url, data, successHandler, failHandler) {
         }
     }
 
-    if(method === "GET")
+    if (method === "GET")
         request.send()
     else
         request.send(encodeForAjax(data));
@@ -34,10 +34,9 @@ function sendAjaxRequest(method, url, data, successHandler, failHandler) {
 
 
 function createToast(text, success, element) {
-    
     let textClass = success ? "text-success" : "text-danger"
-    let toast =  document.createElement("div")
-    
+    let toast = document.createElement("div")
+
     toast.setAttribute("class", "toast bg-white")
     toast.setAttribute("aria-live", "assertive")
     toast.setAttribute("role", "alert")
@@ -55,7 +54,7 @@ function createToast(text, success, element) {
     header_span.className = "material-icons-round me-2"
 
     header_span.innerHTML = success ? "check_circle" : "error"
-    
+
     let header = document.createElement("strong")
     header.setAttribute("class", textClass)
     header.innerText = success ? "Success" : "Error"
@@ -64,7 +63,7 @@ function createToast(text, success, element) {
 
 
     header_div.className = "d-flex align-items-center toast-header-" + success
-    
+
     let closeButton = document.createElement("button")
     closeButton.setAttribute("class", "btn-close")
     closeButton.setAttribute("type", "button")
@@ -83,14 +82,16 @@ function createToast(text, success, element) {
     toastBody.appendChild(toastText)
 
     toast.appendChild(toastBody)
-    
+
     element = document.querySelector(".toast-container")
-    
+
     element.appendChild(toast)
 
     toast = new bootstrap.Toast(toast)
     toast.show()
+}
 
-
+function loadError(error) {
+    createToast("Internal error", false)
 }
 

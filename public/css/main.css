@@ -451,7 +451,7 @@ form h2 {
 }
 
 #signUpLogin:hover, #forgotPassword:hover {
-    color: #0d6efd;
+    color: var(--bsBlue);
 }
 
 .form-signup {
@@ -922,7 +922,7 @@ a {
 }
 
 a:hover {
-    color: #0d6efd;
+    color: var(--bsBlue);
 }
 
 a.black-a {
@@ -931,6 +931,11 @@ a.black-a {
 
 a.black-a:hover {
     color: black;
+}
+
+.card-text a{
+    color: var(--bsBlue);
+    text-decoration: underline;
 }
 
 .truncate {

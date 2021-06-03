@@ -24,9 +24,13 @@ class HomeController extends Controller
         return view('pages.home', ['hall_of_fame' => $hall_of_fame, 'popular_topics' => $popular_topics]);
     }
 
-    public function content($content, $page)
+    public function content(Request $request, $content)
     {
-        $data = null;
+        if (!$request->has('page')) {
+            return response()->json('No page provided', 400);
+        }
+        $page = $request->input('page');
+
         switch ($content) {
             case "feed":
                 if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);

@@ -80,14 +80,14 @@ Route::prefix('api/')->group(function () {
     Route::get('posts', 'NewsPostController@search');
     Route::get('topics', 'TopicController@search');
     Route::get('members', 'MemberController@search');
-    Route::get('home/{content}/{page}', 'HomeController@content');
+    Route::get('home/{content}', 'HomeController@content');
 
     // Member
     Route::prefix('member/')->group(function () {
         Route::delete('{member:username}', 'MemberController@destroy');
 
         // Content
-        Route::get('{member:username}/{content}/{page}', 'MemberController@content');
+        Route::get('{member:username}/{content}', 'MemberController@content');
 
         // Follow
         Route::post('{member:username}/follow', 'MemberController@follow');
@@ -123,6 +123,7 @@ Route::prefix('api/')->group(function () {
         Route::delete('{newspost:id}/dismiss', 'NewsPostController@dismiss');
     });
 
+    // Comments
     Route::prefix('comment/')->group(function () {
         // Edit
         Route::patch('{comment:id}', 'CommentController@update');
@@ -136,9 +137,10 @@ Route::prefix('api/')->group(function () {
         Route::delete('{comment:id}/dismiss', 'CommentController@dismiss');
     });
 
+    // Topic
     Route::prefix('topic/')->group(function () {
         // Content
-        Route::get('{topic:name}/posts/{content}/{page}', 'TopicController@content');
+        Route::get('{topic:name}/posts/{content}', 'TopicController@content');
 
         // Follow
         Route::post('{topic:id}/follow', 'TopicController@follow');

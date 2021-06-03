@@ -3,9 +3,9 @@ const comments = document.querySelector(".comments")
 const topics = document.querySelector(".topics")
 const members = document.querySelector(".members")
 
-posts.addEventListener("click", function(event) {
+posts.addEventListener("click", function (event) {
     let classList = event.target.classList;
-    
+
     if (classList.contains("delete")) {
         event.preventDefault();
         const id_post = event.target.closest(".news-card").getAttribute("data-id");
@@ -21,9 +21,9 @@ posts.addEventListener("click", function(event) {
     }
 })
 
-comments.addEventListener("click", function(event) {
+comments.addEventListener("click", function (event) {
     let classList = event.target.classList;
-    
+
     if (classList.contains("delete")) {
         event.preventDefault();
         const id_comment = event.target.closest(".comment-card").getAttribute("data-id");
@@ -40,9 +40,9 @@ comments.addEventListener("click", function(event) {
 
 })
 
-topics.addEventListener("click", function(event) {
+topics.addEventListener("click", function (event) {
     let classList = event.target.classList;
-    
+
     if (classList.contains("delete")) {
         const id_topic = event.target.closest(".topic-card").getAttribute("data-id");
         const route = "/api/comment/" + id_topic
@@ -56,9 +56,9 @@ topics.addEventListener("click", function(event) {
     }
 })
 
-members.addEventListener("click", function(event) {
+members.addEventListener("click", function (event) {
     let classList = event.target.classList;
-    
+
     if (classList.contains("delete")) {
         const username = event.target.closest(".member-card").getAttribute("data-id");
         const route = "/api/member/" + username
@@ -71,7 +71,6 @@ members.addEventListener("click", function(event) {
         sendAjaxRequest("DELETE", route, {}, dismissMember.bind(event.target.closest(".member-card")), loadError)
     }
 })
-
 
 
 function postDismiss() {
@@ -116,8 +115,4 @@ function memberResponse() {
     let username = this.getAttribute("data-id")
     createToast("Successfully banned member " + username, true)
     members.removeChild(this)
-}
-
-function loadError(error) {
-    createToast("Internal error", false)
 }
