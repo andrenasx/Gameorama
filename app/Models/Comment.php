@@ -15,11 +15,11 @@ class Comment extends Model
 {
     use HasFactory;
 
-    // Don't add create and update timestamps in database.
-    public $timestamps  = false;
-
     // Table
     protected $table = 'comment';
+
+    // Don't add create and update timestamps in database.
+    public $timestamps  = false;
 
     /**
      * The attributes that are mass assignable.
@@ -87,8 +87,7 @@ class Comment extends Model
 
     public function dismiss_report()
     {
-        DB::table('comment_report')->where('id_comment', '=', $this->id)
-        ->delete();
+        DB::table('comment_report')->where('id_comment', '=', $this->id)->delete();
     }
 
 
@@ -100,7 +99,7 @@ class Comment extends Model
         ]);
     }
 
-    public function delete_vote($vote) {
+    public function delete_vote() {
         DB::table('comment_aura')
         ->where('id_voter', '=', Auth::user()->id)
         ->where('id_comment', '=', $this->id)

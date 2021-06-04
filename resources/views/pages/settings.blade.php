@@ -5,7 +5,7 @@
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
         <script defer src={{ asset('js/settings.js') }}></script>
-        <script defer src = {{ asset('js/footer.js') }}></script>
+        <script defer src= {{ asset('js/footer.js') }}></script>
     @endpush
 
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
@@ -87,6 +87,8 @@
                         <div class="modal-body">
                             <div class="form-floating mb-4">
                                 <input type="password" id="inputOldPass" class="form-control" placeholder=" "
+                                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$"
+                                       title="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
                                        required autofocus>
                                 <label for="inputOldPass">Old Password</label>
                                 <div class="invalid-feedback error-old_password">
@@ -94,6 +96,8 @@
                             </div>
                             <div class="form-floating mb-4">
                                 <input type="password" id="inputNewPass" class="form-control" placeholder=" "
+                                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$"
+                                       title="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
                                        required autofocus>
                                 <label for="inputNewPass">New Password</label>
                                 <div class="invalid-feedback error-new_password"></div>
@@ -101,6 +105,8 @@
 
                             <div class="form-floating">
                                 <input type="password" id="inputConfPass" class="form-control" placeholder=" "
+                                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$"
+                                       title="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
                                        required autofocus>
                                 <label for="inputConfPass">Confirm New Password</label>
                                 <div class="invalid-feedback error-new_password_confirmation"></div>
@@ -126,8 +132,8 @@
                     </div>
                     <form id="delete-acc" data-username="{{ Auth::user()->username }}" autocomplete="off">
                         <div class="modal-body">
-                            <p class="game-quote mt-3">“You’ve met with a terrible fate, haven’t you?” </p>
-                            <p class="game-quote-origin">- The Legend of Zelda: Majora’s Mask </p>
+                            <p class="game-quote mt-3">“You there, hunter. Didn't you see the warning? Turn back at once.” </p>
+                            <p class="game-quote-origin">- Bloodborne </p>
                             <!--Rotating Game Quotes-->
                             <div class="form-floating">
                                 <input type="password" id="inputDeleteAccount" class="form-control" placeholder=" "

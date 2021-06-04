@@ -38,11 +38,10 @@
                 </div>
                 <div class="modal-footer" id="postReport">
                     <button type="button" class="btn btn-secondary cancel-button " data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary delete-button report-submit" >Report</button>
+                    <button type="button" class="btn btn-danger report-submit" >Report</button>
                 </div>
             </form>
         </div>
-        
+
     </div>
 </div>
-   

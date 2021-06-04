@@ -49,6 +49,7 @@ function submitNewEmail(event) {
             input_pass.value = "";
             let modal = document.getElementById('staticBackdropEmail');
             bootstrap.Modal.getInstance(modal).hide();
+            createToast("Successfully changed email",true);
         },
         (response) => {
             const errorMap = new Map(Object.entries(JSON.parse(response)));
@@ -103,6 +104,7 @@ function submitNewPassword(event) {
             input_conf_password.value = "";
             let modal = document.getElementById('staticBackdropPassword');
             bootstrap.Modal.getInstance(modal).hide();
+            createToast("Successfully changed password",true);
         },
         (response) => {
             const errorMap = new Map(Object.entries(JSON.parse(response)));

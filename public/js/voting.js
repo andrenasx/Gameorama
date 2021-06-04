@@ -37,7 +37,6 @@ function upvoteResponse (response) {
         upvote.classList.add("voted");
     }
     score.innerHTML = aura
-    // createToast("Exemplo", true, this.closest(".news-card"))
 }
 
 
@@ -59,8 +58,4 @@ function downvoteResponse(response) {
         downvote.classList.add("voted");
     }
     score.innerHTML = aura
-}
-
-function loadError(response) {
-    console.error(response)
 }

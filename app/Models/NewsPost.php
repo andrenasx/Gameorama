@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class NewsPost extends Model
 {
     use HasFactory;
 
-    // Don't add create and update timestamps in database.
-    public $timestamps  = false;
-
     // Table
     protected $table = 'news_post';
+
+    // Don't add create and update timestamps in database.
+    public $timestamps  = false;
 
     /**
      * The attributes that are mass assignable.
@@ -161,22 +162,22 @@ class NewsPost extends Model
             ORDER BY news_post.aura DESC
             OFFSET ? ROWS
             FETCH NEXT 15 ROWS ONLY"), [$num_rows]);
-
     }
 
 
-    public function dismiss_post_report() 
+    public function dismiss_post_report()
     {
-        DB::table('post_report')->where('id_post', '=', $this->id)
-            ->delete();
+        DB::table('post_report')->where('id_post', '=', $this->id)->delete();
+        // PostReport::where('id_post', '=', $this->id)->delete();
+        // $this->refresh();
     }
 
-    public static function search_posts($query)
+    public static function search_posts($query, $page)
     {
         return NewsPost::whereRaw('search @@ plainto_tsquery(\'english\', ?)', [$query])
         ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
         ->orderBy('date_time', 'desc')
+        ->forPage($page)
         ->get();
     }
-
 }

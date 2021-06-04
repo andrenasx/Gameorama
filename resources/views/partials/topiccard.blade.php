@@ -1,6 +1,6 @@
 <div class="row g-0 p-3 mb-2 rounded bg-white align-items-center">
     <div class="col-2 col-xl-1 pe-3">
-        <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" alt="" class="rounded-circle img-fluid img-responsive" style="width:90px;height:auto;">
+        <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" alt="Topic image" class="rounded-circle img-fluid img-responsive" style="width:90px;height:auto;">
     </div>
     <div class="col-6 col-xl-9">
         <div class="row g-0">

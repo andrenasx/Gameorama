@@ -1,11 +1,11 @@
-<nav class= "navbar-placeholder row g-0">
+<nav class="navbar-placeholder row g-0">
     <div class="col-12"></div>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
-        <div class="col-1 ps-lg-2" id="Logo" onclick="window.location.href='{{ route('home') }}'" style="cursor:pointer;">
-            <img src={{asset('storage/assets/logo.png')}} class="img-logo" alt="">
-        </div>
+        <a class="col-1 ps-lg-2" id="Logo" href="{{ route('home') }}">
+            <img src={{asset('storage/assets/logo.png')}} class="img-logo" alt="Gameorama logo">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,8 @@
             <div class="col-lg-6" id="navbar_search">
                 <form method="GET" action="/search" class="col-lg-6 d-flex " style="width:85%">
                     <span class="material-icons-round mt-1" style=" font-size:200%; color:grey;">search</span>
-                    <input name="query" type="search" autocomplete="off" class="form-control" placeholder="Search" aria-label="Search"></input>
+                    <input name="query" type="search" autocomplete="off" class="form-control" placeholder="Search"
+                           aria-label="Search">
                 </form>
             </div>
             <ul class="navbar-nav d-flex justify-content-end">
@@ -31,19 +32,21 @@
                     </li>
                 @endguest
                 @auth
-                    <button class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn"
-                             type="button" title="Create a Post"
-                            onclick="window.location.href='{{ route('create_post') }}'">
+                    <a class="btn btn-primary nav-item me-3 h-100" style="margin-top:5px" id="create_post_btn"
+                       type="button" title="Create a Post" href="{{ route('create_post') }}">
                         <row class="d-flex ">
                             <span class="material-icons-round">post_add</span>
                         </row>
-                    </button>
+                    </a>
                     <li class="nav-item dropdown d-flex pe-1" id="hamburguerIcon">
-                        <a class="nav-link gx-0 mx-0 px-0 modal-notifications" id="navbarDropdown" role="button" aria-expanded="false"
+                        <a class="nav-link gx-0 mx-0 px-0 modal-notifications" id="navbarDropdown" role="button"
+                           aria-expanded="false"
                            data-bs-toggle="modal" data-bs-target="#modalNotifications">
-                            <button type="button" id="notifications-button" class="navbar-icon grey-hover" style="margin-top:2px"><span
+                            <button type="button" id="notifications-button" class="navbar-icon grey-hover"
+                                    style="margin-top:2px"><span
                                     class="material-icons-round">notifications</span></button>
-                            <span class="badge rounded-pill badge-notification bg-danger">{{Auth::user()->unreadNotifications->count()}}</span>
+                            <span
+                                class="badge rounded-pill badge-notification bg-danger">{{Auth::user()->unreadNotifications->count()}}</span>
                         </a>
                         <a class="nav-link dropdown-toggle d-flex mt-1 grey-hover" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" style="color:black" aria-expanded="false">
@@ -61,9 +64,11 @@
                             <li><a class="dropdown-item" href="/member/{{Auth::user()->username}}/settings  ">Account
                                     Settings</a></li>
                             @if (Auth::user()->admin)
-                            <li><a class="dropdown-item" href="/admin">Administration Area</a></li>
+                                <li><a class="dropdown-item" href="/admin">Administration Area</a></li>
                             @endif
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="{{route('logout')}}">Log out</a></li>
                         </ul>
                     </li>
@@ -73,22 +78,24 @@
                         <button type="button" id="notifications-button" class="navbar-icon ">
                             <span class="material-icons-round">notifications</span>
                         </button>
-                        <span class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->unreadNotifications->count()}}</span>
+                        <span
+                            class="badge rounded-pill badge-notification bg-danger mt-2">{{Auth::user()->unreadNotifications->count()}}</span>
                         <span class="">Notifications</span>
                     </li>
                     <li><a class="mt-2 grey-hover" href="/member/{{Auth::user()->username}}"
                            id="colapsedHamburguer"><span
-                                class="material-icons-round" style="margin-right:10px">account_circle</span>{{Auth::user()->username}}</a>
+                                class="material-icons-round"
+                                style="margin-right:10px">account_circle</span>{{Auth::user()->username}}</a>
                     </li>
                     <li><a class="mt-2 grey-hover" href="/member/{{Auth::user()->username}}/settings"
                            id="colapsedHamburguer"><span class="material-icons-round"
                                                          style="margin-right:10px">settings</span> Account Settings</a>
                     </li>
                     @if (Auth::user()->admin)
-                    <li><a class="mt-2 grey-hover" href="/admin"
-                           id="colapsedHamburguer"><span class="material-icons-round"
-                                                         style="margin-right:10px">shield</span> Administration Area</a>
-                    </li>
+                        <li><a class="mt-2 grey-hover" href="/admin"
+                               id="colapsedHamburguer"><span class="material-icons-round"
+                                                             style="margin-right:10px">shield</span> Administration Area</a>
+                        </li>
                     @endif
                     <li><a class="mt-2 grey-hover" href="{{route('logout')}}" id="colapsedHamburguer"><span
                                 class="material-icons-round" style="font-weight: bold;margin-right:10px">logout</span>
@@ -101,7 +108,7 @@
 </nav>
 
 <div aria-live="polite" aria-atomic="true" class="position-relative">
-    <div class="toast-container position-fixed bottom-1 end-0 p-3" style = "z-index: 10"></div>
+    <div class="toast-container position-fixed bottom-1 start-0 p-3" style="z-index: 10"></div>
 
 </div>
 
@@ -121,7 +128,7 @@
                     @else
                         @foreach((Auth::user()->notifications) as $notification)
                             @if($notification->type === "App\Notifications\FollowNotification")
-                                <!--Follow-->
+                            <!--Follow-->
                                 @if($notification->read_at !== null)
                                     @include('partials.follow_notification_card',['notification'=>$notification])
                                 @else
@@ -129,14 +136,14 @@
                                 @endif
 
                             @elseif($notification->type === "App\Notifications\CommentNotification")
-                                <!--Comment-->
+                            <!--Comment-->
                                 @if($notification->read_at !== null)
                                     @include('partials.comment_notification_card',['notification'=>$notification])
                                 @else
                                     @include('partials.comment_notification_unread_card',['notification'=>$notification])
                                 @endif
                             @else($notification->type === "App\Notifications\ReplyNotification")
-                                <!--Reply-->
+                            <!--Reply-->
                                 @if($notification->read_at !== null)
                                     @include('partials.reply_notification_card',['notification'=>$notification])
                                 @else

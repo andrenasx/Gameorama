@@ -62,7 +62,7 @@ class LoginController extends Controller
 
         return back()->withErrors([
             'login' => 'The provided credentials do not match our records.',
-        ]);
+        ])->withInput();
     }
 
     public function logout(Request $request) {

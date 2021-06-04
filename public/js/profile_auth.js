@@ -56,6 +56,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
 function deleteComment() {
     let parent = this.parentNode
     parent.removeChild(this)
+    createToast("Successfully deleted comment", true)
 }
 
 function editComment(response) {

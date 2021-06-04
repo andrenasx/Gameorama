@@ -4,6 +4,7 @@
     @include('partials.navbar')
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
+        <script defer src = {{ asset('js/contentload.js') }}></script>
         <script defer src={{ asset('js/profile.js') }}></script>
 
         @auth
@@ -27,17 +28,16 @@
                 <div class="col-sm-12">
                     <div class="image-container bg2"
                          style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover">
-                        <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar">
+                        <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar" alt="Member avatar">
                     </div>
                     <row class="d-flex justify-content-end col-12 reportable">
                         @auth
                             @if ($member->isMe(Auth::user()->id))
-                                <button type="button" class="btn d-flex align-content-center mt-1 me-1">
-                                    <span class="btn-outline-blue" style="font-size: 200%;"
-                                          onclick="location.href = '/member/{{$member->username}}/edit'">create</span>
-                                </button>
+                                <a class="btn d-flex align-content-center mt-1 me-1" href="{{ route('edit_profile', ['member' => $member->username]) }}">
+                                    <span class="btn-outline-blue" style="font-size: 200%;">create</span>
+                                </a>
                             @else
-                                <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}
+                                <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id="{{$member->id}}"
                                         data-bs-toggle="modal"
                                         data-bs-target="#reportProfile">
                                     <span class="btn-outline-red report-b report-profile" data-id="{{$member->id}}" style="font-size: 200%;">flag</span>
@@ -45,7 +45,7 @@
                             @endif
                         @endauth
                         @guest
-                            <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id={{$member->id}}>
+                            <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id="{{$member->id}}>"
                                 <span class="btn-outline-red report-b report-profile" data-id="{{$member->id}}" style="font-size: 200%;">flag</span>
                             </button>
                         @endguest
@@ -55,37 +55,37 @@
                 <div class="col-sm-12">
                     <div class="details ">
                         <h3>{{$member->full_name}}</h3>
-                        <h4 class="color-orange fst-italic" id="username" data-id = {{$member->id}}>{{$member->username}}</h4>
+                        <h4 class="color-orange fst-italic" id="username" data-id="{{$member->id}}">{{$member->username}}</h4>
                         <p>{{$member->aura}} Aura Score</p>
                         <p class="bio mb-4 px-3">{{$member->bio}}</p>
                         @auth
                             @if (!$member->isMe(Auth::user()->id))
                                 @if ($member->isFollowed(Auth::user()->id))
-                                    <button type="button" class="following-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id = {{$member->username}}></button>
+                                    <button type="button" class="following-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id="{{$member->username}}"></button>
                                 @else
-                                    <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id = {{$member->username}}></button>
+                                    <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id="{{$member->username}}"></button>
                                 @endif
                             @endif
                         @endauth
                         @guest
-                        <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id = {{$member->username}}></button>
+                        <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id="{{$member->username}}"></button>
                         @endguest
                     </div>
                 </div>
                 <section class="follow_stats pb-3">
                     <div class="row g-0 d-flex justify-content-around">
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile button-following" data-bs-toggle="modal" data-id = {{$member->id}}
+                            <button type="button" class="text-button-profile button-following" data-bs-toggle="modal" data-id="{{$member->id}}"
                                     data-bs-target="#modalFollowing">{{$member->following->count()}} Following
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile button-followers" data-bs-toggle="modal" data-id = {{$member->id}}
+                            <button type="button" class="text-button-profile button-followers" data-bs-toggle="modal" data-id="{{$member->id}}"
                                     data-bs-target="#modalFollowers">{{$member->followers->count()}} Followers
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile button-topics" data-bs-toggle="modal" data-id = {{$member->id}}
+                            <button type="button" class="text-button-profile button-topics" data-bs-toggle="modal" data-id="{{$member->id}}"
                                     data-bs-target="#modalFollowedTopics">{{$member->topics->count()}} Followed Topics
                             </button>
                         </div>
@@ -126,7 +126,7 @@
         </section>
         <section id="content" class="posts comments-section reportable"></section>
         <div id="spinner" class="d-flex justify-content-center mt-5">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>

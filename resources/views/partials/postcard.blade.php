@@ -62,8 +62,8 @@
     <div class="news-card-body">
         <a href="{{ route('post', ['newspost' => $post->id]) }}" class="black-a">
             @if ($post->images->count () > 0)
-            <img class="img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 650px"
-                src={{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}>
+            <img class="img-fluid img-responsive mx-auto my-3 d-block" style="max-height: 500px"
+                src="{{ asset('storage/posts/'.$post->id.'/'.$post->images[0]['file']) }}" alt="Post image">
             @endif
             <div class="post-body card-text mt-3 truncate-multiple">{!!$post->body!!}</div>
         </a>
@@ -90,9 +90,9 @@
                 <div class="col d-flex justify-content-center btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                     <span class="material-icons-round">more_horiz</span>
                 </div>
-                <ul class="dropdown-menu more-horizontal col-1 dropdown-menu-lg-end" aria-labelledby="more-horizontal">
-                    <li><a class="dropdown-item btn-outline-blue"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
-                    <li><a class="dropdown-item btn-outline-red"><span class="material-icons-outlined align-middle">delete</span> <span> Delete</span></a></li>
+                <ul class="dropdown-menu more-horizontal col-1 dropdown-menu-lg-end post-actions" data-id = {{$post->id}} aria-labelledby="more-horizontal">
+                    <li><a class="dropdown-item btn-outline-blue" href="{{ route('edit_post', ['newspost' => $post->id]) }}"><span class="material-icons-outlined align-middle">edit</span> <span> Edit</span></a></li>
+                    <li><a class="dropdown-item btn-outline-red delete-post"><span class="material-icons-outlined align-middle delete-post">delete</span> <span class="delete-post"> Delete</span></a></li>
                 </ul>
             @else
                 <div class="col d-flex justify-content-center btn-outline-red report-b report-post" data-bs-toggle="modal" data-bs-target="#reportPost" data-id= {{$post->id}}>

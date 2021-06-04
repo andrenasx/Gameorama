@@ -14,11 +14,11 @@ class Member extends Authenticatable
     use HasFactory;
     use Notifiable;
 
-    // Don't add create and update timestamps in database.
-    public $timestamps  = false;
-
     // Table
     protected $table = 'member';
+
+    // Don't add create and update timestamps in database.
+    public $timestamps  = false;
 
     /**
      * The attributes that are mass assignable.
@@ -156,7 +156,7 @@ class Member extends Authenticatable
         return $this->hasMany(MemberReport::class, 'id_reported');
     }
 
-    public function follow_member($id_member) 
+    public function follow_member($id_member)
     {
         DB::table('member_follow')->insert([
             'id_followed' => $id_member,
@@ -172,7 +172,7 @@ class Member extends Authenticatable
             ->delete();
     }
 
-    public function follow_topic($id_topic) 
+    public function follow_topic($id_topic)
     {
         DB::table('topic_follow')->insert([
             'id_topic' => $id_topic,
@@ -258,16 +258,15 @@ class Member extends Authenticatable
 
     public function dismiss_member_report()
     {
-        DB::table('member_report')->where('id_reported', '=', $this->id)
-        ->delete();
+        MemberReport::where('id_reported', '=', $this->id)->delete();
     }
 
-    public static function search_members($query)
+    public static function search_members($query, $page)
     {
         return Member::whereRaw('search @@ plainto_tsquery(\'english\', ?)',  [$query])
         ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
         ->orderBy('aura', 'desc')
+        ->forPage($page)
         ->get();
     }
-
 }

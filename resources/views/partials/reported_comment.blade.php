@@ -10,17 +10,18 @@
     <div class="d-flex justify-content-between">
         <button type="button" class="border-0 text-danger bg-body" data-bs-toggle="modal"
             data-bs-target="#modalReports{{$comment->id}}"><h4 class="text-danger">{{$comment->reports->count()}} reports</h4>
-        </button>        <div class="col-2 ">
+        </button>
+        <div class="col-2 ">
             <div class="col d-flex justify-content-end btn-outline-blue dropdown "
                  id="more-horizontal" role="button" data-bs-toggle="dropdown">
                 <span class="material-icons-round">more_horiz</span>
             </div>
-            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal">
+            <ul class="dropdown-menu more-horizontal col-1 dropdown-menu-lg-end" aria-labelledby="more-horizontal">
                 <li><a class="dropdown-item btn-outline-blue dismiss"><span
-                            class="material-icons-outlined align-middle">done</span> <span class = "dismiss"> Dismiss</span></a>
+                            class="material-icons-outlined align-middle dismiss">done</span> <span class = "dismiss"> Dismiss</span></a>
                 </li>
                 <li><a class="dropdown-item btn-outline-red delete"><span
-                            class="material-icons-outlined align-middle">delete</span> <span class = "delete" > Delete</span></a>
+                            class="material-icons-outlined align-middle delete">delete</span> <span class = "delete" > Delete</span></a>
                 </li>
             </ul>
         </div>
@@ -41,10 +42,10 @@
                     @foreach ($comment->reports as $report)
                     <div class="d-flex mb-3">
                         <img src="{{ asset('storage/members/'.$report->owner->avatar_image) }}" class="flex-shrink-0 rounded-circle"
-                            style="width:50px;height:50px;" alt="">
+                            style="width:50px;height:50px;" alt="Member avatar">
                         <div class="ms-2">
-                            <h1 class="h5 fw-normal">{{$report->owner->username}}</h1>
-                            <p class="h6 fw-normal text-center">{{$report->body}}</p>
+                            <a class="h5 fw-normal color-orange" href="{{route('profile', ['member' => $report->owner->username])}}">{{$report->owner->username}}</a>
+                            <p class="h6 fw-normal">{{$report->body}}</p>
                         </div>
                     </div>
                     @endforeach

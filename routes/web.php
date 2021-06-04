@@ -28,7 +28,7 @@ Route::post('/signup', 'Auth\RegisterController@register')->name('sub.signup');
 
 
 // Home
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@show')->name('home');
 
 
 // Search
@@ -61,17 +61,12 @@ Route::prefix('member/')->group(function () {
 
     Route::get('{member:username}/settings', 'MemberController@settings');
 });
-Route::patch('change_email', 'MemberController@change_email');
-Route::patch('change_password', 'MemberController@change_password');
 
 
 // Notifications
 Route::get('/api/notifications', 'NotificationController@getNotificationsModal');
-
 Route::patch('/api/notifications/read', 'NotificationController@readUnreadNotifications')->middleware('auth');
-
 Route::delete('/api/notification/{id_notification}/delete', 'NotificationController@delete')->middleware('auth');
-
 Route::post('/pusher/auth', 'Auth\PusherController@pusherAuth')->middleware('auth');
 
 
@@ -81,6 +76,10 @@ Route::prefix('api/')->group(function () {
     Route::get('topics', 'TopicController@search');
     Route::get('members', 'MemberController@search');
     Route::get('home/{content}', 'HomeController@content');
+    Route::get('admin/{content}', 'AdminController@content');
+    Route::patch('change_email', 'MemberController@change_email');
+    Route::patch('change_password', 'MemberController@change_password');
+    Route::patch('change_password', 'MemberController@change_password');
 
     // Member
     Route::prefix('member/')->group(function () {
@@ -94,9 +93,9 @@ Route::prefix('api/')->group(function () {
         Route::delete('{member:username}/follow', 'MemberController@unfollow');
 
         // Modals
-        Route::post('{member:id}/following', 'MemberController@getFollowingModal');
-        Route::post('{member:id}/followers', 'MemberController@getFollowersModal');
-        Route::post('{member:id}/followedTopics', 'MemberController@getFollowedTopicsModal');
+        Route::get('{member:id}/following', 'MemberController@getFollowingModal');
+        Route::get('{member:id}/followers', 'MemberController@getFollowersModal');
+        Route::get('{member:id}/followedTopics', 'MemberController@getFollowedTopicsModal');
 
         // Report
         Route::post('{member:id}/report', 'MemberController@report');

@@ -27,7 +27,7 @@ tinymce.init({
     plugins: [
         "advlist autolink link lists charmap preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking",
-        "save contextmenu directionality template paste"
+        "save directionality template paste"
     ],
 
     /* toolbar */
@@ -62,3 +62,8 @@ tinymce.init({
         });
     }
 });
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl, {trigger: 'focus'})
+})

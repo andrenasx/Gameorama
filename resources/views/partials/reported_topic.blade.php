@@ -1,6 +1,6 @@
 <div class="row bg-white p-3 g-0 mb-3 rounded border topic-card" data-id={{$topic->id}}>
     <div class="row align-items-center">
-        <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" alt="" class="col-2 flex-shrink-0 rounded-circle"
+        <img src="{{ asset('storage/assets/letters/'.strtoupper(substr($topic->name, 0, 1)).'.png') }}" alt="Topic image" class="col-2 flex-shrink-0 rounded-circle"
              style="width:90px;height:auto;">
         <div class="col-md-10 col-8 d-flex">
             <div>
@@ -20,12 +20,12 @@
                  id="more-horizontal" role="button" data-bs-toggle="dropdown">
                 <span class="material-icons-round">more_horiz</span>
             </div>
-            <ul class="dropdown-menu more-horizontal" aria-labelledby="more-horizontal">
+            <ul class="dropdown-menu more-horizontal col-1 dropdown-menu-lg-end" aria-labelledby="more-horizontal">
                 <li><a class="dropdown-item btn-outline-blue dismiss"><span
-                            class="material-icons-outlined align-middle">done</span> <span class = "dismiss"> Dismiss</span></a>
+                            class="material-icons-outlined align-middle dismiss">done</span> <span class = "dismiss"> Dismiss</span></a>
                 </li>
                 <li><a class="dropdown-item btn-outline-red delete"><span
-                            class="material-icons-outlined align-middle">delete</span> <span class = "delete"> Delete</span></a>
+                            class="material-icons-outlined align-middle delete">delete</span> <span class = "delete"> Delete</span></a>
                 </li>
             </ul>
         </div>
@@ -45,13 +45,12 @@
                     @foreach ($topic->reports as $report)
                     <div class="d-flex mb-3">
                         <img src="{{ asset('storage/members/'.$report->owner->avatar_image) }}" class="flex-shrink-0 rounded-circle"
-                            style="width:50px;height:50px;" alt="">
+                            style="width:50px;height:50px;" alt="Member avatar">
                         <div class="ms-2">
-                            <h1 class="h5 fw-normal">{{$report->owner->username}}</h1>
-                            <p class="h6 fw-normal text-center">{{$report->body}}</p>
+                            <a class="h5 fw-normal color-orange" href="{{route('profile', ['member' => $report->owner->username])}}">{{$report->owner->username}}</a>
+                            <p class="h6 fw-normal">{{$report->body}}</p>
                         </div>
                     </div>
-
                     @endforeach
                 </div>
             </div>

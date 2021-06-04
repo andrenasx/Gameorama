@@ -3,13 +3,13 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabelReport">Report Post</h5>
+                <h5 class="modal-title" id="staticBackdropLabelReport">Report Comment</h5>
                 <button type="button" data-bs-dismiss="modal" id= "close-window-button" aria-label="Close"><span class="material-icons-round" id="downvote">close</span></button>
             </div>
             <form class="reportForm">
                 <div class="modal-body">
-                    <p class="game-quote mt-3">“The cake is a lie”</p>
-                    <p class="game-quote-origin">– Portal </p> <!--Rotating Game Quotes-->
+                    <p class="game-quote mt-3">“The Kid just rages for a while.”</p>
+                    <p class="game-quote-origin">– Bastion </p> <!--Rotating Game Quotes-->
                     <div class="form-check" >
                         <div>
                             <input class="form-check-input" type="radio" name="option" id="commentRadios1" value="This is spam" >
@@ -39,10 +39,9 @@
                 </div>
                 <div class="modal-footer" id="commentReport" >
                     <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary delete-button report-submit" data-bs-dismiss="modal">Report</button>
+                    <button type="button" class="btn btn-danger report-submit" data-bs-dismiss="modal">Report</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-   

@@ -4,27 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\NewsPost;
 use App\Models\Member;
+use App\Models\PostReport;
 use App\Models\Topic;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class NewsPostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -47,8 +37,8 @@ class NewsPostController extends Controller
     protected function post_validator(array $data)
     {
         return Validator::make($data, [
-            'title' => ['required', 'string', 'max:100'],
-            'body' => ['nullable', 'string', 'max:255'],
+            'title' => ['required', 'string'],
+            'body' => ['nullable', 'string'],
             'topics' => ['required', 'array', 'between:1,10'],
             'topics.*' => ['string'],
             'images' => ['array', 'max:10'],
@@ -152,7 +142,6 @@ class NewsPostController extends Controller
     }
 
 
-
     public function vote(Request $request, NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
@@ -195,6 +184,9 @@ class NewsPostController extends Controller
      */
     public function update(Request $request, NewsPost $newspost)
     {
+        if (!Auth::check()) return response()->json('Forbidden access', 403);
+        $this->authorize('owner', $newspost);
+
         $validator = $this->post_validator($request->all());
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -237,15 +229,11 @@ class NewsPostController extends Controller
             }
         }
 
+        // Delete removed topics
         foreach ($newspost->topics as $topic) {
             if (!in_array($topic->name, $request->input('topics'))) {
                 try {
                     DB::table('post_topic')->where(['id_post' => $newspost->id, 'id_topic' => $topic->id])->delete();
-
-                    // TODO Delete topic if no posts?
-                    /*if ($topic->posts->count() === 0) {
-                        $topic->delete();
-                    }*/
                 } catch (ValidationException $e) {
                     DB::rollBack();
                     return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
@@ -256,17 +244,33 @@ class NewsPostController extends Controller
             }
         }
 
-        // Insert Post Images
-        /*if ($request->hasFile('images')) {
+
+        if ($request->hasFile('images')) {
+            // Delete old images
+            foreach ($newspost->images as $image) {
+                try {
+                    Storage::delete('public/posts/' . $newspost->id . '/' . $image->file);
+                    DB::table('post_image')->where(['id_post' => $newspost->id, 'file' => $image->file])->delete();
+                } catch (ValidationException $e) {
+                    DB::rollBack();
+                    return back()->withErrors(['dberror' => $e->getMessage()])->withInput();
+                } catch (\Exception $e) {
+                    DB::rollBack();
+                    throw $e;
+                }
+            }
+
+
+            // Insert new Post Images
             $images = $request->file('images');
 
-            $path = 'public/posts/' . $id_post;
+            $path = 'public/posts/' . $newspost->id;
             Storage::makeDirectory($path);
 
             foreach ($images as $image) {
                 try {
-                    DB::table('post_image')->insert(['id_post' => $id_post, 'file' => $image->hashName()]);
-                    $image->store('public/posts/' . $id_post);
+                    DB::table('post_image')->insert(['id_post' => $newspost->id, 'file' => $image->hashName()]);
+                    $image->store('public/posts/' . $newspost->id);
                 } catch (ValidationException $e) {
                     DB::rollBack();
                     Storage::deleteDirectory($path);
@@ -277,7 +281,7 @@ class NewsPostController extends Controller
                     throw $e;
                 }
             }
-        }*/
+        }
 
         DB::commit();
 
@@ -292,28 +296,34 @@ class NewsPostController extends Controller
      */
     public function destroy(NewsPost $newspost)
     {
-        if (!Auth::check()) return response()->json('Forbidden Access', 403);
+        if (!Auth::check()) return response()->json('Forbidden access', 403);
+        $this->authorize('delete', $newspost);
 
-        Storage::makeDirectory('public/posts/' . $newspost->id);
+        Storage::deleteDirectory('public/posts/' . $newspost->id);
 
         $newspost->delete();
     }
 
+
     public function search(Request $request)
     {
-        if ($request->has('query')) {
-            $query = $request->input('query');
-            $posts = NewsPost::search_posts($query);
+        if ($request->has('query') && $request->has('page')) {
+            $posts = NewsPost::search_posts($request->input('query'), $request->input('page'));
 
-            $html = [];
-            foreach ($posts as $post) {
-                array_push($html, view('partials.postcard', ['post' => $post])->render());
+            if (count($posts) > 0) {
+                $html = [];
+                foreach ($posts as $post) {
+                    array_push($html, view('partials.postcard', ['post' => $post])->render());
+                }
+                return response()->json($html);
             }
-            return response()->json($html);
         }
+
+        return response()->json([view('partials.nocontent')->render()]);
     }
 
-    public function bookmark(Request $request, NewsPost $newspost)
+
+    public function bookmark(NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
@@ -324,7 +334,7 @@ class NewsPostController extends Controller
         }
     }
 
-    public function removeBookmark(Request $request, NewsPost $newspost)
+    public function removeBookmark(NewsPost $newspost)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
@@ -343,10 +353,10 @@ class NewsPostController extends Controller
         Auth::user()->add_post_report($newspost->id, $request->input('report'));
     }
 
-    public function dismiss(NewsPost $newsPost)
+    public function dismiss(NewsPost $newspost)
     {
-        $newsPost->dismiss_post_report();
-    }
+        if (!Auth::check() || !Auth::user()->admin) return response()->json(array('auth' => 'Forbidden Access'), 403);
 
-    
+        $newspost->dismiss_post_report();
+    }
 }

@@ -1,5 +1,5 @@
 <footer class="footer row g-0 d-flex justify-content-between">
-    <div class="footer-placeholder g-0 row mt-auto justify-content-between">
+    <div class="footer-placeholder g-0 row justify-content-between">
     </div>
     <div class="footer-wrapper g-0 row mt-auto justify-content-between">
         <div class="col-12 col-md-4">

@@ -11,26 +11,6 @@ let querying = false;
 let button = trendingTab;
 
 
-function start() {
-    spinner.classList.remove('d-none');
-    spinner.classList.add('d-flex');
-    loadContent.call(this);
-}
-
-function reset(c) {
-    this.disabled = true;
-    content = c;
-    page = 1;
-    querying = true;
-    contentSection.innerHTML = "";
-    start.call(this)
-}
-
-function removeSpinner() {
-    spinner.classList.remove('d-flex');
-    spinner.classList.add('d-none');
-}
-
 function loadContent() {
     querying = false;
     const current_content = content;
@@ -46,26 +26,18 @@ function loadContent() {
 
             const data = JSON.parse(response);
 
-            if (page === 1 && data.length === 0) {
-                removeSpinner();
-                contentSection.innerHTML = "No content to show";
-                this.disabled = false;
-                return;
-            }
+            contentSection.innerHTML += data.join('');
 
             if (data.length < 15) {
                 removeSpinner();
             }
-
-            contentSection.innerHTML += data.join('');
-
-            page += 1;
-            querying = true;
+            else {
+                page += 1;
+                querying = true;
+            }
             this.disabled = false;
         },
-        (response) => {
-            console.error(response)
-        }
+        loadError
     )
 }
 

@@ -112,6 +112,17 @@ function bookmarkedButtonHandler(button){
     }, loadError)
 }
 
-function loadError(response) {
-    console.error(response)
+document.querySelector(".posts").addEventListener("click", function(event) {
+    let classList = event.target.classList
+
+    if (classList.contains("delete-post")) {
+        const id_post = event.target.closest(".post-actions").getAttribute("data-id")
+        const route = "/api/post/" + id_post
+        sendAjaxRequest("DELETE", route, {}, deletePost.bind(event.target), loadError)
+    }
+})
+
+function deletePost() {
+    this.closest(".news-card").remove()
+    createToast("Successfully deleted post", true)
 }

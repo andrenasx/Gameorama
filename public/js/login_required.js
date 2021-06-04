@@ -51,7 +51,13 @@ bodyL.addEventListener("click", (event)=>{
         return
     }
 
-    
+
+    const postComment = event.target.closest("#new-comment-section");
+
+    if(postComment!=null){
+        loginModal()
+        return
+    }
 
 })
 

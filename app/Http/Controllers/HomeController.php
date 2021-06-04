@@ -6,17 +6,16 @@ use App\Models\Member;
 use App\Models\NewsPost;
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     /**
-     * Show the application home .
+     * Show the application home
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function show()
     {
         $hall_of_fame = Member::orderBy('aura', 'desc')->take(5)->get();
         $popular_topics = Topic::popular_topics();
@@ -46,12 +45,16 @@ class HomeController extends Controller
                 return response()->json('Invalid content filter', 400);
         }
 
-        $html = [];
-        foreach ($data as $element) {
-            array_push($html, view('partials.postcard', ['post' => $element])->render());
+        if (count($data) > 0) {
+            $html = [];
+            foreach ($data as $element) {
+                array_push($html, view('partials.postcard', ['post' => $element])->render());
+            }
+
+            return response()->json($html);
         }
 
-        return response()->json($html);
+        return response()->json([view('partials.nocontent')->render()]);
     }
 
     private function feed($page)

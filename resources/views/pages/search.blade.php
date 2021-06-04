@@ -3,8 +3,9 @@
     @include('partials.navbar')
     @push('scripts')
         <script defer src = {{ asset('js/ajax.js') }}></script>
+        <script defer src = {{ asset('js/contentload.js') }}></script>
         <script defer src = {{ asset('js/search.js') }}></script>
-        
+
         @auth
         <script defer src = {{ asset('js/search_follows.js') }}></script>
         <script defer src = {{ asset('js/report.js') }}></script>

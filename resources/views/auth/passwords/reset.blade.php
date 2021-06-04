@@ -7,8 +7,9 @@
         <main class="form-signin">
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
-                <img class="img-fluid" src={{ asset('storage/assets/logo.png') }} alt=""
-                     onclick="window.location.href='{{ route('home') }}'" style="cursor:pointer;">
+                <a href="{{ route('home') }}">
+                    <img class="img-fluid" src="{{ asset('storage/assets/logo.png') }}" alt="Gameorama logo">
+                </a>
                 <h2 class="h2 mb-5 fw-normal">The Panorama of Gaming</h2>
                 <h3 class="h3 mb-2 fw-bold">Reset password</h3>
                 <input type="hidden" name="token" value="{{ $token }}">

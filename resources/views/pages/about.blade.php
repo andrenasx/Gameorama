@@ -22,7 +22,7 @@
             <section class="team-cards">
                 <div class="row g-0 justify-content-around">
                     <div class="card col-12 col-md-5 p-2 about-card">
-                        <img src="{{asset('storage/assets/andre.jpg')}}" class="card-img-top rounded" alt="...">
+                        <img src="{{asset('storage/assets/andre.jpg')}}" class="card-img-top rounded" alt="André Nascimento">
                         <div class="card-body">
                             <h4 class="card-title">André Nascimento</h4>
                             <p class="card-text">Student at MIEIC. Proud Corgi lover.</p>
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="card col-12 col-md-5 mt-3 mt-md-0 p-2 about-card">
-                        <img src="{{asset('storage/assets/caio.jpg')}}" class="card-img-top rounded" alt="...">
+                        <img src="{{asset('storage/assets/caio.jpg')}}" class="card-img-top rounded" alt="Caio Nogueira">
                         <div class="card-body">
                             <h4 class="card-title">Caio Nogueira</h4>
                             <p class="card-text">Student at MIEIC. Stays calm under pressure.</p>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="row g-0 mt-3 justify-content-around">
                     <div class="card col-12 col-md-5 p-2 about-card">
-                        <img src="{{asset('storage/assets/diogo.jpg')}}" class="card-img-top rounded" alt="...">
+                        <img src="{{asset('storage/assets/diogo.jpg')}}" class="card-img-top rounded" alt="Diogo Almeida">
                         <div class="card-body">
                             <h4 class="card-title">Diogo Almeida</h4>
                             <p class="card-text">Student at MIEIC. Loves people from Paris.</p>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="card col-12 col-md-5 mt-3 mt-md-0 p-2 about-card">
-                        <img src="{{asset('storage/assets/sena.jpg')}}" class="card-img-top rounded" alt="...">
+                        <img src="{{asset('storage/assets/sena.jpg')}}" class="card-img-top rounded" alt="Gustavo Sena">
                         <div class="card-body">
                             <h4 class="card-title">Gustavo Sena</h4>
                             <p class="card-text">Student at MIEIC. Coffee bringer.</p>

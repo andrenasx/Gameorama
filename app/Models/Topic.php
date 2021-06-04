@@ -10,11 +10,11 @@ class Topic extends Model
 {
     use HasFactory;
 
-    // Don't add create and update timestamps in database.
-    public $timestamps  = false;
-
     // Table
     protected $table = 'topic';
+
+    // Don't add create and update timestamps in database.
+    public $timestamps  = false;
 
     /**
      * The attributes that are mass assignable.
@@ -64,14 +64,14 @@ class Topic extends Model
 
     public function dismiss_report()
     {
-        DB::table('topic_report')->where('id_topic', '=', $this->id)
-        ->delete();
+        DB::table('topic_report')->where('id_topic', '=', $this->id)->delete();
     }
 
-    public static function search_topics($query) 
+    public static function search_topics($query, $page)
     {
         return Topic::whereRaw('search @@ plainto_tsquery(\'english\', ?)', [$query])
         ->orderByRaw('ts_rank(search, plainto_tsquery(\'english\', ?)) DESC', [$query])
+        ->forPage($page)
         ->get();
     }
 

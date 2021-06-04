@@ -11,37 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class TopicController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param \App\Models\Topic $topic
@@ -53,40 +22,15 @@ class TopicController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Topic $topic
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Topic $topic)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Topic $topic
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Topic $topic)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Topic $topic
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_topic)
+    public function destroy(Topic $topic)
     {
-        //
-        $topic = Topic::find($id_topic);
+        if (!Auth::check()) return response()->json('Forbidden access', 403);
         $topic->delete();
-
     }
 
     public function content(Request $request, Topic $topic, $content)
@@ -107,12 +51,16 @@ class TopicController extends Controller
                 return response()->json('Invalid content filter', 400);
         }
 
-        $html = [];
-        foreach ($data as $element) {
-            array_push($html, view('partials.postcard', ['post' => $element])->render());
+        if (count($data) > 0) {
+            $html = [];
+            foreach ($data as $element) {
+                array_push($html, view('partials.postcard', ['post' => $element])->render());
+            }
+
+            return response()->json($html);
         }
 
-        return response()->json($html);
+        return response()->json([view('partials.nocontent')->render()]);
     }
 
     private function trending($id_topic, $page)
@@ -130,15 +78,19 @@ class TopicController extends Controller
 
     public function search(Request $request)
     {
-        if ($request->has('query')) {
-            $query = $request->input('query');
-            $topics = Topic::search_topics($query);
-            $html = [];
-            foreach ($topics as $topic) {
-                array_push($html, view('partials.topiccard', ['topic' => $topic])->render());
+        if ($request->has('query') && $request->has('page')) {
+            $topics = Topic::search_topics($request->input('query'), $request->input('page'));
+
+            if (count($topics) > 0) {
+                $html = [];
+                foreach ($topics as $topic) {
+                    array_push($html, view('partials.topiccard', ['topic' => $topic])->render());
+                }
+                return response()->json($html);
             }
-            return response()->json($html);
         }
+
+        return response()->json([view('partials.nocontent')->render()]);
     }
 
     public function follow(Request $request, Topic $topic)
@@ -182,11 +134,12 @@ class TopicController extends Controller
     public function report(Request $request, Topic $topic)
     {
         if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
-        Auth::user()->report_topic($topic->id, $request->input('body'));
+        Auth::user()->report_topic($topic->id, $request->input('report'));
     }
 
     public function dismiss(Topic $topic)
     {
+        if (!Auth::check() || !Auth::user()->admin) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $topic->dismiss_report();
     }
 }

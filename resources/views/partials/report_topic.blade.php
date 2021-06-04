@@ -7,8 +7,8 @@
             </div>
             <form class="reportForm">
                 <div class="modal-body">
-                    <p class="game-quote mt-3">“FINISH HIM!” </p>
-                    <p class="game-quote-origin">– Mortal Kombat </p> <!--Rotating Game Quotes-->
+                    <p class="game-quote mt-3">“Don’t make a girl a promise if you know you can’t keep it.” </p>
+                    <p class="game-quote-origin">– Halo 3 </p> <!--Rotating Game Quotes-->
                     <div class="form-check" >
                         <div>
                             <input class="form-check-input" type="radio" name="option" id="topicRadios1" value="Inapropriate topic name" >
@@ -19,7 +19,7 @@
                         <div>
                             <input class="form-check-input" type="radio" name="option" id="topicRadios2" value="Not gaming related" >
                             <label class="form-check-label" for="topicRadios2">
-                                Not gaming related  
+                                Not gaming related
                             </label>
                         </div>
                         <div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="modal-footer" id="topicReport">
                     <button type="button" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary delete-button report-submit" data-bs-dismiss="modal">Report</button>
+                    <button type="button" class="btn btn-danger report-submit" data-bs-dismiss="modal">Report</button>
                 </div>
             </form>
         </div>

@@ -8,8 +8,9 @@
             <main class="form-signup">
                 <form method="post" action="{{ route('sub.signup') }}">
                     @csrf
-                    <img class="img-fluid" src="{{asset('storage/assets/logo.png')}}" alt=""
-                         onclick="window.location.href='{{ route('home') }}'" style="cursor:pointer;">
+                    <a href="{{ route('home') }}">
+                        <img class="img-fluid" src="{{ asset('storage/assets/logo.png') }}" alt="Gameorama logo">
+                    </a>
                     <h1 class="h2 mb-5 fw-normal mx-auto">The Panorama of Gaming</h1>
                     <h2 class="h3 mb-4 fw-bold">Sign Up</h2>
                     <div class="form-floating mb-3">
@@ -18,17 +19,26 @@
                                required>
                         <label for="inputName">Name</label>
                     </div>
+                    @error('full_name')
+                    <div class="alert alert-danger p-2">{{ $message }}</div>
+                    @enderror
                     <div class="form-floating mb-3">
                         <input type="email" id="inputEmail" name="email" value="{{ old('email') }}"
                                class="form-control mb-3 @error('email') is-invalid @enderror" placeholder=" " required>
                         <label for="inputEmail">Email address</label>
                     </div>
+                    @error('email')
+                    <div class="alert alert-danger p-2">{{ $message }}</div>
+                    @enderror
                     <div class="form-floating mb-3">
                         <input type="text" id="inputUsername" name="username"
-                               class="form-control mb-3 @error('email') is-invalid @enderror" placeholder=" "
+                               class="form-control mb-3 @error('username') is-invalid @enderror" placeholder=" "
                                pattern="^[\w.-]*$" title="Only alphanumeric and - . _ characters" required>
                         <label for="inputEmail">Username</label>
                     </div>
+                    @error('username')
+                    <div class="alert alert-danger p-2">{{ $message }}</div>
+                    @enderror
                     <div class="form-floating mb-3">
                         <input type="password" id="inputPassword" name="password"
                                class="form-control mb-3 @error('password') is-invalid @enderror"
@@ -38,6 +48,9 @@
                                required>
                         <label for="inputPassword">Password</label>
                     </div>
+                    @error('password')
+                    <div class="alert alert-danger p-2">{{ $message }}</div>
+                    @enderror
                     <div class="form-floating mb-3">
                         <input type="password" id="inputConfirmPassword" name="password_confirmation"
                                class="form-control mb-1 @error('password_confirmation') is-invalid @enderror"
@@ -47,18 +60,11 @@
                                required>
                         <label for="inputConfirmPassword">Confirm Password</label>
                     </div>
-                    @foreach ($errors->all() as $error)
-                        <li class="error">{{$error}}</li>
-                    @endforeach
+                    @error('password_confirmation')
+                    <div class="alert alert-danger p-2">{{ $message }}</div>
+                    @enderror
                     <div class="col-12 mt-3 mb-3 d-flex justify-content-center">
-                        <button class="col-5 btn btn-lg btn-primary me-3" id="signUpButton" type="submit">Sign Up
-                        </button>
-                        <a class="col-5 btn btn-outline-dark" href="/users/googleauth" id="googleButton" role="button"
-                           style="text-transform:none">
-                            <img width="30px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
-                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-                            Sign Up with Google
-                        </a>
+                        <button class="col-5 btn btn-lg btn-primary" id="signUpButton" type="submit">Sign Up</button>
                     </div>
                     <div class="row g-0 text-center">
                         <a class="blue-hover" id="signUpLogin" href="{{ route('login') }}">Already have an account?

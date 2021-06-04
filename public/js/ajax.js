@@ -16,8 +16,7 @@ function sendAjaxRequest(method, url, data, successHandler, failHandler) {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
-            console.log(request.status)
-            if (request.status === 200) {
+            if (request.status === 200 || request.status === 201) {
                 successHandler.call(request.response, request.response);
             }
             else {

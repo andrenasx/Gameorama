@@ -38,7 +38,7 @@
                 <div class="d-flex btn-outline-blue dropdown " id="more-horizontal" role="button" data-bs-toggle="dropdown">
                     <span class="material-icons-round">more_horiz</span>
                 </div>
-                <ul class="dropdown-menu col-1 more-horizontal comment_options profile" aria-labelledby="more-horizontal" data-id = {{$comment->id}}>
+                <ul class="dropdown-menu more-horizontal col-1 dropdown-menu-lg-end" aria-labelledby="more-horizontal">
                     <li><a class="dropdown-item btn-outline-blue edit-comment"><span class="material-icons-outlined align-middle edit-comment">edit</span> <span class = "edit-comment"> Edit</span></a></li>
                     <li><a class="dropdown-item btn-outline-red delete-comment"><span class="material-icons-outlined align-middle delete-comment">delete</span> <span class = "delete-comment"> Delete</span></a></li>
                 </ul>

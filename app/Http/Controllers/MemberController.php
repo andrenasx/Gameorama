@@ -6,7 +6,6 @@ use App\Models\Member;
 use App\Notifications\FollowNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -14,37 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
@@ -254,26 +222,33 @@ class MemberController extends Controller
                 return response()->json('Invalid content filter', 400);
         }
 
-        $html = [];
-        foreach ($data as $element) {
-            array_push($html, view('partials.'.$type.'card', [$type => $element])->render());
+        if (count($data) > 0) {
+            $html = [];
+            foreach ($data as $element) {
+                array_push($html, view('partials.' . $type . 'card', [$type => $element])->render());
+            }
+
+            return response()->json($html);
         }
 
-        return response()->json($html);
+        return response()->json([view('partials.nocontent')->render()]);
     }
 
 
     public function search(Request $request) {
-        if ($request->has('query')) {
-            $query = $request->input('query');
-            $members = Member::search_members($query);
+        if ($request->has('query') && $request->has('page')) {
+            $members = Member::search_members($request->input('query'), $request->input('page'));
 
-            $html = [];
-            foreach($members as $member){
-                array_push($html, view('partials.membercard', ['member' => $member])->render());
+            if (count($members) > 0) {
+                $html = [];
+                foreach($members as $member){
+                    array_push($html, view('partials.membercard', ['member' => $member])->render());
+                }
+                return response()->json($html);
             }
-            return response()->json($html);
         }
+
+        return response()->json([view('partials.nocontent')->render()]);
     }
 
     public function follow(Request $request, Member $member)
@@ -316,7 +291,7 @@ class MemberController extends Controller
         }
     }
 
-    public function getFollowingModal(Request $request, Member $member)
+    public function getFollowingModal(Member $member)
     {
         $htmlFollowing = [];
         foreach ($member->following as $follow) {
@@ -325,7 +300,7 @@ class MemberController extends Controller
         return response()->json($htmlFollowing);
     }
 
-    public function getFollowersModal(Request $request, Member $member)
+    public function getFollowersModal(Member $member)
     {
         $htmlFollowers = [];
         foreach ($member->followers as $follower) {
@@ -334,7 +309,7 @@ class MemberController extends Controller
         return response()->json($htmlFollowers);
     }
 
-    public function getFollowedTopicsModal(Request $request, Member $member)
+    public function getFollowedTopicsModal(Member $member)
     {
         $htmlFollowedTopics = [];
         foreach ($member->topics as $topic) {
@@ -352,6 +327,7 @@ class MemberController extends Controller
 
     public function dismiss(Member $member)
     {
+        if (!Auth::check() || !Auth::user()->admin) return response()->json(array('auth' => 'Forbidden Access'), 403);
         $member->dismiss_member_report();
     }
 }

@@ -19,7 +19,7 @@ if (topic_info_page != null){
         if (classList.contains("follow-button")) {
             topicFollowHandler(event.target)
         }
-    
+
         if (classList.contains("following-button")) {
             topicUnfollowHandler(event.target)
         }
@@ -31,7 +31,7 @@ function topicFollowHandler(button) {
     const topic_follow_button = button.getAttribute("data-id");
     let followed_topics_count= document.querySelector(".button-topics");
     const route = '/api/topic/' + topic_follow_button + '/follow';
-    
+
     if (followed_topics_count != null){
         request = {userProfile: followed_topics_count.getAttribute("data-id")};
     }
@@ -65,14 +65,14 @@ function topicUnfollowHandler(button) {
     const topic_follow_button = button.getAttribute("data-id");
     let followed_topics_count= document.querySelector(".button-topics");
     const route = '/api/topic/' + topic_follow_button + '/follow';
-    
+
     if (followed_topics_count != null){
         request = {userProfile: followed_topics_count.getAttribute("data-id")};
     }
     else{
         request = {userProfile: null};
     }
-    
+
     sendAjaxRequest("DELETE", route, request, (response) => {
         const json_data = JSON.parse(response);
         const followers = json_data['followers']
@@ -93,8 +93,4 @@ function topicUnfollowHandler(button) {
             followed_topics_count.innerHTML = followedTopics + " Followed Topics";
         }
     }, loadError);
-}
-
-function loadError(response) {
-    console.error(response)
 }

@@ -1,6 +1,6 @@
 //Pusher
 // Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
+Pusher.logToConsole = false;
 
 if (window.User != null){
     var pusher = new Pusher('72f9eeafe04d407d19cf', {
@@ -104,16 +104,9 @@ function deleteNotification(button){
                element.closest(".card").remove();
            }
         });
-        console.log(document.querySelector(".notifications-body").innerHTML)
+        
         if (document.querySelector(".notifications-body").innerHTML.trim() === ""){
             document.querySelector(".notifications-body").innerHTML = "<div class=\"text-center\">Looks like there's nothing new yet!</div>";
         }
     });
-
 }
-
-
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-})

@@ -51,7 +51,7 @@ function topicSearchUnfollowHandler(button) {
     const topic_follow_button = button.getAttribute("data-id");
     const route = '/api/topic/' + topic_follow_button + '/follow';
     let request = {};
-    
+
     request = {userProfile: null};
 
     sendAjaxRequest("DELETE", route, request, (response) => {
@@ -130,9 +130,4 @@ function memberSearchUnfollowHandler(button) {
             }
         })
     }, loadError);
-}
-
-
-function loadError(response) {
-    console.error(response)
 }

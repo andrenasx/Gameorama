@@ -1,11 +1,11 @@
-//*comments
+// Comments
 const make_comment_button = document.querySelector("#make_comment_button")
 let post_id = -1
 if (document.getElementById("new-comment-section") !== null)
     post_id = document.getElementById("new-comment-section").getAttribute("data-id");
 const comment = document.getElementById("comment_content")
 
-//*replies
+// Replies
 let comment_id = null
 
 if (make_comment_button != null) {
@@ -15,10 +15,9 @@ if (make_comment_button != null) {
         if (comment.value == "") return
         const route = "/api/post/" + post_id + "/comment"
         sendAjaxRequest("POST", route, content, loadComment, loadError)
-        
+
     })
 }
-
 
 function loadComment(response) {
     const json_data = JSON.parse(response)
@@ -26,11 +25,6 @@ function loadComment(response) {
     comment.value = null;
     comments_section.innerHTML = json_data + comments_section.innerHTML
 }
-
-function loadError(response) {
-    console.error(response);
-}
-
 
 document.querySelector(".comments-section").addEventListener("click", function (event) {
     let classList = event.target.classList
@@ -41,10 +35,11 @@ document.querySelector(".comments-section").addEventListener("click", function (
         let reply_section = event.target.closest(".reply-comment")
         comment_id = reply_section.getAttribute("data-id")
         const reply_content = reply_section.querySelector(".content").value
-        document.querySelector(".cancel_reply").click()
+        event.target.closest(".modal-footer").querySelector(".cancel_reply").click()
+        let offset = event.target.closest(".post-comment").getAttribute("data-id")
         if (reply_content.value == "") return
         const route = "/api/post/" + post_id + "/comment/" + comment_id + "/reply"
-        sendAjaxRequest("POST", route , {comment: reply_content}, loadReply, loadError)
+        sendAjaxRequest("POST", route , {comment: reply_content, offset: offset}, addComment.bind(event.target), loadError)
     }
 
     else if (classList.contains("upvote")) {
@@ -91,8 +86,8 @@ document.querySelector(".comments-section").addEventListener("click", function (
         event.target.closest(".comment_box").querySelector(".comment_body").hidden = false
         event.target.closest(".comment_box").querySelector(".comment_options").hidden = false
     }
-    
-    
+
+
     else if (classList.contains("edit_button")) {
         let textarea = event.target.closest(".comment_box").querySelector(".edit-textarea")
         let id_comment = event.target.closest(".edit_button_div").getAttribute("data-id")
@@ -103,6 +98,7 @@ document.querySelector(".comments-section").addEventListener("click", function (
 
 function deleteComment(response) {
     this.remove()
+    createToast("Successfully deleted comment", true)
 }
 
 
@@ -113,5 +109,15 @@ function loadReply(response) {
     comment_element.innerHTML = ""
     for (let i = 0; i < html_comment.length; i++)
         comment_element.innerHTML += html_comment[i]
+}
+
+function addComment(response){
+    let parent = this.closest('.post-comment').querySelector(".replies")
+    let offset = parent.getAttribute("data-id")
+    let data = JSON.parse(response)['html']
+
+    parent.innerHTML =  parent.innerHTML + data
+
+    this.closest(".reply-comment").querySelector("textarea").value = ""
 }
 

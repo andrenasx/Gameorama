@@ -1,6 +1,5 @@
 const query = document.getElementById("query").innerText;
 
-
 let postsTab = document.getElementById('pills-posts-tab');
 let topicsTab = document.getElementById('pills-topics-tab');
 let membersTab = document.getElementById('pills-members-tab');
@@ -13,48 +12,23 @@ let page = 1;
 let querying = false;
 
 
-function start() {
-    spinner.classList.remove('d-none');
-    spinner.classList.add('d-flex');
-    loadContent();
-}
-
-function reset(c) {
-    content = c;
-    page = 1;
-    querying = true;
-    contentSection.innerHTML = "";
-    start(contentSection)
-}
-
-function removeSpinner() {
-    spinner.classList.remove('d-flex');
-    spinner.classList.add('d-none');
-}
-
 function loadContent() {
+    querying = false;
+    const current_content = content;
     const route = '/api/' + content;
-    const data = {query: query};
+    const data = {query: query, page: page};
+
 
     sendAjaxRequest('GET', route, data,
         (response) => {
-            const data = JSON.parse(response);
-
-            if (page === 1 && data.length === 0) {
-                removeSpinner();
-                contentSection.innerHTML = "No content to show";
+            if (content !== current_content) {
+                this.disabled = false;
                 return;
             }
 
-            if (data.length < 15) {
-                removeSpinner();
-            }
+            const data = JSON.parse(response);
 
-            let new_div = document.createElement('div');
-            new_div.innerHTML = data.join('');
-            while (new_div.firstChild) {
-                contentSection.appendChild(new_div.firstChild)
-            }
+            contentSection.innerHTML += data.join('');
 
             if(content === 'posts') {
                 const titles = Array.from(document.getElementsByClassName('post-title'));
@@ -64,19 +38,26 @@ function loadContent() {
                     element.innerHTML = element.innerHTML.replaceAll(new RegExp(query, "gi"),"<span class='highlight'>"+'$&'+"</span>");
                 });
             }
+
+            if (data.length < 15) {
+                removeSpinner();
+            }
+            else {
+                page += 1;
+                querying = true;
+            }
+            this.disabled = false;
         },
-        (response) => {
-            console.error(response)
-        }
+        loadError
     )
 }
 
 
-postsTab.addEventListener('click', reset.bind(null, 'posts'));
-topicsTab.addEventListener('click', reset.bind(null, 'topics'));
-membersTab.addEventListener('click', reset.bind(null, 'members'));
+postsTab.addEventListener('click', reset.bind(postsTab, 'posts'));
+topicsTab.addEventListener('click', reset.bind(topicsTab, 'topics'));
+membersTab.addEventListener('click', reset.bind(membersTab, 'members'));
 
-start();
+start.call(postsTab);
 
 window.addEventListener('scroll', () => {
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement;

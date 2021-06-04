@@ -52,8 +52,8 @@ class RegisterController extends Controller
     private function validator(array $data)
     {
         return Validator::make($data, [
-            'full_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'regex:/^[\w.-]*$/', 'unique:member'],
+            'full_name' => ['required', 'string'],
+            'username' => ['required', 'string', 'regex:/^[\w.-]*$/', 'unique:member'],
             'email' => ['required', 'email', 'max:255', 'unique:member'],
             'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$/'],
             'password_confirmation' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&-])[A-Za-z\d@#$!%*?&-]{8,}$/', 'same:password']
@@ -79,9 +79,8 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $validator = $this->validator($request->all());
-
         if ($validator->fails()) {
-            return back()->withErrors($validator);
+            return back()->withErrors($validator)->withInput();
         }
 
         event(new Registered($member = $this->create($request->all())));

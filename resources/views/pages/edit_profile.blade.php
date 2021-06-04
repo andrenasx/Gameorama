@@ -17,18 +17,17 @@
                     <div class="col-12 justify-content-center">
                         <div class="image-container bg2" id="banner_photo_preview"
                              style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size:cover">
-                            <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar"
-                                 id="profile_image">
+                            <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar" id="profile_image" alt="Member avatar">
                         </div>
                     </div>
                     <button type="button" class="btn d-flex align-content-center edit_banner_photo camera_icon">
-                        <input type="file" hidden id="input_banner_photo" name="banner_photo">
+                        <input type="file" hidden id="input_banner_photo" name="banner_photo" accept="image/*">
                         <span class="material-icons-outlined" style="font-size: 200%;">camera_alt</span>
                     </button>
 
                     <div class="">
                         <button type="button" class="btn d-flex align-content-center camera_icon edit_profile_photo">
-                            <input type="file" hidden id="input_profile_photo" name="profile_photo">
+                            <input type="file" hidden id="input_profile_photo" name="profile_photo" accept="image/*">
                             <span class="material-icons-outlined" style="font-size: 200%;">camera_alt</span>
                         </button>
                     </div>
@@ -49,7 +48,7 @@
                                   placeholder="Add a bio to your profile!">{{$member->bio}}</textarea>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary" id="edit_submit_button">Save changes</button>
+                        <button type="submit" class="btn btn-primary" id="edit_submit_button">Save changes</button>
                     </div>
                 </section>
             </form>
