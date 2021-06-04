@@ -1,55 +1,61 @@
-let post_voting_list = document.querySelectorAll(".post-voting");
+let voting = document.querySelector(".posts");
+voting.addEventListener("click", function(event){
+    let post_voting = event.target.closest(".post-voting")
+    let id_post = null
+    if (post_voting === null) return
+    id_post = post_voting.getAttribute("data-id")
+    const route = "/api/post/" + id_post + "/vote"
+    let request = null
 
-post_voting_list.forEach(post_voting => {
-    let score = post_voting.querySelector(".score")
-    let upvote = post_voting.querySelector(".upvote")
-    let downvote = post_voting.querySelector(".downvote")
+    if (event.target.classList.contains("upvote")) {
+        request = {vote: true}
+        sendAjaxRequest("POST", route, request, upvoteResponse.bind(post_voting), loadError)
+    }
 
-    upvote.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (upvote.classList.contains("voted")) {
-            score.innerHTML = parseInt(score.innerHTML)-1;
-            upvote.style.color = "darkgray";
-            upvote.classList.remove("voted");
-            return
-        }
-
-        else {
-            if (downvote.classList.contains("voted")) {
-                score.innerHTML = parseInt(score.innerHTML)+2;
-                downvote.style.color = "darkgray"
-                downvote.classList.remove("voted");
-            }
-            else {
-                score.innerHTML = parseInt(score.innerHTML)+1;
-            }
-
-            upvote.style.color = "rgb(251,116,45)";
-            upvote.classList.add("voted");
-        }
-    })
-
-    downvote.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (downvote.classList.contains("voted")) {
-            score.innerHTML = parseInt(score.innerHTML)+1;
-            downvote.style.color = "darkgray";
-            downvote.classList.remove("voted");
-            return
-        }
-
-        else {
-            if (upvote.classList.contains("voted")) {
-                score.innerHTML = parseInt(score.innerHTML)-2;
-                upvote.style.color = "darkgray"
-                upvote.classList.remove("voted");
-            }
-            else {
-                score.innerHTML = parseInt(score.innerHTML)-1;
-            }
-
-            downvote.style.color = "#353cee";
-            downvote.classList.add("voted");
-        }
-    })
+    else if (event.target.classList.contains("downvote")) {
+        request = {vote: false}
+        sendAjaxRequest("POST", route, request, downvoteResponse.bind(post_voting), loadError)
+    }
 });
+
+function upvoteResponse (response) {
+    const json_data = JSON.parse(response)
+    const aura = json_data['votes']
+    let score = this.querySelector(".score")
+    let upvote = this.querySelector(".upvote")
+    let downvote = this.querySelector(".downvote")
+
+    if (upvote.classList.contains("voted")) {
+        upvote.classList.remove("voted");
+    }
+
+    else {
+        if (downvote.classList.contains("voted")) {
+            downvote.classList.remove("voted");
+        }
+
+        upvote.classList.add("voted");
+    }
+    score.innerHTML = aura
+}
+
+
+function downvoteResponse(response) {
+    const json_data = JSON.parse(response)
+    const aura = json_data['votes']
+    let score = this.querySelector(".score")
+    let upvote = this.querySelector(".upvote")
+    let downvote = this.querySelector(".downvote")
+
+    if (downvote.classList.contains("voted")) {
+        downvote.classList.remove("voted");
+    }
+
+    else {
+        if (upvote.classList.contains("voted")) {
+            upvote.classList.remove("voted");
+        }
+        downvote.classList.add("voted");
+    }
+    score.innerHTML = aura
+}

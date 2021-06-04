@@ -3,12 +3,8 @@
 -----------------------------------------
 
 -- Select member information
-SELECT id, username, full_name, bio, aura, profile_image, banner_image
+SELECT id, username, full_name, bio, aura, avatar_image, banner_image
 FROM member
-NATURAL JOIN 
-(SELECT id AS id_profile_image, file AS profile_image FROM member_image) AS member_profile_image
-NATURAL JOIN 
-(SELECT id AS id_banner_image, file AS banner_image FROM member_image) AS member_banner_image
 WHERE member.id = $id_member;
 
 -- Select member password
@@ -232,8 +228,6 @@ AND id_voter = $id_voter
 
     --*INSERTS*--
 
-INSERT INTO member_image (file) VALUES ($file));
-
 INSERT INTO member (username, full_name, email, password, bio, id_profile_image, id_banner_image) VALUES ($username, $full_name, $email, $password, $bio, $id_profile_image, $id_banner_image);
 
 INSERT INTO administrator (id) VALUES ($id);
@@ -279,9 +273,6 @@ INSERT INTO member_report (id_reporter, id_reported, body) VALUES ($id_reporter,
 
 --Deletes a member (delete account) from the DBMS
 DELETE FROM member WHERE id = $id_member;
-
---Deletes a member image
-DELETE FROM member_image WHERE id = $id_image;
 
 --Delete from member_follow when a member unfollows another member
 DELETE FROM member_follow

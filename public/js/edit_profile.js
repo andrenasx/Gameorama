@@ -31,8 +31,3 @@ input_banner_photo.addEventListener("change", (event) => {
 
 })
 
-
-document.querySelector("#edit_submit_button").addEventListener("click", (event) => {
-    event.preventDefault()
-    document.querySelector("#edit_form").submit()
-})

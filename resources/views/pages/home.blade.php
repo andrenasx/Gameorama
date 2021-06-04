@@ -3,8 +3,21 @@
 @section('content')
     @include('partials.navbar')
     @push('scripts')
-        <script defer src={{ asset('js/ajax.js') }}></script>
-        <script defer src={{ asset('js/home.js') }}></script>
+        <script defer src = {{ asset('js/ajax.js') }}></script>
+        <script defer src = {{ asset('js/contentload.js') }}></script>
+        <script defer src = {{ asset('js/home.js') }}></script>
+
+        @auth
+        <script defer src = {{ asset('js/voting.js') }}></script>
+        <script defer src = {{ asset('js/bookmark.js') }}></script>
+        <script defer src = {{ asset('js/report.js') }}></script>
+        @endauth
+
+        @guest
+        <script defer src = {{ asset('js/login_required.js') }}></script>
+        @endguest
+
+        <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
     <section class="mainpage-container container my-4 col-lg-8 px-0 mt-md-4">
         <div class="row justify-content-evenly g-0">
@@ -34,32 +47,14 @@
                             </button>
                         </li>
                     </ul>
-
-                    <div class="tab-content" id="pills-tabContent">
-                        @auth
-                            <div class="tab-pane fade active show" id="pills-feed" role="tabpanel"
-                                 aria-labelledby="pills-feed-tab">
-                                <section id="feed-posts"></section>
-                                <div id="more-feed" data-page="1" class="d-flex justify-content-center mt-4">
-                                    <button class="btn btn-light d-block">Load more</button>
-                                </div>
-                            </div>
-                        @endauth
-                        <div class="tab-pane fade @guest active show @endguest" id="pills-trending" role="tabpanel"
-                             aria-labelledby="pills-trending-tab">
-                            <section id="trending-posts"></section>
-                            <div id="more-trending" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block">Load more</button>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
-                            <section id="latest-posts"></section>
-                            <div id="more-latest" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block">Load more</button>
-                            </div>
-                        </div>
-                    </div>
                 </section>
+
+                <section id="content" class="posts reportable"></section>
+                <div id="spinner" class="d-flex justify-content-center mt-5">
+                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
             </section>
 
             <aside class="col-md-3 d-none d-md-block">
@@ -69,7 +64,7 @@
                         @foreach ($hall_of_fame as $member)
                             <li class="mb-2">
                                 <p class="mb-0 blue-hover text-truncate"><a
-                                        href="{{ route('profile', $member->username)}}">{{$member->username}}</a></p>
+                                        href="{{ route('profile', ['member' => $member->username])}}">{{$member->username}}</a></p>
                                 <p class="mb-0 text-truncate small-grey-text">{{$member->aura}} Aura Score</p>
                             </li>
                         @endforeach
@@ -82,7 +77,7 @@
                         @foreach ($popular_topics as $poptopic)
                             <li class="mb-2">
                                 <p class="mb-0 blue-hover text-truncate"><a
-                                        href="/topic/{{$poptopic->name}}">{{$poptopic->name}}</a></p>
+                                        href="{{ route('topic', ['topic' => $poptopic->name]) }}">{{$poptopic->name}}</a></p>
                                 <p class="mb-0 text-truncate small-grey-text">{{$poptopic->num_followers}} Followers</p>
                             </li>
                         @endforeach
@@ -90,7 +85,13 @@
                 </section>
             </aside>
         </div>
+
     </section>
-    @include('partials.report_post')
+    @auth
+        @include('partials.report_post')
+    @endauth
     @include('partials.footer')
+    @guest
+    @include('partials.login_required')
+    @endguest
 @endsection

@@ -1,3 +1,19 @@
+// Reset Modal's forms
+let modals = document.querySelectorAll('.modal');
+for (let modal of modals) {
+    modal.addEventListener('hidden.bs.modal', clearModalForm.bind(null, modal.querySelector('form')))
+}
+
+function clearModalForm(form) {
+    form.reset();
+    let inputs = form.querySelectorAll('input');
+    for (let input of inputs) {
+        input.classList.remove("is-valid");
+        input.classList.remove("is-invalid");
+    }
+}
+
+
 // Change email
 let change_email_form = document.getElementById('change-email');
 change_email_form.addEventListener('submit', submitNewEmail);
@@ -8,6 +24,14 @@ function submitNewEmail(event) {
     let input_new_email = change_email_form.inputNewEmail;
     let input_conf_email = change_email_form.inputConfEmail;
     let input_pass = change_email_form.inputPass;
+
+    if (input_new_email.value !== input_conf_email.value) {
+        change_email_form.getElementsByClassName("error-email_confirmation")[0].innerHTML = "The email confirmation and email must match.";
+        input_conf_email.classList.remove("is-valid");
+        input_conf_email.classList.add("is-invalid");
+        return;
+    }
+
     let inputMap = new Map();
     inputMap.set("email", input_new_email);
     inputMap.set("email_confirmation", input_conf_email);
@@ -25,6 +49,7 @@ function submitNewEmail(event) {
             input_pass.value = "";
             let modal = document.getElementById('staticBackdropEmail');
             bootstrap.Modal.getInstance(modal).hide();
+            createToast("Successfully changed email",true);
         },
         (response) => {
             const errorMap = new Map(Object.entries(JSON.parse(response)));
@@ -56,6 +81,14 @@ function submitNewPassword(event) {
     let input_old_password = document.getElementById('inputOldPass');
     let input_new_password = document.getElementById('inputNewPass');
     let input_conf_password = document.getElementById('inputConfPass');
+
+    if (input_new_password.value !== input_conf_password.value) {
+        change_pass_form.getElementsByClassName("error-new_password_confirmation")[0].innerHTML = "The password confirmation and password must match.";
+        input_conf_password.classList.remove("is-valid");
+        input_conf_password.classList.add("is-invalid");
+        return;
+    }
+
     let inputMap = new Map();
     inputMap.set("old_password", input_old_password);
     inputMap.set("new_password", input_new_password);
@@ -71,6 +104,7 @@ function submitNewPassword(event) {
             input_conf_password.value = "";
             let modal = document.getElementById('staticBackdropPassword');
             bootstrap.Modal.getInstance(modal).hide();
+            createToast("Successfully changed password",true);
         },
         (response) => {
             const errorMap = new Map(Object.entries(JSON.parse(response)));

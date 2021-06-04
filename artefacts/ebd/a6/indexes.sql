@@ -24,14 +24,14 @@ DROP INDEX IF EXISTS member_id_follower;
 CREATE INDEX member_id_follower ON member_follow USING hash (id_follower);
 
 
+DROP INDEX IF EXISTS search_member;
+CREATE INDEX IF NOT EXISTS member_username ON member USING gin (search);
+
 DROP INDEX IF EXISTS search_posts;
-CREATE INDEX search_posts ON news_post USING gist (to_tsvector('english', title));
+CREATE INDEX search_posts ON news_post USING gin (search);
 
-DROP INDEX IF EXISTS member_username;
-CREATE INDEX IF NOT EXISTS member_username ON member USING gist (to_tsvector('english', username));
-
-DROP INDEX IF EXISTS topic_name;
-CREATE INDEX topic_name ON topic USING gin (to_tsvector('english', name));
+DROP INDEX IF EXISTS search_topic;
+CREATE INDEX topic_name ON topic USING gin (search);
 
 
 DROP INDEX IF EXISTS unique_lowercase_username;
@@ -51,4 +51,3 @@ CREATE INDEX post_aura_id_post ON post_aura USING hash (id_post);
 
 DROP INDEX IF EXISTS comment_aura_id_comment;
 CREATE INDEX comment_aura_id_comment ON comment_aura USING hash (id_comment);
-

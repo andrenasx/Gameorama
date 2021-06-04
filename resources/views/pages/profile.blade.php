@@ -4,36 +4,49 @@
     @include('partials.navbar')
     @push('scripts')
         <script defer src={{ asset('js/ajax.js') }}></script>
+        <script defer src = {{ asset('js/contentload.js') }}></script>
         <script defer src={{ asset('js/profile.js') }}></script>
+
+        @auth
+        <script defer src={{ asset('js/follow.js') }}></script>
+        <script defer src={{ asset('js/follow_topic.js') }}></script>
+        <script defer src={{ asset('js/voting.js') }}></script>
+        <script defer src={{ asset('js/bookmark.js') }}></script>
+        <script defer src={{ asset('js/report.js') }}></script>
+        <script defer src={{ asset('js/profile_auth.js') }}></script>
+        @endauth
+        @guest
+        <script defer src = {{ asset('js/login_required.js') }}></script>
+        <script defer src={{ asset('js/follow.js') }}></script>
+        <script defer src={{ asset('js/follow_topic.js') }}></script>
+        @endguest
+        <script defer src = {{ asset('js/footer.js') }}></script>
     @endpush
     <section class="container g-0 mx-auto my-4 col-lg-7">
         <section class="profile-widget bg-white rounded mb-3">
             <div class="row g-0">
                 <div class="col-sm-12">
                     <div class="image-container bg2"
-                         style="background-image: url({{ asset('media/members+'.$member->banner_image) }}); background-size: cover">
-                        <img src="{{ asset('media/members+'.$member->avatar_image) }}" class="avatar">
+                         style="background-image: url({{ asset('storage/members/'.$member->banner_image) }}); background-size: cover">
+                        <img src="{{ asset('storage/members/'.$member->avatar_image) }}" class="avatar" alt="Member avatar">
                     </div>
-                    <row class="d-flex justify-content-end col-12">
+                    <row class="d-flex justify-content-end col-12 reportable">
                         @auth
                             @if ($member->isMe(Auth::user()->id))
-                                <button type="button" class="btn d-flex align-content-center mt-1 me-1">
-                                    <span class="btn-outline-blue" style="font-size: 200%;"
-                                          onclick="location.href = '/member/{{$member->username}}/edit'">create</span>
-                                </button>
+                                <a class="btn d-flex align-content-center mt-1 me-1" href="{{ route('edit_profile', ['member' => $member->username]) }}">
+                                    <span class="btn-outline-blue" style="font-size: 200%;">create</span>
+                                </a>
                             @else
-                                <button type="button" class="btn d-flex align-content-center mt-1 me-1"
+                                <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id="{{$member->id}}"
                                         data-bs-toggle="modal"
                                         data-bs-target="#reportProfile">
-                                    <span class="btn-outline-red" style="font-size: 200%;">flag</span>
+                                    <span class="btn-outline-red report-b report-profile" data-id="{{$member->id}}" style="font-size: 200%;">flag</span>
                                 </button>
                             @endif
                         @endauth
                         @guest
-                            <button type="button" class="btn d-flex align-content-center mt-1 me-1"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#reportProfile">
-                                <span class="btn-outline-red" style="font-size: 200%;">flag</span>
+                            <button type="button" class="btn d-flex align-content-center mt-1 me-1 report-b report-profile " data-id="{{$member->id}}>"
+                                <span class="btn-outline-red report-b report-profile" data-id="{{$member->id}}" style="font-size: 200%;">flag</span>
                             </button>
                         @endguest
                     </row>
@@ -42,26 +55,37 @@
                 <div class="col-sm-12">
                     <div class="details ">
                         <h3>{{$member->full_name}}</h3>
-                        <h4 class="color-orange fst-italic" id="username">{{$member->username}}</h4>
+                        <h4 class="color-orange fst-italic" id="username" data-id="{{$member->id}}">{{$member->username}}</h4>
                         <p>{{$member->aura}} Aura Score</p>
                         <p class="bio mb-4 px-3">{{$member->bio}}</p>
-                        <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3"></button>
+                        @auth
+                            @if (!$member->isMe(Auth::user()->id))
+                                @if ($member->isFollowed(Auth::user()->id))
+                                    <button type="button" class="following-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id="{{$member->username}}"></button>
+                                @else
+                                    <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id="{{$member->username}}"></button>
+                                @endif
+                            @endif
+                        @endauth
+                        @guest
+                        <button type="button" class="follow-button btn btn-outline-primary col-4 mb-3 member-follow-button" data-id="{{$member->username}}"></button>
+                        @endguest
                     </div>
                 </div>
                 <section class="follow_stats pb-3">
                     <div class="row g-0 d-flex justify-content-around">
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile" data-bs-toggle="modal"
+                            <button type="button" class="text-button-profile button-following" data-bs-toggle="modal" data-id="{{$member->id}}"
                                     data-bs-target="#modalFollowing">{{$member->following->count()}} Following
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile" data-bs-toggle="modal"
+                            <button type="button" class="text-button-profile button-followers" data-bs-toggle="modal" data-id="{{$member->id}}"
                                     data-bs-target="#modalFollowers">{{$member->followers->count()}} Followers
                             </button>
                         </div>
                         <div class="col text-center px-2">
-                            <button type="button" class="text-button-profile" data-bs-toggle="modal"
+                            <button type="button" class="text-button-profile button-topics" data-bs-toggle="modal" data-id="{{$member->id}}"
                                     data-bs-target="#modalFollowedTopics">{{$member->topics->count()}} Followed Topics
                             </button>
                         </div>
@@ -99,35 +123,22 @@
                     @endif
                 @endauth
             </ul>
-
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-posts" role="tabpanel"
-                     aria-labelledby="pills-posts-tab">
-                    <section id="member-posts"></section>
-                    <div id="more-posts" data-page="1" class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-light d-block">Load more</button>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">
-                    <section id="member-comments"></section>
-                    <div id="more-comments" data-page="1" class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-light d-block">Load more</button>
-                    </div>
-                </div>
-                @auth
-                    @if ($member->isMe(Auth::user()->id))
-                        <div class="tab-pane fade" id="pills-bookmarked" role="tabpanel"
-                             aria-labelledby="pills-bookmarked-tab">
-                            <section id="member-bookmarked"></section>
-                            <div id="more-bookmarked" data-page="1" class="d-flex justify-content-center mt-4">
-                                <button class="btn btn-light d-block">Load more</button>
-                            </div>
-                        </div>
-                    @endif
-                @endauth
-            </div>
         </section>
+        <section id="content" class="posts comments-section reportable"></section>
+        <div id="spinner" class="d-flex justify-content-center mt-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     </section>
-    @include('partials.report_profile')
-    @include('partials.footer')
+
+@auth
+@include('partials.report_comment')
+@include('partials.report_post')
+@include('partials.report_profile')
+@endauth
+@guest
+@include('partials.login_required')
+@endguest
+@include('partials.footer')
 @endsection

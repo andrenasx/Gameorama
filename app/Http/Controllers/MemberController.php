@@ -3,64 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
-use App\Models\MemberImage;
+use App\Notifications\FollowNotification;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function show($username)
+    public function show(Member $member)
     {
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
         return view('pages.profile', ['member' => $member]);
     }
 
@@ -69,16 +29,10 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($username)
+    public function edit(Member $member)
     {
-        if (!Auth::check()) redirect('login');
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
-        $this->authorize('update', $member);
+        if (!Auth::check()) return redirect('login');
+        $this->authorize('owner', $member);
 
         return view('pages.edit_profile', ['member' => $member]);
     }
@@ -87,15 +41,12 @@ class MemberController extends Controller
     private function create_avatar_image($file, $member)
     {
         $path = 'public/members/'.$member->id;
-        $previous = 'public/members/';
-
         if (!File::exists($path)) {
             Storage::makeDirectory($path);
         }
 
-        $previous = $previous.implode('/', explode('+', $member->avatar_image));
         if ($member->avatar_image !== "default_avatar.png" ) {
-            Storage::delete($previous);
+            Storage::delete('public/members/'.$member->avatar_image);
         }
 
         $file->store($path);
@@ -103,17 +54,13 @@ class MemberController extends Controller
     }
 
     private function create_banner_image($file, $member) {
-
         $path = 'public/members/'.$member->id;
-        $previous = 'public/members/';
-
         if (!File::exists($path)) {
             Storage::makeDirectory($path);
         }
 
-        $previous = $previous.implode('/', explode('+', $member->banner_image));
         if ($member->banner_image !== "default_banner.jpg" ) {
-            Storage::delete($previous);
+            Storage::delete('public/members/'.$member->banner_image);
         }
 
         $file->store($path);
@@ -128,31 +75,25 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $username)
+    public function update(Request $request, Member $member)
     {
-        if (!Auth::check()) redirect('login');
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
-        $this->authorize('update', $member);
+        if (!Auth::check()) return redirect('login');
+        $this->authorize('owner', $member);
 
         $member->full_name = $request->input("full_name");
         $member->bio = $request->input("bio");
 
         if ($request->hasFile("profile_photo")) {
-            $member->avatar_image = $member->id.'+'.$this->create_avatar_image($request->file("profile_photo"), $member);
+            $member->avatar_image = $member->id.'/'.$this->create_avatar_image($request->file("profile_photo"), $member);
         }
 
         if ($request->hasFile("banner_photo")) {
-            $member->banner_image = $member->id.'+'.$this->create_banner_image($request->file("banner_photo"), $member);
+            $member->banner_image = $member->id.'/'.$this->create_banner_image($request->file("banner_photo"), $member);
         }
 
         $member->save();
 
-        return redirect(route('profile', $member->username));
+        return redirect(route('profile', ['member' => $member->username]));
     }
 
     /**
@@ -160,15 +101,9 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function settings($username) {
-        if (!Auth::check()) redirect('login');
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return redirect(route('404'));
-        }
-
-        $this->authorize('update', $member);
+    public function settings(Member $member) {
+        if (!Auth::check()) return redirect('login');
+        $this->authorize('owner', $member);
 
         return view('pages.settings', ['member' => $member]);
     }
@@ -244,14 +179,10 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $username)
+    public function destroy(Request $request, Member $member)
     {
         if (!Auth::check()) return response()->json('Forbidden Access', 403);
-
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return view('pages.404');
-        }
+        $this->authorize('delete', $member);
 
         if ($request->has('password')) {
             if (!Hash::check($request->input('password'), $member->password)) {
@@ -261,18 +192,18 @@ class MemberController extends Controller
             Auth::logout();
         }
 
+        Storage::deleteDirectory('public/members/'.$member->id);
+
         $member->delete();
     }
 
-    public function content($username, $content, $page)
+    public function content(Request $request, Member $member, $content)
     {
-        $member = Member::firstWhere('username', $username);
-        if ($member == null) {
-            return response()->json('Member not found', 404);
+        if (!$request->has('page')) {
+            return response()->json('No page provided', 400);
         }
+        $page = $request->input('page');
 
-        $data = null;
-        $type = "";
         switch ($content) {
             case "posts":
                 $data = $member->posts()->orderBy('date_time', 'desc')->forPage($page)->get();
@@ -283,6 +214,7 @@ class MemberController extends Controller
                 $type = 'comment';
                 break;
             case "bookmarked":
+                $this->authorize('owner', $member);
                 $data = $member->bookmarks()->orderBy('date_time', 'desc')->forPage($page)->get();
                 $type = 'post';
                 break;
@@ -290,11 +222,112 @@ class MemberController extends Controller
                 return response()->json('Invalid content filter', 400);
         }
 
-        $html = [];
-        foreach ($data as $element) {
-            array_push($html, view('partials.'.$type.'card', [$type => $element])->render());
+        if (count($data) > 0) {
+            $html = [];
+            foreach ($data as $element) {
+                array_push($html, view('partials.' . $type . 'card', [$type => $element])->render());
+            }
+
+            return response()->json($html);
         }
 
-        return response()->json($html);
+        return response()->json([view('partials.nocontent')->render()]);
+    }
+
+
+    public function search(Request $request) {
+        if ($request->has('query') && $request->has('page')) {
+            $members = Member::search_members($request->input('query'), $request->input('page'));
+
+            if (count($members) > 0) {
+                $html = [];
+                foreach($members as $member){
+                    array_push($html, view('partials.membercard', ['member' => $member])->render());
+                }
+                return response()->json($html);
+            }
+        }
+
+        return response()->json([view('partials.nocontent')->render()]);
+    }
+
+    public function follow(Request $request, Member $member)
+    {
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        $followingMember = Member::find(Auth::user()->id);
+        $followedMember = Member::find($member->id);
+
+        $follow = $followedMember->isFollowed(Auth::user()->id);
+
+        if ($follow === null) {
+            Auth::user()->follow_member($member->id);
+            $followedMember->notify(new FollowNotification($followingMember->username));
+        }
+
+        if ($request->input('userProfile') !== null){
+            $id_page = $request->input('userProfile');
+            $pageMember = Member::find($id_page);
+            return response()->json(array('followers' => $pageMember->followers->count(), 'following' => $pageMember->following->count()));
+        }
+    }
+
+
+    public function unfollow(Request $request, Member $member)
+    {
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        $followingMember = Member::find(Auth::user()->id);
+        $followedMember = Member::find($member->id);
+
+        $follow = $followedMember->isFollowed(Auth::user()->id);
+
+        if ($follow !== null) {
+            Auth::user()->unfollow_member($member->id);
+        }
+
+        if ($request->input('userProfile') !== null){
+            $id_page = $request->input('userProfile');
+            $pageMember = Member::find($id_page);
+            return response()->json(array('followers' => $pageMember->followers->count(), 'following' => $pageMember->following->count()));
+        }
+    }
+
+    public function getFollowingModal(Member $member)
+    {
+        $htmlFollowing = [];
+        foreach ($member->following as $follow) {
+            array_push($htmlFollowing, view('partials.profile_card', ['member' => $follow])->render());
+        }
+        return response()->json($htmlFollowing);
+    }
+
+    public function getFollowersModal(Member $member)
+    {
+        $htmlFollowers = [];
+        foreach ($member->followers as $follower) {
+            array_push($htmlFollowers, view('partials.profile_card', ['member' => $follower])->render());
+        }
+        return response()->json($htmlFollowers);
+    }
+
+    public function getFollowedTopicsModal(Member $member)
+    {
+        $htmlFollowedTopics = [];
+        foreach ($member->topics as $topic) {
+            array_push($htmlFollowedTopics, view('partials.topic_card', ['topic' => $topic])->render());
+        }
+        return response()->json($htmlFollowedTopics);
+    }
+
+
+    public function report(Request $request, Member $member)
+    {
+        if (!Auth::check()) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        Auth::user()->add_member_report($member->id, $request->input('report'));
+    }
+
+    public function dismiss(Member $member)
+    {
+        if (!Auth::check() || !Auth::user()->admin) return response()->json(array('auth' => 'Forbidden Access'), 403);
+        $member->dismiss_member_report();
     }
 }

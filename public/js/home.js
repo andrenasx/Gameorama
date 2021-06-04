@@ -1,41 +1,63 @@
 // Posts
-let more_feed = document.getElementById('more-feed');
-let more_trending = document.getElementById('more-trending');
-let more_latest = document.getElementById('more-latest');
+let feedTab = document.getElementById('pills-feed-tab');
+let trendingTab = document.getElementById('pills-trending-tab');
+let latestTab = document.getElementById('pills-latest-tab');
+let contentSection = document.getElementById('content');
+let spinner = document.getElementById('spinner');
 
-window.onload = function () {
-    if (more_feed != null) {
-        loadContent('feed', more_feed);
-        more_feed.addEventListener('click', loadContent.bind(null, 'feed', more_feed));
-    }
-    loadContent('trending', more_trending);
-    more_trending.addEventListener('click', loadContent.bind(null, 'trending', more_trending));
-    loadContent('latest', more_latest);
-    more_latest.addEventListener('click', loadContent.bind(null, 'latest', more_latest));
-}
+let content = 'trending';
+let page = 1;
+let querying = false;
+let button = trendingTab;
 
-function loadContent(content, button) {
-    let page = button.dataset.page;
-    const route = '/api/home/' + content + '/' + page;
+
+function loadContent() {
+    querying = false;
+    const current_content = content;
+    const route = '/api/home/' + content;
     const data = {page: page};
 
     sendAjaxRequest('GET', route, data,
         (response) => {
-            const data = JSON.parse(response);
-            if (data.length < 15) {
-                button.remove();
+            if (content !== current_content) {
+                this.disabled = false;
+                return;
             }
-            if (data.length === 0) return
 
-            let new_div = document.createElement('div');
-            new_div.innerHTML = data.join('');
-            while (new_div.firstChild) {
-                document.getElementById(content + '-posts').appendChild(new_div.firstChild)
+            const data = JSON.parse(response);
+
+            contentSection.innerHTML += data.join('');
+
+            if (data.length < 15) {
+                removeSpinner();
             }
-            button.dataset.page = (parseInt(page) + 1).toString();
+            else {
+                page += 1;
+                querying = true;
+            }
+            this.disabled = false;
         },
-        (response) => {
-            console.error(response)
-        }
+        loadError
     )
 }
+
+
+if (feedTab != null) {
+    content = 'feed';
+    button = feedTab;
+    feedTab.addEventListener('click', reset.bind(feedTab, 'feed'));
+}
+trendingTab.addEventListener('click', reset.bind(trendingTab, 'trending'));
+latestTab.addEventListener('click', reset.bind(latestTab, 'latest'));
+
+start.call(button);
+
+window.addEventListener('scroll', () => {
+    const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
+
+    if ((scrollTop + clientHeight >= scrollHeight - 800) && querying) {
+        loadContent();
+    }
+}, {
+    passive: true
+});

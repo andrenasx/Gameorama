@@ -1,68 +1,88 @@
 @extends('layouts.app')
+@section('page-title', 'Editing "' . $post->title . '" | ')
 @section('content')
     @include('partials.navbar')
+    @push('scripts')
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <!-- Select2 -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <!-- TinyMCE -->
+        <script src="https://cdn.tiny.cloud/1/08t5y62wss6y2fzascz2trysrq487403jdb54o0kzk3nu9zq/tinymce/5/tinymce.min.js"
+                referrerpolicy="origin"></script>
+
+        <!-- Dropzone -->
+        <link href="{{ asset('assets/dropzone-5.7.0/dist/min/dropzone.min.css') }}" rel="stylesheet"/>
+        <script src="{{ asset('assets/dropzone-5.7.0/dist/dropzone.js') }}"></script>
+
+        <script type="text/javascript" defer src={{ asset('js/create_post.js') }}></script>
+        <script type="text/javascript" defer src={{ asset('js/footer.js') }}></script>
+    @endpush
     <section class="p-3 p-lg-5 my-4 col-lg-7 container bg-white rounded">
-        <h2 class="h2 fw-bold">Edit a Post</h2>
-        <hr class="rounded"></hr>
+        <h2 class="h2 fw-bold">Edit Post</h2>
+        <hr class="rounded">
 
-        <section class="container w-100 mt-5 form-group">
-            <form action="">
-                <div class="mb-4">
-                    <label for="new-post-title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="new-post-title" value="Razer apresenta webcam Kiyo Pro">
-                </div>
-                <div class="mb-4">
-                    <label for="exampleFormControlTextarea1" class="form-label">Text (optional)</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">A Razer revelou a webcam Kiyo Pro. Com uma abrangência que vai para lá do mundo do gaming, tem no Sensor de Luz Adaptativo a sua principal novidade. Vivemos uma época marcada pelo teletrabalho.</textarea>
-                </div>
-                <h6>Topics</h6>
-                <div class="bg-white rounded border p-2">
-                    <div class="d-flex justify-content-start me-0">
-                        <button type="button" class="btn btn-light me-2">League of Legends</button>
-                        <button type="button" class="border d-flex align-items-center rounded" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                            <span class="material-icons-round">add</span>
-                        </button>
-                    </div>
-                </div>
+        <section class="container w-100 mt-4 form-group">
+            <form method="POST" action="{{ route('update_post', ['newspost' => $post->id]) }}"
+                  enctype="multipart/form-data" autocomplete="off">
+                @csrf
+                @method('PATCH')
+                <section id="title" class="mb-5">
+                    <label for="new-post-title" class="h5 form-label">Title</label>
+                    <input type="text" class="form-control" id="new-post-title" name="title"
+                           value="{{ old('title', $post->title) }}" required>
+                    @foreach($errors->get('title') as $error)
+                        <li class="error">{{$error}}</li>
+                    @endforeach
+                </section>
 
-                <!-- Button trigger modal -->
+                <section id="body" class="mb-5">
+                    <label for="editor-body" class="h5 form-label">Body</label><span> (optional)</span>
+                    <textarea class="form-control" id="editor-body"
+                              name="body">{{ old('body', $post->body) }}</textarea>
+                    @foreach($errors->get('body') as $error)
+                        <li class="error">{{$error}}</li>
+                    @endforeach
+                </section>
 
+                <section id="topics" class="mb-5">
+                    <label for="select2-topics" class="h5 form-label">Topics</label>
+                    <a tabindex="0" role="button" class="material-icons-round me-1" data-bs-toggle="popover" data-bs-trigger="focus" title="Topics tooltip"
+                       data-bs-content="Topics are used to associate a post with a certain subject like a game, genre, etc. News posts with misleading or offensive topics are subject to removal from Gameorama."
+                       style="font-size:20px">help_outline</a>
+                    <select id="select2-topics" class="form-control" multiple="multiple" name="topics[]" required>
+                        @foreach($topics as $topic)
+                            <option value="{{ $topic->name }}"
+                                    @if($post->topics->containsStrict('id', $topic->id)) selected @endif >{{ $topic->name }}</option>
+                        @endforeach
+                    </select>
+                    @foreach($errors->get('topics') as $error)
+                        <li class="error">{{$error}}</li>
+                    @endforeach
+                </section>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add topics</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-
-                            <div class="form-floating p-2">
-                                <input type="text" class="form-control" placeholder="Insert your topic here" required
-                                       autofocus>
-                                <label for="inputEmail">Topic</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <label for="formFileMultiple" class="form-label">Upload media</label>
-                    <input class="form-control form-control-sm p-4" id="formFileMultiple" type="file" multiple>
-                </div>
-
+                <section id="images">
+                    <label for="formFileMultiple" class="h5 form-label">Upload new images</label><span> (optional)</span>
+                    <a tabindex="0" role="button" class="material-icons-round me-1" data-bs-toggle="popover" data-bs-trigger="focus" title="Images tooltip"
+                       data-bs-content="Upload new images related to this post (maximum of 10 images, old images will be deleted). News posts with misleading or offensive images are subject to removal from Gameorama."
+                       style="font-size:20px">help_outline</a>
+                    <input class="form-control form-control-sm p-4" id="formFileMultiple" type="file"
+                           accept="image/*" name=" images[]" multiple>
+                    @foreach($errors->get('images') as $error)
+                        <li class="error">{{$error}}</li>
+                    @endforeach
+                </section>
 
                 <section class="container create_post_buttons mb-2 mb-lg-0">
                     <div class="row d-flex justify-content-around">
-                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-secondary" onclick=>Cancel</button>
-                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-primary">Save</button>
+                        <button type="button" class="col-5 col-md-4 col-lg-3 btn btn-secondary"
+                                onclick="window.location.href=document.referrer">Cancel
+                        </button>
+                        <button type="submit" class="col-5 col-md-4 col-lg-3 btn btn-primary">Submit</button>
                     </div>
                 </section>
             </form>

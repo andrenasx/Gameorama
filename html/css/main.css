@@ -12,8 +12,8 @@ body {
 
 
 body {
-    background-color:rgb(218,224,230); 
-    
+    background-color:rgb(218,224,230);
+
 
 }
 
@@ -61,9 +61,9 @@ body {
 
 
 .form-control{
-  width: 100%; 
-    width: 100%; 
-  width: 100%; 
+  width: 100%;
+    width: 100%;
+  width: 100%;
 }
 
 .fa fa-search {
@@ -71,7 +71,7 @@ body {
 }
 
 #hamburguerIcon{
-  
+
 min-width: 170px;
 
 
@@ -98,7 +98,7 @@ border-bottom: 2px solid rgba(0,0,0,0.1);
   color: #383838;
   font-weight: 500;
 }
-  
+
 img.img-logo{
   width:auto;
   height: 40px;
@@ -109,14 +109,14 @@ img.img-logo{
     margin: auto;
   }
   #hamburguerIcon{
-  
+
     justify-content: flex-end  !important;
-    
-    
+
+
   }
 
   #colapsedHamburguer{
-    
+
     display: none!important;
   }
 }
@@ -128,12 +128,12 @@ img.img-logo{
   }
 
   #hamburguerIcon{
-  
+
     justify-content: flex-start !important;
     display: none!important;
-    
+
   }
-  #colapsedHamburguer{  
+  #colapsedHamburguer{
     justify-content: flex-start !important;
     display: flex;
     padding: 0px 0px  !important;
@@ -143,7 +143,7 @@ img.img-logo{
   #Logo{
     /*margin:auto  !important;*/
     margin-left: 42%;
-    
+
   }
 
 }
@@ -162,7 +162,7 @@ img.img-logo{
   #Logo{
     /*margin:auto  !important;*/
     margin-left: 36%;
-    
+
   }
   #navbar_search_icon{
     width:87%
@@ -173,7 +173,7 @@ img.img-logo{
   #Logo{
     /*margin:auto  !important;*/
     margin-left: 30%;
-    
+
   }
   #navbar_search_icon{
     width:85%
@@ -183,7 +183,7 @@ img.img-logo{
 
 
 @media (max-width: 400px) {
-  
+
   #navbar_search_icon{
     width:80%
   }
@@ -194,7 +194,7 @@ img.img-logo{
   #Logo{
     /*margin:auto  !important;*/
     margin-left: 20%;
-    
+
   }
   #navbar_search_icon{
     width:78%
@@ -204,7 +204,7 @@ img.img-logo{
   #Logo{
     /*margin:auto  !important;*/
     margin:auto;
-    
+
   }
 
 }
@@ -250,7 +250,7 @@ img.img-logo{
   color: black;
   border:none;
   transition: 0.15s all ease-in;
-  
+
 }
 
 .btn-outline-blue:hover :first-child {
@@ -297,7 +297,7 @@ img.img-logo{
 .grey-hover{
   transition: 0.15s all ease-in;
   color:black;
-  
+
 }
 
 .grey-hover-notification :last-child {
@@ -316,7 +316,7 @@ img.img-logo{
 .grey-hover-notification{
   transition: 0.15s all ease-in;
   color:black;
-  
+
 }
 .grey-hover-notification:hover :first-child {
   color:grey;
@@ -328,7 +328,7 @@ img.img-logo{
 
 
 .nav-link.dropdown-toggle.d-flex.mt-1::after {
-  
+
   margin-left: 5%;
   margin-top: 9%;
 }
@@ -404,7 +404,7 @@ form h2{
   transition: 0.15s all ease-in;
   text-shadow: 1px 1px 1px black;
   transition: 0.15s all ease-in;
-  
+
 }
 
 #signUpButton:hover{
@@ -467,7 +467,7 @@ form h2{
   background: transparent;
 
 }
-*/
+
 
 
 
@@ -579,13 +579,13 @@ form h2{
 
 hr {
   border-top: 5px solid var(--gameOrange);
-  opacity: 1; 
+  opacity: 1;
   background-color: white;
 }
 
 .admin_hr {
   border-top: 1px solid darkgray;
-  opacity: 1; 
+  opacity: 1;
 }
 
 #field-container{
@@ -631,7 +631,7 @@ hr {
 
 #accept-button {
   float: right;
-} 
+}
 
 #close-window-button{
   padding: 0;
@@ -686,7 +686,7 @@ hr {
   border-top: 5px solid var(--gameOrange);
   opacity: 1;
   background-color: white;
-} 
+}
 
 
 /*Following/Follow Popups*/
@@ -837,18 +837,18 @@ a.black-a:hover {
   color: black;
 }
 
-/* styles for '...' */ 
+/* styles for '...' */
 .truncate-multiple {
   /* hide text if it more than N lines  */
   overflow: hidden;
   /* for set '...' in absolute position */
-  position: relative; 
+  position: relative;
   /* use this value to count block height */
   line-height: 1.5em;
   /* max-height = line-height (1.2) * lines max number (3) */
-  max-height: 4.5em; 
+  max-height: 4.5em;
   /* fix problem when last visible word doesn't adjoin right side  */
-  text-align: justify;  
+  text-align: justify;
   /* place for '...' */
   margin-left: 0em;
   margin-right: 0em;
@@ -891,7 +891,7 @@ a.black-a:hover {
 .error-title{
   font-size: 16vh;
   color: var(--gameOrange);
- 
+
 }
 
 .error-picture{

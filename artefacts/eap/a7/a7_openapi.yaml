@@ -1126,57 +1126,7 @@ paths:
           description: 'Forbidden access'
         '404':
           description: 'Comment not found'
-    patch:
-      operationId: R307
-      summary: 'R307: Change vote on a comment'
-      description: 'Allows a member to change their vote on a comment. Access: OWN'
-      tags:
-        - 'M03: Comments'
-      parameters:
-        - in: path
-          name: id_comment
-          schema:
-            type: integer
-          required: true
-          description: 'Specifies the id of the comment where the vote is to be edited'
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Vote'
-      responses:
-        '200':
-          description: 'Vote edited successfully'
-        '400':
-          description: 'Bad Request'
-        '403':
-          description: 'Forbidden access'
-        '404':
-          description: 'Comment not found'
-    delete:
-      operationId: R308
-      summary: 'R308: Remove a vote on a comment'
-      description: 'Allows a member to remove a vote on a comment. Access: OWN'
-      tags:
-        - 'M03: Comments'
-      parameters:
-        - in: path
-          name: id_comment
-          schema:
-            type: integer
-          required: true
-          description: 'Specifies the id of the comment where the vote is to be deleted'
-      responses:
-        '200':
-          description: 'Vote deleted successfully'
-        '400':
-          description: 'Bad Request'
-        '403':
-          description: 'Forbidden access'
-        '404':
-          description: 'Comment not found'
-
+    
 
   /topic/{name}:
     get:
