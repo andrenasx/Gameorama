@@ -70,6 +70,11 @@ Route::delete('/api/notification/{id_notification}/delete', 'NotificationControl
 Route::post('/pusher/auth', 'Auth\PusherController@pusherAuth')->middleware('auth');
 
 
+// Modals
+Route::get('/api/member/{member:id}/following', 'MemberController@getFollowingModal');
+Route::get('/api/member/{member:id}/followers', 'MemberController@getFollowersModal');
+Route::get('/api/member/{member:id}/followedTopics', 'MemberController@getFollowedTopicsModal');
+
 // API
 Route::prefix('api/')->group(function () {
     Route::get('posts', 'NewsPostController@search');
@@ -92,10 +97,7 @@ Route::prefix('api/')->group(function () {
         Route::post('{member:username}/follow', 'MemberController@follow');
         Route::delete('{member:username}/follow', 'MemberController@unfollow');
 
-        // Modals
-        Route::get('{member:id}/following', 'MemberController@getFollowingModal');
-        Route::get('{member:id}/followers', 'MemberController@getFollowersModal');
-        Route::get('{member:id}/followedTopics', 'MemberController@getFollowedTopicsModal');
+        
 
         // Report
         Route::post('{member:id}/report', 'MemberController@report');

@@ -102,7 +102,7 @@ function handleFollowingClick(button){
         htmlFollowing.forEach(element => {
             modal_following.innerHTML += element;
         });
-    })
+    }, loadError)
 }
 
 
@@ -117,7 +117,7 @@ function handleFollowersClick(button){
         htmlFollowers.forEach(element => {
             modal_follower.innerHTML += element;
         });
-    })
+    }, loadError)
 }
 
 function handleFollowedTopicsClick(button){
@@ -131,5 +131,5 @@ function handleFollowedTopicsClick(button){
         htmlFollowedTopics.forEach(element => {
             modal_followedTopics.innerHTML += element;
         });
-    })
+    }, loadError)
 }
