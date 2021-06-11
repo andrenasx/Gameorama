@@ -194,6 +194,8 @@ The following table includes the implementation status of each user story.
 
 ## A10: Presentation
 
+The goal of this artefact is to present the finished product, explaining its goals/motivations and showcasing its features with a video.
+
 
 
 ### 1. Product presentation
