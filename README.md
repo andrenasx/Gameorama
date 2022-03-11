@@ -1,11 +1,12 @@
 # lbaw2133
 
-
-
 ## Collaborative News
 
 Gameorama is a web application that provides a place for gamers to post, discuss and rate the latest news on their favorite videogames and topics.
 
+###  Wiki
+
+The project Artefacts and complete Components can be seen in the [Wiki](https://github.com/andrenasx/Gameorama/wiki)
 
 
 ### Installation
