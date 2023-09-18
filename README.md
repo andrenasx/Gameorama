@@ -4,6 +4,8 @@
 
 Gameorama is a web application that provides a place for gamers to post, discuss and rate the latest news on their favorite videogames and topics.
 
+A showcase video can be seen in this [link](https://youtu.be/R5fgyW4efyc).
+
 ###  Wiki
 
 The project Artefacts and complete Components can be seen in the [Wiki](https://github.com/andrenasx/Gameorama/wiki)
